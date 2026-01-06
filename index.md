@@ -130,6 +130,215 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
 
+## Питання 4
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Na wybranych przykładach scharakteryzuj podstawowe typy, struktury i organizacje danych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 5
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Opisz cechy i składowe języka SQL, podaj jego wady i zalety. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 6
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów pojęcie semaforów i przedstaw przykłady ich zastosowania. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 7
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów przetwarzanie potokowe we współczesnych systemach komputerowych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 8
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 9
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 10
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić model referencyjny sieci komputerowej OSI/ISO.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 11
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 12
+
+**UA:** [Текст питання українською мовою]
+
+**PL:**  Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 13
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 14
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Scharakteryzuj diagram klas notacji UML.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 15
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Wymień i omów struktury systemów operacyjnych. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 16
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+
+---
+
 # Питання по спеціальності / Pytania zakresowe
 
 ## Питання 1 / Pytanie 1

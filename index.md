@@ -15,11 +15,9 @@ Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch 
 
 # Питання по керунку / Pytania kierunkowe
 
-## Питання 1
+## Питання 1 | Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.
 
 **UA:** Що таке динамічний поліморфізм? Наведіть приклад і обговоріть, як цей вид поліморфізму реалізований у мові C++.
-
-**PL:** Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.
 
 ### Пояснення / Wyjaśnienie
 
@@ -149,13 +147,12 @@ To konieczne, żeby przy usuwaniu obiektu klasy pochodnej przez wskaźnik do kla
 
 Podsumowując: polimorfizm dynamiczny pozwala pisać bardziej elastyczny i uniwersalny kod pracujący na hierarchii klas dzięki metodom wirtualnym.
 
+
 ---
 
-## Питання 2
+## Питання 2 | Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.
 
 **UA:** Які можна виділити моделі процесу створення програмного забезпечення? Охарактеризуйте деякі з них.
-
-**PL:** Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.
 
 ### Пояснення / Wyjaśnienie
 
@@ -297,13 +294,12 @@ Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
     * Scrum: sprinty i cele sprintu; Kanban: przepływ pracy, limity WIP i optymalizacja lead time
     * Ryzyka: bez dyscypliny (Definicja Done, jakość, techniczny porządek) Agile może przerodzić się w chaos
 
+
 ---
 
-## Питання 3
+## Питання 3 | Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?
 
 **UA:** [Текст питання українською мовою]
-
-**PL:** Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?
 
 ### Пояснення / Wyjaśnienie
 

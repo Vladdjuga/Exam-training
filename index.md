@@ -1,9 +1,17 @@
+---
+---
+
 # Підготовка до екзамену / Przygotowanie do egzaminu
 
 Цей документ містить питання до екзамену та пояснення до них двома мовами: українською та польською.
 Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch językach: ukraińskim i polskim.
 
 ---
+
+## Зміст / Spis treści
+
+* TOC
+{:toc}
 
 # Питання по керунку / Pytania kierunkowe
 

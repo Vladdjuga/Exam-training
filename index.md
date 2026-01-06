@@ -402,7 +402,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Testowanie (rodzaje, poziomy testów) a cykl życia oprogramowania.
 
 ### Пояснення / Wyjaśnienie
 
@@ -418,7 +418,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj cele i metody testowania jednostkowego.
 ### Пояснення / Wyjaśnienie
 
 **UA:**
@@ -433,7 +433,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omów technikę tworzenia oprogramowania Test-Driven Development.
 
 ### Пояснення / Wyjaśnienie
 
@@ -449,7 +449,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omówić typowe funkcje narzędzi wspierających proces debugowania oprogramowania.
 
 ### Пояснення / Wyjaśnienie
 
@@ -465,7 +465,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omówić korzyści z wykorzystania systemu kontroli wersji.
 
 ### Пояснення / Wyjaśnienie
 
@@ -481,7 +481,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omówić sposoby profilowania programów i narzędzia wykorzystywane w tym procesie.
 
 ### Пояснення / Wyjaśnienie
 
@@ -497,7 +497,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Porównaj model bare-metal oraz model bazujący na multitaskingu dostarczanym przez RTOS w oprogramowaniu systemów wbudowanych.
 
 ### Пояснення / Wyjaśnienie
 
@@ -513,7 +513,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Porównaj metody zapewnienia bezkolizyjnego dostępu do współdzielonych zasobów sprzętowych w RTOS realizowane za pomocą: a) mutexów i b) sekcji krytycznych.
 
 ### Пояснення / Wyjaśnienie
 
@@ -529,7 +529,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień i scharakteryzuj metody optymalizacji stron internetowych pod kątem silnika wyszukiwarek
 
 ### Пояснення / Wyjaśnienie
 
@@ -545,7 +545,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Architektury aplikacji internetowych.
 
 ### Пояснення / Wyjaśnienie
 
@@ -561,7 +561,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Cykl życia aplikacji internetowej
 
 ### Пояснення / Wyjaśnienie
 
@@ -577,7 +577,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Sposoby personalizacji aplikacji internetowych.
 
 ### Пояснення / Wyjaśnienie
 
@@ -593,7 +593,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Proszę opisać wzorzec projektowy MVC
 
 ### Пояснення / Wyjaśnienie
 
@@ -609,7 +609,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj strukturę dokumentu HTML.
 
 ### Пояснення / Wyjaśnienie
 
@@ -625,7 +625,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj rodzaje selektorów CSS.
 
 ### Пояснення / Wyjaśnienie
 
@@ -641,7 +641,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj podstawowe technologie internetowe działające po stronie klienta.
 
 ### Пояснення / Wyjaśnienie
 
@@ -657,7 +657,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Podaj algorytmy wyznaczania powierzchni widocznych oraz omów jeden z nich.
 
 ### Пояснення / Wyjaśnienie
 
@@ -673,7 +673,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omów metodę śledzenia promieni (ray-tracing) oraz podaj jej właściwości.
 
 ### Пояснення / Wyjaśnienie
 
@@ -689,7 +689,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień metody modelowania krzywych i powierzchni oraz omów jedną z nich.
 
 ### Пояснення / Wyjaśnienie
 
@@ -705,7 +705,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień i scharakteryzuj działanie algorytmów wyszukiwania stron internetowych oraz ustalania ich pozycji w wynikach.
 
 ### Пояснення / Wyjaśnienie
 
@@ -721,7 +721,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień dynamiczne diagramy UML używane w projektowaniu systemów informatycznych oraz omów szczegółowo jeden wybrany diagram.
 
 ### Пояснення / Wyjaśление
 
@@ -737,7 +737,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Omów fazy cyklu życia systemu informatycznego.
 
 ### Пояснення / Wyjaśление
 
@@ -753,7 +753,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj metodykę RUP (Rational Unified Process) wspomagającą proces wytwarzania systemów informatycznych.
 
 ### Пояснення / Wyjaśление
 
@@ -769,7 +769,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Charakterystyka systemów równoległych z pamięcią współdzieloną i rozproszoną
 
 ### Пояснення / Wyjaśление
 
@@ -785,7 +785,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Modele i standardy programowania równoległego/rozproszonego dla systemów z pamięcią współdzieloną i rozproszoną.
 
 ### Пояснення / Wyjaśление
 
@@ -801,7 +801,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Podstawowe problemy programowania współbieżnego, mechanizmy synchronizacji.
 
 ### Пояснення / Wyjaśление
 
@@ -817,7 +817,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień zasady i scenariusze tworzenia kopii zapasowych.
 
 ### Пояснення / Wyjaśление
 
@@ -833,7 +833,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Wymień i omów sposoby realizacji macierzy RAID.
 
 ### Пояснення / Wyjaśление
 
@@ -849,7 +849,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Czym jest system plików? Wymień i opisz trzy wybrane systemy plików.
 
 ### Пояснення / Wyjaśление
 
@@ -865,7 +865,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Scharakteryzuj architekturę aplikacji zorientowaną na usługi (ang. Service Oriented Architecture)
 
 ### Пояснення / Wyjaśление
 
@@ -881,7 +881,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Interfejsy funkcyjne i wyrażenia lambda w języku Java. Omów i podaj przykłady.
 
 ### Пояснення / Wyjaśление
 
@@ -897,7 +897,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Na wybranym przykładzie omów zagadnienie strumieni w języku Java.
 
 ### Пояснення / Wyjaśление
 
@@ -913,7 +913,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Kolekcje w języku Java. Omów i podaj przykłady ich zastosowania.
 ### Пояснення / Wyjaśnienie
 
 **UA:**

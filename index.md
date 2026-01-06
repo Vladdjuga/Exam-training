@@ -3,6 +3,63 @@
 Цей документ містить питання до екзамену та пояснення до них двома мовами: українською та польською.
 Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch językach: ukraińskim i polskim.
 
+## План / Spis treści
+
+### Питання по керунку / Pytania kierunkowe
+
+- [Питання 1: Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.](#питання-1)
+- [Питання 2: Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.](#питання-2)
+- [Питання 3: Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?](#питання-3)
+- [Питання 4: Na wybranych przykładach scharakteryzuj podstawowe typy, struktury i organizacje danych.](#питання-4)
+- [Питання 5: Opisz cechy i składowe języka SQL, podaj jego wady i zalety.](#питання-5)
+- [Питання 6: Omów pojęcie semaforów i przedstaw przykłady ich zastosowania.](#питання-6)
+- [Питання 7: Omów przetwarzanie potokowe we współczesnych systemach komputerowych.](#питання-7)
+- [Питання 8: Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.](#питання-8)
+- [Питання 9: Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej.](#питання-9)
+- [Питання 10: Proszę omówić model referencyjny sieci komputerowej OSI/ISO.](#питання-10)
+- [Питання 11: Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.](#питання-11)
+- [Питання 12: Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.](#питання-12)
+- [Питання 13: Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.](#питання-13)
+- [Питання 14: Scharakteryzuj diagram klas notacji UML.](#питання-14)
+- [Питання 15: Wymień i omów struktury systemów operacyjnych.](#питання-15)
+- [Питання 16: Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.](#питання-16)
+
+### Питання по спеціальності / Pytania zakresowe
+
+- [Питання 1](#питання-1-pytanie-1)
+- [Питання 2](#питання-2-pytanie-2)
+- [Питання 3](#питання-3-pytanie-3)
+- [Питання 4](#питання-4-pytanie-4)
+- [Питання 5](#питання-5-pytanie-5)
+- [Питання 6](#питання-6-pytanie-6)
+- [Питання 7](#питання-7-pytanie-7)
+- [Питання 8](#питання-8-pytanie-8)
+- [Питання 9](#питання-9-pytanie-9)
+- [Питання 10](#питання-10-pytanie-10)
+- [Питання 11](#питання-11-pytanie-11)
+- [Питання 12](#питання-12-pytanie-12)
+- [Питання 13](#питання-13-pytanie-13)
+- [Питання 14](#питання-14-pytanie-14)
+- [Питання 15](#питання-15-pytanie-15)
+- [Питання 16](#питання-16-pytanie-16)
+- [Питання 17](#питання-17-pytanie-17)
+- [Питання 18](#питання-18-pytanie-18)
+- [Питання 19](#питання-19-pytanie-19)
+- [Питання 20](#питання-20-pytanie-20)
+- [Питання 21](#питання-21-pytanie-21)
+- [Питання 22](#питання-22-pytanie-22)
+- [Питання 23](#питання-23-pytanie-23)
+- [Питання 24](#питання-24-pytanie-24)
+- [Питання 25](#питання-25-pytanie-25)
+- [Питання 26](#питання-26-pytanie-26)
+- [Питання 27](#питання-27-pytanie-27)
+- [Питання 28](#питання-28-pytanie-28)
+- [Питання 29](#питання-29-pytanie-29)
+- [Питання 30](#питання-30-pytanie-30)
+- [Питання 31](#питання-31-pytanie-31)
+- [Питання 32](#питання-32-pytanie-32)
+- [Питання 33](#питання-33-pytanie-33)
+
 ---
 
 # Питання по керунку / Pytania kierunkowe
@@ -347,6 +404,516 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **PL:** [Treść pytania]
 
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 2 / Pytanie 2
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 3 / Pytanie 3
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 4 / Pytanie 4
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 5 / Pytanie 5
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 6 / Pytanie 6
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 7 / Pytanie 7
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 8 / Pytanie 8
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 9 / Pytanie 9
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 10 / Pytanie 10
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 11 / Pytanie 11
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 12 / Pytanie 12
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 13 / Pytanie 13
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 14 / Pytanie 14
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 15 / Pytanie 15
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 16 / Pytanie 16
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 17 / Pytanie 17
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 18 / Pytanie 18
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 19 / Pytanie 19
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 20 / Pytanie 20
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 21 / Pytanie 21
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 22 / Pytanie 22
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 23 / Pytanie 23
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 24 / Pytanie 24
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 25 / Pytanie 25
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 26 / Pytanie 26
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 27 / Pytanie 27
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 28 / Pytanie 28
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 29 / Pytanie 29
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 30 / Pytanie 30
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 31 / Pytanie 31
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 32 / Pytanie 32
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 33 / Pytanie 33
+
+**UA:** [Текст питання]
+
+**PL:** [Treść pytania]
 ### Пояснення / Wyjaśnienie
 
 **UA:**

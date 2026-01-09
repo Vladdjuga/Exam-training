@@ -65,11 +65,6 @@ Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch 
 
 ---
 
-## Зміст / Spis treści
-
-* TOC
-{:toc}
-
 # Питання по керунку / Pytania kierunkowe
 
 ## Питання 1 | Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.
@@ -141,6 +136,14 @@ int main() {
 
 Узагальнюючи, динамічний поліморфізм, дає змогу писати більш гнучкий та універсальний код, працюючий з ієрархією классів, використовуюючи віртуальні методи.
 
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Динамічний поліморфізм — це коли реалізація методу вибирається **під час виконання** (runtime), а не компіляції.
+- В C++ це робиться через `virtual` методи: виклик через вказівник/посилання на базовий клас попаде в реалізацію похідного об’єкта.
+- Технічно: `vptr` в об’єкті → `vtable` класу → потрібна функція.
+- Важливо: якщо клас використовується поліморфно, деструктор базового класу має бути `virtual`, інакше `delete` через базовий вказівник може зламати звільнення ресурсів.
+- Приклад: `Animal* a = new Dog(); a->speak();` викликає `Dog::speak()`.
+
 **PL:**
 Aby odpowiedzieć na to pytanie, trzeba przypomnieć, czym jest polimorfizm: jest to zdolność bytów (np. obiektów) do przyjmowania różnych „form”/zachowań w zależności od kontekstu.
 W OOP wyróżnia się dwa rodzaje polimorfizmu: statyczny i dynamiczny. Polimorfizm statyczny pozwala używać tej samej nazwy funkcji/metody dla wielu funkcji o różnych listach parametrów i/lub różnych typach zwracanych. Do polimorfizmu statycznego zalicza się także szablony (tzw. generyki), które umożliwiają pisanie kodu uniwersalnego, a typy są specjalizowane przez kompilator podczas kompilacji. Przy polimorfizmie statycznym wybór konkretnej wersji funkcji/metody zależy od kontekstu i jest rozstrzygany na etapie kompilacji.
@@ -203,6 +206,14 @@ Jeśli klasa jest przeznaczona do użycia polimorficznego (ma metody wirtualne),
 To konieczne, żeby przy usuwaniu obiektu klasy pochodnej przez wskaźnik do klasy bazowej (`delete myPet;`) wywołał się destruktor klasy pochodnej (`Dog`), a potem bazowej (`Animal`). Bez `virtual` zwykle wywoła się tylko destruktor klasy bazowej, co może prowadzić do niepełnego zwolnienia zasobów (wyciek) lub niezdefiniowanego zachowania (undefined behavior).
 
 Podsumowując: polimorfizm dynamiczny pozwala pisać bardziej elastyczny i uniwersalny kod pracujący na hierarchii klas dzięki metodom wirtualnym.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Polimorfizm dynamiczny: wybór implementacji metody odbywa się **w runtime**, a nie w kompilacji.
+- W C++ realizacja przez metody `virtual` i wywołania przez wskaźnik/referencję do klasy bazowej.
+- Mechanizm: `vptr` w obiekcie → `vtable` klasy → właściwa funkcja.
+- Ważne: w klasach polimorficznych destruktor bazowy powinien być `virtual`, aby `delete` przez wskaźnik bazowy wywołał też destruktor klasy pochodnej.
+- Przykład: `Animal* a = new Dog(); a->speak();` wywoła `Dog::speak()`.
 
 
 ---
@@ -282,6 +293,14 @@ Podsumowując: polimorfizm dynamiczny pozwala pisać bardziej elastyczny i uniwe
     * Scrum: фіксовані спринти з визначеною метою; Kanban: без спринтів, фокус на потоці роботи та WIP-лімітах
     * Ризики: без дисципліни легко отримати хаос (часті зміни без контролю, накопичення техборгу), тому потрібні визначення “готово”, якість і прозорі метрики
 
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Модель процесу розробки — це спосіб організації життєвого циклу ПЗ від вимог до підтримки.
+- **Waterfall:** етапи послідовні, добре коли вимоги стабільні; мінус — дорогі зміни.
+- **V-model:** як Waterfall, але з сильним акцентом на тестування і трасованість “вимога → тест”.
+- **Iterative/Incremental:** розробка частинами з раннім фідбеком (ітерації уточнюють, інкременти додають функції).
+- **Spiral:** ітерації з фокусом на ризики; **Agile:** короткі спринти/потік, частий фідбек, гнучкість.
+
 **PL:**
 Modele procesu tworzenia oprogramowania to sformalizowane podejścia opisujące sposób organizacji cyklu życia oprogramowania: od pomysłu i wymagań, przez rozwój, testowanie, aż po utrzymanie.
 Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
@@ -351,36 +370,215 @@ Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
     * Scrum: sprinty i cele sprintu; Kanban: przepływ pracy, limity WIP i optymalizacja lead time
     * Ryzyka: bez dyscypliny (Definicja Done, jakość, techniczny porządek) Agile może przerodzić się w chaos
 
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Model procesu wytwarzania oprogramowania opisuje organizację cyklu życia: wymagania → rozwój → testy → wdrożenie → utrzymanie.
+- **Waterfall:** sekwencyjny, dobry przy stabilnych wymaganiach; wada: zmiany są drogie.
+- **V-model:** jak kaskadowy, ale testowanie planowane równolegle (dobra śledzalność „wymaganie → test”).
+- **Iteracyjny/Przyrostowy:** dostarczanie w częściach + wczesny feedback (iteracje dopracowują, przyrosty dodają funkcje).
+- **Spiralny:** nacisk na ryzyko; **Agile:** krótkie iteracje/sprinty, częsty feedback i adaptacja.
+
 
 ---
 
 ## Питання 3 | Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?
 
-**UA:** [Текст питання українською мовою]
+**UA:** Які найпростіші алгоритми генерації випадкових чисел із заданим розподілом імовірності?
+
+**PL:** Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
-Тут буде детальне пояснення до питання українською.
+#### Українською (UA)
 
-**PL:**
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+Комп'ютери зазвичай генерують **псевдовипадкові** числа (PRNG), найчастіше у вигляді рівномірного розподілу на (0,1):
+
+$$U \sim \mathrm{Uniform}(0,1)$$
+
+Тобто будь-яке значення між 0 і 1 з’являється з однаковою ймовірністю. Далі, щоб отримати **заданий розподіл** для змінної X (нормальний, експоненційний, дискретний тощо), застосовують методи перетворення U у потрібний розподіл.
+
+Найпростіші та найчастіше згадувані алгоритми:
+
+1. Метод інверсії (Inverse Transform Sampling)
+    - Працює, якщо відома функція розподілу $F(x)$ (CDF) та її обернена $F^{-1}$.
+    - Кроки:
+        1) Згенерувати $U \sim \mathrm{Uniform}(0,1)$
+        2) Обчислити $X = F^{-1}(U)$
+    - Приклади:
+        - Для експоненційного розподілу $\mathrm{Exp}(\lambda)$:
+
+         $$X = -\frac{1}{\lambda}\ln(1-U) \quad (\text{часто пишуть також } X = -\tfrac{1}{\lambda}\ln U)$$
+
+    - Для дискретного розподілу $(p_1,\dots,p_n)$ це теж інверсія: рахуємо накопичені суми $C_k = \sum_{i=1}^k p_i$ і беремо найменше $k$, для якого $U \le C_k$.
+
+2. Метод відбору/відкидання (Acceptance–Rejection)
+    - Корисний, коли $F^{-1}$ складно знайти, але щільність $f(x)$ можна обчислювати.
+    - Ідея: беремо простий розподіл-пропозицію $g(x)$, з якого легко генерувати, та константу $M$ таку, що $f(x) \le M g(x)$ для всіх $x$.
+    - Кроки (схема):
+         1) Згенерувати $Y \sim g$
+         2) Згенерувати $U \sim \mathrm{Uniform}(0,1)$
+         3) Прийняти $Y$ як $X$, якщо $U \le \frac{f(Y)}{M g(Y)}$, інакше повторити
+    - Плюс: універсальний. Мінус: може бути повільний, якщо M велике (багато відкидань).
+
+3. Метод перетворення (Transformation / Generating by transform)
+    - Це ширша категорія: беремо 1 або кілька рівномірних U і через формулу отримуємо X.
+    - Класичний приклад для нормального розподілу N(0,1): **Box–Muller**
+    Нехай $U_1, U_2 \sim \mathrm{Uniform}(0,1)$, тоді
+
+    $$\begin{aligned}
+    Z_1 &= \sqrt{-2\ln U_1}\,\cos(2\pi U_2), \\
+    Z_2 &= \sqrt{-2\ln U_1}\,\sin(2\pi U_2)
+    \end{aligned}$$
+
+    і $Z_1, Z_2$ мають розподіл $\mathcal{N}(0,1)$.
+
+4. Композиція (Mixture/Composition) для сумішей
+    - Якщо розподіл $X$ є сумішшю: $X \sim \sum_i w_i D_i$, де $w_i$ — ваги, а $D_i$ — прості розподіли.
+    - Алгоритм: спочатку вибрати індекс i за дискретним розподілом w_i, потім згенерувати X з D_i.
+
+Коротко: базовий «двигун» — $U\sim\mathrm{Uniform}(0,1)$, а найпростіші способи отримати заданий розподіл — інверсія CDF, відкидання (accept-reject) та прямі перетворення (напр., Box–Muller для нормального).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Комп’ютер дає псевдовипадкові числа, базово $U\sim\mathrm{Uniform}(0,1)$; далі перетворюємо $U$ у потрібний розподіл $X$.
+- **Інверсія CDF:** якщо знаємо $F$ і $F^{-1}$, то $X = F^{-1}(U)$ (приклад: $X=-\frac{1}{\lambda}\ln(1-U)$ для $\mathrm{Exp}(\lambda)$).
+- **Acceptance–Rejection:** кандидат $Y\sim g$, приймаємо якщо $U \le \frac{f(Y)}{Mg(Y)}$.
+- **Перетворення:** спеціальні формули, напр. Box–Muller дає $\mathcal{N}(0,1)$.
+- **Дискретний випадок:** кумулятивні суми $C_k$ і вибір $k$ за умовою $U\le C_k$.
+
+---
+
+#### Po polsku (PL)
+
+Komputer zwykle nie generuje „prawdziwie” losowych liczb, tylko **pseudolosowe** (PRNG). Typowo najłatwiej uzyskać liczby o rozkładzie jednostajnym na (0,1):
+
+$$U \sim \mathrm{Uniform}(0,1)$$
+
+Następnie, aby wygenerować zmienną losową X o **zadanym rozkładzie** (np. normalnym, wykładniczym, dyskretnym), stosuje się proste metody przekształcenia U.
+
+Najprostsze algorytmy generacji z zadanym rozkładem:
+
+1. Metoda transformacji odwrotnej (Inverse Transform Sampling)
+        - Działa, gdy znamy dystrybuantę $F(x)$ oraz potrafimy policzyć jej odwrotność $F^{-1}$.
+    - Kroki:
+        1) Wylosuj $U \sim \mathrm{Uniform}(0,1)$
+        2) Oblicz $X = F^{-1}(U)$
+        - Przykład (rozkład wykładniczy $\mathrm{Exp}(\lambda)$):
+
+            $$X = -\frac{1}{\lambda}\ln(1-U) \quad (\text{często także } X = -\tfrac{1}{\lambda}\ln U)$$
+
+        - Dla rozkładu dyskretnego $(p_1,\dots,p_n)$: licz sumy skumulowane $C_k = \sum_{i=1}^k p_i$ i wybierz najmniejsze $k$ takie, że $U \le C_k$.
+
+2. Metoda akceptacji–odrzucenia (Acceptance–Rejection)
+    - Przydatna, gdy $F^{-1}$ jest trudna, ale znamy (i umiemy policzyć) gęstość $f(x)$.
+    - Wybieramy prosty rozkład propozycji $g(x)$ oraz stałą $M$, taką że $f(x) \le M g(x)$.
+    - Kroki:
+         1) Wylosuj $Y \sim g$
+         2) Wylosuj $U \sim \mathrm{Uniform}(0,1)$
+         3) Akceptuj $Y$ jako $X$, jeśli $U \le \frac{f(Y)}{M g(Y)}$, w przeciwnym razie powtórz
+    - Zaleta: uniwersalna. Wada: bywa nieefektywna, jeśli odrzucamy dużo prób.
+
+3. Metody transformacyjne (Transformation) dla znanych wzorów
+    - Używamy jednej lub kilku zmiennych jednostajnych i wzoru na X.
+    - Klasyczny przykład dla N(0,1): **Box–Muller**
+    Dla $U_1, U_2 \sim \mathrm{Uniform}(0,1)$:
+
+    $$\begin{aligned}
+    Z_1 &= \sqrt{-2\ln U_1}\,\cos(2\pi U_2), \\
+    Z_2 &= \sqrt{-2\ln U_1}\,\sin(2\pi U_2)
+    \end{aligned}$$
+
+    wtedy $Z_1, Z_2 \sim \mathcal{N}(0,1)$.
+
+4. Metoda kompozycji (Composition) dla mieszanek
+    - Jeśli $X$ jest mieszanką rozkładów: $X \sim \sum_i w_i D_i$.
+    - Najpierw losujemy indeks i zgodnie z wagami w_i, potem losujemy X z rozkładu D_i.
+
+W skrócie: startujemy od $U\sim\mathrm{Uniform}(0,1)$, a najprostsze drogi do zadanego rozkładu to: transformacja odwrotna, akceptacja–odrzucenie oraz bezpośrednie transformacje (np. Box–Muller dla normalnego).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Generator daje liczby pseudolosowe, bazowo $U\sim\mathrm{Uniform}(0,1)$; potem przekształcamy $U$ w zmienną $X$ o żądanym rozkładzie.
+- **Transformacja odwrotna:** jeśli znamy $F$ i $F^{-1}$, to $X = F^{-1}(U)$ (np. $X=-\frac{1}{\lambda}\ln(1-U)$ dla $\mathrm{Exp}(\lambda)$).
+- **Akceptacja–odrzucenie:** losujemy $Y\sim g$ i akceptujemy, gdy $U \le \frac{f(Y)}{Mg(Y)}$.
+- **Transformacje:** gotowe wzory, np. Box–Muller daje $\mathcal{N}(0,1)$.
+- **Dyskretny:** sumy skumulowane $C_k$ i wybór $k$ z warunku $U\le C_k$.
 
 ---
 
 ## Питання 4
 
-**UA:** [Текст питання українською мовою]
+**UA:** На вибраних прикладах охарактеризуйте базові типи, структури та організації даних.
 
 **PL:** Na wybranych przykładach scharakteryzuj podstawowe typy, struktury i organizacje danych.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
-Тут буде детальне пояснення до питання українською.
+#### Українською (UA)
+Це питання зводиться до 3 різних понять:
 
-**PL:**
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+1) **Тип даних** — що саме зберігає змінна і які операції дозволені (а також скільки пам’яті треба).
+2) **Структура даних** — як елементи організовані в пам’яті, щоб ефективно виконувати операції (доступ, вставка, пошук тощо).
+3) **Організація даних** — як дані розміщують/зберігають на рівні пам’яті або файлів/БД (послідовно, з індексом, через хеш тощо).
+
+**1) Базові типи (приклади)**
+- Примітивні: `int`, `float/double`, `bool`, `char`.
+- Складені/користувацькі: `struct`, `class`, `enum`, масиви, вказівники/посилання.
+
+Приклад: `int age = 20;` (ціле), `bool ok = true;` (логічний), `char c = 'A';`.
+
+**2) Структури даних (приклади + ключові властивості)**
+- **Масив (array)**: елементи одного типу, лежать **послідовно** в пам’яті → доступ за індексом $O(1)$, але вставка всередину часто $O(n)$.
+- **Зв’язний список (linked list)**: вузли з вказівниками → вставка/видалення біля відомого вузла $O(1)$, але доступ за індексом $O(n)$.
+- **Стек (stack)**: принцип LIFO, операції `push/pop/top` зазвичай $O(1)$.
+- **Черга (queue)**: принцип FIFO, операції `push/pop/front` зазвичай $O(1)$.
+- **Хеш-таблиця (hash table)**: пошук/вставка “в середньому” $O(1)$, але залежить від хеш-функції й колізій.
+- **Дерево (tree)**: ієрархія вузлів (напр. бінарне дерево пошуку, купа/heap).
+- **Граф (graph)**: вершини + ребра; не обов’язково ієрархічний (можуть бути цикли). Використовується для мереж, маршрутів, залежностей.
+
+**3) Організація/спосіб зберігання даних (приклади)**
+- **Послідовна (sequential)**: записи зберігаються один за одним; добре для потокового читання (лог-файл, CSV).
+- **Індексована (indexed)**: окремо є індекс (напр., B-tree/B+tree у БД), який прискорює пошук.
+- **Хешована (hashed)**: адреса/“кошик” визначається хешем ключа (хеш-індекси, хеш-таблиці).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Тип даних: що зберігаємо і які операції (напр. `int`, `bool`, `char`, `struct`).
+- Структура даних: як організовано елементи для операцій (array $O(1)$ доступ; list $O(1)$ вставка біля вузла; stack LIFO; queue FIFO; hash “середнє” $O(1)$).
+- Організація зберігання: послідовно (файли), індексовано (B-tree індекси в БД), хешовано (хеш-таблиці/хеш-індекси).
+
+---
+
+#### Po polsku (PL)
+W tym pytaniu warto rozróżnić 3 pojęcia:
+
+1) **Typ danych** — co przechowuje zmienna i jakie operacje są dozwolone (oraz ile pamięci potrzeba).
+2) **Struktura danych** — jak elementy są ułożone w pamięci, aby operacje były efektywne (dostęp, wstawianie, wyszukiwanie).
+3) **Organizacja danych** — sposób rozmieszczenia/zapisu danych w pamięci lub w plikach/DB (sekwencyjnie, z indeksem, przez hash).
+
+**1) Podstawowe typy (przykłady)**
+- Prymitywne: `int`, `float/double`, `bool`, `char`.
+- Złożone/użytkownika: `struct`, `class`, `enum`, tablice, wskaźniki/referencje.
+
+**2) Struktury danych (przykłady + cechy)**
+- **Tablica (array)**: pamięć ciągła → dostęp po indeksie $O(1)$, ale wstawianie w środku zwykle $O(n)$.
+- **Lista (linked list)**: węzły połączone wskaźnikami → wstawianie/usuwanie przy znanym węźle $O(1)$, dostęp po indeksie $O(n)$.
+- **Stos (stack)**: LIFO, operacje `push/pop/top` zazwyczaj $O(1)$.
+- **Kolejka (queue)**: FIFO, operacje `push/pop/front` zazwyczaj $O(1)$.
+- **Tablica mieszająca (hash table)**: wyszukiwanie/wstawianie „średnio” $O(1)$ (zależy od kolizji i funkcji hashującej).
+- **Drzewo (tree)**: struktura hierarchiczna (np. BST, heap).
+- **Graf (graph)**: wierzchołki i krawędzie; nie musi być hierarchiczny (mogą występować cykle).
+
+**3) Organizacja danych (przykłady)**
+- **Sekwencyjna**: rekordy po kolei; dobra do czytania strumieniowego (log/CSV).
+- **Indeksowana**: dodatkowa struktura indeksu (np. B-tree/B+tree w bazach danych) przyspiesza wyszukiwanie.
+- **Haszowana**: adres/„koszyk” wynika z hasha klucza (hash-index, hash table).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Typ danych: co przechowuję i jakie operacje (np. `int`, `bool`, `char`, `struct`).
+- Struktury danych: tablica $O(1)$ dostęp, lista $O(n)$ dostęp, stos LIFO, kolejka FIFO, hash „średnio” $O(1)$.
+- Organizacja danych: sekwencyjna (pliki), indeksowana (B-tree w DB), haszowana (hash table/indeksy).
 
 ---
 
@@ -392,10 +590,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -408,10 +608,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -424,10 +626,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -440,10 +644,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -456,10 +662,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -472,10 +680,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -488,10 +698,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -504,10 +716,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -520,10 +734,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -536,10 +752,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -552,10 +770,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
@@ -568,10 +788,12 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ### Пояснення / Wyjaśnienie
 
-**UA:**
+#### Українською (UA)
 Тут буде детальне пояснення до питання українською.
 
-**PL:**
+---
+
+#### Po polsku (PL)
 Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 

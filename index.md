@@ -584,55 +584,255 @@ W tym pytaniu warto rozróżnić 3 pojęcia:
 
 ## Питання 5
 
-**UA:** [Текст питання українською мовою]
+**UA:** Опишіть характеристики та складові мови SQL, наведіть її переваги та недоліки.
 
 **PL:** Opisz cechy i składowe języka SQL, podaj jego wady i zalety. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+**SQL (Structured Query Language)** — декларативна мова для роботи з реляційними базами даних: описує *що* потрібно отримати/змінити, а *як* це зробити ефективно, вирішує СУБД (оптимізатор запитів).
+
+**Основні характеристики SQL:**
+- Декларативність: ми задаємо умову/результат, а не алгоритм.
+- Орієнтація на множини: операції над наборами рядків (таблицями), а не над одиничними значеннями.
+- Стандартизованість (ANSI/ISO), але є діалекти (PostgreSQL, MySQL, SQL Server, Oracle).
+- Інтеграція з транзакціями: узгодженість змін (ACID у більшості реляційних СУБД).
+
+**Складові/підмови SQL (найчастіше вимагають на екзамені):**
+1. **DDL (Data Definition Language)** — визначення структури даних
+    - `CREATE`, `ALTER`, `DROP`
+    - об’єкти: таблиці, індекси, представлення (views)
+2. **DML (Data Manipulation Language)** — робота з даними
+    - `SELECT`, `INSERT`, `UPDATE`, `DELETE` (інколи `MERGE`)
+3. **DCL (Data Control Language)** — права доступу
+    - `GRANT`, `REVOKE`
+4. **TCL (Transaction Control Language)** — керування транзакціями
+    - `COMMIT`, `ROLLBACK`, `SAVEPOINT`
+
+**Що “всередині” типового запиту SELECT (як компоненти):**
+- `SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ...`
+- З’єднання: `JOIN` (INNER/LEFT/RIGHT/FULL)
+- Агрегації: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
+
+**Переваги SQL:**
+- Швидке формулювання запитів до даних, багато задач вирішуються коротко.
+- Оптимізатор СУБД може вибрати ефективний план виконання.
+- Потужні можливості: індекси, обмеження цілісності (`PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `CHECK`), транзакції.
+- Широко підтримується, легко інтегрується з більшістю мов програмування.
+
+**Недоліки SQL:**
+- Діалекти й несумісності між СУБД (працює “не всюди однаково”).
+- Для складної бізнес-логіки запити стають важкими для читання/підтримки.
+- “Impedance mismatch” між ООП та реляційною моделлю (часто потрібні ORM).
+- Масштабування під дуже високі навантаження/розподілені системи може бути складним (хоча залежить від СУБД і архітектури).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- SQL — декларативна мова для реляційних БД (описуємо *що*, оптимізацію робить СУБД).
+- Складові: **DDL** (`CREATE/ALTER/DROP`), **DML** (`SELECT/INSERT/UPDATE/DELETE`), **DCL** (`GRANT/REVOKE`), **TCL** (`COMMIT/ROLLBACK`).
+- SELECT складається з `SELECT-FROM-WHERE-GROUP BY-HAVING-ORDER BY`, є `JOIN` і агрегати.
+- Плюси: стандарт, індекси/цілісність/транзакції, оптимізатор.
+- Мінуси: діалекти, складні запити важко підтримувати, ООП↔реляційний розрив.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+**SQL (Structured Query Language)** to język deklaratywny do pracy z relacyjnymi bazami danych: opisujemy *co* chcemy uzyskać lub zmienić, a *jak* to wykonać efektywnie wybiera silnik bazy (optymalizator zapytań).
+
+**Cechy SQL:**
+- Deklaratywność i praca na zbiorach (tabelach).
+- Standaryzacja (ANSI/ISO), ale w praktyce istnieją dialekty (PostgreSQL, MySQL, SQL Server, Oracle).
+- Wsparcie transakcji i spójności danych (ACID w większości RDBMS).
+
+**Składowe/podjęzyki SQL:**
+1. **DDL (Data Definition Language)** — definicja struktury
+    - `CREATE`, `ALTER`, `DROP`
+2. **DML (Data Manipulation Language)** — operacje na danych
+    - `SELECT`, `INSERT`, `UPDATE`, `DELETE` (czasem `MERGE`)
+3. **DCL (Data Control Language)** — uprawnienia
+    - `GRANT`, `REVOKE`
+4. **TCL (Transaction Control Language)** — transakcje
+    - `COMMIT`, `ROLLBACK`, `SAVEPOINT`
+
+**Typowe elementy zapytania SELECT:**
+- `SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ...`
+- `JOIN` (INNER/LEFT/RIGHT/FULL), agregacje `COUNT/SUM/AVG/MIN/MAX`
+
+**Zalety SQL:**
+- Szybkie i czytelne zapytania do danych; bardzo popularny standard.
+- Optymalizator może dobrać wydajny plan wykonania.
+- Wbudowane mechanizmy: indeksy, ograniczenia integralności (`PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `CHECK`), transakcje.
+
+**Wady SQL:**
+- Różnice między dialektami (przenośność bywa ograniczona).
+- Bardzo złożone zapytania są trudne w utrzymaniu.
+- “Impedance mismatch” OOP vs model relacyjny (często używa się ORM).
+- Skalowanie i rozproszenie bywa wyzwaniem (zależy od silnika i architektury).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- SQL to język deklaratywny dla relacyjnych BD (mówimy *co*, baza wybiera *jak*).
+- Podjęzyki: **DDL** (`CREATE/ALTER/DROP`), **DML** (`SELECT/INSERT/UPDATE/DELETE`), **DCL** (`GRANT/REVOKE`), **TCL** (`COMMIT/ROLLBACK`).
+- SELECT: `SELECT-FROM-WHERE-GROUP BY-HAVING-ORDER BY`, do tego `JOIN` i agregacje.
+- Plusy: standard, optymalizator, indeksy/integralność/transakcje.
+- Minusy: dialekty, trudne złożone zapytania, niedopasowanie do OOP.
 
 ---
 
 ## Питання 6
 
-**UA:** [Текст питання українською мовою]
+**UA:** Поясніть поняття семафорів і наведіть приклади їх застосування.
 
 **PL:** Omów pojęcie semaforów i przedstaw przykłady ich zastosowania. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+**Семафор** — це примітив синхронізації, який дозволяє керувати доступом багатьох потоків/процесів до спільного ресурсу.
+Класичний семафор має ціле значення (лічильник) і 2 атомарні операції:
+
+- `wait` / `P()` / `down()`:
+  - якщо значення $>0$ — зменшує його і пропускає потік;
+  - якщо $=0$ — блокує потік до появи ресурсу.
+- `signal` / `V()` / `up()`:
+  - збільшує значення і, за потреби, розблоковує один із потоків.
+
+**Види семафорів:**
+- **Бінарний семафор** (0/1) — фактично схожий на м’ютекс (але м’ютекс зазвичай має “власника” і додаткові гарантії).
+- **Лічильний (counting)** — дозволяє одночасно зайти до $N$ потоків (обмеження паралелізму).
+
+**Де застосовують (типові приклади):**
+1. **Взаємне виключення (критична секція)**
+    - Ідея: перед входом у критичну секцію робимо `wait`, після виходу — `signal`.
+    - Приклад: захист доступу до спільного лічильника/черги.
+2. **Producer–Consumer (обмежений буфер)**
+    - Два семафори “скільки вільних місць” і “скільки елементів”, плюс м’ютекс для самої структури.
+3. **Обмеження доступу до ресурсу з лімітом**
+    - Наприклад, “максимум 10 одночасних підключень” або “пул з $N$ об’єктів”.
+
+**Проблеми/пастки:**
+- Можливі **deadlock** (взаємне блокування) при неправильному порядку захоплення.
+- Можлива **starvation** (голодування) без справедливого планування.
+- Важливо: `wait/signal` мають бути парними; вихід з критичної секції — гарантований (часто через `try/finally` / RAII).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Семафор — примітив синхронізації з лічильником доступних “дозволів”.
+- Операції: `wait(P)` зменшує і може блокувати; `signal(V)` збільшує і може будити.
+- Є бінарний (0/1) і лічильний ($N$ дозволів).
+- Застосування: критична секція, producer–consumer, лімітування паралельних доступів до ресурсу.
+- Ризики: deadlock/starvation при неправильному використанні.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+**Semafor** to prymityw synchronizacji, który kontroluje dostęp wielu wątków/procesów do współdzielonego zasobu.
+Klasycznie jest to licznik całkowity oraz dwie operacje atomowe:
+
+- `wait` / `P()` / `down()`:
+    - gdy wartość $>0$ — zmniejsza ją i przepuszcza wątek;
+    - gdy $=0$ — blokuje wątek.
+- `signal` / `V()` / `up()`:
+    - zwiększa wartość i może odblokować oczekujący wątek.
+
+**Rodzaje:**
+- **Semafor binarny** (0/1) — podobny do mutexa (mutex zwykle ma właściciela).
+- **Semafor zliczający (counting)** — pozwala wejść jednocześnie maksymalnie $N$ wątkom.
+
+**Zastosowania (klasyczne przykłady):**
+1. **Sekcja krytyczna** — `wait` przed wejściem, `signal` po wyjściu.
+2. **Producer–Consumer (bufor ograniczony)** — semafory “wolne miejsca” i “liczba elementów” + mutex do ochrony struktury.
+3. **Limit równoległości** — np. maksymalna liczba jednoczesnych połączeń, pula zasobów.
+
+**Pułapki:**
+- **Deadlock** przy złej kolejności blokad.
+- **Starvation** (zagłodzenie) przy braku sprawiedliwości.
+- `wait/signal` muszą być parą; wyjście z sekcji krytycznej powinno być gwarantowane.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Semafor: licznik „pozwoleń” na dostęp do zasobu.
+- `wait(P)` zmniejsza i może blokować; `signal(V)` zwiększa i może budzić.
+- Rodzaje: binarny (0/1) i zliczający ($N$).
+- Zastosowanie: sekcja krytyczna, producer–consumer, limitowanie dostępu.
+- Błędy: deadlock/starvation.
 
 ---
 
 ## Питання 7
 
-**UA:** [Текст питання українською мовою]
+**UA:** Поясніть конвеєрну (потокову) обробку в сучасних комп’ютерних системах.
 
 **PL:** Omów przetwarzanie potokowe we współczesnych systemach komputerowych.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+**Конвеєрна (потокова) обробка** — це організація виконання, де задача ділиться на послідовні етапи (стадії), і різні “порції” даних/інструкцій проходять ці стадії паралельно (як на виробничому конвеєрі).
+
+Ключова ідея: **зростає пропускна здатність (throughput)**, хоча **затримка (latency)** однієї операції може майже не зменшитися.
+
+**Приклад у процесорах: конвеєр інструкцій (instruction pipeline)**
+- Типові стадії: Fetch → Decode → Execute → Memory → Write-back.
+- Коли конвеєр “заповнений”, ідеально можна завершувати приблизно 1 інструкцію за такт (залежить від архітектури).
+
+Оцінка виграшу:
+- Для $k$ стадій і великої кількості інструкцій $n$ ідеальний приріст близько $\approx k$ (за умови однакової тривалості стадій і відсутності простоїв).
+
+**Проблеми конвеєра (hazards):**
+- **Структурні**: конфлікт за ресурс (напр., один порт пам’яті).
+- **Дані (data hazards)**: наступна інструкція потребує результат попередньої.
+- **Керування (control hazards)**: розгалуження (branch) — не відомо, яка інструкція буде наступною.
+
+**Як це вирішують:**
+- **Stall** (простої), **forwarding/bypassing** (перекидання результату), **renaming** (перейменування регістрів), **branch prediction** (передбачення переходів) і спекулятивне виконання.
+
+**Потокова обробка поза CPU (pipeline parallelism):**
+- Напр., обробка медіа/даних: читання → декодування → фільтрація → запис.
+- Також класичні UNIX-пайпи: команда1 | команда2 | команда3.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- Конвеєр — це поділ обчислення на стадії і паралельне проходження різних даних через ці стадії.
+- Основний плюс: росте throughput; latency однієї операції майже не обов’язково зменшується.
+- Приклад: CPU pipeline Fetch/Decode/Execute/Mem/WB.
+- Проблеми: структурні, залежності даних, переходи (branch).
+- Рішення: stalls, forwarding, branch prediction.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+**Przetwarzanie potokowe (pipeline)** polega na podziale zadania na kolejne etapy (stages) i równoległym przetwarzaniu różnych porcji danych/instrukcji na różnych etapach — jak na linii produkcyjnej.
+
+Klucz: rośnie **przepustowość (throughput)**, natomiast **opóźnienie (latency)** pojedynczego elementu nie musi się znacząco zmienić.
+
+**Przykład w CPU: potok instrukcji**
+- Typowe fazy: Fetch → Decode → Execute → Memory → Write-back.
+- Po „napełnieniu” potoku idealnie można kończyć ok. 1 instrukcję na takt (w uproszczeniu).
+
+**Zysk (intuicyjnie):**
+- Dla $k$ etapów i dużego $n$ idealny speedup bywa bliski $\approx k$, jeśli etapy są zbalansowane i nie ma przestojów.
+
+**Zagrożenia (hazards):**
+- **Strukturalne**: konflikt o zasób.
+- **Danych**: zależności (następna instrukcja czeka na wynik).
+- **Sterowania**: skoki/gałęzie (branch).
+
+**Techniki łagodzenia:**
+- Stalle, forwarding/bypassing, renaming rejestrów, predykcja skoków i wykonanie spekulacyjne.
+
+**Pipeline poza CPU:**
+- Przetwarzanie strumieniowe: np. odczyt → dekodowanie → filtr → zapis.
+- Potoki w UNIX: `cmd1 | cmd2 | cmd3`.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- Potok: etapy + równoległe przetwarzanie różnych danych na różnych etapach.
+- Plus: większa przepustowość; latency pojedynczego elementu nie musi spaść.
+- Przykład: Fetch/Decode/Execute/Mem/WB.
+- Problemy: konflikty zasobów, zależności danych, skoki.
+- Rozwiązania: stalle, forwarding, predykcja skoków.
 
 ---
 

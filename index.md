@@ -6,6 +6,63 @@
 Цей документ містить питання до екзамену та пояснення до них двома мовами: українською та польською.
 Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch językach: ukraińskim i polskim.
 
+## План / Spis treści
+
+### Питання по керунку / Pytania kierunkowe
+
+- [Питання 1: Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.](#питання-1)
+- [Питання 2: Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.](#питання-2)
+- [Питання 3: Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?](#питання-3)
+- [Питання 4: Na wybranych przykładach scharakteryzuj podstawowe typy, struktury i organizacje danych.](#питання-4)
+- [Питання 5: Opisz cechy i składowe języka SQL, podaj jego wady i zalety.](#питання-5)
+- [Питання 6: Omów pojęcie semaforów i przedstaw przykłady ich zastosowania.](#питання-6)
+- [Питання 7: Omów przetwarzanie potokowe we współczesnych systemach komputerowych.](#питання-7)
+- [Питання 8: Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.](#питання-8)
+- [Питання 9: Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej.](#питання-9)
+- [Питання 10: Proszę omówić model referencyjny sieci komputerowej OSI/ISO.](#питання-10)
+- [Питання 11: Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.](#питання-11)
+- [Питання 12: Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.](#питання-12)
+- [Питання 13: Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.](#питання-13)
+- [Питання 14: Scharakteryzuj diagram klas notacji UML.](#питання-14)
+- [Питання 15: Wymień i omów struktury systemów operacyjnych.](#питання-15)
+- [Питання 16: Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.](#питання-16)
+
+### Питання по спеціальності / Pytania zakresowe
+
+- [Питання 1](#питання-1-pytanie-1)
+- [Питання 2](#питання-2-pytanie-2)
+- [Питання 3](#питання-3-pytanie-3)
+- [Питання 4](#питання-4-pytanie-4)
+- [Питання 5](#питання-5-pytanie-5)
+- [Питання 6](#питання-6-pytanie-6)
+- [Питання 7](#питання-7-pytanie-7)
+- [Питання 8](#питання-8-pytanie-8)
+- [Питання 9](#питання-9-pytanie-9)
+- [Питання 10](#питання-10-pytanie-10)
+- [Питання 11](#питання-11-pytanie-11)
+- [Питання 12](#питання-12-pytanie-12)
+- [Питання 13](#питання-13-pytanie-13)
+- [Питання 14](#питання-14-pytanie-14)
+- [Питання 15](#питання-15-pytanie-15)
+- [Питання 16](#питання-16-pytanie-16)
+- [Питання 17](#питання-17-pytanie-17)
+- [Питання 18](#питання-18-pytanie-18)
+- [Питання 19](#питання-19-pytanie-19)
+- [Питання 20](#питання-20-pytanie-20)
+- [Питання 21](#питання-21-pytanie-21)
+- [Питання 22](#питання-22-pytanie-22)
+- [Питання 23](#питання-23-pytanie-23)
+- [Питання 24](#питання-24-pytanie-24)
+- [Питання 25](#питання-25-pytanie-25)
+- [Питання 26](#питання-26-pytanie-26)
+- [Питання 27](#питання-27-pytanie-27)
+- [Питання 28](#питання-28-pytanie-28)
+- [Питання 29](#питання-29-pytanie-29)
+- [Питання 30](#питання-30-pytanie-30)
+- [Питання 31](#питання-31-pytanie-31)
+- [Питання 32](#питання-32-pytanie-32)
+- [Питання 33](#питання-33-pytanie-33)
+
 ---
 
 ## Зміст / Spis treści
@@ -311,14 +368,733 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ---
 
+## Питання 4
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Na wybranych przykładach scharakteryzuj podstawowe typy, struktury i organizacje danych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 5
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Opisz cechy i składowe języka SQL, podaj jego wady i zalety. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 6
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów pojęcie semaforów i przedstaw przykłady ich zastosowania. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 7
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów przetwarzanie potokowe we współczesnych systemach komputerowych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 8
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 9
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 10
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić model referencyjny sieci komputerowej OSI/ISO.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 11
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 12
+
+**UA:** [Текст питання українською мовою]
+
+**PL:**  Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 13
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 14
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Scharakteryzuj diagram klas notacji UML.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 15
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Wymień i omów struktury systemów operacyjnych. 
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+---
+
+## Питання 16
+
+**UA:** [Текст питання українською мовою]
+
+**PL:** Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+Тут буде детальне пояснення до питання українською.
+
+**PL:**
+Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+
+---
+
 # Питання по спеціальності / Pytania zakresowe
 
 ## Питання 1 / Pytanie 1
 
 **UA:** [Текст питання]
 
-**PL:** [Treść pytania]
+**PL:** Testowanie (rodzaje, poziomy testów) a cykl życia oprogramowania.
 
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 2 / Pytanie 2
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj cele i metody testowania jednostkowego.
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 3 / Pytanie 3
+
+**UA:** [Текст питання]
+
+**PL:** Omów technikę tworzenia oprogramowania Test-Driven Development.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 4 / Pytanie 4
+
+**UA:** [Текст питання]
+
+**PL:** Omówić typowe funkcje narzędzi wspierających proces debugowania oprogramowania.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 5 / Pytanie 5
+
+**UA:** [Текст питання]
+
+**PL:** Omówić korzyści z wykorzystania systemu kontroli wersji.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 6 / Pytanie 6
+
+**UA:** [Текст питання]
+
+**PL:** Omówić sposoby profilowania programów i narzędzia wykorzystywane w tym procesie.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 7 / Pytanie 7
+
+**UA:** [Текст питання]
+
+**PL:** Porównaj model bare-metal oraz model bazujący na multitaskingu dostarczanym przez RTOS w oprogramowaniu systemów wbudowanych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 8 / Pytanie 8
+
+**UA:** [Текст питання]
+
+**PL:** Porównaj metody zapewnienia bezkolizyjnego dostępu do współdzielonych zasobów sprzętowych w RTOS realizowane za pomocą: a) mutexów i b) sekcji krytycznych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 9 / Pytanie 9
+
+**UA:** [Текст питання]
+
+**PL:** Wymień i scharakteryzuj metody optymalizacji stron internetowych pod kątem silnika wyszukiwarek
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 10 / Pytanie 10
+
+**UA:** [Текст питання]
+
+**PL:** Architektury aplikacji internetowych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 11 / Pytanie 11
+
+**UA:** [Текст питання]
+
+**PL:** Cykl życia aplikacji internetowej
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 12 / Pytanie 12
+
+**UA:** [Текст питання]
+
+**PL:** Sposoby personalizacji aplikacji internetowych.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 13 / Pytanie 13
+
+**UA:** [Текст питання]
+
+**PL:** Proszę opisać wzorzec projektowy MVC
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 14 / Pytanie 14
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj strukturę dokumentu HTML.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 15 / Pytanie 15
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj rodzaje selektorów CSS.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 16 / Pytanie 16
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj podstawowe technologie internetowe działające po stronie klienta.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 17 / Pytanie 17
+
+**UA:** [Текст питання]
+
+**PL:** Podaj algorytmy wyznaczania powierzchni widocznych oraz omów jeden z nich.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 18 / Pytanie 18
+
+**UA:** [Текст питання]
+
+**PL:** Omów metodę śledzenia promieni (ray-tracing) oraz podaj jej właściwości.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 19 / Pytanie 19
+
+**UA:** [Текст питання]
+
+**PL:** Wymień metody modelowania krzywych i powierzchni oraz omów jedną z nich.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 20 / Pytanie 20
+
+**UA:** [Текст питання]
+
+**PL:** Wymień i scharakteryzuj działanie algorytmów wyszukiwania stron internetowych oraz ustalania ich pozycji w wynikach.
+
+### Пояснення / Wyjaśnienie
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 21 / Pytanie 21
+
+**UA:** [Текст питання]
+
+**PL:** Wymień dynamiczne diagramy UML używane w projektowaniu systemów informatycznych oraz omów szczegółowo jeden wybrany diagram.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 22 / Pytanie 22
+
+**UA:** [Текст питання]
+
+**PL:** Omów fazy cyklu życia systemu informatycznego.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 23 / Pytanie 23
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj metodykę RUP (Rational Unified Process) wspomagającą proces wytwarzania systemów informatycznych.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 24 / Pytanie 24
+
+**UA:** [Текст питання]
+
+**PL:** Charakterystyka systemów równoległych z pamięcią współdzieloną i rozproszoną
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 25 / Pytanie 25
+
+**UA:** [Текст питання]
+
+**PL:** Modele i standardy programowania równoległego/rozproszonego dla systemów z pamięcią współdzieloną i rozproszoną.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 26 / Pytanie 26
+
+**UA:** [Текст питання]
+
+**PL:** Podstawowe problemy programowania współbieżnego, mechanizmy synchronizacji.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 27 / Pytanie 27
+
+**UA:** [Текст питання]
+
+**PL:** Wymień zasady i scenariusze tworzenia kopii zapasowych.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 28 / Pytanie 28
+
+**UA:** [Текст питання]
+
+**PL:** Wymień i omów sposoby realizacji macierzy RAID.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 29 / Pytanie 29
+
+**UA:** [Текст питання]
+
+**PL:** Czym jest system plików? Wymień i opisz trzy wybrane systemy plików.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 30 / Pytanie 30
+
+**UA:** [Текст питання]
+
+**PL:** Scharakteryzuj architekturę aplikacji zorientowaną na usługi (ang. Service Oriented Architecture)
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 31 / Pytanie 31
+
+**UA:** [Текст питання]
+
+**PL:** Interfejsy funkcyjne i wyrażenia lambda w języku Java. Omów i podaj przykłady.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 32 / Pytanie 32
+
+**UA:** [Текст питання]
+
+**PL:** Na wybranym przykładzie omów zagadnienie strumieni w języku Java.
+
+### Пояснення / Wyjaśление
+
+**UA:**
+...
+
+**PL:**
+...
+
+---
+
+## Питання 33 / Pytanie 33
+
+**UA:** [Текст питання]
+
+**PL:** Kolekcje w języku Java. Omów i podaj przykłady ich zastosowania.
 ### Пояснення / Wyjaśnienie
 
 **UA:**

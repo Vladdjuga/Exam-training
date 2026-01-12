@@ -1514,13 +1514,151 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 33 / Pytanie 33
 
-**UA:** [Текст питання]
+**RU:** Коллекции в Java. Оговори и подай пример их использования.
 
 **PL:** Kolekcje w języku Java. Omów i podaj przykłady ich zastosowania.
 ### Пояснення / Wyjaśnienie
 
-**UA:**
-...
+**RU:**
+**Java Collection Framework** — это единая архитектура для представления и манипулирования коллекциями объектов. Она предоставляет стандартные интерфейсы и их реализации.
+
+Глобально в Java есть две отдельные ветки иерархии:
+- **Collection** (наследники Iterable) — работа с одиночными элементами
+- **Map** — работа с парами «Ключ-Значение»
+
+Начнем с ветки Collection:
+
+1. **Iterable и Collection**
+    * **Iterable**: Корневой интерфейс. Гарантирует, что объект можно перебрать в цикле for-each.
+    * **Collection**: Основной интерфейс для всех коллекций (кроме Map). Методы: `add()`, `remove()`, `size()`, `contains()`.
+
+2. **List** (Списки)
+    * Суть: Упорядоченная коллекция, допускающая дубликаты. Каждый элемент имеет индекс (как в массиве).
+    * **ArrayList**
+        - Динамический массив с автоматическим расширением.
+        - Плюсы: Быстрый доступ по индексу ($O(1)$).
+        - Минусы: Медленная вставка/удаление в середину (требуется сдвиг элементов).
+        - Когда использовать: В 90% случаев для простого хранения и чтения.
+    * **LinkedList**
+        - Двусвязный список. Каждый элемент хранит ссылку на предыдущий и следующий.
+        - Плюсы: Быстрая вставка/удаление в начало или середину ($O(1)$ при наличии итератора).
+        - Минусы: Медленный доступ по индексу ($O(n)$) — нужно перебирать элементы.
+        - Когда использовать: Если коллекция часто модифицируется в середине, но редко читается по индексу.
+
+3. **Queue и Deque** (Очереди)
+    * Суть: Коллекции для хранения элементов в порядке обработки (обычно FIFO — First In, First Out).
+    * **Queue**
+        - `PriorityQueue`: Упорядоченная очередь. Элементы выходят согласно приоритету, а не порядку вставки.
+    * **Deque** (Double Ended Queue)
+        - Двусторонняя очередь. Можно добавлять и забирать элементы с обоих концов.
+        - `ArrayDeque`: Более быстрая альтернатива классу Stack.
+
+4. **Set** (Множества)
+    * Суть: Коллекция уникальных элементов. Дубликаты не сохраняются.
+    * **HashSet**
+        - Самая популярная реализация. Использует HashMap внутри.
+        - Порядок элементов не гарантируется.
+        - Очень быстрые операции добавления и поиска ($O(1)$) благодаря хешированию.
+    * **LinkedHashSet**
+        - Запоминает порядок добавления элементов.
+        - Чуть медленнее, чем HashSet.
+    * **TreeSet**
+        - Хранит элементы в отсортированном виде (Red-Black Tree).
+        - Вставка медленнее ($O(\log n)$), но идеально для упорядоченных уникальных данных.
+
+5. **Map** (Словари)
+    * Суть: Хранит пары Ключ → Значение. Работает отдельно от интерфейса Collection.
+    * Ключи должны быть уникальны.
+    * **HashMap**
+        - Самое популярное решение.
+        - Вычисляет `hashCode` ключа, определяет "корзину" (bucket) и кладет туда значение.
+        - **Важно**: Критически зависит от правильной реализации `equals()` и `hashCode()` у объекта-ключа. Плохая хеш-функция снижает производительность до уровня связного списка.
+        - Плюсы: Мгновенный доступ по ключу при отсутствии коллизий.
+    * **TreeMap**
+        - Ключи хранятся в отсортированном порядке.
+    * **LinkedHashMap**
+        - Хранит порядок добавления ключей.
+
+**Диаграмма:**
+<img src="img/CollectionsJava.png" alt="drawing" width="600"/>
+
+##### Краткая версия
+
+- **Две основные ветки**: Collection (одиночные элементы) и Map (пары Ключ-Значение).
+- **List**: Упорядоченные списки. ArrayList — массив (быстрое чтение по индексу $O(1)$), LinkedList — связный список (быстрая вставка/удаление).
+- **Set**: Уникальные элементы. HashSet — самый быстрый ($O(1)$), но без гарантии порядка; TreeSet — хранит отсортированными ($O(\log n)$).
+- **Queue/Deque**: Очереди (FIFO/LIFO). PriorityQueue выдает элементы по приоритету; ArrayDeque — быстрая двусторонняя очередь.
+- **Map**: HashMap — стандартное решение на хешировании (критичны `equals()` и `hashCode()`); TreeMap — для отсортированных ключей.
+
+---
 
 **PL:**
-...
+**Java Collection Framework** — to zunifikowana architektura do reprezentacji i manipulacji kolekcjami obiektów. Dostarcza standardowych interfejsów i ich implementacji.
+
+Globalnie w Java istnieją dwie oddzielne gałęzie hierarchii:
+- **Collection** (dziedziczące Iterable) — praca z poszczególnymi elementami
+- **Map** — praca z parami „Klucz-Wartość"
+
+Zaczniemy od gałęzi Collection:
+
+1. **Iterable i Collection**
+    * **Iterable**: Główny interfejs. Gwarancja, że obiekt można iterować w pętli for-each.
+    * **Collection**: Podstawowy interfejs dla wszystkich kolekcji (oprócz Map). Metody: `add()`, `remove()`, `size()`, `contains()`.
+
+2. **List** (Listy)
+    * Istota: Uporządkowana kolekcja, dopuszczająca duplikaty. Każdy element ma indeks (jak w tablicy).
+    * **ArrayList**
+        - Dynamiczna tablica z automatycznym rozszerzaniem.
+        - Plusy: Szybki dostęp po indeksie ($O(1)$).
+        - Minusy: Wolna wstawka/usunięcie w środek (wymagane przesunięcie elementów).
+        - Kiedy używać: W 90% przypadków dla zwykłego przechowywania i czytania.
+    * **LinkedList**
+        - Dwukierunkowa lista powiązana. Każdy element przechowuje referencję do poprzedniego i następnego.
+        - Plusy: Szybka wstawka/usunięcie na początek lub środek ($O(1)$ przy iteratorze).
+        - Minusy: Wolny dostęp po indeksie ($O(n)$) — trzeba iterować elementy.
+        - Kiedy używać: Jeśli kolekcja jest często modyfikowana w środku, ale rzadko czytana po indeksie.
+
+3. **Queue i Deque** (Kolejki)
+    * Istota: Kolekcje do przechowywania elementów w porządku przetwarzania (zwykle FIFO — First In, First Out).
+    * **Queue**
+        - `PriorityQueue`: Uporządkowana kolejka. Elementy wychodzą zgodnie z priorytetem, a nie kolejnością wstawienia.
+    * **Deque** (Double Ended Queue)
+        - Dwukierunkowa kolejka. Można dodawać i zabierać elementy z obu końców.
+        - `ArrayDeque`: Szybsza alternatywa dla klasy Stack.
+
+4. **Set** (Zbiory)
+    * Istota: Kolekcja unikalnych elementów. Duplikaty nie są przechowywane.
+    * **HashSet**
+        - Najpopularniejsza implementacja. Używa HashMap wewnętrznie.
+        - Porządek elementów nie jest gwarantowany.
+        - Bardzo szybkie operacje dodania i wyszukania ($O(1)$) dzięki haszowaniu.
+    * **LinkedHashSet**
+        - Pamięta porządek dodania elementów.
+        - Nieco wolniejszy niż HashSet.
+    * **TreeSet**
+        - Przechowuje elementy w posortowanej kolejności (Red-Black Tree).
+        - Wstawka wolniejsza ($O(\log n)$), ale idealna dla posortowanych unikalnych danych.
+
+5. **Map** (Słowniki)
+    * Istota: Przechowuje pary Klucz → Wartość. Działa niezależnie od interfejsu Collection.
+    * Klucze muszą być unikalne.
+    * **HashMap**
+        - Najpopularniejsze rozwiązanie.
+        - Oblicza `hashCode` klucza, określa „koszyk" (bucket) i umieszcza tam wartość.
+        - **Ważne**: Krytycznie zależy od prawidłowej implementacji `equals()` i `hashCode()` w obiekcie klucza. Zła funkcja haszująca obniża wydajność do poziomu listy powiązanej.
+        - Plusy: Natychmiastowy dostęp po kluczu przy braku kolizji.
+    * **TreeMap**
+        - Klucze przechowywane w posortowanej kolejności.
+    * **LinkedHashMap**
+        - Przechowuje porządek dodania kluczy.
+
+**Diagram:**
+<img src="img/CollectionsJava.png" alt="drawing" width="600"/>
+
+##### Wersja krótka (do nauki, 40–60 s)
+
+- **Dwie główne gałęzie**: Collection (poszczególne elementy) i Map (pary Klucz-Wartość).
+- **List**: Uporządkowane listy. ArrayList — tablica (szybkie czytanie po indeksie $O(1)$), LinkedList — lista powiązana (szybka wstawka/usunięcie).
+- **Set**: Unikalne elementy. HashSet — najszybszy ($O(1)$), ale bez gwarancji porządku; TreeSet — przechowuje posortowane ($O(\log n)$).
+- **Queue/Deque**: Kolejki (FIFO/LIFO). PriorityQueue zwraca elementy po priorytecie; ArrayDeque — szybka dwukierunkowa kolejka.
+- **Map**: HashMap — standardowe rozwiązanie na haszowaniu (krytyczne `equals()` i `hashCode()`); TreeMap — dla posortowanych kluczy.

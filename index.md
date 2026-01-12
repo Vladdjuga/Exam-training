@@ -1498,17 +1498,113 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 32 / Pytanie 32
 
-**UA:** [Текст питання]
+**RU:** На выбранном примере оговорить проблему (?) Stream API в языке Java.
 
 **PL:** Na wybranym przykładzie omów zagadnienie strumieni w języku Java.
 
 ### Пояснення / Wyjaśление
 
-**UA:**
-...
+**RU:**
+**Stream API** появилось в Java 8 и кардинально изменило подход к написанию кода. Это ознаменовало переход от **императивного стиля** (циклы for, if) к **функциональному**.
+
+Основная идея: мы больше не пишем, *как* итерировать коллекцию, мы пишем, *что* мы хотим с ней сделать.
+
+**Диаграмма:**
+<img src="img/JavaStreamAPI.png" alt="drawing" width="600"/>
+
+**Как это работает**
+
+Работу со стримами можно представить как конвейер. Обычно процесс состоит из трех этапов:
+
+1. **Создание (Input)**
+    * Входная точка. Чаще всего создается из коллекции: `list.stream()`.
+
+2. **Обработка (Intermediate Operations)**
+    * Настройка конвейера (фильтрация, преобразование).
+
+3. **Завершение (Terminal Operation)**
+    * Запуск конвейера и получение результата.
+
+**Важные особенности**
+
+* **Одноразовость**: Стрим (Поток) можно использовать только один раз. После вызова терминальной операции он закрывается. Если попытаться вызвать метод повторно — упадет исключение.
+
+* **Ленивость (Lazy Evaluation)**: Промежуточные операции не выполняются, пока не будет вызвана терминальная операция. Стрим просто «запоминает» набор команд, но данные не текут, пока не потребуют результат.
+
+**Типы операций**
+
+1. **Промежуточные (Intermediate)**
+    * Возвращают новый Stream. Их можно объединять в цепочки.
+    * `.filter(Predicate)` — фильтрует поток, оставляя только элементы, соответствующие условию (возвращающие true).
+    * `.map(Function)` — преобразует каждый элемент в другой объект (например, из User достает String name).
+    * `.sorted()` — сортирует элементы.
+    * `.distinct()` — убирает дубликаты.
+
+2. **Терминальные (Terminal)**
+    * Запускают выполнение потока и возвращают результат (или void), но не Stream. После этого стрим умирает.
+    * `.collect(Collectors.toList())` — собрать результат обратно в List/Set/Map.
+    * `.forEach(Consumer)` — выполнить действие для каждого элемента (например, вывод в консоль).
+    * `.count()` — вернуть количество элементов.
+    * `.findFirst()` — вернуть первый элемент (обернутый в Optional).
+
+##### Краткая версия (для собеседования, 40–60 сек)
+
+- **Stream API** (Java 8) — инструмент для обработки данных в функциональном стиле.
+- **Суть**: Говорим четкие инструкции что сделать.
+- **Жизненный цикл**: Создание (collection.stream()) → промежуточные операции (filter, map, sorted, distinct) → терминальная операция (collect, forEach, count).
+- **Ключевые свойства**: Ленивость (промежуточные операции не выполняются до вызова терминальной); одноразовость (стрим умирает после терминальной операции).
+
+---
 
 **PL:**
-...
+**Stream API** pojawiło się w Java 8 i zasadniczo zmieniło podejście do pisania kodu. Oznaczało to przejście od **stylu imperatywnego** (pętle for, if) do **funkcjonalnego**.
+
+Podstawowa idea: zamiast pisać, *jak* iterować kolekcję, piszemy, *co* chcemy z nią zrobić.
+
+**Diagram:**
+<img src="img/JavaStreamAPI.png" alt="drawing" width="600"/>
+
+**Jak to działa (Pipeline)**
+
+Pracę ze strumieniami można przedstawić jako konwejor. Proces zwykle obejmuje trzy etapy:
+
+1. **Tworzenie (Source)**
+    * Punkt wejścia. Najczęściej tworzone z kolekcji: `list.stream()`.
+
+2. **Przetwarzanie (Intermediate Operations)**
+    * Konfiguracja konwejera (filtrowanie, transformacja).
+
+3. **Zakończenie (Terminal Operation)**
+    * Uruchomienie konwejera i uzyskanie wyniku.
+
+**Ważne cechy**
+
+* **Jednorazowość**: Strumień można użyć tylko raz. Po wywołaniu operacji terminalnej strumień zostaje zamknięty. Próba ponownego wywołania metody spowoduje wyjątek.
+
+* **Leniwość (Lazy Evaluation)**: Operacje pośrednie nie są wykonywane, dopóki nie zostanie wywołana operacja terminalna. Strumień po prostu „zapamiętuje" zestaw poleceń, ale dane nie płyną, dopóki nie żądasz wyniku.
+
+**Typy operacji**
+
+1. **Pośrednie (Intermediate)**
+    * Zwracają nowy Stream. Można je łączyć w łańcuchy.
+    * `.filter(Predicate)` — filtruje strumień, pozostawiając tylko elementy spełniające warunek (zwracające true).
+    * `.map(Function)` — transformuje każdy element na inny obiekt (np. z User wyciąga String name).
+    * `.sorted()` — sortuje elementy.
+    * `.distinct()` — usuwa duplikaty.
+
+2. **Terminalne (Terminal)**
+    * Uruchamiają wykonanie strumienia i zwracają wynik (lub void), ale nie Stream. Potem strumień umiera.
+    * `.collect(Collectors.toList())` — zbierz wynik z powrotem w List/Set/Map.
+    * `.forEach(Consumer)` — wykonaj akcję dla każdego elementu (np. wydruk na konsolę).
+    * `.count()` — zwróć liczbę elementów.
+    * `.findFirst()` — zwróć pierwszy element (owinięty w Optional).
+
+##### Wersja krótka (do nauki, 40–60 s)
+
+- **Stream API** (Java 8) — narzędzie do przetwarzania danych w stylu funkcjonalnym.
+- **Istota**: Pozwala pisać kod deklaratywny (opisujemy «co», a nie «jak»).
+- **Cykl życia**: Tworzenie (collection.stream()) → operacje pośrednie (filter, map, sorted, distinct) → operacja terminalna (collect, forEach, count).
+- **Kluczowe właściwości**: Leniwość (operacje pośrednie nie wykonują się do wywołania operacji terminalnej); jednorazowość (strumień umiera po operacji terminalnej).
 
 ---
 

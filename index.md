@@ -1482,17 +1482,189 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 31 / Pytanie 31
 
-**UA:** [Текст питання]
+**RU:** Функциональные интерфейсы и лямблда выражения в языке Java. Оговори и подай пример.
 
 **PL:** Interfejsy funkcyjne i wyrażenia lambda w języku Java. Omów i podaj przykłady.
 
-### Пояснення / Wyjaśление
+### Обьяснение / Wyjaśление
 
-**UA:**
-...
+**RU:**
+
+## Функциональные интерфейсы и Лямбда-выражения (Java 8)
+
+С выходом Java 8 язык сделал большой шаг в сторону функционального программирования. Это позволило писать код короче и выразительнее, передавая поведение как аргументы.
+
+### 1. Функциональный интерфейс
+
+Это интерфейс, который содержит **ровно один абстрактный метод** (при этом может содержать любое количество методов `default` или `static`).
+
+**Аннотация @FunctionalInterface:** помечает интерфейс. Она не обязательна, но полезна — компилятор выдаст ошибку, если вы добавите второй абстрактный метод, нарушив правило.
+
+**Примеры встроенных функциональных интерфейсов:**
+- `Runnable` — без параметров, нет возврата
+- `Callable<V>` — без параметров, возвращает V
+- `Comparator<T>` — сравнение двух объектов
+- Из пакета `java.util.function`: `Predicate<T>`, `Consumer<T>`, `Function<T, R>`, `Supplier<T>`
+
+### 2. Лямбда-выражения (Lambda Expressions)
+
+Лямбда — это компактная запись анонимной функции (реализации функционального интерфейса). Она позволяет избежать громоздкого синтаксиса анонимных классов.
+
+**Структура лямбды состоит из трех частей:**
+
+1. **Аргументы:** `(x, y)` — параметры метода
+2. **Оператор стрелка:** `->` — разделяет параметры и тело функции
+3. **Тело:** выражение или блок кода, который выполняется
+
+### Синтаксис и правила
+
+Лямбды записываются по-разному в зависимости от сложности логики:
+
+**А) Однострочное выражение (Expression style)**
+
+Если действие занимает одну строку, фигурные скобки и `return` не требуются — Java автоматически вернет результат.
+
+```java
+(a) -> a > 0   // Возвращает true, если a > 0
+```
+
+**Б) Блок кода (Block style)**
+
+Для сложной логики требуются фигурные скобки и явный `return`.
+
+```java
+(a) -> {
+    System.out.println("Checking...");
+    return a > 0;
+}
+```
+
+**В) Упрощение аргументов**
+
+При одном аргументе скобки можно опустить; при нескольких или при их отсутствии — скобки обязательны.
+
+```java
+a -> a * 2        // Один аргумент
+() -> "Hello"     // Нет аргументов
+(x, y) -> x + y   // Несколько аргументов
+```
+
+### Пример: Эволюция кода
+
+**До Java 8 (Анонимный класс):**
+
+```java
+// Сортировка списка строк по длине
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.length() - b.length();
+    }
+});
+```
+
+**С Java 8 (Лямбда):**
+
+```java
+// То же самое — одна строка
+Collections.sort(names, (a, b) -> a.length() - b.length());
+```
+
+##### Краткая версия (для собеседования, 40–60 сек)
+
+- **Функциональный интерфейс** - это интерфейс, который имеет только один абстрактный метод. Может помечаться аннотацией @FunctionalInterface для контроля компилятором.
+- **Лямбда-выражение** - это краткая реализация такого интерфейса (анонимная функция). Позволяет писать код в функциональном стиле.
+- **Синтаксис** - Состоит из трех частей: аргументы (), стрелка -> и тело метода.
+- **Особенность** - Если тело состоит из одной строки, return и фигурные скобки {} не нужны (это называется expression body). Если строк несколько — скобки и return обязательны.
 
 **PL:**
-...
+
+## Interfejsy funkcyjne i wyrażenia lambda (Java 8)
+
+Z pojawieniam się Java 8 język zrobił duży krok w kierunku programowania funkcjonalnego. To pozwoliło na pisanie kodu bardziej zwięzłego i wyrażającego, przekazując zachowanie jako argumenty.
+
+### 1. Interfejs funkcyjny
+
+To interfejs, który zawiera **dokładnie jedną metodę abstrakcyjną** (może zawierać dowolną liczbę metod `default` lub `static`).
+
+**Adnotacja @FunctionalInterface:** oznacza interfejs. Nie jest obowiązkowa, ale jest przydatna — kompilator wyda błąd, jeśli dodasz drugą metodę abstrakcyjną, naruszając zasadę.
+
+**Przykłady wbudowanych interfejsów funkcyjnych:**
+- `Runnable` — bez parametrów, brak zwrotu
+- `Callable<V>` — bez parametrów, zwraca V
+- `Comparator<T>` — porównanie dwóch obiektów
+- Z pakietu `java.util.function`: `Predicate<T>`, `Consumer<T>`, `Function<T, R>`, `Supplier<T>`
+
+### 2. Wyrażenia lambda (Lambda Expressions)
+
+Lambda to kompaktowy zapis funkcji anonimowej (implementacji interfejsu funkcyjnego). Pozwala uniknąć skomplikowanej składni klas anonimowych.
+
+**Struktura lambdy składa się z trzech części:**
+
+1. **Argumenty:** `(x, y)` — parametry metody
+2. **Operator strzałka:** `->` — oddziela parametry od ciała funkcji
+3. **Ciało:** wyrażenie lub blok kodu, który się wykonuje
+
+### Składnia i reguły
+
+Lambdy zapisuje się na różne sposoby w zależności od złożoności logiki:
+
+**A) Jednowierszowe wyrażenie (Expression style)**
+
+Jeśli działanie zajmuje jeden wiersz, nawiasy klamrowe i `return` nie są wymagane — Java automatycznie zwróci wynik.
+
+```java
+(a) -> a > 0   // Zwraca true, jeśli a > 0
+```
+
+**B) Blok kodu (Block style)**
+
+Dla złożonej logiki wymagane są nawiasy klamrowe i jawny `return`.
+
+```java
+(a) -> {
+    System.out.println("Checking...");
+    return a > 0;
+}
+```
+
+**C) Uproszczenie argumentów**
+
+Przy jednym argumencie nawiasy można opuścić; przy kilku lub braku argumentów — nawiasy są obowiązkowe.
+
+```java
+a -> a * 2        // Jeden argument
+() -> "Hello"     // Brak argumentów
+(x, y) -> x + y   // Kilka argumentów
+```
+
+### Przykład: Ewolucja kodu
+
+**Przed Java 8 (Klasa anonimowa):**
+
+```java
+// Sortowanie listy ciągów znaków po długości
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.length() - b.length();
+    }
+});
+```
+
+**Z Java 8 (Lambda):**
+
+```java
+// To samo — jeden wiersz
+Collections.sort(names, (a, b) -> a.length() - b.length());
+```
+
+##### Krótka wersja (do nauki, 40–60 s)
+
+- **Interfejs funkcyjny** — to interfejs z dokładnie jedną metodą abstrakcyjną. Może być oznaczony adnotacją @FunctionalInterface dla kontroli kompilatora.
+- **Wyrażenie lambda** — to zwięzła implementacja takiego interfejsu (funkcja anonimowa). Pozwala pisać kod w stylu funkcjonalnym.
+- **Składnia** — składa się z trzech części: argumenty (), strzałka -> i ciało metody.
+- **Szczególność** — jeśli ciało zawiera jeden wiersz, `return` i nawiasy klamrowe {} nie są potrzebne (zwane expression body). Jeśli wierszy jest więcej — nawiasy i return są obowiązkowe.
 
 ---
 

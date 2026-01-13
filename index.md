@@ -1210,17 +1210,157 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 14 / Pytanie 14
 
-**UA:** [Текст питання]
+**RU:** Схарактеризуй структуру HTML документа.
 
 **PL:** Scharakteryzuj strukturę dokumentu HTML.
 
-### Пояснення / Wyjaśnienie
+### Обьяснение / Wyjaśnienie
 
-**UA:**
-...
+**RU:**
+
+## Структура HTML-документа
+
+**HTML-документ** — это не просто набор текста, а **строгая иерархическая структура (дерево)**, состоящая из элементов, называемых **тегами**. Вложенность тегов и их правильная последовательность называется **DOM (Document Object Model)**.
+
+### Базовый скелет
+
+Любая правильная веб-страница начинается с этого стандартного шаблона:
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+</body>
+</html>
+```
+
+### Разбор основных элементов
+
+**1. <!DOCTYPE html>**
+
+Это не тег, а инструкция для браузера. Стоит самой первой и указывает на стандарт **HTML5**. Без этой строки браузер отобразит страницу некорректно.
+
+**2. <html>** — корневой элемент
+
+Весь документ находится внутри этих тегов. Атрибут `lang="ru"` важен для поисковиков и скринридеров (программ для чтения с экрана), указывая язык контента.
+
+**3. Два обязательных раздела: <head> и <body>**
+
+Внутри `<html>` документ всегда делится на две части:
+
+**<head> (Голова):**
+- Служебная информация (метаданные)
+- Не видна пользователю на странице (кроме заголовка во вкладке)
+- Здесь подключаются стили (CSS), шрифты, скрипты (JS), указывается кодировка (UTF-8)
+- Ключевой тег: `<title>` — название вкладки браузера
+
+**<body> (Тело):**
+- Содержит весь видимый контент: текст, картинки, кнопки, видео
+- Всё, что видит пользователь, должно быть здесь
+
+### Семантическая структура (HTML5)
+
+В прошлом верстка строилась на одних `<div>`. Современный **HTML5** использует **семантические теги** — специальные разделы, которые объясняют браузеру и поисковикам роль контента:
+
+**<header>** — «шапка» сайта или раздела (логотип, меню)
+
+**<nav>** — блок навигации (ссылки)
+
+**<main>** — основной контент страницы (один на страницу)
+
+**<section>** / **<article>** — смысловые разделы
+
+**<footer>** — «подвал» сайта (копирайты, контакты)
+
+**<h1>–<h6>** — заголовки (от самого важного H1 до наименее важного H6)
+
+### Краткая версия (для собеседования, 40–60 сек)
+
+- **DOM** — древовидная структура HTML-документа.
+- **<!DOCTYPE html>** — инструкция для браузера использовать HTML5.
+- **<html>** — корневой тег. Внутри два раздела:
+  - **<head>** — метаданные, CSS, JS, `<title>` (не видно пользователю)
+  - **<body>** — весь видимый контент
+- **Семантические теги** (`<header>`, `<main>`, `<footer>`, `<section>`) делают код логичным для SEO и доступности.
 
 **PL:**
-...
+
+## Struktura dokumentu HTML
+
+**Dokument HTML** — to nie tylko tekst, ale **ścisła hierarchiczna struktura (drzewo)** złożona z elementów zwanych **tagami**. Zagnieżdżanie tagów i ich prawidłowa kolejność to **DOM (Document Object Model)**.
+
+### Podstawowy szkielet
+
+Każda prawidłowa strona internetowa zaczyna się od tego standardowego szablonu:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Tytuł strony</title>
+</head>
+<body>
+    <h1>Cześć, świecie!</h1>
+</body>
+</html>
+```
+
+### Analiza głównych elementów
+
+**1. <!DOCTYPE html>**
+
+To nie tag, lecz instrukcja dla przeglądarki. Stoi na początku i wskazuje na standard **HTML5**. Bez tej linii przeglądarka wyświetli stronę niepoprawnie.
+
+**2. <html>** — element główny
+
+Cały dokument znajduje się wewnątrz tych tagów. Atrybut `lang="pl"` jest ważny dla wyszukiwarek i czytników ekranu (programów dla osób niewidomych), wskazując język zawartości.
+
+**3. Dwie obowiązkowe sekcje: <head> i <body>**
+
+Wewnątrz `<html>` dokument zawsze dzieli się na dwie części:
+
+**<head> (Nagłówek):**
+- Informacje pomocnicze (metadane)
+- Nie widoczna dla użytkownika na stronie (oprócz tytułu na karcie)
+- Tutaj podłączane są style (CSS), czcionki, skrypty (JS), kodowanie (UTF-8)
+- Kluczowy tag: `<title>` — nazwa karty przeglądarki
+
+**<body> (Treść):**
+- Zawiera całą widoczną zawartość: tekst, obrazy, przyciski, wideo
+- Wszystko, co widzi użytkownik, powinno być tutaj
+
+### Struktura semantyczna (HTML5)
+
+W przeszłości układ budowano na samych `<div>`. Nowoczesny **HTML5** używa **tagów semantycznych** — specjalnych sekcji, które wyjaśniają przeglądarce i wyszukiwarkom rolę zawartości:
+
+**<header>** — «głowica» strony lub sekcji (logo, menu)
+
+**<nav>** — blok nawigacji (linki)
+
+**<main>** — główna zawartość strony (jeden na stronę)
+
+**<section>** / **<article>** — logiczne sekcje
+
+**<footer>** — «stopka» strony (prawa autorskie, kontakt)
+
+**<h1>–<h6>** — nagłówki (od najważniejszego H1 do najmniej ważnego H6)
+
+### Krótka wersja (do nauki, 40–60 s)
+
+- **DOM** — hierarchiczna struktura dokumentu HTML.
+- **<!DOCTYPE html>** — instrukcja dla przeglądarki, aby użyć HTML5.
+- **<html>** — tag główny. Wewnątrz dwie sekcje:
+  - **<head>** — metadane, CSS, JS, `<title>` (niewidoczne dla użytkownika)
+  - **<body>** — całą widoczną zawartość
+- **Tagi semantyczne** (`<header>`, `<main>`, `<footer>`, `<section>`) czynią kod logicznym dla SEO i dostępności.
+
+---
 
 ---
 
@@ -1466,61 +1606,584 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 30 / Pytanie 30
 
-**UA:** [Текст питання]
+**RU:** Схарактеризуй архитуктуру приложения ориентированную на сервисы. SOA - Service Oriented Architecture.
 
 **PL:** Scharakteryzuj architekturę aplikacji zorientowaną na usługi (ang. Service Oriented Architecture)
 
-### Пояснення / Wyjaśление
+### Обьяснение / Wyjaśление
 
-**UA:**
-...
+**RU:**
+
+## Архитектура, ориентированная на сервисы (SOA)
+
+**Service-Oriented Architecture (SOA)** — это архитектурный стиль, в котором приложение строится из набора дискретных и слабосвязанных компонентов, называемых **сервисами**.
+
+Каждый сервис реализует определённую бизнес-логику и может взаимодействовать с другими сервисами через сеть. Главная цель SOA — **повторное использование кода** и **лёгкая интеграция** разных систем.
+
+### Сравнение архитектур
+
+На изображении ниже показаны различия в декомпозиции между тремя подходами:
+
+<img src="img/soa_monolit_microservices.png" alt="drawing" width="600"/>
+
+**Монолит:** вся система — это единый неделимый блок; все компоненты жёстко связаны.
+
+**Микросервисы:** логика разбита на максимально мелкие, независимые единицы, каждая отвечает за одну узкую задачу.
+
+**SOA:** занимает место «посередине» — мы разделяем систему на крупные логические модули (бизнес-сервисы), часто объединённые общей шиной данных (ESB).
+
+### Основные принципы SOA
+
+Не существует единого стандарта, но выделяют ключевые принципы манифеста SOA:
+
+**1. Абстрагирование (Service Abstraction)**
+Сервис — это «чёрный ящик». Потребителю не нужно знать, как он устроен внутри, на каком языке написан (Java, Python, C#) и какая у него база данных. Важен только контракт взаимодействия.
+
+**2. Слабая связность (Loose Coupling)**
+Сервисы должны иметь минимум зависимостей друг от друга. Изменение внутри одного сервиса не должно ломать работу других.
+
+**3. Отсутствие состояния (Statelessness)**
+Сервисы не должны хранить информацию о сессии или предыдущих запросах. Каждый запрос должен содержать всю необходимую информацию.
+
+**4. Стандартизация контрактов (Standardized Contracts)**
+Каждый сервис имеет описание (контракт), определяющее его функциональность и способ взаимодействия (например, WSDL для SOAP или OpenAPI для REST). Это гарантирует совместимость.
+
+
+### Компоненты архитектуры
+
+<img src="img/soaARCH.png" alt="drawing" width="600"/>
+
+Классическая SOA состоит из трёх основных ролей и связующего элемента:
+
+**Поставщик сервиса (Service Provider)**
+Создаёт, поддерживает и предоставляет сервис. Публикует описание сервиса в реестре.
+
+**Потребитель сервиса (Service Consumer)**
+Система или приложение, которое использует функционал. Ищет сервис в реестре и отправляет запрос поставщику.
+
+**Реестр сервисов (Service Registry)**
+Справочник («телефонная книга»), где хранятся адреса и описания доступных сервисов. Позволяет потребителям находить поставщиков.
+
+**Enterprise Service Bus (ESB)**
+Часто используется «Сервисная Шина Предприятия» — прослойка, управляющая передачей сообщений между сервисами, маршрутизацией и преобразованием форматов данных.
+
+### Краткая версия (для собеседования, 40–60 сек)
+
+- **SOA** — подход, при котором приложение собирается из независимых бизнес-сервисов, взаимодействующих по сети.
+- **Отличие от микросервисов:** В SOA сервисы более крупные (бизнес-функции) и используют общую шину данных (ESB), тогда как микросервисы максимально децентрализованы.
+- **Принципы:** слабая связность, абстракция, повторное использование, стандартизированные контракты.
+- **Компоненты:** Поставщик (создаёт), Потребитель (использует), Реестр (хранит адреса) и ESB (маршрутизирует).
 
 **PL:**
-...
+
+## Architektura zorientowana na usługi (SOA)
+
+**Service-Oriented Architecture (SOA)** — to styl architektoniczny, w którym aplikacja budowana jest z zestawu dyskretnych i słabo powiązanych komponentów, zwanych **usługami**.
+
+Każda usługa realizuje określoną logikę biznesową i może komunikować się z innymi usługami przez sieć. Głównym celem SOA jest **ponowne użycie kodu** i **łatwa integracja** różnych systemów.
+
+### Porównanie architektur
+
+Na poniższym obrazie przedstawiono różnice w dekompozycji między trzema podejściami:
+
+<img src="img/soa_monolit_microservices" alt="drawing" width="600"/>
+
+**Monolity:** cały system to jeden niepodzielny blok; wszystkie komponenty są ściśle powiązane.
+
+**Mikroserwisy:** logika podzielona na maksymalnie małe, niezależne jednostki, każda odpowiada za jedno wąskie zadanie.
+
+**SOA:** zajmuje miejsce „pośrodku" — dzielimy system na duże moduły logiczne (usługi biznesowe), często połączone wspólną szyną danych (ESB).
+
+### Główne zasady SOA
+
+Nie ma jednego standardu, ale wyróżnia się kluczowe zasady manifestu SOA:
+
+**1. Abstrakcja (Service Abstraction)**
+Usługa to «czarna skrzynka». Konsument nie musi wiedzieć, jak jest zbudowana, w jakim języku (Java, Python, C#) czy jaką ma bazę danych. Ważny jest tylko kontrakt interakcji.
+
+**2. Luźne powiązanie (Loose Coupling)**
+Usługi powinny mieć minimum zależności od siebie. Zmiana wewnątrz jednej usługi nie powinna psować pracy innych.
+
+**3. Brak stanu (Statelessness)**
+Usługi nie powinny przechowywać informacji o sesji lub poprzednich żądaniach. Każde żądanie musi zawierać wszystkie niezbędne informacje.
+
+**4. Standaryzacja kontraktów (Standardized Contracts)**
+Każda usługa ma opis (kontrakt), określający jej funkcjonalność i sposób komunikacji (np. WSDL dla SOAP lub OpenAPI dla REST). Gwarantuje to kompatybilność.
+
+### Komponenty architektury
+
+<img src="img/soaARCH.png" alt="drawing" width="600"/>
+
+Klasyczna SOA składa się z trzech głównych ról i elementu łączącego:
+
+**Dostawca usługi (Service Provider)**
+Tworzy, utrzymuje i udostępnia usługę. Publikuje opis usługi w rejestrze.
+
+**Konsument usługi (Service Consumer)**
+System lub aplikacja, która wykorzystuje funkcjonalność. Szuka usługi w rejestrze i wysyła żądanie dostawcy.
+
+**Rejestr usług (Service Registry)**
+Katalog («księga adresowa»), gdzie przechowywane są adresy i opisy dostępnych usług. Umożliwia konsumentom znalezienie dostawców.
+
+**Enterprise Service Bus (ESB)**
+Często używana «Magistrala Usług Przedsiębiorstwa» — warstwa, która zarządza transmisją wiadomości między usługami, routingiem i transformacją formatów danych.
+
+### Krótka wersja (do nauki, 40–60 s)
+
+- **SOA** — podejście, w którym aplikacja składa się z niezależnych usług biznesowych komunikujących się przez sieć.
+- **Różnica od mikroserwisów:** W SOA usługi są większe (funkcje biznesowe) i używają wspólnej magistrali danych (ESB), podczas gdy mikroserwisy są maksymalnie zdecentralizowane.
+- **Zasady:** luźne powiązanie, abstrakcja, ponowne użycie, standaryzowane kontrakty.
+- **Komponenty:** Dostawca (tworzy), Konsument (używa), Rejestr (przechowuje adresy) i ESB (routuje).
 
 ---
 
 ## Питання 31 / Pytanie 31
 
-**UA:** [Текст питання]
+**RU:** Функциональные интерфейсы и лямблда выражения в языке Java. Оговори и подай пример.
 
 **PL:** Interfejsy funkcyjne i wyrażenia lambda w języku Java. Omów i podaj przykłady.
 
-### Пояснення / Wyjaśление
+### Обьяснение / Wyjaśление
 
-**UA:**
-...
+**RU:**
+
+## Функциональные интерфейсы и Лямбда-выражения (Java 8)
+
+С выходом Java 8 язык сделал большой шаг в сторону функционального программирования. Это позволило писать код короче и выразительнее, передавая поведение как аргументы.
+
+### 1. Функциональный интерфейс
+
+Это интерфейс, который содержит **ровно один абстрактный метод** (при этом может содержать любое количество методов `default` или `static`).
+
+**Аннотация @FunctionalInterface:** помечает интерфейс. Она не обязательна, но полезна — компилятор выдаст ошибку, если вы добавите второй абстрактный метод, нарушив правило.
+
+**Примеры встроенных функциональных интерфейсов:**
+- `Runnable` — без параметров, нет возврата
+- `Callable<V>` — без параметров, возвращает V
+- `Comparator<T>` — сравнение двух объектов
+- Из пакета `java.util.function`: `Predicate<T>`, `Consumer<T>`, `Function<T, R>`, `Supplier<T>`
+
+### 2. Лямбда-выражения (Lambda Expressions)
+
+Лямбда — это компактная запись анонимной функции (реализации функционального интерфейса). Она позволяет избежать громоздкого синтаксиса анонимных классов.
+
+**Структура лямбды состоит из трех частей:**
+
+1. **Аргументы:** `(x, y)` — параметры метода
+2. **Оператор стрелка:** `->` — разделяет параметры и тело функции
+3. **Тело:** выражение или блок кода, который выполняется
+
+### Синтаксис и правила
+
+Лямбды записываются по-разному в зависимости от сложности логики:
+
+**А) Однострочное выражение (Expression style)**
+
+Если действие занимает одну строку, фигурные скобки и `return` не требуются — Java автоматически вернет результат.
+
+```java
+(a) -> a > 0   // Возвращает true, если a > 0
+```
+
+**Б) Блок кода (Block style)**
+
+Для сложной логики требуются фигурные скобки и явный `return`.
+
+```java
+(a) -> {
+    System.out.println("Checking...");
+    return a > 0;
+}
+```
+
+**В) Упрощение аргументов**
+
+При одном аргументе скобки можно опустить; при нескольких или при их отсутствии — скобки обязательны.
+
+```java
+a -> a * 2        // Один аргумент
+() -> "Hello"     // Нет аргументов
+(x, y) -> x + y   // Несколько аргументов
+```
+
+### Пример: Эволюция кода
+
+**До Java 8 (Анонимный класс):**
+
+```java
+// Сортировка списка строк по длине
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.length() - b.length();
+    }
+});
+```
+
+**С Java 8 (Лямбда):**
+
+```java
+// То же самое — одна строка
+Collections.sort(names, (a, b) -> a.length() - b.length());
+```
+
+##### Краткая версия (для собеседования, 40–60 сек)
+
+- **Функциональный интерфейс** - это интерфейс, который имеет только один абстрактный метод. Может помечаться аннотацией @FunctionalInterface для контроля компилятором.
+- **Лямбда-выражение** - это краткая реализация такого интерфейса (анонимная функция). Позволяет писать код в функциональном стиле.
+- **Синтаксис** - Состоит из трех частей: аргументы (), стрелка -> и тело метода.
+- **Особенность** - Если тело состоит из одной строки, return и фигурные скобки {} не нужны (это называется expression body). Если строк несколько — скобки и return обязательны.
 
 **PL:**
-...
+
+## Interfejsy funkcyjne i wyrażenia lambda (Java 8)
+
+Z pojawieniam się Java 8 język zrobił duży krok w kierunku programowania funkcjonalnego. To pozwoliło na pisanie kodu bardziej zwięzłego i wyrażającego, przekazując zachowanie jako argumenty.
+
+### 1. Interfejs funkcyjny
+
+To interfejs, który zawiera **dokładnie jedną metodę abstrakcyjną** (może zawierać dowolną liczbę metod `default` lub `static`).
+
+**Adnotacja @FunctionalInterface:** oznacza interfejs. Nie jest obowiązkowa, ale jest przydatna — kompilator wyda błąd, jeśli dodasz drugą metodę abstrakcyjną, naruszając zasadę.
+
+**Przykłady wbudowanych interfejsów funkcyjnych:**
+- `Runnable` — bez parametrów, brak zwrotu
+- `Callable<V>` — bez parametrów, zwraca V
+- `Comparator<T>` — porównanie dwóch obiektów
+- Z pakietu `java.util.function`: `Predicate<T>`, `Consumer<T>`, `Function<T, R>`, `Supplier<T>`
+
+### 2. Wyrażenia lambda (Lambda Expressions)
+
+Lambda to kompaktowy zapis funkcji anonimowej (implementacji interfejsu funkcyjnego). Pozwala uniknąć skomplikowanej składni klas anonimowych.
+
+**Struktura lambdy składa się z trzech części:**
+
+1. **Argumenty:** `(x, y)` — parametry metody
+2. **Operator strzałka:** `->` — oddziela parametry od ciała funkcji
+3. **Ciało:** wyrażenie lub blok kodu, który się wykonuje
+
+### Składnia i reguły
+
+Lambdy zapisuje się na różne sposoby w zależności od złożoności logiki:
+
+**A) Jednowierszowe wyrażenie (Expression style)**
+
+Jeśli działanie zajmuje jeden wiersz, nawiasy klamrowe i `return` nie są wymagane — Java automatycznie zwróci wynik.
+
+```java
+(a) -> a > 0   // Zwraca true, jeśli a > 0
+```
+
+**B) Blok kodu (Block style)**
+
+Dla złożonej logiki wymagane są nawiasy klamrowe i jawny `return`.
+
+```java
+(a) -> {
+    System.out.println("Checking...");
+    return a > 0;
+}
+```
+
+**C) Uproszczenie argumentów**
+
+Przy jednym argumencie nawiasy można opuścić; przy kilku lub braku argumentów — nawiasy są obowiązkowe.
+
+```java
+a -> a * 2        // Jeden argument
+() -> "Hello"     // Brak argumentów
+(x, y) -> x + y   // Kilka argumentów
+```
+
+### Przykład: Ewolucja kodu
+
+**Przed Java 8 (Klasa anonimowa):**
+
+```java
+// Sortowanie listy ciągów znaków po długości
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.length() - b.length();
+    }
+});
+```
+
+**Z Java 8 (Lambda):**
+
+```java
+// To samo — jeden wiersz
+Collections.sort(names, (a, b) -> a.length() - b.length());
+```
+
+##### Krótka wersja (do nauki, 40–60 s)
+
+- **Interfejs funkcyjny** — to interfejs z dokładnie jedną metodą abstrakcyjną. Może być oznaczony adnotacją @FunctionalInterface dla kontroli kompilatora.
+- **Wyrażenie lambda** — to zwięzła implementacja takiego interfejsu (funkcja anonimowa). Pozwala pisać kod w stylu funkcjonalnym.
+- **Składnia** — składa się z trzech części: argumenty (), strzałka -> i ciało metody.
+- **Szczególność** — jeśli ciało zawiera jeden wiersz, `return` i nawiasy klamrowe {} nie są potrzebne (zwane expression body). Jeśli wierszy jest więcej — nawiasy i return są obowiązkowe.
 
 ---
 
 ## Питання 32 / Pytanie 32
 
-**UA:** [Текст питання]
+**RU:** На выбранном примере оговорить проблему (?) Stream API в языке Java.
 
 **PL:** Na wybranym przykładzie omów zagadnienie strumieni w języku Java.
 
 ### Пояснення / Wyjaśление
 
-**UA:**
-...
+**RU:**
+**Stream API** появилось в Java 8 и кардинально изменило подход к написанию кода. Это ознаменовало переход от **императивного стиля** (циклы for, if) к **функциональному**.
+
+Основная идея: мы больше не пишем, *как* итерировать коллекцию, мы пишем, *что* мы хотим с ней сделать.
+
+**Диаграмма:**
+<img src="img/JavaStreamAPI.png" alt="drawing" width="600"/>
+
+**Как это работает**
+
+Работу со стримами можно представить как конвейер. Обычно процесс состоит из трех этапов:
+
+1. **Создание (Input)**
+    * Входная точка. Чаще всего создается из коллекции: `list.stream()`.
+
+2. **Обработка (Intermediate Operations)**
+    * Настройка конвейера (фильтрация, преобразование).
+
+3. **Завершение (Terminal Operation)**
+    * Запуск конвейера и получение результата.
+
+**Важные особенности**
+
+* **Одноразовость**: Стрим (Поток) можно использовать только один раз. После вызова терминальной операции он закрывается. Если попытаться вызвать метод повторно — упадет исключение.
+
+* **Ленивость (Lazy Evaluation)**: Промежуточные операции не выполняются, пока не будет вызвана терминальная операция. Стрим просто «запоминает» набор команд, но данные не текут, пока не потребуют результат.
+
+**Типы операций**
+
+1. **Промежуточные (Intermediate)**
+    * Возвращают новый Stream. Их можно объединять в цепочки.
+    * `.filter(Predicate)` — фильтрует поток, оставляя только элементы, соответствующие условию (возвращающие true).
+    * `.map(Function)` — преобразует каждый элемент в другой объект (например, из User достает String name).
+    * `.sorted()` — сортирует элементы.
+    * `.distinct()` — убирает дубликаты.
+
+2. **Терминальные (Terminal)**
+    * Запускают выполнение потока и возвращают результат (или void), но не Stream. После этого стрим умирает.
+    * `.collect(Collectors.toList())` — собрать результат обратно в List/Set/Map.
+    * `.forEach(Consumer)` — выполнить действие для каждого элемента (например, вывод в консоль).
+    * `.count()` — вернуть количество элементов.
+    * `.findFirst()` — вернуть первый элемент (обернутый в Optional).
+
+##### Краткая версия (для собеседования, 40–60 сек)
+
+- **Stream API** (Java 8) — инструмент для обработки данных в функциональном стиле.
+- **Суть**: Говорим четкие инструкции что сделать.
+- **Жизненный цикл**: Создание (collection.stream()) → промежуточные операции (filter, map, sorted, distinct) → терминальная операция (collect, forEach, count).
+- **Ключевые свойства**: Ленивость (промежуточные операции не выполняются до вызова терминальной); одноразовость (стрим умирает после терминальной операции).
+
+---
 
 **PL:**
-...
+**Stream API** pojawiło się w Java 8 i zasadniczo zmieniło podejście do pisania kodu. Oznaczało to przejście od **stylu imperatywnego** (pętle for, if) do **funkcjonalnego**.
+
+Podstawowa idea: zamiast pisać, *jak* iterować kolekcję, piszemy, *co* chcemy z nią zrobić.
+
+**Diagram:**
+<img src="img/JavaStreamAPI.png" alt="drawing" width="600"/>
+
+**Jak to działa (Pipeline)**
+
+Pracę ze strumieniami można przedstawić jako konwejor. Proces zwykle obejmuje trzy etapy:
+
+1. **Tworzenie (Source)**
+    * Punkt wejścia. Najczęściej tworzone z kolekcji: `list.stream()`.
+
+2. **Przetwarzanie (Intermediate Operations)**
+    * Konfiguracja konwejera (filtrowanie, transformacja).
+
+3. **Zakończenie (Terminal Operation)**
+    * Uruchomienie konwejera i uzyskanie wyniku.
+
+**Ważne cechy**
+
+* **Jednorazowość**: Strumień można użyć tylko raz. Po wywołaniu operacji terminalnej strumień zostaje zamknięty. Próba ponownego wywołania metody spowoduje wyjątek.
+
+* **Leniwość (Lazy Evaluation)**: Operacje pośrednie nie są wykonywane, dopóki nie zostanie wywołana operacja terminalna. Strumień po prostu „zapamiętuje" zestaw poleceń, ale dane nie płyną, dopóki nie żądasz wyniku.
+
+**Typy operacji**
+
+1. **Pośrednie (Intermediate)**
+    * Zwracają nowy Stream. Można je łączyć w łańcuchy.
+    * `.filter(Predicate)` — filtruje strumień, pozostawiając tylko elementy spełniające warunek (zwracające true).
+    * `.map(Function)` — transformuje każdy element na inny obiekt (np. z User wyciąga String name).
+    * `.sorted()` — sortuje elementy.
+    * `.distinct()` — usuwa duplikaty.
+
+2. **Terminalne (Terminal)**
+    * Uruchamiają wykonanie strumienia i zwracają wynik (lub void), ale nie Stream. Potem strumień umiera.
+    * `.collect(Collectors.toList())` — zbierz wynik z powrotem w List/Set/Map.
+    * `.forEach(Consumer)` — wykonaj akcję dla każdego elementu (np. wydruk na konsolę).
+    * `.count()` — zwróć liczbę elementów.
+    * `.findFirst()` — zwróć pierwszy element (owinięty w Optional).
+
+##### Wersja krótka (do nauki, 40–60 s)
+
+- **Stream API** (Java 8) — narzędzie do przetwarzania danych w stylu funkcjonalnym.
+- **Istota**: Pozwala pisać kod deklaratywny (opisujemy «co», a nie «jak»).
+- **Cykl życia**: Tworzenie (collection.stream()) → operacje pośrednie (filter, map, sorted, distinct) → operacja terminalna (collect, forEach, count).
+- **Kluczowe właściwości**: Leniwość (operacje pośrednie nie wykonują się do wywołania operacji terminalnej); jednorazowość (strumień umiera po operacji terminalnej).
 
 ---
 
 ## Питання 33 / Pytanie 33
 
-**UA:** [Текст питання]
+**RU:** Коллекции в Java. Оговори и подай пример их использования.
 
 **PL:** Kolekcje w języku Java. Omów i podaj przykłady ich zastosowania.
 ### Пояснення / Wyjaśnienie
 
-**UA:**
-...
+**RU:**
+**Java Collection Framework** — это единая архитектура для представления и манипулирования коллекциями объектов. Она предоставляет стандартные интерфейсы и их реализации.
+
+Глобально в Java есть две отдельные ветки иерархии:
+- **Collection** (наследники Iterable) — работа с одиночными элементами
+- **Map** — работа с парами «Ключ-Значение»
+
+Начнем с ветки Collection:
+
+1. **Iterable и Collection**
+    * **Iterable**: Корневой интерфейс. Гарантирует, что объект можно перебрать в цикле for-each.
+    * **Collection**: Основной интерфейс для всех коллекций (кроме Map). Методы: `add()`, `remove()`, `size()`, `contains()`.
+
+2. **List** (Списки)
+    * Суть: Упорядоченная коллекция, допускающая дубликаты. Каждый элемент имеет индекс (как в массиве).
+    * **ArrayList**
+        - Динамический массив с автоматическим расширением.
+        - Плюсы: Быстрый доступ по индексу ($O(1)$).
+        - Минусы: Медленная вставка/удаление в середину (требуется сдвиг элементов).
+        - Когда использовать: В 90% случаев для простого хранения и чтения.
+    * **LinkedList**
+        - Двусвязный список. Каждый элемент хранит ссылку на предыдущий и следующий.
+        - Плюсы: Быстрая вставка/удаление в начало или середину ($O(1)$ при наличии итератора).
+        - Минусы: Медленный доступ по индексу ($O(n)$) — нужно перебирать элементы.
+        - Когда использовать: Если коллекция часто модифицируется в середине, но редко читается по индексу.
+
+3. **Queue и Deque** (Очереди)
+    * Суть: Коллекции для хранения элементов в порядке обработки (обычно FIFO — First In, First Out).
+    * **Queue**
+        - `PriorityQueue`: Упорядоченная очередь. Элементы выходят согласно приоритету, а не порядку вставки.
+    * **Deque** (Double Ended Queue)
+        - Двусторонняя очередь. Можно добавлять и забирать элементы с обоих концов.
+        - `ArrayDeque`: Более быстрая альтернатива классу Stack.
+
+4. **Set** (Множества)
+    * Суть: Коллекция уникальных элементов. Дубликаты не сохраняются.
+    * **HashSet**
+        - Самая популярная реализация. Использует HashMap внутри.
+        - Порядок элементов не гарантируется.
+        - Очень быстрые операции добавления и поиска ($O(1)$) благодаря хешированию.
+    * **LinkedHashSet**
+        - Запоминает порядок добавления элементов.
+        - Чуть медленнее, чем HashSet.
+    * **TreeSet**
+        - Хранит элементы в отсортированном виде (Red-Black Tree).
+        - Вставка медленнее ($O(\log n)$), но идеально для упорядоченных уникальных данных.
+
+5. **Map** (Словари)
+    * Суть: Хранит пары Ключ → Значение. Работает отдельно от интерфейса Collection.
+    * Ключи должны быть уникальны.
+    * **HashMap**
+        - Самое популярное решение.
+        - Вычисляет `hashCode` ключа, определяет "корзину" (bucket) и кладет туда значение.
+        - **Важно**: Критически зависит от правильной реализации `equals()` и `hashCode()` у объекта-ключа. Плохая хеш-функция снижает производительность до уровня связного списка.
+        - Плюсы: Мгновенный доступ по ключу при отсутствии коллизий.
+    * **TreeMap**
+        - Ключи хранятся в отсортированном порядке.
+    * **LinkedHashMap**
+        - Хранит порядок добавления ключей.
+
+**Диаграмма:**
+<img src="img/CollectionsJava.png" alt="drawing" width="600"/>
+
+##### Краткая версия
+
+- **Две основные ветки**: Collection (одиночные элементы) и Map (пары Ключ-Значение).
+- **List**: Упорядоченные списки. ArrayList — массив (быстрое чтение по индексу $O(1)$), LinkedList — связный список (быстрая вставка/удаление).
+- **Set**: Уникальные элементы. HashSet — самый быстрый ($O(1)$), но без гарантии порядка; TreeSet — хранит отсортированными ($O(\log n)$).
+- **Queue/Deque**: Очереди (FIFO/LIFO). PriorityQueue выдает элементы по приоритету; ArrayDeque — быстрая двусторонняя очередь.
+- **Map**: HashMap — стандартное решение на хешировании (критичны `equals()` и `hashCode()`); TreeMap — для отсортированных ключей.
+
+---
 
 **PL:**
-...
+**Java Collection Framework** — to zunifikowana architektura do reprezentacji i manipulacji kolekcjami obiektów. Dostarcza standardowych interfejsów i ich implementacji.
+
+Globalnie w Java istnieją dwie oddzielne gałęzie hierarchii:
+- **Collection** (dziedziczące Iterable) — praca z poszczególnymi elementami
+- **Map** — praca z parami „Klucz-Wartość"
+
+Zaczniemy od gałęzi Collection:
+
+1. **Iterable i Collection**
+    * **Iterable**: Główny interfejs. Gwarancja, że obiekt można iterować w pętli for-each.
+    * **Collection**: Podstawowy interfejs dla wszystkich kolekcji (oprócz Map). Metody: `add()`, `remove()`, `size()`, `contains()`.
+
+2. **List** (Listy)
+    * Istota: Uporządkowana kolekcja, dopuszczająca duplikaty. Każdy element ma indeks (jak w tablicy).
+    * **ArrayList**
+        - Dynamiczna tablica z automatycznym rozszerzaniem.
+        - Plusy: Szybki dostęp po indeksie ($O(1)$).
+        - Minusy: Wolna wstawka/usunięcie w środek (wymagane przesunięcie elementów).
+        - Kiedy używać: W 90% przypadków dla zwykłego przechowywania i czytania.
+    * **LinkedList**
+        - Dwukierunkowa lista powiązana. Każdy element przechowuje referencję do poprzedniego i następnego.
+        - Plusy: Szybka wstawka/usunięcie na początek lub środek ($O(1)$ przy iteratorze).
+        - Minusy: Wolny dostęp po indeksie ($O(n)$) — trzeba iterować elementy.
+        - Kiedy używać: Jeśli kolekcja jest często modyfikowana w środku, ale rzadko czytana po indeksie.
+
+3. **Queue i Deque** (Kolejki)
+    * Istota: Kolekcje do przechowywania elementów w porządku przetwarzania (zwykle FIFO — First In, First Out).
+    * **Queue**
+        - `PriorityQueue`: Uporządkowana kolejka. Elementy wychodzą zgodnie z priorytetem, a nie kolejnością wstawienia.
+    * **Deque** (Double Ended Queue)
+        - Dwukierunkowa kolejka. Można dodawać i zabierać elementy z obu końców.
+        - `ArrayDeque`: Szybsza alternatywa dla klasy Stack.
+
+4. **Set** (Zbiory)
+    * Istota: Kolekcja unikalnych elementów. Duplikaty nie są przechowywane.
+    * **HashSet**
+        - Najpopularniejsza implementacja. Używa HashMap wewnętrznie.
+        - Porządek elementów nie jest gwarantowany.
+        - Bardzo szybkie operacje dodania i wyszukania ($O(1)$) dzięki haszowaniu.
+    * **LinkedHashSet**
+        - Pamięta porządek dodania elementów.
+        - Nieco wolniejszy niż HashSet.
+    * **TreeSet**
+        - Przechowuje elementy w posortowanej kolejności (Red-Black Tree).
+        - Wstawka wolniejsza ($O(\log n)$), ale idealna dla posortowanych unikalnych danych.
+
+5. **Map** (Słowniki)
+    * Istota: Przechowuje pary Klucz → Wartość. Działa niezależnie od interfejsu Collection.
+    * Klucze muszą być unikalne.
+    * **HashMap**
+        - Najpopularniejsze rozwiązanie.
+        - Oblicza `hashCode` klucza, określa „koszyk" (bucket) i umieszcza tam wartość.
+        - **Ważne**: Krytycznie zależy od prawidłowej implementacji `equals()` i `hashCode()` w obiekcie klucza. Zła funkcja haszująca obniża wydajność do poziomu listy powiązanej.
+        - Plusy: Natychmiastowy dostęp po kluczu przy braku kolizji.
+    * **TreeMap**
+        - Klucze przechowywane w posortowanej kolejności.
+    * **LinkedHashMap**
+        - Przechowuje porządek dodania kluczy.
+
+**Diagram:**
+<img src="img/CollectionsJava.png" alt="drawing" width="600"/>
+
+##### Wersja krótka (do nauki, 40–60 s)
+
+- **Dwie główne gałęzie**: Collection (poszczególne elementy) i Map (pary Klucz-Wartość).
+- **List**: Uporządkowane listy. ArrayList — tablica (szybkie czytanie po indeksie $O(1)$), LinkedList — lista powiązana (szybka wstawka/usunięcie).
+- **Set**: Unikalne elementy. HashSet — najszybszy ($O(1)$), ale bez gwarancji porządku; TreeSet — przechowuje posortowane ($O(\log n)$).
+- **Queue/Deque**: Kolejki (FIFO/LIFO). PriorityQueue zwraca elementy po priorytecie; ArrayDeque — szybka dwukierunkowa kolejka.
+- **Map**: HashMap — standardowe rozwiązanie na haszowaniu (krytyczne `equals()` i `hashCode()`); TreeMap — dla posortowanych kluczy.

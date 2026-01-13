@@ -1466,17 +1466,134 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 30 / Pytanie 30
 
-**UA:** [Текст питання]
+**RU:** Схарактеризуй архитуктуру приложения ориентированную на сервисы. SOA - Service Oriented Architecture.
 
 **PL:** Scharakteryzuj architekturę aplikacji zorientowaną na usługi (ang. Service Oriented Architecture)
 
-### Пояснення / Wyjaśление
+### Обьяснение / Wyjaśление
 
-**UA:**
-...
+**RU:**
+
+## Архитектура, ориентированная на сервисы (SOA)
+
+**Service-Oriented Architecture (SOA)** — это архитектурный стиль, в котором приложение строится из набора дискретных и слабосвязанных компонентов, называемых **сервисами**.
+
+Каждый сервис реализует определённую бизнес-логику и может взаимодействовать с другими сервисами через сеть. Главная цель SOA — **повторное использование кода** и **лёгкая интеграция** разных систем.
+
+### Сравнение архитектур
+
+На изображении ниже показаны различия в декомпозиции между тремя подходами:
+
+<img src="img/soa_monolit_microservices.png" alt="drawing" width="600"/>
+
+**Монолит:** вся система — это единый неделимый блок; все компоненты жёстко связаны.
+
+**Микросервисы:** логика разбита на максимально мелкие, независимые единицы, каждая отвечает за одну узкую задачу.
+
+**SOA:** занимает место «посередине» — мы разделяем систему на крупные логические модули (бизнес-сервисы), часто объединённые общей шиной данных (ESB).
+
+### Основные принципы SOA
+
+Не существует единого стандарта, но выделяют ключевые принципы манифеста SOA:
+
+**1. Абстрагирование (Service Abstraction)**
+Сервис — это «чёрный ящик». Потребителю не нужно знать, как он устроен внутри, на каком языке написан (Java, Python, C#) и какая у него база данных. Важен только контракт взаимодействия.
+
+**2. Слабая связность (Loose Coupling)**
+Сервисы должны иметь минимум зависимостей друг от друга. Изменение внутри одного сервиса не должно ломать работу других.
+
+**3. Отсутствие состояния (Statelessness)**
+Сервисы не должны хранить информацию о сессии или предыдущих запросах. Каждый запрос должен содержать всю необходимую информацию.
+
+**4. Стандартизация контрактов (Standardized Contracts)**
+Каждый сервис имеет описание (контракт), определяющее его функциональность и способ взаимодействия (например, WSDL для SOAP или OpenAPI для REST). Это гарантирует совместимость.
+
+
+### Компоненты архитектуры
+
+<img src="img/soaARCH.png" alt="drawing" width="600"/>
+
+Классическая SOA состоит из трёх основных ролей и связующего элемента:
+
+**Поставщик сервиса (Service Provider)**
+Создаёт, поддерживает и предоставляет сервис. Публикует описание сервиса в реестре.
+
+**Потребитель сервиса (Service Consumer)**
+Система или приложение, которое использует функционал. Ищет сервис в реестре и отправляет запрос поставщику.
+
+**Реестр сервисов (Service Registry)**
+Справочник («телефонная книга»), где хранятся адреса и описания доступных сервисов. Позволяет потребителям находить поставщиков.
+
+**Enterprise Service Bus (ESB)**
+Часто используется «Сервисная Шина Предприятия» — прослойка, управляющая передачей сообщений между сервисами, маршрутизацией и преобразованием форматов данных.
+
+### Краткая версия (для собеседования, 40–60 сек)
+
+- **SOA** — подход, при котором приложение собирается из независимых бизнес-сервисов, взаимодействующих по сети.
+- **Отличие от микросервисов:** В SOA сервисы более крупные (бизнес-функции) и используют общую шину данных (ESB), тогда как микросервисы максимально децентрализованы.
+- **Принципы:** слабая связность, абстракция, повторное использование, стандартизированные контракты.
+- **Компоненты:** Поставщик (создаёт), Потребитель (использует), Реестр (хранит адреса) и ESB (маршрутизирует).
 
 **PL:**
-...
+
+## Architektura zorientowana na usługi (SOA)
+
+**Service-Oriented Architecture (SOA)** — to styl architektoniczny, w którym aplikacja budowana jest z zestawu dyskretnych i słabo powiązanych komponentów, zwanych **usługami**.
+
+Każda usługa realizuje określoną logikę biznesową i może komunikować się z innymi usługami przez sieć. Głównym celem SOA jest **ponowne użycie kodu** i **łatwa integracja** różnych systemów.
+
+### Porównanie architektur
+
+Na poniższym obrazie przedstawiono różnice w dekompozycji między trzema podejściami:
+
+<img src="img/soa_monolit_microservices" alt="drawing" width="600"/>
+
+**Monolity:** cały system to jeden niepodzielny blok; wszystkie komponenty są ściśle powiązane.
+
+**Mikroserwisy:** logika podzielona na maksymalnie małe, niezależne jednostki, każda odpowiada za jedno wąskie zadanie.
+
+**SOA:** zajmuje miejsce „pośrodku" — dzielimy system na duże moduły logiczne (usługi biznesowe), często połączone wspólną szyną danych (ESB).
+
+### Główne zasady SOA
+
+Nie ma jednego standardu, ale wyróżnia się kluczowe zasady manifestu SOA:
+
+**1. Abstrakcja (Service Abstraction)**
+Usługa to «czarna skrzynka». Konsument nie musi wiedzieć, jak jest zbudowana, w jakim języku (Java, Python, C#) czy jaką ma bazę danych. Ważny jest tylko kontrakt interakcji.
+
+**2. Luźne powiązanie (Loose Coupling)**
+Usługi powinny mieć minimum zależności od siebie. Zmiana wewnątrz jednej usługi nie powinna psować pracy innych.
+
+**3. Brak stanu (Statelessness)**
+Usługi nie powinny przechowywać informacji o sesji lub poprzednich żądaniach. Każde żądanie musi zawierać wszystkie niezbędne informacje.
+
+**4. Standaryzacja kontraktów (Standardized Contracts)**
+Każda usługa ma opis (kontrakt), określający jej funkcjonalność i sposób komunikacji (np. WSDL dla SOAP lub OpenAPI dla REST). Gwarantuje to kompatybilność.
+
+### Komponenty architektury
+
+<img src="img/soaARCH.png" alt="drawing" width="600"/>
+
+Klasyczna SOA składa się z trzech głównych ról i elementu łączącego:
+
+**Dostawca usługi (Service Provider)**
+Tworzy, utrzymuje i udostępnia usługę. Publikuje opis usługi w rejestrze.
+
+**Konsument usługi (Service Consumer)**
+System lub aplikacja, która wykorzystuje funkcjonalność. Szuka usługi w rejestrze i wysyła żądanie dostawcy.
+
+**Rejestr usług (Service Registry)**
+Katalog («księga adresowa»), gdzie przechowywane są adresy i opisy dostępnych usług. Umożliwia konsumentom znalezienie dostawców.
+
+**Enterprise Service Bus (ESB)**
+Często używana «Magistrala Usług Przedsiębiorstwa» — warstwa, która zarządza transmisją wiadomości między usługami, routingiem i transformacją formatów danych.
+
+### Krótka wersja (do nauki, 40–60 s)
+
+- **SOA** — podejście, w którym aplikacja składa się z niezależnych usług biznesowych komunikujących się przez sieć.
+- **Różnica od mikroserwisów:** W SOA usługi są większe (funkcje biznesowe) i używają wspólnej magistrali danych (ESB), podczas gdy mikroserwisy są maksymalnie zdecentralizowane.
+- **Zasady:** luźne powiązanie, abstrakcja, ponowne użycie, standaryzowane kontrakty.
+- **Komponenty:** Dostawca (tworzy), Konsument (używa), Rejestr (przechowuje adresy) i ESB (routuje).
 
 ---
 

@@ -1210,17 +1210,157 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 14 / Pytanie 14
 
-**UA:** [Текст питання]
+**RU:** Схарактеризуй структуру HTML документа.
 
 **PL:** Scharakteryzuj strukturę dokumentu HTML.
 
-### Пояснення / Wyjaśnienie
+### Обьяснение / Wyjaśnienie
 
-**UA:**
-...
+**RU:**
+
+## Структура HTML-документа
+
+**HTML-документ** — это не просто набор текста, а **строгая иерархическая структура (дерево)**, состоящая из элементов, называемых **тегами**. Вложенность тегов и их правильная последовательность называется **DOM (Document Object Model)**.
+
+### Базовый скелет
+
+Любая правильная веб-страница начинается с этого стандартного шаблона:
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+</body>
+</html>
+```
+
+### Разбор основных элементов
+
+**1. <!DOCTYPE html>**
+
+Это не тег, а инструкция для браузера. Стоит самой первой и указывает на стандарт **HTML5**. Без этой строки браузер отобразит страницу некорректно.
+
+**2. <html>** — корневой элемент
+
+Весь документ находится внутри этих тегов. Атрибут `lang="ru"` важен для поисковиков и скринридеров (программ для чтения с экрана), указывая язык контента.
+
+**3. Два обязательных раздела: <head> и <body>**
+
+Внутри `<html>` документ всегда делится на две части:
+
+**<head> (Голова):**
+- Служебная информация (метаданные)
+- Не видна пользователю на странице (кроме заголовка во вкладке)
+- Здесь подключаются стили (CSS), шрифты, скрипты (JS), указывается кодировка (UTF-8)
+- Ключевой тег: `<title>` — название вкладки браузера
+
+**<body> (Тело):**
+- Содержит весь видимый контент: текст, картинки, кнопки, видео
+- Всё, что видит пользователь, должно быть здесь
+
+### Семантическая структура (HTML5)
+
+В прошлом верстка строилась на одних `<div>`. Современный **HTML5** использует **семантические теги** — специальные разделы, которые объясняют браузеру и поисковикам роль контента:
+
+**<header>** — «шапка» сайта или раздела (логотип, меню)
+
+**<nav>** — блок навигации (ссылки)
+
+**<main>** — основной контент страницы (один на страницу)
+
+**<section>** / **<article>** — смысловые разделы
+
+**<footer>** — «подвал» сайта (копирайты, контакты)
+
+**<h1>–<h6>** — заголовки (от самого важного H1 до наименее важного H6)
+
+### Краткая версия (для собеседования, 40–60 сек)
+
+- **DOM** — древовидная структура HTML-документа.
+- **<!DOCTYPE html>** — инструкция для браузера использовать HTML5.
+- **<html>** — корневой тег. Внутри два раздела:
+  - **<head>** — метаданные, CSS, JS, `<title>` (не видно пользователю)
+  - **<body>** — весь видимый контент
+- **Семантические теги** (`<header>`, `<main>`, `<footer>`, `<section>`) делают код логичным для SEO и доступности.
 
 **PL:**
-...
+
+## Struktura dokumentu HTML
+
+**Dokument HTML** — to nie tylko tekst, ale **ścisła hierarchiczna struktura (drzewo)** złożona z elementów zwanych **tagami**. Zagnieżdżanie tagów i ich prawidłowa kolejność to **DOM (Document Object Model)**.
+
+### Podstawowy szkielet
+
+Każda prawidłowa strona internetowa zaczyna się od tego standardowego szablonu:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Tytuł strony</title>
+</head>
+<body>
+    <h1>Cześć, świecie!</h1>
+</body>
+</html>
+```
+
+### Analiza głównych elementów
+
+**1. <!DOCTYPE html>**
+
+To nie tag, lecz instrukcja dla przeglądarki. Stoi na początku i wskazuje na standard **HTML5**. Bez tej linii przeglądarka wyświetli stronę niepoprawnie.
+
+**2. <html>** — element główny
+
+Cały dokument znajduje się wewnątrz tych tagów. Atrybut `lang="pl"` jest ważny dla wyszukiwarek i czytników ekranu (programów dla osób niewidomych), wskazując język zawartości.
+
+**3. Dwie obowiązkowe sekcje: <head> i <body>**
+
+Wewnątrz `<html>` dokument zawsze dzieli się na dwie części:
+
+**<head> (Nagłówek):**
+- Informacje pomocnicze (metadane)
+- Nie widoczna dla użytkownika na stronie (oprócz tytułu na karcie)
+- Tutaj podłączane są style (CSS), czcionki, skrypty (JS), kodowanie (UTF-8)
+- Kluczowy tag: `<title>` — nazwa karty przeglądarki
+
+**<body> (Treść):**
+- Zawiera całą widoczną zawartość: tekst, obrazy, przyciski, wideo
+- Wszystko, co widzi użytkownik, powinno być tutaj
+
+### Struktura semantyczna (HTML5)
+
+W przeszłości układ budowano na samych `<div>`. Nowoczesny **HTML5** używa **tagów semantycznych** — specjalnych sekcji, które wyjaśniają przeglądarce i wyszukiwarkom rolę zawartości:
+
+**<header>** — «głowica» strony lub sekcji (logo, menu)
+
+**<nav>** — blok nawigacji (linki)
+
+**<main>** — główna zawartość strony (jeden na stronę)
+
+**<section>** / **<article>** — logiczne sekcje
+
+**<footer>** — «stopka» strony (prawa autorskie, kontakt)
+
+**<h1>–<h6>** — nagłówki (od najważniejszego H1 do najmniej ważnego H6)
+
+### Krótka wersja (do nauki, 40–60 s)
+
+- **DOM** — hierarchiczna struktura dokumentu HTML.
+- **<!DOCTYPE html>** — instrukcja dla przeglądarki, aby użyć HTML5.
+- **<html>** — tag główny. Wewnątrz dwie sekcje:
+  - **<head>** — metadane, CSS, JS, `<title>` (niewidoczne dla użytkownika)
+  - **<body>** — całą widoczną zawartość
+- **Tagi semantyczne** (`<header>`, `<main>`, `<footer>`, `<section>`) czynią kod logicznym dla SEO i dostępności.
+
+---
 
 ---
 

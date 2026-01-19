@@ -1194,7 +1194,7 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 13 / Pytanie 13
 
-**UA:** [Текст питання]
+**UA:** Опишите паттерн проэктирования MVC
 
 **PL:** Proszę opisać wzorzec projektowy MVC
 

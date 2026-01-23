@@ -1130,81 +1130,414 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 9 / Pytanie 9
 
-**UA:** [Текст питання]
+**UA:** Назвіть та охарактеризуйте методи оптимізації веб-сторінок для пошукових систем (SEO).
 
-**PL:** Wymień i scharakteryzuj metody optymalizacji stron internetowych pod kątem silnika wyszukiwarek
+**PL:** Wymień i scharakteryzuj metody optymalizacji stron internetowych pod kątem silnika wyszukiwarek.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**SEO (Search Engine Optimization)** — це комплекс заходів для підвищення позицій сайту в результатах пошуку (Google).
+
+1.  **On-page SEO (Внутрішня оптимізація)**
+    - Робота безпосередньо над **сайтом**.
+    - **Контент:** Унікальні та корисні тексти, використання ключових слів (Keywords).
+    - **Мета-теги:** Правильні `Title`, `Description` та заголовки `H1`–`H6`.
+    - **Швидкість:** Оптимізація зображень, чистий код, швидке завантаження (Core Web Vitals).
+    - **Адаптивність:** Сайт має зручно працювати на мобільних телефонах (Mobile-First Indexing).
+
+2.  **Off-page SEO (Зовнішня оптимізація)**
+    - Підвищення авторитету сайту **ззовні**.
+    - **Лінкбілдинг (Backlinks):** Отримання посилань на ваш сайт з інших авторитетних ресурсів.
+    - **Соціальні сигнали:** Активність та згадки бренду в соцмережах (SMM).
+
+3.  **Технічне SEO**
+    - Налаштування `sitemap.xml` (карта сайту) та `robots.txt` (правила для роботів).
+    - Використання захищеного протоколу **HTTPS** (SSL).
+    - Читабельні URL-адреси (Friendly URL).
+
+##### Коротка версія (для заучування)
+
+- **On-page (Всередині)**: Якісний текст, ключові слова, швидкість, теги (`Title`, `H1`).
+- **Off-page (Ззовні)**: Посилання з інших сайтів (авторитет), соцмережі.
+- **Технічне**: HTTPS, карта сайту, адаптивність під мобільні.
+- **Мета**: Бути першим у Google.
+
+---
 
 **PL:**
-...
+
+**SEO (Search Engine Optimization)** to proces poprawy widoczności strony w wynikach wyszukiwania.
+
+1.  **SEO On-site (Optymalizacja wewnętrzna)**
+    - Działania w obrębie **samej strony**.
+    - **Treść (Content):** Unikalne teksty zawierające słowa kluczowe.
+    - **Struktura kodu:** Poprawne tagi HTML (`<title>`, `<meta description>`, `<h1>`), semantyka.
+    - **Wydajność:** Szybkość ładowania strony (optymalizacja grafik, cache).
+    - **Responsywność (RWD):** Dostosowanie do urządzeń mobilnych.
+
+2.  **SEO Off-site (Optymalizacja zewnętrzna)**
+    - Budowanie autorytetu domeny w sieci.
+    - **Link Building:** Pozyskiwanie linków zwrotnych z innych wartościowych stron (backlinks).
+    - Aktywność w mediach społecznościowych.
+
+3.  **SEO Techniczne**
+    - Pliki `sitemap.xml` (mapa dla robotów) i `robots.txt`.
+    - Certyfikat bezpieczeństwa SSL (**HTTPS**).
+    - Przyjazne linki (np. `/produkt` zamiast `/?id=123`).
+
+##### Wersja krótka (do nauczenia)
+
+- **On-site**: To, co na stronie (teksty, słowa kluczowe, szybkość).
+- **Off-site**: To, co poza stroną (linki z innych stron budujące zaufanie).
+- **Techniczne**: Poprawny kod, bezpieczeństwo (HTTPS), mobilność.
+- **Cel**: Wyższa pozycja w Google.
 
 ---
 
 ## Питання 10 / Pytanie 10
 
-**UA:** [Текст питання]
+**UA:** Архітектури веб-додатків.
 
 **PL:** Architektury aplikacji internetowych.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Архітектура веб-додатку визначає, як взаємодіють його компоненти (клієнт, сервер, база даних).
+
+**Основні типи архітектур (по структурі додатку):**
+
+1.  **MPA (Multi-Page Application)** — Класична модель.
+    - При кожному переході сервер генерує нову HTML-сторінку.
+    - **Плюси:** Просте SEO, менше навантаження на браузер.
+    - **Мінуси:** Повільніша взаємодія (перезавантаження сторінки).
+    - *Приклад:* Старі сайти, класичні інтернет-магазини (PHP, JSP).
+
+2.  **SPA (Single-Page Application)** — Сучасна модель.
+    - Завантажується `index.html` один раз. Далі вміст оновлюється динамічно через JavaScript (AJAX/API). Браузер не перезавантажується.
+    - **Плюси:** Швидкий і плавний інтерфейс (як у нативній програмі).
+    - **Мінуси:** Складніше SEO (потрібен SSR), довше перше завантаження.
+    - *Приклад:* Gmail, Facebook, React/Angular додатки.
+
+3.  **PWA (Progressive Web Application)**
+    - Це SPA, що поводиться як мобільний додаток (працює офлайн, можна встановити на телефон).
+
+**Основні типи архітектур (по організації коду на сервері):**
+
+1.  **Моноліт (Monolithic)**
+    - Весь код (Frontend, Backend, логіка) в одному проекті/сервісі.
+    - *Легко почати, але важко масштабувати великі проекти.*
+2.  **Мікросервіси (Microservices)**
+    - Додаток розбитий на малі незалежні сервіси, що спілкуються через мережу (REST/gRPC).
+    - *Гнучко і надійно, але складно в управлінні.*
+
+##### Коротка версія (для заучування)
+
+- **MPA**: Багато сторінок, перезавантаження при кожному кліку (старий стиль).
+- **SPA**: Одна сторінка, динамічне оновлення без перезавантаження (React, Angular).
+- **Моноліт**: "Все в одному" (весь код разом).
+- **Мікросервіси**: Багато маленьких незалежних програм, що працюють разом.
+
+---
 
 **PL:**
-...
+
+Architektura aplikacji internetowej to sposób organizacji komponentów systemu i przepływu danych między nimi.
+
+**Główne typy architektur (Frontend/Sposób działania):**
+
+1.  **MPA (Multi-Page Application)** — Klasyczne podejście.
+    - Każda akcja użytkownika powoduje przeładowanie strony i pobranie nowego HTML z serwera.
+    - **Zalety:** Dobre SEO, prosta implementacja.
+    - **Wady:** Mniejsza płynność działania (przeładowania).
+    - *Przykład:* Tradycyjne portale, sklepy (Allegro w wersji klasycznej).
+
+2.  **SPA (Single-Page Application)** — Nowoczesne podejście.
+    - Ładuje się tylko raz. Treść podmieniana jest dynamicznie przez JavaScript bez przeładowania strony.
+    - **Zalety:** Bardzo szybki interfejs, wrażenie aplikacji desktopowej.
+    - **Wady:** Trudniejsze SEO, większe obciążenie przeglądarki.
+    - *Przykład:* Gmail, aplikacje React/Vue.
+
+3.  **PWA (Progressive Web Application)**
+    - SPA, która działa jak aplikacja natywna (działa offline, powiadomienia push).
+
+**Główne typy architektur (Backend/Struktura):**
+
+1.  **Monolit (Monolithic)**
+    - Cała aplikacja to jeden wielki kod i jeden proces.
+    - *Prosty na start, trudny do skalowania.*
+2.  **Mikroserwisy (Microservices)**
+    - Aplikacja podzielona na małe, niezależne usługi komunikujące się ze sobą.
+    - *Skalowalne i odporne na awarie, ale skomplikowane.*
+
+##### Wersja krótka (do nauczenia)
+
+- **MPA**: Wiele stron, każde kliknięcie przeładowuje stronę.
+- **SPA**: Jedna strona, treść zmienia się dynamicznie (płynnie).
+- **Monolit**: Cały system w jednym kawałku kodu.
+- **Mikroserwisy**: System podzielony na wiele małych, niezależnych części.
+
 
 ---
 
 ## Питання 11 / Pytanie 11
 
-**UA:** [Текст питання]
+**UA:** Охарактеризуйте життєвий цикл веб-додатку.
 
-**PL:** Cykl życia aplikacji internetowej
+**PL:** Opisz cykl życia aplikacji internetowej.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Життєвий цикл веб-додатку (SDLC - Software Development Life Cycle) — це етапи, через які проходить проект від ідеї до завершення роботи.
+
+1.  **Планування та аналіз (Planning & Analysis)**
+    - Визначення мети сайту, цільової аудиторії (ЦА).
+    - Збір вимог (який функціонал потрібен).
+    - *Результат:* Технічне завдання (ТЗ).
+
+2.  **Проектування (Design)**
+    - Створення структури (Sitemap) та прототипів (Wireframes).
+    - Розробка дизайну інтерфейсу (UI/UX).
+    - Проектування архітектури бази даних (ERD).
+
+3.  **Розробка (Development)**
+    - **Frontend:** Верстка (HTML/CSS), програмування клієнтської частини (JS/React).
+    - **Backend:** Написання серверної логіки (PHP/Python/Node.js), створення API.
+    - **Database:** Налаштування БД (SQL/NoSQL).
+
+4.  **Тестування (Testing)**
+    - Перевірка на помилки (Bugs).
+    - Тестування кросбраузерності (чи працює в Chrome, Safari, Firefox) та адаптивності (мобільні пристрої).
+    - *Типи:* Unit-тести, інтеграційні, QA (Manual).
+
+5.  **Розгортання (Deployment)**
+    - Купівля домену та хостингу/сервера.
+    - Налаштування CI/CD (автоматична викладка).
+    - Публікація сайту в мережі (Production).
+
+6.  **Підтримка та обслуговування (Maintenance)**
+    - Виправлення помилок, виявлених користувачами.
+    - Регулярні оновлення контенту та безпеки (патчі).
+    - SEO-оптимізація та моніторинг.
+
+##### Коротка версія (для заучування)
+
+1.  **Аналіз**: Що робимо? (ТЗ, вимоги).
+2.  **Дизайн**: Як виглядає? (UI/UX, макети).
+3.  **Розробка**: Пишемо код (Frontend + Backend).
+4.  **Тестування**: Шукаємо баги.
+5.  **Реліз**: Заливаємо на сервер.
+6.  **Підтримка**: Оновлюємо та лікуємо.
+
+---
 
 **PL:**
-...
+
+Cykl życia aplikacji internetowej (SDLC) to proces tworzenia oprogramowania od pomysłu do utrzymania.
+
+1.  **Planowanie i Analiza (Planning & Analysis)**
+    - Określenie celów biznesowych i grupy docelowej.
+    - Zbieranie wymagań funkcjonalnych.
+    - *Wynik:* Specyfikacja wymagań.
+
+2.  **Projektowanie (Design)**
+    - Tworzenie makiet (Wireframes) i projektu graficznego (UI/UX).
+    - Projektowanie architektury systemu i bazy danych.
+
+3.  **Programowanie (Development)**
+    - **Frontend:** Tworzenie interfejsu (HTML, CSS, JS, Frameworki).
+    - **Backend:** Logika serwera, API, integracja z bazą danych.
+
+4.  **Testowanie (Testing)**
+    - Weryfikacja poprawności działania (QA).
+    - Testy funkcjonalne, wydajnościowe, bezpieczeństwa oraz kompatybilności (RWD, przeglądarki).
+
+5.  **Wdrożenie (Deployment)**
+    - Konfiguracja serwera i domeny.
+    - Publikacja aplikacji w środowisku produkcyjnym (często przez CI/CD).
+
+6.  **Utrzymanie (Maintenance)**
+    - Monitorowanie działania aplikacji.
+    - Naprawa błędów, aktualizacje bezpieczeństwa, rozwój nowych funkcji.
+
+##### Wersja krótka (do nauczenia)
+
+1.  **Analiza**: Wymagania i cele.
+2.  **Design**: Wygląd i architektura (UI/UX).
+3.  **Kodowanie**: Praca programistów (Front/Back).
+4.  **Testy**: Sprawdzanie błędów.
+5.  **Wdrożenie**: Publikacja (wrzucenie na serwer).
+6.  **Utrzymanie**: Aktualizacje i opieka.
 
 ---
 
 ## Питання 12 / Pytanie 12
 
-**UA:** [Текст питання]
+**UA:** Способи персоналізації веб-додатків.
 
 **PL:** Sposoby personalizacji aplikacji internetowych.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Персоналізація** — це процес адаптації контенту та функціоналу веб-додатку під потреби конкретного користувача. Це покращує UX (User Experience) та залученість.
+
+**Основні способи персоналізації:**
+
+1.  **Явна персоналізація (Explicit)**
+    - Користувач **сам** налаштовує додаток під себе.
+    - *Приклади:* Вибір мови, темна/світла тема, налаштування сповіщень, заповнення профілю (аватар, ім'я).
+
+2.  **Неявна персоналізація (Implicit)**
+    - Система автоматично аналізує **поведінку** користувача і підлаштовується.
+    - Базується на історії переглядів, пошукових запитах, лайках.
+    - *Приклади:* Рекомендації YouTube/Netflix ("Вам може сподобатися"), таргетована реклама.
+
+3.  **Контекстна персоналізація**
+    - Базується на поточному контексті користувача.
+    - *Приклади:*
+        - **Геолокація:** Показ погоди для твого міста або найближчих магазинів.
+        - **Пристрій:** Адаптивний дизайн (RWD) для мобільного телефону.
+        - **Час:** Автоматичне перемикання на нічний режим ввечері.
+
+**Технічна реалізація:**
+- **Cookies & LocalStorage:** Зберігання налаштувань у браузері.
+- **Профілі користувачів (БД):** Зберігання історії та вподобань на сервері.
+- **AI/ML:** Алгоритми машинного навчання для складних рекомендацій.
+
+##### Коротка версія (для заучування)
+
+- **Явна:** Установки користувача (тема, мова).
+- **Неявна:** Аналіз поведінки (рекомендації, історія).
+- **Контекстна:** Локація (GPS), пристрій (mobile), час.
+- **Мета:** Покращити досвід (UX) та утримати користувача.
+
+---
 
 **PL:**
-...
+
+**Personalizacja** to proces dostosowywania treści i funkcjonalności aplikacji internetowej do potrzeb konkretnego użytkownika. Cel to lepszy UX i większe zaangażowanie.
+
+**Główne sposoby personalizacji:**
+
+1.  **Personalizacja jawna (Explicit)**
+    - Użytkownik **sam** wybiera ustawienia.
+    - *Przykłady:* Wybór języka, tryb ciemny/jasny (dark mode), konfiguracja profilu.
+
+2.  **Personalizacja niejawna (Implicit)**
+    - System analizuje **zachowanie** użytkownika i automatycznie dostosowuje treści.
+    - Opiera się na historii przeglądania i kliknięciach.
+    - *Przykłady:* Systemy rekomendacji Netflix/YouTube, reklamy targetowane.
+
+3.  **Personalizacja kontekstowa**
+    - Opiera się na aktualnych warunkach.
+    - *Przykłady:*
+        - **Geolokalizacja:** Wyświetlanie pogody lub mapy dla danego miasta.
+        - **Urządzenie:** Dostosowanie układu strony do telefonu (Responsive Web Design).
+
+**Realizacja techniczna:**
+- **Cookies / LocalStorage:** Zapisywanie prostych ustawień w przeglądarce.
+- **Baza danych:** Zapisywanie historii zakupów i preferencji na serwerze.
+- **Algorytmy AI:** Do analizy danych i przewidywania, co użytkownik polubi.
+
+##### Wersja krótka (do nauczenia)
+
+- **Jawna:** Ustawienia ręczne (motyw, język).
+- **Niejawna:** Na podstawie historii i zachowania (rekomendacje).
+- **Kontekstowa:** Lokalizacja, rodzaj urządzenia.
+- Technologie: Cookies, bazy danych, AI (Machine Learning).
 
 ---
 
 ## Питання 13 / Pytanie 13
 
-**UA:** [Текст питання]
+**UA:** Опишіть шаблон проектування MVC.
 
-**PL:** Proszę opisać wzorzec projektowy MVC
+**PL:** Proszę opisać wzorzec projektowy MVC.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**MVC (Model–View–Controller)** — це архітектурний шаблон, який розділяє програму на три основні компоненти для відокремлення логіки обробки даних від інтерфейсу користувача.
+
+1.  **Model (Модель)**
+    - Відповідає за **бізнес-логіку** та дані.
+    - Зберігає та обробляє інформацію, взаємодіє з базою даних.
+    - Нічого не знає про інтерфейс (View) та контролер.
+    - *Приклад:* класи сутностей (`User`, `Product`), сервіси, репозиторії.
+
+2.  **View (Вигляд / Представлення)**
+    - Відповідає за **відображення** даних користувачеві (UI).
+    - Не містить бізнес-логіки.
+    - Отримує дані від Контролера (рідше — підписується на події Моделі) і показує їх.
+    - *Приклад:* HTML-сторінки, шаблони (Razor, Thymeleaf), JSON-відповіді.
+
+3.  **Controller (Контролер)**
+    - **Посередник** між Моделлю та Виглядом.
+    - Приймає запити від користувача (наприклад, HTTP-запити або кліки), обробляє їх, викликаючи методи Моделі.
+    - Вибирає відповідний Вигляд для показу результату.
+    - *Приклад:* Controller у Spring MVC, ASP.NET Core.
+
+**Переваги:**
+- Чіткий поділ відповідальності (Separation of Concerns).
+- Легше тестувати бізнес-логіку (Модель) окремо від UI.
+- Можливість змінювати інтерфейс без зміни логіки.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **MVC** ділить програму на: **Model** (дані), **View** (вигляд), **Controller** (управління).
+- **Model**: бізнес-логіка, робота з БД.
+- **View**: те, що бачить користувач (інтерфейс, HTML).
+- **Controller**: приймає запити, оновлює модель і вибирає вид.
+- Основна мета: розділити логіку та відображення для зручності розробки.
+
+---
 
 **PL:**
-...
+
+**Wzorzec projektowy MVC (Model–View–Controller)**
+
+MVC to architektoniczny wzorzec projektowy, którego celem jest oddzielenie logiki aplikacji od warstwy prezentacji oraz obsługi wejścia użytkownika.
+
+Wzorzec MVC dzieli aplikację na trzy główne komponenty:
+
+1.  **Model**
+    - Odpowiada za **logikę biznesową**, przechowywanie i przetwarzanie danych.
+    - Komunikuje się z bazą danych lub innymi źródłami.
+    - Nie wie nic o interfejsie użytkownika.
+    - *Przykład:* klasy encji, repozytoria, serwisy.
+
+2.  **View (Widok)**
+    - Odpowiada za **prezentację danych** użytkownikowi (interfejs/UI).
+    - Nie zawiera logiki biznesowej.
+    - Wyświetla dane dostarczone przez Kontroler.
+    - *Przykład:* strony HTML, szablony Razor, komponenty UI.
+
+3.  **Controller (Kontroler)**
+    - **Pośrednik** między Modelem a Widokiem.
+    - Obsługuje żądania użytkownika (np. requesty HTTP).
+    - Wywołuje metody Modelu i wybiera odpowiedni Widok.
+    - *Przykład:* kontrolery w Spring MVC lub ASP.NET.
+
+**Zalety:**
+- Wyraźny podział odpowiedzialności.
+- Łatwiejsze testowanie (szczególnie Modelu).
+- Możliwość niezależnego rozwoju UI i logiki.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **MVC** dzieli aplikację na: **Model** (dane), **View** (wygląd) i **Controller** (sterowanie).
+- **Model**: logika biznesowa, baza danych.
+- **View**: to, co widzi użytkownik (UI, HTML).
+- **Controller**: odbiera żądania, aktualizuje model i wybiera widok.
+- Cel: oddzielenie logiki od wyglądu (Separation of Concerns).
 
 ---
 
@@ -1366,241 +1699,1343 @@ W przeszłości układ budowano na samych `<div>`. Nowoczesny **HTML5** używa *
 
 ## Питання 15 / Pytanie 15
 
-**UA:** [Текст питання]
+**UA:** Охарактеризуйте види селекторів CSS.
 
 **PL:** Scharakteryzuj rodzaje selektorów CSS.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Селектори в CSS — це шаблони, які вказують браузеру, до яких саме HTML-елементів застосувати стиль (колір, розмір, шрифт тощо).
+
+**1. Базові селектори (Podstawowe)**
+*   **За тегом (Element Selector):** Вибирає всі елементи з цим ім'ям.
+    ```css
+    p { color: blue; } /* Усі абзаци стануть синіми */
+    ```
+*   **За класом (Class Selector):** Починається з крапки `.`. Найпопулярніший тип.
+    ```css
+    .btn { background: red; } /* Елементи з class="btn" */
+    ```
+*   **За ID (ID Selector):** Починається з решітки `#`. Має найвищий пріоритет.
+    ```css
+    #header { height: 50px; } /* Елемент з id="header" (тільки один на сторінці) */
+    ```
+*   **Універсальний (*):** Вибирає взагалі все.
+    ```css
+    * { margin: 0; } /* Скинути відступи для всіх елементів */
+    ```
+
+**2. Комбінатори (Kombinatory)**
+*   **Нащадок (Descendant ` `):** Пробіл. Будь-яка глибина вкладеності.
+    `div p { ... }` — усі `p`, що лежать десь всередині `div`.
+*   **Дитина (Child `>`):** Тільки прямі діти.
+    `ul > li { ... }` — тільки `li` першого рівня вкладеності в `ul`.
+
+**3. Псевдокласи та Псевдоелементи**
+*   **Псевдокласи (`:`):** Описують **стан** елемента.
+    ```css
+    a:hover { color: green; } /* Коли мишкою наведено на посилання */
+    input:focus { border: 1px solid blue; } /* Коли курсор у полі */
+    li:first-child { font-weight: bold; } /* Перший елемент списку */
+    ```
+*   **Псевдоелементи (`::`):** Стилізують певну **частину** елемента.
+    ```css
+    p::first-line { color: red; } /* Перший рядок абзацу */
+    div::before { content: "★"; } /* Вставити символ перед елементом */
+    ```
+
+**4. За атрибутом**
+*   `[type="text"] { ... }` — вибирає інпути тільки текстового типу.
+
+---
 
 **PL:**
-...
+
+Selektory CSS to wzorce, które mówią przeglądarce, które elementy HTML mają zostać ostylowane.
+
+**1. Selektory proste (Simple selectors)**
+*   **Elementu (Tagu):** Wybiera wszystkie tagi danego typu.
+    ```css
+    h1 { color: red; } /* Wszystkie nagłówki H1 */
+    ```
+*   **Klasy (Class):** Oznaczone kropką `.`. Można używać wielokrotnie.
+    ```css
+    .error { border: 1px solid red; } /* Elementy z class="error" */
+    ```
+*   **Identyfikatora (ID):** Oznaczone krzyżykiem `#`. Musi być unikalne (tylko jeden taki element na stronie).
+    ```css
+    #main-nav { background: black; } /* Element z id="main-nav" */
+    ```
+
+**2. Kombinatory (Combinators)**
+*   **Potomek (Descendant — spacja):** Wybiera elementy zagnieżdżone na dowolnym poziomie.
+    `div span { ... }` — wszystkie `span` wewnątrz `div`.
+*   **Dziecko (Child — `>`):** Wybiera tylko bezpośrednie dzieci.
+    `div > p { ... }` — tylko `p`, które są bezpośrednio w `div`.
+
+**3. Pseudoklasy (Pseudo-classes)**
+Definiują **stan** elementu. Zaczynają się od dwukropka `:`.
+*   `button:hover` — po najechaniu myszką.
+*   `a:visited` — odwiedzony link.
+*   `li:nth-child(2)` — drugi element listy.
+
+**4. Pseudoelementy (Pseudo-elements)**
+Definiują **część** elementu. Zaczynają się od podwójnego dwukropka `::`.
+*   `p::first-letter` — pierwsza litera akapitu.
+*   `div::after` — wstawia treść po elemencie (często do ikon).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **ID (`#id`)** — unikalny, najwyższy priorytet.
+- **Klasa (`.klasa`)** — wielokrotnego użytku, najczęstszy.
+- **Tag (`div`)** — ogólny dla wszystkich znaczników.
+- **Pseudoklasy (`:hover`)** — style dla dynamicznych stanów (np. najechanie).
+- **Kombinatory** — określają relacje (spacja = potomek, `>` = dziecko).
 
 ---
 
 ## Питання 16 / Pytanie 16
 
-**UA:** [Текст питання]
+**UA:** Охарактеризуйте основні веб-технології, що працюють на стороні клієнта.
 
 **PL:** Scharakteryzuj podstawowe technologie internetowe działające po stronie klienta.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Клієнтські технології (Frontend) — це те, що виконується у браузері користувача. Основою є "Свята Трійця": HTML, CSS та JavaScript.
+
+1.  **HTML (HyperText Markup Language)**
+    - Це мова розмітки, що відповідає за **структуру** та **зміст**.
+    - Визначає, що є заголовком, абзацом, картинкою чи кнопкою.
+    - *Аналогія:* Це "скелет" веб-сторінки.
+
+2.  **CSS (Cascading Style Sheets)**
+    - Мова стилів, що відповідає за **зовнішній вигляд**.
+    - Визначає кольори, шрифти, відступи, розташування елементів (Layout) та адаптивність (RWD).
+    - *Аналогія:* Це "одяг" та "макіяж" сторінки.
+
+3.  **JavaScript (JS)**
+    - Мова програмування, що відповідає за **поведінку** та **інтерактивність**.
+    - Дозволяє реагувати на кліки, перевіряти форми, робити анімації та завантажувати дані без перезавантаження сторінки (AJAX/Fetch).
+    - *Аналогія:* Це "м'язи" та "нервова система".
+
+**Додаткові технології:**
+- **WebAssembly (Wasm)**: Дозволяє запускати код C++/Rust у браузері з високою швидкістю (для ігор, редакторів відео).
+- **Web Storage (LocalStorage, Cookies)**: Зберігання даних у браузері користувача.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **HTML**: Структура (скелет). Заголовки, текст, картинки.
+- **CSS**: Вигляд (одяг). Кольори, шрифти, дизайн.
+- **JavaScript**: Логіка (мозок/м'язи). Кліки, анімації, запити до сервера.
+- Усе це працює в **браузері** користувача.
+
+---
 
 **PL:**
-...
+
+Podstawowe technologie po stronie klienta (Frontend) opierają się na trzech filarach:
+
+1.  **HTML (HyperText Markup Language)**
+    - Język znaczników służący do tworzenia **struktury** strony.
+    - Definiuje elementy takie jak nagłówki, akapity, listy, obrazy.
+    - *To "szkielet" strony.*
+
+2.  **CSS (Cascading Style Sheets)**
+    - Język stylów odpowiedzialny za **wygląd** i prezentację.
+    - Definiuje kolory, czcionki, układ (Layout, Flexbox, Grid) oraz responsywność (RWD).
+    - *To "ubranie" strony.*
+
+3.  **JavaScript (JS)**
+    - Język programowania, który nadaje stronie **interaktywność**.
+    - Obsługuje zdarzenia (kliknięcia), manipuluje elementami strony (DOM), komunikuje się z serwerem (AJAX) bez przeładowania.
+    - *To "mięśnie" strony.*
+
+**Dodatkowo:**
+- **WebAssembly**: Umożliwia uruchamianie wydajnego kodu (np. z C++) w przeglądarce.
+- **Web Storage / Cookies**: Przechowywanie danych w przeglądarce.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **HTML**: Struktura (szkielet) – co jest na stronie.
+- **CSS**: Wygląd (skóra/ubranie) – jak to wygląda.
+- **JavaScript**: Działanie (mięśnie) – co to robi (interakcja, logika).
+- Wszystkie działają w **przeglądarce** (client-side).
 
 ---
 
 ## Питання 17 / Pytanie 17
 
-**UA:** [Текст питання]
+**UA:** Назвіть алгоритми визначення видимих поверхонь та обговоріть один із них.
 
 **PL:** Podaj algorytmy wyznaczania powierzchni widocznych oraz omów jeden z nich.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+У 3D-графіці важливо малювати лише ті об'єкти, які бачить камера, і не малювати те, що сховано за ними. Для цього існують алгоритми видалення невидимих поверхонь.
+
+**Основні алгоритми:**
+1.  **Z-Buffer (Буфер глибини)** — найпопулярніший.
+2.  **Алгоритм Художника (Painter’s Algorithm)**.
+3.  **Ray Casting (Кидання променів)**.
+4.  **Відсікання задніх граней (Back-face Culling)**.
+5.  **Алгоритм Варнока (Warnock Algorithm)**.
+
+---
+
+**Детальний опис: Z-Buffer (Буфер глибини)**
+
+Це стандартний метод, який апаратно реалізований у всіх відеокартах.
+
+**Принцип роботи:**
+Крім пам'яті для кольору пікселя (Frame Buffer), створюється буфер такої ж розмирості для зберігання **відстані** до об'єкта в цьому пікселі (Z-координата).
+
+**Алгоритм для кожного пікселя:**
+1.  Спочатку Z-буфер заповнюється "нескінченною" глибиною.
+2.  Коли малюється об'єкт, програма перевіряє: "Чи цей новий фрагмент **ближчий** до камери, ніж те, що вже записано в буфері?".
+3.  **Якщо так:** записуємо нову глибину в Z-buffer і новий колір на екран.
+4.  **Якщо ні:** ігноруємо цей фрагмент (він схований за чимось іншим).
+
+**Плюси:**
+- Простота і швидкість.
+- Об'єкти можна малювати в будь-якому порядку.
+
+**Мінуси:**
+- Потребує додаткової пам'яті.
+- Проблеми з прозорістю (прозорі об'єкти треба сортувати вручну).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Алгоритми**: Z-Buffer, Художник, Ray Casting.
+- **Z-Buffer**:
+    - Це таблиця, де зберігається відстань до кожного пікселя.
+    - Перед малюванням перевіряємо: якщо новий об'єкт ближче — малюємо, якщо далі — ні.
+    - Дозволяє малювати об'єкти в будь-якому порядку.
+
+---
 
 **PL:**
-...
+
+Algorytmy wyznaczania powierzchni widocznych służą do ustalenia, co widać na ekranie, a co jest zasłonięte, aby nie tracić mocy obliczeniowej na rysowanie niewidocznych elementów.
+
+**Najważniejsze algorytmy:**
+1.  **Z-bufor (Depth Buffer)** – standard w kartach graficznych.
+2.  **Algorytm malarza (Painter’s Algorithm)**.
+3.  **Ray casting** (rzucanie promieni).
+4.  **Back-face culling** (odrzucanie tylnych ścianek).
+
+---
+
+**Szczegółowe omówienie: Z-bufor (Bufor głębokości)**
+
+To najpowszechniejsza metoda, wspierana sprzętowo przez GPU.
+
+**Zasada działania:**
+Oprócz koloru piksela, system przechowuje w pamięci (w buforze Z) informację o **odległości** tego piksela od obserwatora (kamery).
+
+**Algorytm:**
+1.  Na początku bufor Z jest wypełniony wartością nieskończoną (maksymalną głębokością).
+2.  Podczas rysowania obiektu sprawdzamy dla każdego piksela: *Czy ten punkt jest bliżej niż to, co już tam jest?*
+3.  **Tak:** Zapisz nową koligację koloru i zaktualizuj odległość w buforze Z.
+4.  **Nie:** Zignoruj punkt (jest zasłonięty przez coś bliższego).
+
+**Zalety:**
+- Można rysować obiekty w dowolnej kolejności.
+- Bardzo szybki (wsparcie sprzętowe).
+
+**Wady:**
+- Zajmuje dodatkową pamięć.
+- Problemy z przezroczystością (wymaga ręcznego sortowania).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Algorytmy**: Z-buffer, Malarza, Ray Casting.
+- **Z-buffer**:
+    - Pamięta odległość każdego piksela od kamery.
+    - Jeśli nowy obiekt jest bliżej – nadpisuje piksel. Jeśli dalej – jest ignorowany.
+    - Standard w grach i kartach graficznych.
 
 ---
 
 ## Питання 18 / Pytanie 18
 
-**UA:** [Текст питання]
+**UA:** Обговоріть метод трасування променів (ray-tracing) та його властивості.
 
 **PL:** Omów metodę śledzenia promieni (ray-tracing) oraz podaj jej właściwości.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Ray-Tracing (Трасування променів)** — це метод створення фотореалістичних зображень у комп'ютерній графіці шляхом симуляції фізичної поведінки світла.
+
+**Як це працює:**
+Замість того, щоб світло йшло від лампи до ока (як у реальності), комп'ютер випускає умовний промінь **з камери (ока)** у кожен піксель екрану і "стежить" за його шляхом назад до джерел світла.
+
+**Процес:**
+1.  **Генерація променя**: З камери випускаються промені через кожен піксель екрану.
+2.  **Перетин**: Алгоритм шукає найближчий об'єкт, у який влучив промінь.
+3.  **Вторинні промені**: Залежно від матеріалу (дзеркало, скло) промінь може відбитися, заломитися або поглинутися.
+4.  **Тіні**: Випускається промінь до джерела світла; якщо на шляху є перешкода, точка в тіні.
+
+**Властивості:**
+- **Глобальне освітлення (Global Illumination)**: враховує взаємний вплив об'єктів (колір червоної стіни може "відбитися" на білій підлозі).
+- **Реалістичність**: ідеальні відбиття, заломлення (скло, вода), м'які тіні.
+- **Обчислювальна складність**: вимагає величезної потужності (мільярди обчислень). Тому раніше використовувався лише у кіно, а зараз (завдяки картам серії RTX) — і в іграх.
+
+**Порівняння:**
+На відміну від **растеризації** (де малюються трикутники один за одним), Ray-Tracing малює *світло*.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Ray-Tracing** — симуляція реального світла.
+- Промінь летить із **камери** (ока) в сцену, відбивається від об'єктів і шукає світло.
+- Дає супер-реалізм: дзеркальні відбиття, прозорість, правильні тіні.
+- Мінус: дуже повільно, вимагає потужного комп'ютера.
+
+---
 
 **PL:**
-...
+
+**Ray-tracing (Śledzenie promieni)** to metoda generowania obrazów komputerowych poprzez symulację fizycznej ścieżki światła w scenie 3D.
+
+**Zasada działania:**
+Promień światła jest wypuszczany **z oka obserwatora (kamery)** przez każdy piksel ekranu w głąb sceny.
+1.  **Wykrywanie kolizji**: Algorytm sprawdza, w który obiekt trafił promień.
+2.  **Symulacja zjawisk**:
+    - **Odbicie (Reflection)**: np. lustro.
+    - **Załamanie (Refraction)**: np. szkło, woda.
+    - **Cień (Shadow)**: sprawdzenie, czy punkt widzi źródło światła.
+3.  **Obliczenie koloru**: Suma wszystkich efektów świetlnych w danym punkcie.
+
+**Właściwości:**
+- ✅ **Fotorealizm**: Naturalne cienie, lustrzane odbicia i załamania światła.
+- ✅ **Global Illumination**: Uwzględnia światło odbite od innych obiektów.
+- ❌ **Koszt obliczeniowy**: Metoda jest bardzo wymagająca. Wymaga potężnego sprzętu (np. kart graficznych RTX do działania w czasie rzeczywistym).
+
+**Różnica:**
+W przeciwieństwie do klasycznej **rasteryzacji** (powierzchownego rysowania trójkątów), ray-tracing symuluje zachowanie fotonów.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Ray-tracing**: Symulacja fizyki światła w komputerze.
+- Promień leci **z kamery** do obiektu i sprawdza: odbicia, cienie, załamania.
+- Efekt: Fotorealistyczna grafika (lustra, woda, cienie).
+- Wada: Bardzo obciąża komputer.
 
 ---
 
 ## Питання 19 / Pytanie 19
 
-**UA:** [Текст питання]
+**UA:** Назвіть методи моделювання кривих та поверхонь і обговоріть один із них.
 
 **PL:** Wymień metody modelowania krzywych i powierzchni oraz omów jedną z nich.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+У комп'ютерній графіці існує кілька основних підходів до представлення форм:
+
+1.  **Полігональне моделювання (Polygonal Modeling)**
+    - Об'єкт складається з множини плоских багатокутників (зазвичай трикутників).
+    - Найпопулярніший метод у іграх та 3D-рендерінгу (GPU "любить" трикутники).
+    - *Мінус:* Складно отримати ідеально гладку поверхню (видно грані).
+
+2.  **Параметричні криві та поверхні (Parametric Curves/Surfaces)**
+    - Форма описується математичними формулами.
+    - **Криві Безьє (Bézier Curves)**.
+    - **B-Splines (B-сплайни)**.
+    - **NURBS (Non-Uniform Rational B-Splines)**: Стандарт у інженерії (CAD), дозволяє створювати ідеально точні моделі.
+
+3.  **Неявні поверхні (Implicit Surfaces)**
+    - Задаються формулою $f(x, y, z) = 0$ (наприклад, сфера).
+    - Використовуються для моделювання рідин (metaballs) або у медичній візуалізації.
+
+---
+
+**Детальний опис: Криві Безьє (Bézier Curves)**
+
+Це параметричні криві, які широко використовуються в комп'ютерній графіці (векторні редактори CorelDraw/Illustrator, шрифти TrueType, анімація руху).
+
+**Характеристики:**
+- Визначаються набором **контрольних точок** ($P_0, P_1, \dots, P_n$).
+- Крива завжди проходить через **початкову** ($P_0$) і **кінцеву** ($P_n$) точки.
+- Інші точки (керуючі) не лежать на кривій, а "притягують" її до себе, визначаючи вигин.
+- **Опукла оболонка**: крива завжди лежить всередині багатокутника, утвореного контрольними точками.
+
+**Застосування:**
+- Векторна графіка (малювання ліній).
+- Шрифти (опис контурів букв).
+- Анімація (траєкторія руху камери або об'єкта).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Методи**:
+    1.  **Полігони** (трикутники) – для ігор.
+    2.  **NURBS / Безьє** (математика) – для точного дизайну (автомобілі, шрифти).
+    3.  **Implicit** (формули) – для науки/медицини.
+- **Криві Безьє**:
+    - Задаються контрольними точками.
+    - Проходять через початок і кінець.
+    - Використовуються у векторній графіці та шрифтах.
+
+---
 
 **PL:**
-...
+
+W grafice komputerowej istnieje kilka głównych podejść do reprezentowania kształtów:
+
+1.  **Modelowanie wielokątne (Polygonal Modeling)**
+    - Obiekt składa się z płaskich wielokątów (zazwyczaj trójkątów).
+    - Standard w grach i renderingu czasu rzeczywistego.
+    - *Wada:* Trudno uzyskać idealną gładkość (widać krawędzie).
+
+2.  **Krzywe i powierzchnie parametryczne**
+    - Kształt opisany jest wzorami matematycznymi.
+    - **Krzywe Beziera**.
+    - **B-Splines**.
+    - **NURBS**: Standard w inżynierii (CAD), pozwala na idealną precyzję.
+
+3.  **Powierzchnie uwikłane (Implicit Surfaces)**
+    - Zdefiniowane przez równanie $f(x, y, z) = 0$.
+    - Używane np. do modelowania cieczy (metaballs).
+
+---
+
+**Szczegółowe omówienie: Krzywe Beziera (Bézier Curves)**
+
+Są to krzywe parametryczne powszechnie stosowane w grafice komputerowej (grafika wektorowa, fonty, animacja).
+
+**Cechy:**
+- Są definiowane przez zbiór **punktów kontrolnych**.
+- Krzywa przechodzi przez punkt **początkowy** i **końcowy**, ale niekoniecznie przez punkty pośrednie (które tylko "zakrzywiają" jej kształt).
+- **Własność otoczki wypukłej**: cała krzywa mieści się wewnątrz wielokąta wyznaczonego przez punkty kontrolne.
+- Są łatwe do obliczenia i skalowania bez utraty jakości.
+
+**Zastosowanie:**
+- Grafika wektorowa (CorelDraw, Illustrator, SVG).
+- Typografia (fonty TrueType, PostScript).
+- Definiowanie ścieżek ruchu w animacji.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Metody**:
+    1.  **Poligony** (siatki trójkątów) – gry.
+    2.  **Parametryczne** (NURBS, Bezier) – CAD, grafika wektorowa.
+    3.  **Uwikłane** (wzory) – symulacje.
+- **Krzywe Beziera**:
+    - Definiowane przez punkty kontrolne.
+    - Idealnie gładkie.
+    - Używane w fontach i grafice wektorowej.
 
 ---
 
 ## Питання 20 / Pytanie 20
 
-**UA:** [Текст питання]
+**UA:** Назвіть та схарактеризуйте алгоритми пошуку веб-сторінок та визначення їх позицій у результатах.
 
 **PL:** Wymień i scharakteryzuj działanie algorytmów wyszukiwania stron internetowych oraz ustalania ich pozycji w wynikach.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Процес роботи пошукової системи складається з трьох етапів:
+1.  **Crawling (Сканування)**: Збір інформації.
+2.  **Indexing (Індексація)**: Обробка та збереження.
+3.  **Ranking (Ранжування)**: Сортування результатів.
+
+---
+
+**1. Алгоритми сканування (Crawling)**
+Роботи (павуки, краулери) автоматично переходять за посиланнями, скачуючи вміст сторінок.
+- *Принципи:* Використовують граф WWW (посилання = ребра).
+- *Правила:* Файл `robots.txt` дозволяє або забороняє сканування.
+
+**2. Алгоритми індексації**
+Обробка тексту для швидкого пошуку.
+- *Методи:* Токенізація (розбиття на слова), лематизація (зведення до словникової форми), видалення стоп-слів (і, та, на).
+- *Результат:* Інвертований індекс (Слово → Список документів).
+
+**3. Алгоритми ранжування (Ranking) — Найважливіше**
+Визначають, яка сторінка буде першою.
+
+- **PageRank (посилальний аналіз)**
+    - Історично перший алгоритм Google.
+    - *Ідея:* Сторінка важлива, якщо на неї посилаються інші важливі сторінки. Посилання = голос.
+
+- **TF-IDF (текстовий аналіз)**
+    - Оцінює важливість слова в документі.
+    - *TF (Term Frequency):* Як часто слово є в тексті (чим більше, тим краще).
+    - *IDF (Inverse Document Frequency):* Наскільки рідкісним є слово взагалі (чим рідше слово в інших текстах, тим воно цінніше).
+
+- **BM25**
+    - Покращена версія TF-IDF. Враховує довжину тексту та насиченість ключовими словами (щоб уникнути спаму ключовиками). Стандарт у сучасних системах типу Elasticsearch.
+
+- **Семантичні алгоритми (AI)**
+    - Розуміють *сенс* запиту, а не просто шукають слова (наприклад, BERT у Google). Враховують контекст і синоніми.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **3 етапи**: Crawling (скачати), Indexing (записати в базу), Ranking (відсортувати).
+- **Ranking** вирішує, хто перший:
+    - **PageRank**: Хто на тебе посилається? (авторитет).
+    - **TF-IDF / BM25**: Чи є слова з запиту в тексті? (релевантність).
+    - **AI/Semantic**: Чи відповідає текст на питання користувача по суті?
+
+---
 
 **PL:**
-...
+
+Proces wyszukiwania i ustalania pozycji stron składa się z trzech głównych etapów:
+
+1.  **Crawling (Skanowanie / Przeszukiwanie)**: Zbieranie informacji przez roboty.
+2.  **Indeksowanie (Indexing)**: Przetwarzanie i zapisywanie danych.
+3.  **Ranking (Ustalanie pozycji)**: Sortowanie wyników według trafności.
+
+---
+
+**1. Algorytmy skanowania (Crawling)**
+Roboty internetowe (crawlery, pająki) automatycznie przechodzą między stronami za pomocą linków.
+- *Zasada:* Wykorzystują strukturę grafu WWW (linki = krawędzie).
+- *Reguły:* Plik `robots.txt` określa, które części strony robot może odwiedzić.
+
+**2. Algorytmy indeksowania**
+Analiza pobranej treści w celu umożliwienia szybkiego wyszukiwania.
+- *Metody:*
+    - **Tokenizacja**: dzielenie tekstu na pojedyncze słowa.
+    - **Lematyzacja**: sprowadzanie słów do formy podstawowej.
+    - **Usuwanie stop words**: ignorowanie słów nieznaczących (i, oraz, na).
+- *Wynik:* **Indeks odwrócony** (Inverted Index) – mapa: Słowo → Lista dokumentów.
+
+**3. Algorytmy rankingu (Ranking) – Najważniejsze**
+Decydują, która strona pojawi się jako pierwsza w wynikach.
+
+- **PageRank (Analiza linków)**
+    - Historycznie pierwszy algorytm Google.
+    - *Zasada:* Strona jest ważna, jeśli linkują do niej inne ważne strony. Link traktowany jest jako "głos zaufania".
+
+- **TF-IDF (Analiza tekstowa)**
+    - Ocenia ważność słowa w dokumencie.
+    - *TF (Term Frequency):* Jak często słowo występuje w danym tekście (im częściej, tym lepiej).
+    - *IDF (Inverse Document Frequency):* Jak rzadkie jest słowo w całym internecie (im rzadsze ogólnie, tym cenniejsze w tym kontekście).
+
+- **BM25**
+    - Ulepszona wersja TF-IDF.
+    - Uwzględnia długość dokumentu i nasycenie słów kluczowych (zapobiega manipulacji przez spamowanie słowami kluczowymi). Standard w systemach takich jak Elasticsearch.
+
+- **Algorytmy semantyczne (AI)**
+    - Rozumieją *znaczenie* zapytania, a nie tylko wyszukują słowa (np. algorytm BERT w Google). Uwzględniają kontekst, intencję użytkownika i synonimy.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **3 etapy**: Crawling (pobieranie), Indeksowanie (zapisywanie), Ranking (sortowanie).
+- **Ranking** decyduje o kolejności:
+    - **PageRank**: Kto do ciebie linkuje? (autorytet).
+    - **TF-IDF / BM25**: Czy słowa kluczowe są w tekście? (trafność).
+    - **AI/Semantic**: Czy tekst odpowiada na pytanie użytkownika? (kontekst).
 
 ---
 
 ## Питання 21 / Pytanie 21
 
-**UA:** [Текст питання]
+**UA:** Назвіть динамічні діаграми UML, що використовуються при проектуванні інформаційних систем, та детально обговоріть одну обрану діаграму.
 
 **PL:** Wymień dynamiczne diagramy UML używane w projektowaniu systemów informatycznych oraz omów szczegółowo jeden wybrany diagram.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Динамічні діаграми UML** описують **поведінку** системи в часі: взаємодію об'єктів, потік процесів та зміну станів. Вони відповідають на питання "Як система працює?", на відміну від статичних діаграм, що показують структуру.
+
+**Список динамічних діаграм:**
+1.  **Діаграма варіантів використання (Use Case Diagram)**: показує, що користувач робить з системою.
+2.  **Діаграма послідовності (Sequence Diagram)**: показує обмін повідомленнями в часі.
+3.  **Діаграма діяльності (Activity Diagram)**: показує алгоритм або бізнес-процес (блок-схема).
+4.  **Діаграма станів (State Machine Diagram)**: життєвий цикл об'єкта (зміна станів).
+5.  **Діаграма комунікації (Communication Diagram)**: схожа на Sequence, але фокус на зв'язках, а не часі.
+
+---
+
+**Детальний опис: Діаграма послідовності (Sequence Diagram)**
+
+Ця діаграма показує **інтеракцію** між об'єктами у хронологічному порядку.
+
+**Основні елементи:**
+- **Учасники (Actors/Objects)**: прямокутники зверху.
+- **Лінії життя (Lifelines)**: вертикальні пунктирні лінії, що йдуть вниз (час плине зверху вниз).
+- **Повідомлення (Messages)**: стрілки між лініями життя (виклик методів).
+    - *Синхронні* (суцільна стрілка) — чекаємо відповіді.
+    - *Асинхронні* (відкрита стрілка) — не чекаємо.
+    - *Повернення* (пунктирна стрілка) — результат.
+- **Фокус управління (Activation Bar)**: прямокутник на лінії життя, показує, коли об'єкт "працює" (виконує код).
+
+**Застосування:**
+- Деталізація логіки конкретного Use Case (наприклад, "Процес логіну").
+- Проектування API та взаємодії компонентів.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Динамічні діаграми** — це "фільм" про роботу системи.
+- **Приклади**: Use Case, Sequence, Activity, State.
+- **Sequence Diagram (Послідовності)**:
+    - Показує спілкування об'єктів **у часі**.
+    - Головне: хто (об'єкт), кому (стрілка), що сказав (метод) і коли (порядок зверху вниз).
+
+---
 
 **PL:**
-...
+
+**Dynamiczne diagramy UML** służą do opisu zachowania systemu w czasie – pokazują interakcje, procesy i zmiany stanów.
+
+**Lista dynamicznych diagramów UML:**
+1.  **Diagram przypadków użycia (Use Case Diagram)**.
+2.  **Diagram sekwencji (Sequence Diagram)**.
+3.  **Diagram aktywności (Activity Diagram)**.
+4.  **Diagram stanów (State Machine Diagram)**.
+5.  **Diagram komunikacji (Communication Diagram)**.
+
+---
+
+**Szczegółowe omówienie: Diagram sekwencji (Sequence Diagram)**
+
+Przedstawia interakcje pomiędzy obiektami w czasie, koncentrując się na **kolejności** wysyłanych komunikatów.
+Odpowiada na pytanie: *kto, z kim i w jakiej kolejności wymienia dane?*
+
+**Główne elementy:**
+- **Obiekty/Aktorzy**: prostokąty na górze.
+- **Linie życia (Lifelines)**: pionowe przerywane linie (czas płynie w dół).
+- **Komunikaty (Messages)**: strzałki między liniami (wywołania metod).
+    - *Synchroniczne* (pełny grot) – czekamy na wynik.
+    - *Asynchroniczne* (otwarty grot) – działamy dalej ("fire and forget").
+- **Aktywacje (Activation bars)**: wąskie prostokąty na linii życia (czas wykonywania operacji).
+
+**Zastosowanie:**
+- Modelowanie logiki biznesowej dla konkretnego przypadku użycia (np. logowanie).
+- Projektowanie API i komunikacji między serwisami.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Diagramy dynamiczne**: pokazują działanie systemu (ruch).
+- **Przykłady**: Use Case, Sequence, Activity.
+- **Diagram sekwencji**:
+    - Pokazuje wymianę komunikatów w **czasie**.
+    - Kluczowe: Oś czasu idzie w dół.
+    - Elementy: Obiekty, Linie życia, Strzałki (komunikaty).
 
 ---
 
 ## Питання 22 / Pytanie 22
 
-**UA:** [Текст питання]
+**UA:** Обговоріть фази життєвого циклу інформаційної системи.
 
 **PL:** Omów fazy cyklu życia systemu informatycznego.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Життєвий цикл розробки системи (SDLC — System Development Life Cycle)** описує етапи існування програмного забезпечення: від ідеї до виведення з експлуатації.
+
+**Основні фази:**
+
+1.  **Аналіз вимог**
+    - Збір потреб замовника.
+    - Визначення функціональних (що робить) і нефункціональних (як робить) вимог.
+    - *Це найважливіший етап, бо виправляти помилки тут найдешевше.*
+
+2.  **Проектування (Design)**
+    - Створення архітектури системи, структури бази даних, інтерфейсів (UI/UX).
+    - Результат: технічне завдання для розробників.
+
+3.  **Реалізація (Implementacja / Coding)**
+    - Написання програмного коду.
+    - Перетворення проекту на працюючу програму.
+
+4.  **Тестування (Testing)**
+    - Перевірка на помилки (баги) та відповідність вимогам.
+    - Види: модульне, інтеграційне, системне, приймальне.
+
+5.  **Впровадження (Deployment)**
+    - Встановлення системи на сервери замовника.
+    - Навчання користувачів.
+
+6.  **Підтримка та супровід (Maintenance)**
+    - Найдовша фаза.
+    - Виправлення помилок, які знайшли користувачі, та додавання нових функцій.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **SDLC** — це життєвий шлях програми.
+- **Фази**:
+    1.  **Слухаємо** (Аналіз).
+    2.  **Плануємо** (Проектування).
+    3.  **Будуємо** (Код).
+    4.  **Перевіряємо** (Тести).
+    5.  **Запускаємо** (Впровадження).
+    6.  **Ремонтуємо** (Підтримка).
+
+---
 
 **PL:**
-...
+
+**Cykl życia systemu informatycznego (SDLC)** opisuje etapy, przez które przechodzi system – od pomysłu do wycofania.
+
+**Fazy cyklu życia:**
+
+1.  **Analiza wymagań**
+    - Co system ma robić? Zbieranie oczekiwań klienta.
+    - *Błędy popełnione tutaj są najdroższe w naprawie!*
+
+2.  **Projektowanie**
+    - Planowanie architektury, bazy danych, interfejsu.
+    - Powstaje "rysunek techniczny" systemu.
+
+3.  **Implementacja (Wytwarzanie)**
+    - Pisanie kodu źródłowego.
+    - Przekształcenie projektu w działający program.
+
+4.  **Testowanie**
+    - Szukanie błędów i sprawdzanie zgodności z wymaganiami.
+    - Rodzaje: jednostkowe, integracyjne, akceptacyjne.
+
+5.  **Wdrożenie**
+    - Instalacja u klienta, szkolenie użytkowników, start produkcyjny.
+
+6.  **Eksploatacja i utrzymanie**
+    - Codzienne używanie systemu, naprawianie błędów i aktualizacje.
+    - *Najdłuższa i najdroższa faza.*
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **SDLC** – etapy życia programu.
+- **Kroki**:
+    1.  **Analiza** (wymagania).
+    2.  **Projektowanie** (architektura).
+    3.  **Implementacja** (kodowanie).
+    4.  **Testowanie** (szukanie błędów).
+    5.  **Wdrożenie** (instalacja).
+    6.  **Utrzymanie** (naprawy i rozwój – najdłuższy etap).
+
+Schemat cyklu życia (skrót)
+
+Analiza → Projekt → Implementacja → Testy → Wdrożenie → Utrzymanie → Wycofanie
 
 ---
 
 ## Питання 23 / Pytanie 23
 
-**UA:** [Текст питання]
+**UA:** Охарактеризуйте методологію RUP (Rational Unified Process), що підтримує процес розробки інформаційних систем.
 
 **PL:** Scharakteryzuj metodykę RUP (Rational Unified Process) wspomagającą proces wytwarzania systemów informatycznych.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**RUP (Rational Unified Process)** — це ітеративно-інкрементальна методологія розробки програмного забезпечення, створена компанією Rational (зараз IBM). Вона базується на чіткому розподілі ролей, завдань та артефактів.
+
+**Основні принципи RUP:**
+1.  **Ітеративність**: проект розбивається на цикли (ітерації).
+2.  **Керування вимогами**: використання Use Cases (варіантів використання) як основи.
+3.  **Візуальне моделювання**: широке використання UML.
+4.  **Фокус на архітектурі**: стабільна архітектура створюється на ранніх етапах.
+
+**Чотири фази RUP:**
+
+1.  **Inception (Початок / Ініціація)**
+    - *Мета:* Визначити межі проекту, оцінити ризики та вартість.
+    - *Результат:* Бізнес-план, бачення проекту.
+
+2.  **Elaboration (Уточнення / Розробка архітектури)**
+    - *Мета:* Аналіз домену, створення базової архітектури, усунення найбільших ризиків.
+    - *Результат:* "Скелет" системи, детальні вимоги.
+    - *Це найважливіша технічна фаза.*
+
+3.  **Construction (Побудова / Конструювання)**
+    - *Мета:* Написання коду, створення функціоналу.
+    - *Результат:* Готова бета-версія продукту.
+
+4.  **Transition (Впровадження / Передача)**
+    - *Мета:* Передача системи користувачам, навчання, виправлення помилок.
+    - *Результат:* Працюючий продукт у клієнта.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **RUP** — це "важка", формальна методологія від IBM.
+- Базується на **Use Cases** та **UML**.
+- Має 4 фази:
+    1.  **Inception**: Що робимо? (Ідея).
+    2.  **Elaboration**: Як робимо? (Архітектура).
+    3.  **Construction**: Робимо! (Код).
+    4.  **Transition**: Віддаємо клієнту (Реліз).
+
+---
 
 **PL:**
-...
+
+**RUP (Rational Unified Process)** to metodyka iteracyjno-przyrostowa, opracowana przez IBM. Opisuje dokładnie **kto** (role), **co** (artefakty), **kiedy** i **jak** (aktywności) wykonuje w projekcie.
+
+**Główne cechy RUP:**
+- **Iteracyjność**: projekt realizowany w cyklach.
+- **Sterowanie przypadkami użycia (Use Cases)**: funkcjonalność definiowana przez scenariusze użytkownika.
+- **Nacisk na architekturę**: wczesne projektowanie fundamentów systemu.
+- **Formalizacja**: dużo dokumentacji i ściśle określone procesy.
+
+**Fazy metodyki RUP:**
+
+1.  **Inception (Inicjacja)**
+    - *Cel:* Określenie zakresu, wizji i ryzyk. Czy warto to robić?
+
+2.  **Elaboration (Elaboracja)**
+    - *Cel:* Zaprojektowanie stabilnej architektury, doprecyzowanie wymagań.
+    - *Najważniejsza faza techniczna.*
+
+3.  **Construction (Konstrukcja)**
+    - *Cel:* Implementacja, kodowanie, testowanie funkcjonalności. Budowa systemu.
+
+4.  **Transition (Przejście)**
+    - *Cel:* Wdrożenie u klienta, szkolenia, poprawki błędów.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **RUP** – sformalizowana metodyka od IBM, oparta na UML i przypadkach użycia (Use Cases).
+- **Inception**: Start, określenie celu.
+- **Elaboration**: Architektura (najważniejsze!).
+- **Construction**: Kodowanie.
+- **Transition**: Wdrożenie.
+
+Gdzie stosuje się RUP?
+
+duże i średnie projekty IT,
+
+systemy krytyczne,
+
+projekty o wysokim ryzyku technicznym.
 
 ---
 
 ## Питання 24 / Pytanie 24
 
-**UA:** [Текст питання]
+**UA:** Характеристика паралельних систем зі спільною та розподіленою пам'яттю.
 
-**PL:** Charakterystyka systemów równoległych z pamięcią współdzieloną i rozproszoną
+**PL:** Charakterystyka systemów równoległych z pamięcią współdzieloną i rozproszoną.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Паралельні системи** використовують кілька обчислювальних блоків одночасно для підвищення продуктивності. Вони поділяються на дві основні категорії за способом організації пам'яті:
+
+1.  **Системи зі спільною пам'яттю (Shared Memory)**
+    - Кілька процесорів/ядер мають доступ до **єдиного глобального адресного простору**.
+    - Комунікація відбувається через змінні в пам'яті.
+    - **Плюси**: просте програмування, швидкий обмін даними.
+    - **Мінуси**: "пляшкове горлечко" на шині пам'яті, складна синхронізація (потрібні м'ютекси), погана масштабованість.
+    - *Приклади*: Багатоядерні процесори (SMP), NUMA.
+
+2.  **Системи з розподіленою пам'яттю (Distributed Memory)**
+    - Кожен процесор має **власну локальну пам'ять**, до якої інші не мають прямого доступу.
+    - Комунікація відбувається через **мережу** (передача повідомлень).
+    - **Плюси**: відмінна масштабованість (можна додавати тисячі вузлів), немає конфліктів за шину пам'яті.
+    - **Мінуси**: складніше програмування, затримки при передачі даних мережею.
+    - *Приклади*: Кластери (Clusters), Грід-системи, Суперкомп'ютери.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Shared Memory** (Спільна): одна пам'ять на всіх (як одна дошка в класі). Легко ділитися даними, але важко писати одночасно. (Приклад: твій ноутбук).
+- **Distributed Memory** (Розподілена): у кожного своя пам'ять (у кожного свій зошит). Треба передавати записки (повідомлення). Легко додавати нових учнів, але спілкування довше. (Приклад: дата-центр).
+
+---
 
 **PL:**
-...
+
+**Systemy równoległe** to systemy, w których wiele jednostek wykonuje zadania jednocześnie. Dzielą się na dwie główne kategorie ze względu na organizację pamięci:
+
+1.  **Systemy z pamięcią współdzieloną (Shared Memory)**
+    - Wiele procesorów ma dostęp do **jednej wspólnej przestrzeni adresowej**.
+    - Komunikacja odbywa się poprzez odczyt i zapis zmiennych w pamięci.
+    - **Zalety**: prosty model programowania, szybki dostęp do danych.
+    - **Wady**: problemy synchronizacji (race condition), ograniczona skalowalność (wąskie gardło na szynie pamięci).
+    - *Przykłady*: Komputery wielordzeniowe (SMP), architektury NUMA.
+
+2.  **Systemy z pamięcią rozproszoną (Distributed Memory)**
+    - Każdy węzeł posiada **własną pamięć lokalną**. Brak wspólnej przestrzeni adresowej.
+    - Komunikacja odbywa się przez **przesyłanie komunikatów** (sieć).
+    - **Zalety**: bardzo dobra skalowalność, brak konfliktów dostępu do pamięci.
+    - **Wady**: trudniejsze programowanie, opóźnienia komunikacyjne.
+    - *Przykłady*: Klastry komputerowe, superkomputery.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Shared Memory**: Wspólna pamięć dla wszystkich procesorów. Szybka komunikacja, ale trudna synchronizacja i słaba skalowalność (max kilkadziesiąt rdzeni).
+- **Distributed Memory**: Każdy procesor ma swoją pamięć. Skaluje się do tysięcy węzłów, ale komunikacja przez sieć jest wolniejsza.
 
 ---
 
 ## Питання 25 / Pytanie 25
 
-**UA:** [Текст питання]
+**UA:** Моделі та стандарти паралельного/розподіленого програмування для систем зі спільною та розподіленою пам'яттю.
 
 **PL:** Modele i standardy programowania równoległego/rozproszonego dla systemów z pamięcią współdzieloną i rozproszoną.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Типи архітектур пам'яті:**
+1.  **Спільна пам'ять (Shared Memory)**
+    - Усі процесори мають доступ до єдиного адресного простору.
+    - Комунікація відбувається через змінні в пам'яті.
+    - *Вимога:* Синхронізація (м'ютекси), щоб уникнути конфліктів.
+2.  **Розподілена пам'ять (Distributed Memory)**
+    - Кожен вузол (процесор) має власну локальну пам'ять.
+    - Інші процесори не мають прямого доступу до чужої пам'яті.
+    - Комунікація відбувається через **передачу повідомлень**.
+
+**Стандарти та моделі:**
+
+1.  **Для спільної пам'яті:**
+    - **OpenMP (Open Multi-Processing)**: Високорівневий API (директиви компілятора) для C/C++/Fortran. Простий у використанні.
+    - **Pthreads (POSIX Threads)**: Низькорівнева бібліотека потоків у UNIX-системах. Дає повний контроль.
+    - **TPL / Java Threads**: Бібліотеки у високорівневих мовах (C#, Java).
+
+2.  **Для розподіленої пам'яті:**
+    - **MPI (Message Passing Interface)**: Головний стандарт для суперкомп'ютерів та кластерів. Процеси обмінюються повідомленнями (`send`, `receive`).
+    - **RPC (Remote Procedure Call)**: Виклик функції на іншому комп'ютері так, ніби вона локальна (gRPC, RMI).
+    - **Модель Акторів (Actor Model)**: (Erlang, Akka) — незалежні об'єкти (актори), що спілкуються повідомленнями без спільного стану.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Спільна пам'ять**: усі бачать одну пам'ять. Головний стандарт — **OpenMP** (просто) або **Pthreads** (гнучко).
+- **Розподілена пам'ять**: кожен має свою пам'ять, спілкуються листами. Головний стандарт — **MPI**.
+- **Гібридна модель**: поєднання обох (кластери, де вузли мають спільну пам'ять, але між собою спілкуються через MPI).
+
+---
 
 **PL:**
-...
+
+**Modele systemów: pamięć współdzielona i rozproszona**
+
+1.  **Systemy z pamięcią współdzieloną (Shared Memory)**
+    - Wiele procesorów/wątków korzysta z tej samej przestrzeni adresowej.
+    - Komunikacja odbywa się przez zmienne w pamięci.
+    - Wymaga synchronizacji (np. mutexy), aby uniknąć błędów.
+
+2.  **Systemy z pamięcią rozproszoną (Distributed Memory)**
+    - Każdy węzeł ma własną pamięć lokalną.
+    - Komunikacja odbywa się poprzez przesyłanie komunikatów (message passing).
+    - Lepsza skalowalność.
+
+**Modele i standardy programowania:**
+
+1.  **Dla pamięci współdzielonej:**
+    - **OpenMP**: Dyrektywy kompilatora, łatwe zrównoleglanie pętli (C/C++).
+    - **Pthreads (POSIX Threads)**: Niskopoziomowy standard wątków w systemach Unix.
+    - **Wątki w językach wysokiego poziomu**: Java Threads, C# TPL.
+
+2.  **Dla pamięci rozproszonej:**
+    - **MPI (Message Passing Interface)**: Standard przemysłowy w obliczeniach HPC (klastry, superkomputery). Komunikacja punkt-punkt i grupowa.
+    - **RPC (Remote Procedure Call)**: Wywoływanie procedur na zdalnej maszynie.
+    - **Model aktorów**: (np. Erlang, Akka) – asynchroniczna komunikacja bez współdzielonego stanu.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Pamięć współdzielona**: wspólny adres, komunikacja przez zmienne. Standardy: **OpenMP**, **Pthreads**.
+- **Pamięć rozproszona**: osobna pamięć, komunikacja przez wiadomości. Standard: **MPI**.
+- **Model hybrydowy**: MPI między węzłami + OpenMP wewnątrz węzła (typowe dla superkomputerów).
 
 ---
 
 ## Питання 26 / Pytanie 26
 
-**UA:** [Текст питання]
+**UA:** Основні проблеми паралельного програмування, механізми синхронізації.
 
 **PL:** Podstawowe problemy programowania współbieżnego, mechanizmy synchronizacji.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Паралельне програмування** передбачає одночасне виконання кількох потоків або процесів, які мають спільний доступ до ресурсів (пам'ять, файли). Головна складність — коректна координація цього доступу.
+
+**Основні проблеми:**
+
+1.  **Race Condition (Стан гонитви)**
+    - Кілька потоків одночасно змінюють спільні дані без контролю.
+    - Результат залежить від випадковості (хто встиг перший).
+    - *Наслідок:* непередбачувані помилки, пошкоджені дані.
+
+2.  **Deadlock (Взаємне блокування)**
+    - Ситуація "клінчу", коли потік A чекає на ресурс, який тримає потік B, а потік B чекає на ресурс потоку A.
+    - Ніхто не може продовжити роботу.
+
+3.  **Starvation (Голодування)**
+    - Потік не отримує доступ до ресурсів через те, що інші потоки мають вищий пріоритет і постійно займають чергу.
+
+4.  **Livelock (Активне блокування)**
+    - Потоки реагують на дії один одного (відступають), але жоден не виконує корисної роботи (як двоє людей у дверях, що пропускають одне одного).
+
+**Механізми синхронізації:**
+
+1.  **Mutex (М'ютекс)**
+    - Об'єкт, який дозволяє лише **одному** потоку одночасно виконувати код у критичній секції.
+    - "Ключ", який треба взяти перед входом і повернути після виходу.
+
+2.  **Semaphore (Семафор)**
+    - Лічильник, що дозволяє доступ до ресурсу **N** потокам одночасно.
+    - *Бінарний семафор* працює як м'ютекс.
+
+3.  **Monitor (Монітор)**
+    - Високорівнева абстракція (наприклад, у Java `synchronized`), яка автоматично керує блокуванням доступу до методів об'єкта.
+
+4.  **Atomic Variables (Атомарні змінні)**
+    - Змінні, операції над якими (читання, запис, інкремент) неможливо перервати. Вони виконуються як одна інструкція процесора.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Проблеми**:
+    - **Race Condition**: хаос у даних через одночасний запис.
+    - **Deadlock**: вічне очікування (зависання).
+    - **Starvation**: потік ніколи не отримує ресурс.
+- **Рішення (Синхронізація)**:
+    - **Mutex**: пускає тільки одного (туалетна кабінка).
+    - **Semaphore**: пускає N потоків (турнікет).
+    - **Monitor**: вбудований у мову механізм захисту.
+
+---
 
 **PL:**
-...
+
+**Programowanie współbieżne** polega na jednoczesnym wykonywaniu wielu wątków lub procesów, które mogą współdzielić zasoby. Głównym wyzwaniem jest koordynacja dostępu do tych zasobów.
+
+**Podstawowe problemy:**
+
+1.  **Warunki wyścigu (Race condition)**
+    - Kilka wątków jednocześnie modyfikuje wspólny zasób.
+    - Wynik zależy od przypadkowej kolejności wykonania operacji.
+    - *Skutek:* niespójne dane.
+
+2.  **Zakleszczenie (Deadlock)**
+    - Dwa (lub więcej) wątki czekają na siebie nawzajem, blokując zasoby. Program przestaje działać ("wiesza się").
+
+3.  **Zagłodzenie (Starvation)**
+    - Wątek nie może uzyskać dostępu do zasobu, ponieważ inne wątki są stale faworyzowane.
+
+4.  **Livelock**
+    - Wątki reagują na siebie (np. ustępują sobie miejsca), ale żaden nie wykonuje realnej pracy. System działa (nie wisi), ale nie robi postępów.
+
+**Mechanizmy synchronizacji:**
+
+1.  **Mutex (Mutual Exclusion)**
+    - Zapewnia wyłączny dostęp do sekcji krytycznej.
+    - Tylko jeden wątek może posiadać mutex w danym czasie.
+
+2.  **Semafor**
+    - Licznik kontrolujący dostęp do zasobów.
+    - Może pozwalać na dostęp **N** wątkom jednocześnie.
+
+3.  **Monitor**
+    - Mechanizm wysokopoziomowy (np. `synchronized`), który automatycznie synchronizuje dostęp do metod obiektu.
+
+4.  **Zmienne atomowe**
+    - Operacje na nich są niepodzielne (nie mogą być przerwane). Nie wymagają blokad.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Problemy**:
+    - **Race Condition**: błędy przez równoczesny dostęp.
+    - **Deadlock**: wzajemne zablokowanie (nikt nie idzie dalej).
+    - **Starvation**: wątek czeka w nieskończoność.
+- **Rozwiązania**:
+    - **Mutex**: wpuszcza tylko jednego (jak klucz).
+    - **Semafor**: wpuszcza określoną liczbę wątków.
+    - **Monitor**: wbudowany w język strażnik obiektu.
 
 ---
 
 ## Питання 27 / Pytanie 27
 
-**UA:** [Текст питання]
+**UA:** Перелічіть принципи та сценарії створення резервних копій.
 
 **PL:** Wymień zasady i scenariusze tworzenia kopii zapasowych.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Резервна копія (Backup)** — це процес копіювання даних для їх відновлення після збою системи, помилки користувача, кібератаки (наприклад, ransomware) або фізичної втрати носія.
+
+**Основні принципи створення резервних копій:**
+
+1.  **Правило 3-2-1** (Золотий стандарт):
+    - **3** екземпляри даних (один основний + дві копії).
+    - **2** різні типи носіїв (наприклад, локальний HDD та хмарне сховище).
+    - **1** копія зберігається *off-site* (в іншому приміщенні або хмарі), щоб захиститися від пожежі/крадіжки.
+
+2.  **Регулярність та Автоматизація**
+    - Бекапи повинні робитися за розкладом (щодня/щотижня) і без ручного втручання, щоб уникнути людського фактору.
+
+3.  **Перевірка (Тестування)**
+    - Резервна копія вважається успішною лише тоді, коли перевірено процес **відновлення** даних.
+
+4.  **Безпека**
+    - Копії бажано шифрувати та обмежувати до них доступ.
+
+**Сценарії резервного копіювання:**
+
+1.  **Повний (Full Backup)**
+    - Копіюються **всі** дані.
+    - **+** Найпростіше і найшвидше відновлення.
+    - **-** Займає найбільше місця і часу на створення.
+
+2.  **Інкрементальний (Incremental Backup)**
+    - Копіюються лише ті дані, що змінилися з моменту **останнього будь-якого** бекапу.
+    - **+** Найшвидший процес створення, займає мінімум місця.
+    - **-** Найдовше відновлення (потрібен останній повний + *всі* наступні інкрементальні).
+
+3.  **Диференціальний (Differential Backup)**
+    - Копіюються дані, змінені з моменту останнього **повного** бекапу.
+    - **+** Відновлення швидше за інкрементальний (потрібен повний + один диференціальний).
+    - **-** Займає більше місця, ніж інкрементальний, оскільки дублює зміни.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Головне правило 3-2-1**: 3 копії, 2 носії, 1 офлайн/хмара.
+- **Full backup**: копіюємо все. Довго робити, швидко відновлювати.
+- **Incremental**: копіюємо зміни від *минулого* разу. Швидко робити, довго відновлювати (ланцюжок).
+- **Differential**: копіюємо зміни від *повного* бекапу. Середній варіант.
+- **Важливо**: регулярність, автоматизація і тестування відновлення.
+
+---
 
 **PL:**
-...
+
+**Kopia zapasowa (Backup)** – proces duplikowania danych w celu ich odzyskania po awarii systemu, błędzie lub ataku.
+
+**Zasady tworzenia kopii zapasowych:**
+
+1.  **Zasada 3-2-1** (Najważniejsza!):
+    - **3** kopie danych.
+    - **2** różne nośniki.
+    - **1** kopia przechowywana poza główną lokalizacją (off-site).
+
+2.  **Regularność i Automatyzacja**
+    - Kopie powinny być wykonywane cyklicznie i automatycznie, aby wyeliminować błąd ludzki.
+
+3.  **Testowanie i Bezpieczeństwo**
+    - Należy regularnie testować proces przywracania danych (backup bez testu jest bezwartościowy).
+    - Kopie powinny być szyfrowane i przechowywane w bezpiecznym miejscu.
+
+**Scenariusze tworzenia kopii zapasowych:**
+
+1.  **Backup pełny (Full backup)**
+    - Kopia wszystkich danych.
+    - ✅ Łatwe i szybkie odtwarzanie.
+    - ❌ Duży rozmiar, długi czas tworzenia.
+
+2.  **Backup przyrostowy (Incremental backup)**
+    - Kopiowane są tylko dane zmienione od **ostatniego** backupu (pełnego lub przyrostowego).
+    - ✅ Szybki zapis, mały rozmiar.
+    - ❌ Wolniejsze odtwarzanie (potrzeba wielu plików: Full + wszystkie Incremental).
+
+3.  **Backup różnicowy (Differential backup)**
+    - Kopiowane są dane zmienione od ostatniego **pełnego** backupu.
+    - ✅ Szybsze odtwarzanie niż w przyrostowym.
+    - ❌ Rozmiar rośnie z czasem (duplikacja zmian względem Full).
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Zasada 3-2-1**: 3 kopie, 2 nośniki, 1 poza firmą.
+- **Full backup**: wszystko (wolny zapis, szybki odczyt).
+- **Incremental**: tylko zmiany od ostatniego razu (szybki zapis, wolny odczyt - łańcuch).
+- **Differential**: zmiany od pełnego backupu (kompromis).
+- **Najważniejsze**: automatyzacja i testowanie odzyskiwania.
 
 ---
 
 ## Питання 28 / Pytanie 28
 
-**UA:** [Текст питання]
+**UA:** Перелічіть та обговоріть способи реалізації масивів RAID.
 
 **PL:** Wymień i omów sposoby realizacji macierzy RAID.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**RAID (Redundant Array of Independent Disks)** — це технологія об'єднання кількох фізичних дисків в один логічний елемент для підвищення швидкодії, надійності зберігання даних або обох цілей одночасно.
+
+**Основні рівні RAID:**
+
+1.  **RAID 0 (Striping — чергування)**
+    - Дані розбиваються на блоки і записуються одночасно на всі диски.
+    - **Плюси:** максимальна швидкість читання і запису.
+    - **Мінуси:** нульова відмовостійкість. Якщо ламається один диск — втрачаються всі дані.
+    - *Вимоги:* Мінімум 2 диски.
+
+2.  **RAID 1 (Mirroring — дзеркалювання)**
+    - Дані повністю дублюються на двох (або більше) дисках.
+    - **Плюси:** висока надійність (система працює, поки живий хоч один диск), швидке читання.
+    - **Мінуси:** використовується лише 50% ємності (при 2 дисках), повільніший запис.
+    - *Вимоги:* Мінімум 2 диски.
+
+3.  **RAID 5 (Striping with Parity — чергування з парністю)**
+    - Дані і контрольні суми (парність) розподіляються по всіх дисках.
+    - **Плюси:** витримує вихід з ладу одного диска, хороший баланс швидкості читання і економії місця.
+    - **Мінуси:** повільний запис (треба рахувати контрольну суму).
+    - *Вимоги:* Мінімум 3 диски.
+
+4.  **RAID 6 (Double Parity)**
+    - Схожий на RAID 5, але пише подвійну контрольну суму.
+    - **Плюси:** витримує відмову **двох** дисків.
+    - **Мінуси:** ще повільніший запис, менше корисного місця.
+    - *Вимоги:* Мінімум 4 диски.
+
+5.  **RAID 10 (RAID 1+0)**
+    - Поєднання дзеркалювання та чергування (масив страйпів із дзеркал).
+    - **Плюси:** дуже швидкий і надійний.
+    - **Мінуси:** дорого (доступно лише 50% об'єму).
+    - *Вимоги:* Мінімум 4 диски.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **RAID** — об'єднання дисків для швидкості або надійності.
+- **RAID 0 (Speed)**: дані ріжуться на частини. Швидко, але небезпечно (один збій = все пропало).
+- **RAID 1 (Safety)**: копія (дзеркало). Надійно, але втрачаємо половину місця.
+- **RAID 5 (Balance)**: розподілені дані + контрольна сума. Може зламатися 1 диск.
+- **RAID 10 (Best)**: дзеркало + швидкість. Найкращий варіант, але найдорожчий.
+
+---
 
 **PL:**
-...
+
+**RAID (Redundant Array of Independent Disks)** to technologia łączenia wielu dysków fizycznych w jedną logiczną macierz w celu zwiększenia wydajności, niezawodności lub obu jednocześnie.
+
+**Główne sposoby realizacji macierzy RAID (poziomy RAID):**
+
+1.  **RAID 0 – striping (wydajność)**
+    - **Opis:** Dane są dzielone na bloki i zapisywane naprzemiennie na kilku dyskach.
+    - **Cechy:**
+        - ✅ bardzo wysoka wydajność (odczyt i zapis)
+        - ❌ brak redundancji (awaria jednego dysku = utrata wszystkich danych)
+    - **Zastosowanie:** caching, obróbka wideo (dane niekrytyczne).
+    - *Min. liczba dysków:* 2
+
+2.  **RAID 1 – mirroring (bezpieczeństwo)**
+    - **Opis:** Dane są zapisywane jednocześnie na dwóch (lub więcej) dyskach.
+    - **Cechy:**
+        - ✅ pełna redundancja danych, wysoka niezawodność
+        - ❌ dostępna pojemność = 50% (przy 2 dyskach), wolniejszy zapis
+    - **Zastosowanie:** systemy operacyjne, ważne dane.
+    - *Min. liczba dysków:* 2
+
+3.  **RAID 5 – striping + parzystość**
+    - **Opis:** Dane i informacje parzystości są rozłożone równomiernie na wszystkich dyskach.
+    - **Cechy:**
+        - ✅ tolerancja awarii jednego dysku
+        - ✅ dobry kompromis między wydajnością a bezpieczeństwem
+        - ❌ wolniejszy zapis (obliczanie parzystości)
+    - **Zastosowanie:** serwery plików, bazy danych.
+    - *Min. liczba dysków:* 3
+
+4.  **RAID 6 – podwójna parzystość**
+    - **Opis:** Podobny do RAID 5, ale z dwiema informacjami parzystości.
+    - **Cechy:**
+        - ✅ tolerancja awarii **dwóch** dysków
+        - ❌ jeszcze wolniejszy zapis i większy narzut na pojemność
+    - **Zastosowanie:** duże macierze, systemy krytyczne.
+    - *Min. liczba dysków:* 4
+
+5.  **RAID 10 (1+0) – mirroring + striping**
+    - **Opis:** Połączenie RAID 1 i RAID 0 (najpierw mirror, potem striping).
+    - **Cechy:**
+        - ✅ bardzo wysoka wydajność i niezawodność
+        - ❌ kosztowny (tylko 50% pojemności użytecznej)
+    - **Zastosowanie:** bazy danych, systemy o wysokim obciążeniu.
+    - *Min. liczba dysków:* 4
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **RAID** – łączenie dysków w celu poprawy szybkości lub bezpieczeństwa.
+- **RAID 0**: Szybkość (striping), brak bezpieczeństwa.
+- **RAID 1**: Bezpieczeństwo (kopia/mirror), połowa pojemności.
+- **RAID 5**: Balans (sumy kontrolne), odporność na awarię 1 dysku.
+- **RAID 10**: Szybkość + Bezpieczeństwo (połączenie 0 i 1), drogie rozwiązanie.
 
 ---
 
 ## Питання 29 / Pytanie 29
 
-**UA:** [Текст питання]
+**UA:** Що таке файлова система? Назвіть та опишіть три обрані файлові системи.
 
 **PL:** Czym jest system plików? Wymień i opisz trzy wybrane systemy plików.
 
 ### Пояснення / Wyjaśление
 
 **UA:**
-...
+
+**Файлова система** — це спосіб організації, запису та зчитування даних на носії пам’яті (наприклад, жорсткому диску, SSD, флешці).
+Вона дозволяє операційній системі керувати файлами та каталогами, визначати їх структуру, імена, розташування та атрибути (права доступу, розмір).
+
+**Приклади файлових систем:**
+
+1. **FAT32**
+   - Проста і старіша файлова система, часто використовується на флеш-накопичувачах та картах пам’яті.
+   - **Недолік:** обмеження розміру окремого файлу до ~4 ГБ та відсутність просунутих механізмів безпеки.
+
+2. **NTFS**
+   - Сучасна система, що використовується в **Windows**.
+   - Підтримує великі файли, контроль доступу (ACL), шифрування та журналювання (що підвищує надійність).
+
+3. **ext4**
+   - Основна файлова система для **Linux**.
+   - Висока продуктивність, підтримка величезних файлів та журналювання (захист від пошкодження даних при збоях).
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Файлова система**: це спосіб організації даних на диску (імена, права, каталог).
+- **FAT32**: проста, сумісна (флешки), але макс. файл 4 ГБ.
+- **NTFS** (Windows): надійна, є журнал, права доступу, великі файли.
+- **ext4** (Linux): швидка, надійна (журнал), стандарт для Linux.
+
+---
 
 **PL:**
-...
+
+**Czym jest system plików?**
+
+System plików to sposób organizacji, zapisu i odczytu danych na nośniku pamięci (np. dysku twardym, SSD, pendrive).
+Umożliwia on systemowi operacyjnemu zarządzanie plikami i katalogami, określanie ich struktury, nazw, lokalizacji oraz atrybutów, takich jak prawa dostępu czy rozmiar.
+
+**Przykładowe systemy plików:**
+
+1. **FAT32**
+   - Jest to prosty i starszy system plików, często używany na pendrive’ach i kartach pamięci.
+   - Jego wadą jest ograniczenie rozmiaru pojedynczego pliku do około 4 GB oraz brak zaawansowanych mechanizmów bezpieczeństwa.
+
+2. **NTFS**
+   - Nowoczesny system plików stosowany w systemach **Windows**.
+   - Obsługuje duże pliki, posiada mechanizmy kontroli dostępu, szyfrowania oraz dziennikowania, co zwiększa bezpieczeństwo i niezawodność danych.
+
+3. **ext4**
+   - System plików używany głównie w systemach **Linux**.
+   - Charakteryzuje się wysoką wydajnością, obsługą bardzo dużych plików oraz dziennikowaniem, które chroni dane przed uszkodzeniem w przypadku awarii systemu.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **System plików**: sposób organizacji i zapisu danych na nośniku.
+- **FAT32**: prosty, uniwersalny (pendrive), ale limit pliku 4 GB.
+- **NTFS** (Windows): bezpieczny, posiada mechanizmy kontroli dostępu i dziennikowania.
+- **ext4** (Linux): wydajny, z dziennikowaniem, standard dla Linuksa.
 
 ---
 

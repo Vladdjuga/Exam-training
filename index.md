@@ -992,7 +992,7 @@ TCP/IP модель має 4 рівні (простіша), OSI має 7. TCP/IP
 **Правило передачі (Encapsulation):**
 При спуску вниз кожен рівень додає свій «заголовок»: L7→L6→...→L1. При підйому вгору заголовки видаляються.
 
-<img src="img/OSIISO.jpg" alt="OSI Model Diagram" width="600"/>
+<img src="img/ISOOSI.jpg" alt="OSI Model Diagram" width="600"/>
 
 ##### Коротка версія (для заучування, 40–60 сек)
 
@@ -1060,7 +1060,7 @@ TCP/IP ma 4 warstwy (prostsze), OSI ma 7. TCP/IP dominuje w internecie, ale OSI 
 **Enkapsulacja (Encapsulation):**
 Każda warstwa dodaje swój nagłówek: L7→L6→...→L1. Po drodze w górę nagłówki są usuwane.
 
-<img src="img/OSIISO.jpg" alt="OSI Model Diagram" width="600"/>
+<img src="img/ISOOSI.jpg" alt="OSI Model Diagram" width="600"/>
 ##### Wersja krótka (do nauczenia, 40–60 s)
 
 1. **Fizyczna**: Bity, kable.

@@ -67,7 +67,9 @@ Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch 
 
 # Питання по керунку / Pytania kierunkowe
 
-## Питання 1 | Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.
+## Питання 1
+
+**PL:** Co to jest polimorfizm dynamiczny. Podaj przykład i omów w jaki sposób w języku C++ ten rodzaj polimorfizmu jest realizowany.
 
 **UA:** Що таке динамічний поліморфізм? Наведіть приклад і обговоріть, як цей вид поліморфізму реалізований у мові C++.
 
@@ -218,7 +220,9 @@ Podsumowując: polimorfizm dynamiczny pozwala pisać bardziej elastyczny i uniwe
 
 ---
 
-## Питання 2 | Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.
+## Питання 2
+
+**PL:** Jakie można wyróżnić modele procesu tworzenia oprogramowania. Scharakteryzuj niektóre z nich.
 
 **UA:** Які можна виділити моделі процесу створення програмного забезпечення? Охарактеризуйте деякі з них.
 
@@ -381,7 +385,7 @@ Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
 
 ---
 
-## Питання 3 | Jakie są najprostsze algorytmy generacji liczb losowych z zadanym rozkładem prawdopodobieństwa?
+## Питання 3
 
 **UA:** Які найпростіші алгоритми генерації випадкових чисел із заданим розподілом імовірності?
 
@@ -1003,128 +1007,600 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 1 / Pytanie 1
 
-**UA:** [Текст питання]
+**UA:** Тестування (види, рівні тестів) та життєвий цикл програмного забезпечення.
 
 **PL:** Testowanie (rodzaje, poziomy testów) a cykl życia oprogramowania.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Тестування — це невід'ємна частина життєвого циклу (SDLC), яка супроводжує його на всіх етапах (особливо в V-Model).
+
+**1. Рівні тестування (Levels of Testing):**
+Йдуть від найменшого до найбільшого ("Піраміда тестування").
+*   **Модульне (Unit Testing):** Перевірка окремих функцій/класів (робить розробник).
+*   **Інтеграційне (Integration Testing):** Перевірка взаємодії між модулями (чи працюють вони разом?).
+*   **Системне (System Testing):** Перевірка всієї готової системи в цілому (чи відповідає вимогам?).
+*   **Приймальне (Acceptance Testing):** Перевірка замовником (UAT), чи готова програма до релізу.
+
+**2. Види тестування (Types of Testing):**
+*   **Функціональне:** *Що* система робить? (Чи працює логін? Чи додається товар у кошик?).
+*   **Нефункціональне:** *Як* система працює?
+    - *Навантажувальне (Performance):* Чи витримає 1000 юзерів?
+    - *Безпека (Security):* Чи можна зламати?
+    - *Юзабіліті (Usability):* Чи зручно користуватися?
+*   **Регресійне:** Перевірка, чи не зламали нові зміни те, що вже працювало.
+
+##### Коротка версія (для заучування)
+
+- **Рівні**:
+  1. Юніт (код).
+  2. Інтеграція (зв'язки).
+  3. Системне (вся програма).
+  4. Приймальне (клієнт).
+- **Види**:
+  - Функціональне (що робить).
+  - Нефункціональне (швидкість, безпека).
+  - Регресійне (перевірка старого).
+
+---
 
 **PL:**
-...
+
+Testowanie jest integralną częścią cyklu życia oprogramowania (SDLC). W modelu V każdemu etapowi tworzenia odpowiada odpowiedni poziom testów.
+
+**1. Poziomy testowania (Levels):**
+*   **Jednostkowe (Unit Testing):** Testowanie pojedynczych funkcji/metod (przez programistę).
+*   **Integracyjne (Integration Testing):** Sprawdzanie współpracy między modułami lub systemami.
+*   **Systemowe (System Testing):** Testowanie kompletnego systemu pod kątem wymagań.
+*   **Akceptacyjne (Acceptance Testing):** Weryfikacja przez klienta (UAT) przed wdrożeniem.
+
+**2. Rodzaje testowania (Types):**
+*   **Funkcjonalne:** *Co* system robi? (Np. czy funkcja "Zaloguj" działa?).
+*   **Niefunkcjonalne:** *Jak* system działa?
+    - *Wydajnościowe (Performance):* Szybkość i stabilność.
+    - *Bezpieczeństwa (Security):* Odporność na ataki.
+    - *Użyteczności (Usability):* Łatwość obsługi.
+*   **Regresyjne:** Sprawdzenie, czy nowe zmiany nie zepsuły działających funkcji.
+
+##### Wersja krótka (do nauczenia)
+
+- **Poziomy**:
+  1. Unit (małe kawałki).
+  2. Integration (połączenia).
+  3. System (całość).
+  4. Acceptance (dla klienta).
+- **Rodzaje**:
+  - Funkcjonalne (działanie).
+  - Niefunkcjonalne (szybkość, bezpieczeństwo).
+  - Regresyjne (czy stare wciąż działa).
 
 ---
 
 ## Питання 2 / Pytanie 2
 
-**UA:** [Текст питання]
+**UA:** Охарактеризуйте цілі та методи модульного тестування (Unit Testing).
 
 **PL:** Scharakteryzuj cele i metody testowania jednostkowego.
+
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Модульне тестування (Unit Testing)** — це перевірка найменших незалежних частин програми (функцій, методів, класів) окремо від решти системи.
+
+**Цілі:**
+1.  **Гарантія якості:** Впевнитися, що функція повертає правильний результат (наприклад, `add(2, 2)` повертає `4`).
+2.  **Регресійне тестування:** Переконатися, що нові зміни не зламали старий код.
+3.  **Документація:** Тести показують, як **має** працювати код.
+4.  **Спрощення рефакторингу:** Можна сміливо змінювати код, якщо тести "зелені".
+
+**Методи та інструменти:**
+- **xUnit Frameworks:** JUnit (Java), NUnit (C#), unittest/pytest (Python), GoogleTest (C++).
+- **Mocking (Імітація):** Якщо функція залежить від бази даних або мережі, ми створюємо "фейкові" об'єкти (Mock/Stub), щоб тестувати тільки логіку функції, а не базу даних.
+
+**Структура тесту (AAA):**
+1.  **Arrange:** Підготовка даних (створити об'єкти).
+2.  **Act:** Виклик методу, який тестуємо.
+3.  **Assert:** Перевірка результату (чи дорівнює очікуваному?).
+
+##### Коротка версія (для заучування)
+
+- **Що це?**: Тест для однієї маленької функції.
+- **Ціль**: Щоб все працювало і не ламалося потім.
+- **Структура AAA**: Підготуй (Arrange) -> Зроби (Act) -> Перевір (Assert).
+- **Ізоляція**: Використовуємо Mocks (заглушки) замість реальної БД.
+
+---
 
 **PL:**
-...
+
+**Testowanie jednostkowe (Unit Testing)** polega na weryfikacji najmniejszych fragmentów kodu (funkcji, metod, klas) w izolacji od reszty systemu.
+
+**Cele:**
+1.  **Weryfikacja poprawności:** Upewnienie się, że kod działa zgodnie z założeniami.
+2.  **Zapobieganie regresji:** Wykrywanie błędów po wprowadzeniu zmian w kodzie.
+3.  **Ułatwienie refaktoryzacji:** Bezpieczne ulepszanie kodu przy zachowaniu funkcjonalności.
+4.  **Dokumentacja:** Testy pokazują przykłady użycia kodu.
+
+**Metody i narzędzia:**
+- **Frameworki:** JUnit, NUnit, Pytest, Jest.
+- **Mocking (Atrapy):** Izolowanie testowanego kodu od zewnętrznych zależności (np. bazy danych) poprzez użycie obiektów Mock lub Stub.
+
+**Struktura testu (AAA):**
+1.  **Arrange:** Przygotuj dane wejściowe.
+2.  **Act:** Wykonaj testowaną metodę.
+3.  **Assert:** Sprawdź, czy wynik jest zgodny z oczekiwaniami.
+
+##### Wersja krótka (do nauczenia)
+
+- **Co to jest?**: Testowanie pojedynczych funkcji/metod.
+- **Po co?**: Żeby znaleźć błędy wcześnie i nie psuć kodu przy zmianach.
+- **Zasada AAA**: Arrange (przygotuj), Act (wykonaj), Assert (sprawdź).
+- **Izolacja**: Testujemy samą logikę, bez bazy danych (używamy Mocków).
 
 ---
 
 ## Питання 3 / Pytanie 3
 
-**UA:** [Текст питання]
+**UA:** Обговоріть техніку розробки програмного забезпечення через тестування (TDD - Test-Driven Development).
 
 **PL:** Omów technikę tworzenia oprogramowania Test-Driven Development.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**TDD (Test-Driven Development)** — це методологія розробки, коли **спочатку пишуться тести**, а вже потім — код, який їх виконує.
+
+**Цикл TDD (Red-Green-Refactor):**
+
+1.  🔴 **Red (Червоний):** Написати тест для нової функції. Оскільки функція ще не написана, тест **провалюється** (помилка компіляції або виконання).
+2.  🟢 **Green (Зелений):** Написати **мінімально необхідний код**, щоб тест пройшов успішно. Якість коду тут не головне, головне — щоб "загорілося зелене".
+3.  🔵 **Refactor (Рефакторинг):** Покращити код (прибрати дублювання, покращити імена змінних), зберігаючи тести зеленими.
+
+**Переваги:**
+- Висока надійність коду (менше багів).
+- Код відразу задокументований тестами.
+- Легше змінювати код у майбутньому (тести покажуть, якщо ви щось зламали).
+
+**Недоліки:**
+- Писати код довше на старті.
+- Потрібно вміти писати хороші тести.
+
+##### Коротка версія (для заучування)
+
+- Суть: **Спочатку тест, потім код.**
+- Цикл **RGR**:
+  1. **Red**: Тест не працює (бо коду нема).
+  2. **Green**: Пишемо код, щоб тест запрацював.
+  3. **Refactor**: Покращуємо код.
+
+---
 
 **PL:**
-...
+
+**TDD (Test-Driven Development)** to technika programowania, w której **najpierw powstają testy**, a dopiero potem kod aplikacji.
+
+**Cykl TDD (Red-Green-Refactor):**
+
+1.  🔴 **Red (Czerwony):** Napisz test dla nowej funkcjonalności. Test **musi nie przejść** (bo funkcjonalności jeszcze nie ma).
+2.  🟢 **Green (Zielony):** Napisz **niezbędne minimum kodu**, aby test przeszedł pomyślnie. Nie dbaj o piękno kodu na tym etapie.
+3.  🔵 **Refactor (Refaktoryzacja):** Ulepsz kod (czytelność, optymalizacja), upewniając się, że testy nadal przechodzą.
+
+**Zalety (Korzyści):**
+- Mniejsza liczba błędów (Bugs).
+- Bezpieczny refaktoring (zmiany w kodzie).
+- Testy pełnią rolę żywej dokumentacji.
+
+**Wady:**
+- Wolniejszy start (trzeba napisać więcej kodu testowego).
+- Wymaga dyscypliny i umiejętności pisania testów.
+
+##### Wersja krótka (do nauczenia)
+
+- Zasada: **Najpierw test, potem kod.**
+- Cykl **RGR**:
+  1. **Red**: Test failed (brak kodu).
+  2. **Green**: Test passed (kod działa).
+  3. **Refactor**: Clean code (czyszczenie).
 
 ---
 
 ## Питання 4 / Pytanie 4
 
-**UA:** [Текст питання]
+**UA:** Обговоріть типові функції інструментів, що підтримують процес налагодження (дебаггингу) програмного забезпечення.
 
 **PL:** Omówić typowe funkcje narzędzi wspierających proces debugowania oprogramowania.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Дебагер (Debugger)** — це інструмент для пошуку та виправлення помилок (багів) у коді.
+
+**Основні функції:**
+
+1.  **Точки зупинки (Breakpoints)**
+    - Дозволяють зупинити виконання програми на конкретному рядку коду.
+    - Використовується, щоб заглянути "під капот" у критичний момент.
+    - *Conditional Breakpoint:* Зупинити тільки якщо `х > 100`.
+
+2.  **Покрокове виконання (Stepping)**
+    - **Step Over (F10):** Виконати рядок і зупинитися на наступному (не заходячи всередину функцій).
+    - **Step Into (F11):** Зайти всередину функції, яку викликають у цьому рядку.
+    - **Step Out:** Виконати функцію до кінця і вийти назад у місце виклику.
+
+3.  **Перегляд змінних (Variables / Watch)**
+    - Можливість бачити поточні значення всіх змінних у момент зупинки.
+    - Можна змінювати значення "на льоту", щоб перевірити гіпотезу.
+
+4.  **Стек викликів (Call Stack)**
+    - Показує ланцюжок функцій: хто викликав поточну функцію, хто викликав попередню, і так до `main()`.
+    - Допомагає зрозуміти, "як ми сюди потрапили".
+
+5.  **Evaluate Expression (Обчислення виразів)**
+    - Виконання довільного коду або формули прямо в режимі паузи.
+
+##### Коротка версія (для заучування)
+
+- **Breakpoints**: "Стоп тут!" (зупинка на рядку).
+- **Step Over/Into**: Йти по коду крок за кроком.
+- **Watch**: Дивитися значення змінних (`x = 5`).
+- **Call Stack**: Хто кого викликав (історія шляху).
+
+---
 
 **PL:**
-...
+
+**Debugger** to narzędzie do analizy kodu w czasie rzeczywistym, służące do znajdowania i naprawiania błędów (bugów).
+
+**Główne funkcje:**
+
+1.  **Pułapki (Breakpoints)**
+    - Zatrzymują wykonywanie programu w wybranej linii kodu.
+    - Pozwalają sprawdzić stan aplikacji w danym momencie.
+    - *Conditional Breakpoint:* Zatrzymaj tylko, jeśli warunek jest spełniony (np. `i == 5`).
+
+2.  **Praca krokowa (Stepping)**
+    - **Step Over:** Wykonaj linię i idź dalej (nie wchodź do funkcji).
+    - **Step Into:** Wejdź do środka wywoływanej funkcji.
+    - **Step Out:** Dokończ obecną funkcję i wróć do miejsca wywołania.
+
+3.  **Podgląd zmiennych (Watch / Locals)**
+    - Wyświetlanie aktualnych wartości zmiennych w pamięci.
+    - Możliwość ręcznej zmiany wartości w trakcie debugowania.
+
+4.  **Stos wywołań (Call Stack)**
+    - Lista funkcji, które doprowadziły do obecnego miejsca w kodzie (ścieżka wywołania).
+    - Odpowiedź na pytanie: "Skąd się tu wzięliśmy?".
+
+5.  **Immediate Window / Evaluate**
+    - Możliwość wpisania i wykonania fragmentu kodu "na żywo" w zatrzymanym programie.
+
+##### Wersja krótka (do nauczenia)
+
+- **Breakpoints**: Zatrzymanie programu w konkretnym miejscu.
+- **Stepping**: Wykonywanie kodu linijka po linijce.
+- **Watch**: Podglądanie wartości zmiennych.
+- **Call Stack**: Historia wywołań funkcji.
 
 ---
 
 ## Питання 5 / Pytanie 5
 
-**UA:** [Текст питання]
+**UA:** Обговоріть переваги використання системи контролю версій (VCS).
 
 **PL:** Omówić korzyści z wykorzystania systemu kontroli wersji.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Система контролю версій (VCS - Version Control System)** — це програмне забезпечення для керування змінами в коді (найпопулярніша: **Git**).
+
+**Основні переваги:**
+
+1.  **Історія змін (History & Backup)**
+    - Зберігається кожна версія файлу. Можна повернутися назад ("відкотитися"), якщо щось зламалося.
+    - Видно *хто*, *коли* і *чому* (commit message) вніс зміни.
+
+2.  **Спільна робота (Collaboration)**
+    - Дозволяє команді працювати над одним проектом одночасно.
+    - Система автоматично об'єднує зміни (Merge) і повідомляє про конфлікти, якщо двоє людей змінили той самий рядок.
+
+3.  **Гілкування (Branching)**
+    - Можна створювати окремі "гілки" (branches) для нових функцій або експериментів, не ламаючи основний код (main/master).
+    - Після тестування гілка вливається (Merge Request / Pull Request) в основну.
+
+4.  **Безпека та Відстежуванність**
+    - Ви знаєте автора кожного рядка коду (`git blame`).
+
+**Приклади:** Git (GitHub, GitLab, Bitbucket), SVN, Mercurial.
+
+##### Коротка версія (для заучування)
+
+- **Машина часу**: Можна повернути старий код, якщо новий не працює.
+- **Командна робота**: Багато людей пишуть код разом без хаосу.
+- **Гілки (Branches)**: Безпечне додавання нових фіч.
+- **Бекап**: Код зберігається на сервері.
+
+---
 
 **PL:**
-...
+
+**System kontroli wersji (VCS)** to narzędzie do zarządzania zmianami w kodzie źródłowym (standardem jest **Git**).
+
+**Główne korzyści:**
+
+1.  **Historia zmian i kopia bezpieczeństwa**
+    - Możliwość powrotu do dowolnej, działającej wersji kodu (Rollback).
+    - Pełna historia: kto, kiedy i co zmienił.
+
+2.  **Praca zespołowa (Collaboration)**
+    - Umożliwia wielu programistom pracę na tych samych plikach jednocześnie bez nadpisywania swojej pracy.
+    - Mechanizm łączenia kodu (Merge) i rozwiązywania konfliktów.
+
+3.  **Gałęzie (Branching)**
+    - Tworzenie izolowanych kopii kodu (Branch) do pracy nad nowymi funkcjami.
+    - Główna wersja (Master/Main) pozostaje stabilna podczas prac developerskich.
+
+4.  **Śledzenie błędów**
+    - Łatwo znaleźć, która zmiana wprowadziła błąd (`git bisect`).
+
+**Przykłady:** Git, SVN.
+
+##### Wersja krótka (do nauczenia)
+
+- **Historia (Undo)**: Można cofnąć zepsute zmiany.
+- **Współpraca**: Zespół pracuje równolegle nad jednym projektem.
+- **Gałęzie (Branches)**: Bezpieczne testowanie nowych funkcji.
+- **Kopia zapasowa**: Kod jest bezpieczny na serwerze (np. GitHub).
 
 ---
 
 ## Питання 6 / Pytanie 6
 
-**UA:** [Текст питання]
+**UA:** Обговоріть способи профілювання програм та інструменти, що використовуються в цьому процесі.
 
 **PL:** Omówić sposoby profilowania programów i narzędzia wykorzystywane w tym procesie.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+**Профілювання (Profiling)** — це аналіз роботи програми під час виконання для виявлення "вузьких місць" (bottlenecks), витоків пам'яті або надмірного використання процесора.
+
+**Основні методи профілювання:**
+
+1.  **Інструментація (Instrumentation)**
+    - У код програми додаються спеціальні інструкції (маркери) на етапі компіляції або виконання.
+    - **Плюси:** Дуже висока точність (міряє кожен виклик).
+    - **Мінуси:** Сповільнює роботу програми (Overhead), змінює її поведінку.
+
+2.  **Семплінг (Sampling)**
+    - Профайлер періодично (наприклад, кожні 1 мс) "зупиняє" програму і дивиться, яка функція зараз виконується.
+    - **Плюси:** Мало впливає на швидкість роботи.
+    - **Мінуси:** Менша точність (можна пропустити короткі функції).
+
+**Що вимірюють:**
+- **CPU Time:** Скільки часу процесор витрачає на функцію.
+- **Memory Usage:** Скільки пам'яті виділяється (пошук Memory Leaks).
+- **Call Graph:** Хто яку функцію викликав і скільки разів.
+
+**Популярні інструменти:**
+- **Valgrind (Memcheck, Callgrind):** Linux, пошук витоків пам'яті.
+- **gprof:** Стандартний профайлер GNU (GCC).
+- **Visual Studio Profiler:** Для Windows/.NET/C++.
+- **Perf:** Потужний інструмент для Linux ядра.
+
+##### Коротка версія (для заучування)
+
+- **Профілювання** — це пошук "гальм" та витоків пам'яті.
+- **Методи**:
+  1. **Інструментація**: Вставка лічильників у код (точно, але повільно).
+  2. **Семплінг**: Періодична перевірка "де ми зараз?" (швидко, але менш точно).
+- **Інструменти**: Valgrind (пам'ять), gprof, Visual Studio Profiler.
+
+---
 
 **PL:**
-...
+
+**Profilowanie** to dynamiczna analiza oprogramowania w celu zmierzenia jego wydajności, zużycia pamięci i czasu wykonywania poszczególnych funkcji. Cel: optymalizacja.
+
+**Główne metody profilowania:**
+
+1.  **Instrumentacja (Instrumentation)**
+    - Dodanie dodatkowego kodu (markerów) do programu w celu śledzenia wykonania.
+    - **Zalety:** Bardzo dokładne pomiary (ilość wywołań, dokładny czas).
+    - **Wady:** Spowalnia działanie programu (duży narzut/overhead).
+
+2.  **Próbkowanie (Sampling)**
+    - Profiler okresowo przerywa działanie programu i sprawdza rejestr licznika rozkazów (gdzie jesteśmy?).
+    - **Zalety:** Mały wpływ na wydajność, działa na produkcji.
+    - **Wady:** Mniej dokładne, może pominąć krótkie funkcje.
+
+**Co mierzymy:**
+- Zużycie CPU (czas procesora).
+- Alokację pamięci (wycieki pamięci / Memory Leaks).
+- Częstotliwość wywołań funkcji.
+
+**Narzędzia:**
+- **Valgrind:** Analiza pamięci (Linux).
+- **gprof:** Klasyczny profiler GCC.
+- **Visual Studio Diagnostic Tools:** Wbudowane w VS.
+- **Wireshark:** Do profilowania sieci.
+
+##### Wersja krótka (do nauczenia)
+
+- **Profilowanie**: Szukanie wąskich gardeł (gdzie program zamula) i wycieków pamięci.
+- **Metody**:
+  1. **Instrumentacja**: Dokładne, ale obciąża program (dodatkowy kod).
+  2. **Próbkowanie**: Szybkie, sprawdza stan co jakiś czas.
+- **Narzędzia**: Valgrind, Visual Studio Profiler, gprof.
 
 ---
 
 ## Питання 7 / Pytanie 7
 
-**UA:** [Текст питання]
+**UA:** Порівняйте модель Bare-metal та модель, що базується на багатозадачності RTOS у програмному забезпеченні вбудованих систем.
 
 **PL:** Porównaj model bare-metal oraz model bazujący na multitaskingu dostarczanym przez RTOS w oprogramowaniu systemów wbudowanych.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+Це два основні підходи до написання прошивок для мікроконтролерів.
+
+**1. Bare-metal ("Голе залізо")**
+- **Принцип:** Програма працює без операційної системи. Зазвичай це нескінченний цикл `while(1)` (Super Loop), який послідовно викликає функції, плюс переривання (Interrupts) для термінових подій.
+- **Плюси:**
+    - Максимальна продуктивність (нульові накладні витрати).
+    - Повний контроль над залізом.
+    - Простота для дуже малих проектів.
+- **Мінуси:**
+    - Важко реалізувати багатозадачність (одна довга функція гальмує все).
+    - Складність масштабування ("Спагетті-код").
+    - Важко дотримуватися точних таймінгів, якщо задач стає багато.
+
+**2. RTOS (Операційна система реального часу)**
+- **Принцип:** Використовує **Планувальник (Scheduler)**. Програма розбивається на незалежні **задачі (Tasks)**. Планувальник перемикає процесор між ними (Context Switching), створюючи ілюзію одночасної роботи.
+- **Особливості:**
+    - **Витискання (Preemption):** Важлива задача може перервати менш важливу миттєво.
+    - **Синхронізація:** Використовує черги, семафори, м'ютекси.
+- **Плюси:**
+    - Легко писати складні системи (поділ на модулі).
+    - Гарантований час реакції на події.
+- **Мінуси:**
+    - Використовує ресурси процесора та пам'яті (Overhead).
+    - Складніше налаштування.
+
+##### Коротка версія (для заучування)
+
+- **Bare-metal**:
+  - `while(1)` (Super Loop).
+  - Простий, найшвидший, без витрат пам'яті.
+  - Погано для складних задач (одне гальмує все).
+- **RTOS**:
+  - Планувальник (Scheduler) + Задачі (Tasks).
+  - Багатозадачність, пріоритети.
+  - Легше керувати складним проектом.
+  - Їсть трохи ресурсів.
+
+---
 
 **PL:**
-...
+
+Są to dwa główne podejścia do tworzenia oprogramowania dla systemów wbudowanych.
+
+**1. Bare-metal**
+- **Zasada:** Brak systemu operacyjnego. Program to zazwyczaj nieskończona pętla `while(1)` (Super Loop), która wykonuje funkcje sekwencyjnie + przerwania (Interrupts).
+- **Zalety:**
+    - Pełna kontrola nad sprzętem i maksymalna wydajność.
+    - Brak narzutu (overhead) na system operacyjny.
+    - Prostota w małych projektach.
+- **Wady:**
+    - Trudna obsługa wielozadaniowości (jedna wolna funkcja blokuje resztę).
+    - Trudne utrzymanie przy rozroście kodu ("Spaghetti code").
+
+**2. RTOS (Real-Time Operating System)**
+- **Zasada:** Wykorzystuje **Planistę (Scheduler)**. Aplikacja jest podzielona na niezależne **Zadania (Tasks)**. Planista przełącza procesor między nimi (Context Switching), dając wrażenie równoległości.
+- **Cechy:**
+    - **Wywłaszczanie (Preemption):** Zadanie o wyższym priorytecie przerywa zadanie o niższym.
+    - **Synchronizacja:** Kolejki, semafory, mutexy.
+- **Zalety:**
+    - Łatwiejsze zarządzanie złożonymi systemami (modułowość).
+    - Gwarancja czasu reakcji (determinzm).
+- **Wady:**
+    - Zużywa zasoby (pamięć RAM, cykle CPU).
+    - Większy próg wejścia.
+
+##### Wersja krótka (do nauczenia)
+
+- **Bare-metal**:
+  - Pętla `while(1)`.
+  - Maksymalna szybkość, brak narzutu.
+  - Trudne przy skomplikowanych projektach (brak wielozadaniowości).
+- **RTOS**:
+  - Używa Planisty (Scheduler) i Zadań (Tasks).
+  - Prawdziwa wielozadaniowość (wywłaszczanie).
+  - Łatwiejsze skalowanie kodu, ale zużywa trochę zasobów.
 
 ---
 
 ## Питання 8 / Pytanie 8
 
-**UA:** [Текст питання]
+**UA:** Порівняйте методи забезпечення безколізійного доступу до спільних апаратних ресурсів в RTOS, що реалізуються за допомогою: а) м'ютексів та б) критичних секцій.
 
 **PL:** Porównaj metody zapewnienia bezkolizyjnego dostępu do współdzielonych zasobów sprzętowych w RTOS realizowane za pomocą: a) mutexów i b) sekcji krytycznych.
 
 ### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+В системах реального часу (RTOS) доступ до спільних ресурсів (пам'ять, порти, периферія) має бути синхронізований.
+
+**1. М'ютекс (Mutex - Mutual Exclusion)**
+- **Принцип:** Це спеціальний об'єкт ("ключ"). Потік бере м'ютекс перед використанням ресурсу і віддає після. Якщо м'ютекс зайнятий, інший потік **чекає (блокується)** і переходить у стан "Sleeping".
+- **Використання:** Для тривалих операцій (доступ до файлу, передача даних по UART).
+- **Плюси:** Дозволяє іншим (більш пріоритетним) задачам працювати, поки поточна чекає.
+- **Мінуси:** Витрати часу на перемикання контексту (Context Switch). Можлива проблема "інверсії пріоритетів".
+
+**2. Критична секція (Critical Section)**
+- **Принцип:** Це ділянка коду, яка виконується **нерозривно**. В RTOS це зазвичай реалізується через **тимчасову заборону переривань** (Disable Interrupts). Ніхто не може перервати виконання цього коду.
+- **Використання:** Для дуже коротких операцій (зміна змінної-лічильника, запис в регістр).
+- **Плюси:** Дуже швидко, нульові накладні витрати на перемикання задач.
+- **Мінуси:** Якщо секція занадто довга, система "зависає" (зростає Interrupt Latency), і можна пропустити важливі події.
+
+**Порівняння:**
+- **М'ютекс** присипляє задачу (добре для довгих дій), **Критична секція** зупиняє всю систему/планувальник (добре для миттєвих змін).
+
+##### Коротка версія (для заучування)
+
+- **М'ютекс**:
+  - Як ключ від туалету (один зайшов, інші чекають).
+  - Задача "спить", поки чекає.
+  - Для **довгих** операцій.
+- **Критична секція**:
+  - Повне відключення переривань (Disable Interrupts).
+  - Ніхто не може перервати процес.
+  - Для **миттєвих** операцій (зміна змінної).
+  - Небезпечно затримувати надовго!
+
+---
 
 **PL:**
-...
+
+W systemach czasu rzeczywistego (RTOS) dostęp do wspólnych zasobów musi być synchronizowany.
+
+**1. Mutex (Mutual Exclusion)**
+- **Zasada:** Obiekt synchronizacji ("klucz"). Zadanie pobiera mutex przed dostępem i oddaje po zakończeniu. Jeśli mutex jest zajęty, zadanie **czeka (blokuje się)** i oddaje procesor innym zadaniom.
+- **Zastosowanie:** Dłuższe operacje (dostęp do plików, transmisja danych).
+- **Zalety:** Nie blokuje całego systemu, pozwala działać innym zadaniom.
+- **Wady:** Narzut czasowy na przełączanie kontekstu. Ryzyko inwersji priorytetów.
+
+**2. Sekcja krytyczna (Critical Section)**
+- **Zasada:** Fragment kodu wykonywany atomowo (niepodzielnie). Najczęściej realizowany przez **wyłączenie przerwań** (Disable Interrupts). Żadne inne zadanie ani przerwanie nie może wtedy zadziałać.
+- **Zastosowanie:** Bardzo krótkie operacje (zmiana flagi, inkrementacja licznika).
+- **Zalety:** Bardzo szybkie, brak narzutu na przełączanie zadań.
+- **Wady:** Blokuje cały system. Zbyt długie wyłączenie przerwań zwiększa opóźnienia systemu (Interrupt Latency).
+
+**Porównanie:**
+- **Mutex** usypia zadanie (dobre do długich zadań). **Sekcja krytyczna** blokuje przerywania (dobre do błyskawicznych operacji).
+
+##### Wersja krótka (do nauczenia)
+
+- **Mutex**:
+  - Jak klucz (jeden ma, reszta czeka).
+  - Zadanie przechodzi w stan uśpienia.
+  - Do **dłuższych** operacji.
+- **Sekcja krytyczna**:
+  - Wyłączenie przerwań (nikt nie przeszkadza).
+  - Atomowe wykonanie.
+  - Do **bardzo krótkich** operacji.
+  - Uwaga: nie może trwać długo, bo system "stanie".
 
 ---
 

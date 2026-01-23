@@ -1065,7 +1065,6 @@ TCP/IP ma 4 warstwy (prostsze), OSI ma 7. TCP/IP dominuje w internecie, ale OSI 
 Każda warstwa dodaje swój nagłówek: L7→L6→...→L1. Po drodze w górę nagłówki są usuwane.
 
 <img src="img/OSIISO.jpg" alt="OSI Model Diagram" width="600"/>
-
 ##### Wersja krótka (do nauczenia, 40–60 s)
 
 1. **Fizyczna**: Bity, kable.
@@ -1100,19 +1099,104 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 12
 
-**UA:** [Текст питання українською мовою]
+**UA:** Представте спосіб визначення структурного типу в мові C++, а також спосіб визначення та використання структурної змінної.
 
-**PL:**  Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
+**PL:** Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+У мові C++ структура (struct) — це визначений користувачем тип даних, який дозволяє групувати змінні різних типів під одним наменем. У C++ структури майже ідентичні класам, з тою різницю, що їхні члени за замовчуванням є публічними (public).
+
+**1. Визначення структурного типу:** Структура визначається за допомогою ключового слова struct, після якого йде назва (ідентифікатор) та тіло у фігурних дужках, що завершується крапкою з комою.
+
+```cpp
+struct Student {
+    std::string imie; // поле структури
+    int wiek;         // поле структури
+    double srednia;   // поле структури
+}; // Крапка з комою обов'язкова!
+```
+
+**2. Визначення структурної змінної:** Змінна створюється шляхом вказання назви типу, а потім назви змінної. Її можна ініціалізувати списком значень.
+
+```cpp
+Student s1; // Визначення без ініціалізації
+Student s2 = {"Jan", 21, 4.5}; // Агрегатна ініціалізація (C++11)
+```
+
+**3. Використання змінної (Доступ до полів):**
+- Використовуємо оператор крапки (.) для об'єктів.
+- Використовуємо оператор стрілки (->) для вказівників на структури.
+
+```cpp
+s1.imie = "Anna"; // Запис
+cout << s1.imie;  // Читання
+
+Student* ptr = &s1;
+ptr->wiek = 22;   // Доступ через вказівник
+```
+
+**4. Пам'ять та вирівнювання (Alignment):** Розмір структури (sizeof) часто більший за суму розмірів її полів. Компілятор додає padding (порожні байти), щоб вирівняти дані за природними межами пам'яті (наприклад, 4 або 8 байт), що прискорює доступ процесора до даних.
+
+**Асоціація та технічні нюанси:**
+- Структура — це як "Анкета" або "Паспорт". У паспорті є поля: ім'я (рядок), серія (число), дата (об'єкт). Сам паспорт — це один об'єкт, але всередині — різні типи даних.
+- Важливо пам'ятати: у C++ struct може мати конструктори, методи та наслідування (так само як class), але на іспиті наголошуй на тому, що головна відмінність — це public за замовчуванням.
+- Розмір порожньої структури: `struct Empty {};` займає 1 байт, щоб об'єкт мав унікальну адресу в пам'яті.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Структура** — тип даних для групування різних типів (поля різних типів під одною назвою).
+- **Визначення**: `struct Назва { поля; };` — обов'язкова крапка з комою.
+- **Змінна**: `Назва змінна;` або `Назва z = {значення};` (агрегатна ініціалізація).
+- **Доступ**: `.` для об'єктів, `->` для вказівників.
+- **Різниця з class**: члени struct за замовчуванням public.
+- **Padding**: розмір може бути більшим за суму полів (вирівнювання в пам'яті).
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+W języku C++ struktura (struct) to zdefiniowany przez użytkownika typ danych, który pozwala na grupowanie zmiennych różnych typów pod jedną nazwą. W C++ struktury są niemal identyczne z klasami, z tą różnicą, że ich składniki są domyślnie publiczne.
+
+**1. Definicja typu strukturalnego:** Strukturę definiujemy za pomocą słowa kluczowego struct, po którym następuje nazwa (identyfikator) oraz ciało ujęte w nawiasy klamrowe, zakończone średnikiem.
+
+```cpp
+struct Student {
+    std::string imie; // pole struktury
+    int wiek;         // pole struktury
+    double srednia;   // pole struktury
+}; // Średnik jest obowiązkowy!
+```
+
+**2. Definicja zmiennej strukturalnej:** Zmienną tworzymy podając nazwę typu, a następnie nazwę zmiennej. Można ją zainicjalizować listą wartości.
+
+```cpp
+Student s1; // Definicja bez inicjalizacji
+Student s2 = {"Jan", 21, 4.5}; // Inicjalizacja zagregowana (C++11)
+```
+
+**3. Korzystanie ze zmiennej (Dostęp do pól):**
+- Używamy operatora kropki (.) dla obiektów.
+- Używamy operatora strzałki (->) dla wskaźników na struktury.
+
+```cpp
+s1.imie = "Anna"; // Zapis
+cout << s1.imie;  // Odczyt
+
+Student* ptr = &s1;
+ptr->wiek = 22;   // Dostęp przez wskaźnik
+```
+
+**4. Pamięć i wyrównanie (Alignment):** Rozmiar struktury (sizeof) często jest większy niż suma rozmiarów jej składników. Kompilator dodaje padding (puste bajty), aby wyrównać dane do naturalnych granic pamięci (np. 4 lub 8 bajtów), co przyspiesza dostęp procesora do danych.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Struktura** — typ danych do grupowania różnych typów (pola różnych typów pod jedną nazwą).
+- **Definicja**: `struct Nazwa { pola; };` — średnik obowiązkowy.
+- **Zmienna**: `Nazwa zmienna;` lub `Nazwa z = {wartości};` (inicjalizacja zagregowana).
+- **Dostęp**: `.` dla obiektów, `->` dla wskaźników.
+- **Różnica z class**: składniki struct domyślnie public.
+- **Padding**: rozmiar może być większy niż suma pól (wyrównanie w pamięci).
 
 ---
 

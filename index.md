@@ -1015,66 +1015,63 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 **UA:**
 
-Тестування — це невід'ємна частина життєвого циклу (SDLC), яка супроводжує його на всіх етапах (особливо в V-Model).
+Питання пов'язує тестування з етапами розробки. Найкраще це ілюструє **V-Модель (V-Model)**, де кожному етапу розробки відповідає свій рівень тестування.
 
-**1. Рівні тестування (Levels of Testing):**
-Йдуть від найменшого до найбільшого ("Піраміда тестування").
-*   **Модульне (Unit Testing):** Перевірка окремих функцій/класів (робить розробник).
-*   **Інтеграційне (Integration Testing):** Перевірка взаємодії між модулями (чи працюють вони разом?).
-*   **Системне (System Testing):** Перевірка всієї готової системи в цілому (чи відповідає вимогам?).
-*   **Приймальне (Acceptance Testing):** Перевірка замовником (UAT), чи готова програма до релізу.
+**1. Зв'язок з життєвим циклом (V-Model):**
+*   **Вимоги (Requirements) ↔ Приймальне тестування (Acceptance):** Перевіряємо, чи ми зробили те, що хотів клієнт.
+*   **Системний дизайн (System Design) ↔ Системне тестування (System):** Перевіряємо роботу програми в цілому згідно архітектури.
+*   **Архітектура модулів (Architecture) ↔ Інтеграційне тестування (Integration):** Перевіряємо зв'язки між модулями.
+*   **Написання коду (Coding) ↔ Модульне тестування (Unit):** Перевіряємо кожну функцію окремо.
 
-**2. Види тестування (Types of Testing):**
-*   **Функціональне:** *Що* система робить? (Чи працює логін? Чи додається товар у кошик?).
-*   **Нефункціональне:** *Як* система працює?
-    - *Навантажувальне (Performance):* Чи витримає 1000 юзерів?
-    - *Безпека (Security):* Чи можна зламати?
-    - *Юзабіліті (Usability):* Чи зручно користуватися?
-*   **Регресійне:** Перевірка, чи не зламали нові зміни те, що вже працювало.
+**2. Рівні тестування (від низу до верху):**
+*   **Unit Testing (Модульне):** Тестування коду розробником. (Фреймворки: JUnit, NUnit, PyTest).
+*   **Integration Testing (Інтеграційне):** Перевірка взаємодії (API, БД, мікросервіси).
+*   **System Testing (Системне):** Тестування готового продукту в оточенні, близькому до реального.
+*   **Acceptance Testing (Приймальне/UAT):** Фінальна перевірка замовником перед релізом.
+
+**3. Види тестування:**
+*   **Функціональне:** Перевірка бізнес-логіки (що система робить).
+*   **Нефункціональне:** Навантаження, безпека, зручність (як система це робить).
+*   **Регресійне:** Перевірка того, що старий функціонал не зламався після змін.
 
 ##### Коротка версія (для заучування)
 
-- **Рівні**:
-  1. Юніт (код).
-  2. Інтеграція (зв'язки).
-  3. Системне (вся програма).
-  4. Приймальне (клієнт).
-- **Види**:
-  - Функціональне (що робить).
-  - Нефункціональне (швидкість, безпека).
-  - Регресійне (перевірка старого).
+- **V-Model**: Кожному етапу розробки відповідає свій тест.
+- **Вимоги** ↔ Приймальне.
+- **Архітектура** ↔ Системне/Інтеграційне.
+- **Код** ↔ Юніт.
+- **Рівні**: Юніт -> Інтеграція -> Система -> UAT.
 
 ---
 
 **PL:**
 
-Testowanie jest integralną częścią cyklu życia oprogramowania (SDLC). W modelu V każdemu etapowi tworzenia odpowiada odpowiedni poziom testów.
+Pytanie dotyczy relacji między testowaniem a etapami wytwarzania oprogramowania. Najlepiej obrazuje to **Model V (V-Model)**.
 
-**1. Poziomy testowania (Levels):**
-*   **Jednostkowe (Unit Testing):** Testowanie pojedynczych funkcji/metod (przez programistę).
-*   **Integracyjne (Integration Testing):** Sprawdzanie współpracy między modułami lub systemami.
-*   **Systemowe (System Testing):** Testowanie kompletnego systemu pod kątem wymagań.
-*   **Akceptacyjne (Acceptance Testing):** Weryfikacja przez klienta (UAT) przed wdrożeniem.
+**1. Relacja z cyklem życia (V-Model):**
+*   **Analiza wymagań ↔ Testy Akceptacyjne (Acceptance):** Czy zbudowaliśmy to, czego chciał klient?
+*   **Projekt systemu ↔ Testy Systemowe (System):** Czy cały system działa zgodnie ze specyfikacją?
+*   **Projekt architektury ↔ Testy Integracyjne (Integration):** Czy moduły komunikują się poprawnie?
+*   **Kodowanie ↔ Testy Jednostkowe (Unit):** Czy pojedyncze funkcje działają poprawnie?
 
-**2. Rodzaje testowania (Types):**
-*   **Funkcjonalne:** *Co* system robi? (Np. czy funkcja "Zaloguj" działa?).
-*   **Niefunkcjonalne:** *Jak* system działa?
-    - *Wydajnościowe (Performance):* Szybkość i stabilność.
-    - *Bezpieczeństwa (Security):* Odporność na ataki.
-    - *Użyteczności (Usability):* Łatwość obsługi.
-*   **Regresyjne:** Sprawdzenie, czy nowe zmiany nie zepsuły działających funkcji.
+**2. Poziomy testowania (od dołu do góry):**
+*   **Unit Testing (Jednostkowe):** Najniższy poziom, testowanie pojedynczych metod/klas.
+*   **Integration Testing (Integracyjne):** Sprawdzanie interfejsów i przepływu danych między modułami.
+*   **System Testing (Systemowe):** Testowanie kompletnej, zintegrowanej aplikacji.
+*   **Acceptance Testing (Akceptacyjne):** Weryfikacja biznesowa przez użytkownika/klienta końcowego.
+
+**3. Rodzaje testów:**
+*   **Funkcjonalne:** Co system robi? (Logika biznesowa).
+*   **Niefunkcjonalne:** Jak system działa? (Wydajność, bezpieczeństwo, UX).
+*   **Regresyjne:** Upewnienie się, że zmiany nie zepsuły istniejących funkcji.
 
 ##### Wersja krótka (do nauczenia)
 
-- **Poziomy**:
-  1. Unit (małe kawałki).
-  2. Integration (połączenia).
-  3. System (całość).
-  4. Acceptance (dla klienta).
-- **Rodzaje**:
-  - Funkcjonalne (działanie).
-  - Niefunkcjonalne (szybkość, bezpieczeństwo).
-  - Regresyjne (czy stare wciąż działa).
+- **V-Model**: Każdy etap tworzenia ma swój etap testów.
+- **Wymagania** ↔ Akceptacyjne.
+- **Architektura** ↔ Systemowe/Integracyjne.
+- **Kod** ↔ Jednostkowe.
+- **Kolejność**: Unit -> Integration -> System -> Acceptance.
 
 ---
 

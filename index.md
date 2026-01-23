@@ -842,19 +842,79 @@ Klucz: rośnie **przepustowość (throughput)**, natomiast **opóźnienie (laten
 
 ## Питання 8
 
-**UA:** [Текст питання українською мовою]
+**UA:** Поясніть різниці між апроксимацією та інтерполяцією в контексті візуалізації даних.
 
 **PL:** Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+**Апроксимація** та **інтерполяція** — це два різні методи перетворення дискретних даних у гладкі криві для візуалізації.
+
+**Інтерполяція (Interpolation)**
+- **Мета**: побудувати криву, що **проходить через всі дані точки**.
+- Використовується, коли ви впевнені, що дані точки точні і хочете «зв'язати» їх гладкою лінією.
+- *Приклад:* У вас є 5 точок координат; інтерполяція створює криву, що проходить рівно через ці 5 точок.
+- **Методи**: Лінійна інтерполяція, поліноміальна (Лагранжева), сплайни (cubic splines).
+- **Плюси**: Точна для наявних даних.
+- **Мінуси**: Може мати осцилляції ("хвилювання") між точками, особливо при високих степенях полінома.
+
+**Апроксимація (Approximation)**
+- **Мета**: знайти **найкращу криву**, що наближає дані, але не обов'язково проходить через них.
+- Використовується, коли дані мають шум або ви хочете знайти загальний тренд.
+- *Приклад:* У вас є 100 точок, які розкидані; апроксимація знаходить пряму або криву, яка краще всього описує їх розподіл.
+- **Методи**: Метод найменших квадратів (Least Squares), поліноміальна регресія, експоненціальна апроксимація.
+- **Плюси**: Більш стійка до шуму, часто дає більш гладкий результат.
+- **Мінуси**: Не проходить точно через дані точки; результат залежить від вибору функції.
+
+**Порівняння:**
+| Аспект | Інтерполяція | Апроксимація |
+|--------|---|---|
+| **Проходить через дані?** | Так (всі точки) | Ні (наближає) |
+| **Мета** | Точність на точках | Загальний тренд |
+| **Шум** | Чутлива до шуму | Стійка до шуму |
+| **Осцилляції** | Можуть бути | Менше |
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Інтерполяція**: крива **через всі точки** (точна, але може хвилюватися).
+- **Апроксимація**: крива **біля точок** (гладша, тренд, стійка до шуму).
+- Обирай інтерполяцію, якщо дані чисті; апроксимацію, якщо дані зашумлені.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+**Interpolacja** i **aproksymacja** to dwie różne metody przekształcania dyskretnych punktów danych w gładkie krzywe do wizualizacji.
+
+**Interpolacja (Interpolation)**
+- **Cel**: zbudować krzywą, która **przechodzi przez wszystkie punkty danych**.
+- Używana, gdy jesteś pewny, że punkty danych są dokładne i chcesz je "połączyć" gładką linią.
+- *Przykład:* Masz 5 punktów; interpolacja tworzy krzywą przechodzącą przez każdy z nich.
+- **Metody**: interpolacja liniowa, wielomianowa (Lagrange'a), splajny sześcienne (cubic splines).
+- **Zalety**: Precyzyjnie przechodzi przez dane.
+- **Wada**: Może mieć oscylacje między punktami (efekt "fali"), szczególnie przy wysokich stopniach wielomianu.
+
+**Aproksymacja (Approximation)**
+- **Cel**: znaleźć **najlepszą krzywą**, która przybliża dane, ale niekoniecznie przez nich przechodzi.
+- Używana, gdy dane są zaszumione lub chcesz znaleźć ogólny trend.
+- *Przykład:* Masz 100 punktów rozrzuconych; aproksymacja znajduje linię lub krzywą, która je najlepiej opisuje.
+- **Metody**: Metoda najmniejszych kwadratów (Least Squares), regresja wielomianowa, aproksymacja wykładnicza.
+- **Zalety**: Bardziej odporna na szum, zwykle daje gładszy wynik.
+- **Wada**: Nie przechodzi dokładnie przez punkty; zależy od wyboru funkcji.
+
+**Porównanie:**
+| Aspekt | Interpolacja | Aproksymacja |
+|--------|---|---|
+| **Przechodzi przez dane?** | Tak (wszystkie) | Nie (przybliża) |
+| **Cel** | Dokładność na punktach | Ogólny trend |
+| **Szum** | Wrażliwa | Odporna |
+| **Oscylacje** | Mogą być | Mniej |
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Interpolacja**: krzywa **przez wszystkie punkty** (dokładna, ale może falować).
+- **Aproksymacja**: krzywa **koło punktów** (gładka, trend, odporna na szum).
+- Wybierz interpolację, jeśli dane są czyste; aproksymację, jeśli są zaszumione.
 
 ---
 
@@ -878,19 +938,145 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 10
 
-**UA:** [Текст питання українською мовою]
+**UA:** Поясніть модель комп'ютерних мереж OSI/ISO та охарактеризуйте кожен рівень.
 
 **PL:** Proszę omówić model referencyjny sieci komputerowej OSI/ISO.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+**Модель OSI (Open Systems Interconnection)** — це теоретична модель, яка описує комунікацію в комп'ютерних мережах, розділена на 7 рівнів. Кожен рівень надає послуги вищестоящому рівню та використовує послуги нижестоящого.
+
+**7 рівнів моделі OSI (від нижнього до верхнього):**
+
+1. **Фізичний рівень (Physical Layer)**
+   - **Функція**: визначає механічні та електричні аспекти передачі бітів через середовище.
+   - **Пристрої**: концентратор (Hub), репітер.
+   - **Одиниці**: Біти (0 та 1).
+   - **Приклад**: кабелі, радіохвилі.
+
+2. **Канальний рівень (Data Link Layer)**
+   - **Функція**: відповідає за фізичну адресацію (MAC) та надійну транспортування даних в межах однієї фізичної мережі.
+   - **Пристрої**: комутатор (Switch), мости.
+   - **Одиниці**: Кадри (Frames).
+   - **MAC-адреси**: 48 біт (напр. `00:1A:2B:3C:4D:5E`).
+   - **Протоколи**: Ethernet, PPP.
+
+3. **Мережевий рівень (Network Layer)**
+   - **Функція**: відповідає за логічну адресацію та вибір маршруту (маршрутизацію).
+   - **Пристрої**: маршрутизатори (Routers).
+   - **Одиниці**: Пакети (Packets).
+   - **IP-адреси**: логічна адресація (напр. 192.168.1.1).
+   - **Основний протокол**: IP (IPv4, IPv6), ICMP.
+
+4. **Транспортний рівень (Transport Layer)**
+   - **Функція**: забезпечує передачу даних між хостами, відповідає за сегментацію та контроль помилок.
+   - **Протоколи**: TCP (надійна передача з встановленням з'єднання) та UDP (швидка без встановлення).
+   - **Порти**: від 0 до 65535 (напр. порт 80 — HTTP, 443 — HTTPS).
+   - **Одиниці**: Сегменти (для TCP), датаграми (для UDP).
+
+5. **Сеансовий рівень (Session Layer)**
+   - **Функція**: управління комунікаційними сеансами (встановлення, підтримка та завершення).
+   - **Протоколи**: RPC (Remote Procedure Call), NetBIOS, PPTP.
+   - **Приклад**: логування на сервер, підтримка сеансу.
+
+6. **Рівень представлення (Presentation Layer)**
+   - **Функція**: відповідає за форматування даних, стиснення та шифрування.
+   - **Протоколи**: SSL/TLS (шифрування), JPEG (зображення), ASCII/Unicode.
+   - **Приклад**: переведення даних у читаний формат.
+
+7. **Прикладний рівень (Application Layer)**
+   - **Функція**: інтерфейс між користувачем і мережею. Обслуговує такі протоколи, як HTTP, FTP, SMTP, DNS.
+   - **Протоколи**: HTTP, FTP, SMTP, DNS, SSH, Telnet.
+   - **Приклад**: браузер, поштовий клієнт, файловий сервер.
+
+**Порівняння з TCP/IP моделлю:**
+TCP/IP модель має 4 рівні (простіша), OSI має 7. TCP/IP переважає в інтернеті, але OSI залишається еталоном для навчання.
+
+**Правило передачі (Encapsulation):**
+При спуску вниз кожен рівень додає свій «заголовок»: L7→L6→...→L1. При підйому вгору заголовки видаляються.
+
+<img src="img/OSIISO.jpg" alt="OSI Model Diagram" width="600"/>
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+1. **Фізичний**: Біти, кабелі, хаби.
+2. **Канальний**: MAC-адреси, фрейми, комутатори.
+3. **Мережевий**: IP-адреси, маршрутизація, маршрутизатори.
+4. **Транспортний**: TCP/UDP, порти, доставка кінець-у-кінець.
+5. **Сеансовий**: Встановлення/завершення з'єднання.
+6. **Представлення**: Шифрування, компресія.
+7. **Прикладний**: HTTP, FTP, Email.
+
+**Памятка**: Від 1 до 7 — від фізики до додатків. Нижні (1-3) для інфраструктури, верхні (5-7) для додатків.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+**Model OSI (Open Systems Interconnection)** to teoreticzny model opisujący komunikację w sieciach komputerowych, podzielony na 7 warstw. Każda warstwa zapewnia usługi warstwie wyższej i korzysta z usług warstwy niższej.
+
+**7 warstw modelu OSI (od dolnej do górnej):**
+
+1. **Warstwa fizyczna (Physical Layer)**
+   - **Rola**: określa aspekty mechaniczne i elektryczne transmisji bitów przez medium.
+   - **Urządzenia**: Hub, repeater.
+   - **Jednostka**: Bity (0 i 1).
+   - **Przykład**: kabel Ethernet, sygnały radiowe.
+
+2. **Warstwa łącza danych (Data Link Layer)**
+   - **Rola**: fizyczna adresacja (MAC) i niezawodna transmisja w obrębie sieci lokalnej.
+   - **Urządzenia**: przełącznik (Switch), mosty.
+   - **Jednostka**: Ramki (Frames).
+   - **MAC-adresy**: 48 bitów (np. `00:1A:2B:3C:4D:5E`).
+   - **Protokoły**: Ethernet, PPP.
+
+3. **Warstwa sieci (Network Layer)**
+   - **Rola**: adresacja logiczna i trasowanie (routing).
+   - **Urządzenia**: routery.
+   - **Jednostka**: Pakiety (Packets).
+   - **IP-adresy**: adresacja logiczna (np. 192.168.1.1).
+   - **Główny protokół**: IP (IPv4, IPv6), ICMP.
+
+4. **Warstwa transportu (Transport Layer)**
+   - **Rola**: dostawa punkt-punkt, segmentacja, kontrola błędów.
+   - **Protokoły**: TCP (niezawodne z nawiązaniem) i UDP (szybkie bez nawiązania).
+   - **Porty**: 0-65535 (port 80 = HTTP, 443 = HTTPS).
+   - **Jednostka**: Segmenty/Datagramy.
+
+5. **Warstwa sesji (Session Layer)**
+   - **Rola**: zarządzanie sesją (nawiązanie, utrzymanie, zakończenie).
+   - **Protokoły**: RPC, NetBIOS, PPTP.
+   - **Przykład**: logowanie, utrzymanie sesji.
+
+6. **Warstwa prezentacji (Presentation Layer)**
+   - **Rola**: formatowanie danych, kompresja, szyfrowanie.
+   - **Protokoły**: SSL/TLS, JPEG, ASCII/Unicode.
+   - **Przykład**: tłumaczenie danych na zrozumiały format.
+
+7. **Warstwa aplikacji (Application Layer)**
+   - **Rola**: interfejs między użytkownikiem a siecią.
+   - **Protokoły**: HTTP, FTP, SMTP, DNS, SSH, Telnet.
+   - **Przykład**: przeglądarka, klient poczty, serwer plików.
+
+**Porównanie z modelem TCP/IP:**
+TCP/IP ma 4 warstwy (prostsze), OSI ma 7. TCP/IP dominuje w internecie, ale OSI pozostaje standardem edukacyjnym.
+
+**Enkapsulacja (Encapsulation):**
+Każda warstwa dodaje swój nagłówek: L7→L6→...→L1. Po drodze w górę nagłówki są usuwane.
+
+<img src="img/OSIISO.jpg" alt="OSI Model Diagram" width="600"/>
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+1. **Fizyczna**: Bity, kable.
+2. **Łącza**: MAC, ramki, przełączniki.
+3. **Sieci**: IP, trasowanie, routery.
+4. **Transportu**: TCP/UDP, porty.
+5. **Sesji**: Połączenie.
+6. **Prezentacji**: Szyfrowanie.
+7. **Aplikacji**: HTTP, FTP, Email.
+
+**Łatwa pamięć**: Warstwy 1-7 to od fizyki do aplikacji. Niższe (1-3) dla infrastruktury, wyższe (5-7) dla aplikacji.
 
 ---
 

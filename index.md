@@ -397,58 +397,56 @@ Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
 
 Комп'ютери зазвичай генерують **псевдовипадкові** числа (PRNG), найчастіше у вигляді рівномірного розподілу на (0,1):
 
-$$U \sim \mathrm{Uniform}(0,1)$$
+<i>U</i> ~ Uniform(0,1)
 
 Тобто будь-яке значення між 0 і 1 з’являється з однаковою ймовірністю. Далі, щоб отримати **заданий розподіл** для змінної X (нормальний, експоненційний, дискретний тощо), застосовують методи перетворення U у потрібний розподіл.
 
 Найпростіші та найчастіше згадувані алгоритми:
 
 1. Метод інверсії (Inverse Transform Sampling)
-    - Працює, якщо відома функція розподілу $F(x)$ (CDF) та її обернена $F^{-1}$.
+    - Працює, якщо відома функція розподілу <i>F</i>(<i>x</i>) (CDF) та її обернена <i>F</i><sup>-1</sup>.
     - Кроки:
-        1) Згенерувати $U \sim \mathrm{Uniform}(0,1)$
-        2) Обчислити $X = F^{-1}(U)$
+        1) Згенерувати <i>U</i> ~ Uniform(0,1)
+        2) Обчислити <i>X</i> = <i>F</i><sup>-1</sup>(<i>U</i>)
     - Приклади:
-        - Для експоненційного розподілу $\mathrm{Exp}(\lambda)$:
+        - Для експоненційного розподілу Exp(<i>λ</i>):
 
-         $$X = -\frac{1}{\lambda}\ln(1-U) \quad (\text{часто пишуть також } X = -\tfrac{1}{\lambda}\ln U)$$
+         <i>X</i> = -(1/<i>λ</i>) * ln(1 - <i>U</i>)      (часто пишуть також <i>X</i> = -(1/<i>λ</i>) * ln <i>U</i>)
 
-    - Для дискретного розподілу $(p_1,\dots,p_n)$ це теж інверсія: рахуємо накопичені суми $C_k = \sum_{i=1}^k p_i$ і беремо найменше $k$, для якого $U \le C_k$.
+    - Для дискретного розподілу (<i>p</i><sub>1</sub>, ..., <i>p</i><sub>n</sub>) це теж інверсія: рахуємо накопичені суми <i>C<sub>k</sub></i> = Σ <i>p<sub>i</sub></i> і беремо найменше <i>k</i>, для якого <i>U</i> ≤ <i>C<sub>k</sub></i>.
 
 2. Метод відбору/відкидання (Acceptance–Rejection)
-    - Корисний, коли $F^{-1}$ складно знайти, але щільність $f(x)$ можна обчислювати.
-    - Ідея: беремо простий розподіл-пропозицію $g(x)$, з якого легко генерувати, та константу $M$ таку, що $f(x) \le M g(x)$ для всіх $x$.
+    - Корисний, коли <i>F</i><sup>-1</sup> складно знайти, але щільність <i>f</i>(<i>x</i>) можна обчислювати.
+    - Ідея: беремо простий розподіл-пропозицію <i>g</i>(<i>x</i>), з якого легко генерувати, та константу <i>M</i> таку, що <i>f</i>(<i>x</i>) ≤ <i>M</i> * <i>g</i>(<i>x</i>) для всіх <i>x</i>.
     - Кроки (схема):
-         1) Згенерувати $Y \sim g$
-         2) Згенерувати $U \sim \mathrm{Uniform}(0,1)$
-         3) Прийняти $Y$ як $X$, якщо $U \le \frac{f(Y)}{M g(Y)}$, інакше повторити
+         1) Згенерувати <i>Y</i> ~ <i>g</i>
+         2) Згенерувати <i>U</i> ~ Uniform(0,1)
+         3) Прийняти <i>Y</i> як <i>X</i>, якщо <i>U</i> ≤ <i>f</i>(<i>Y</i>) / (<i>M</i> * <i>g</i>(<i>Y</i>)), інакше повторити
     - Плюс: універсальний. Мінус: може бути повільний, якщо M велике (багато відкидань).
 
 3. Метод перетворення (Transformation / Generating by transform)
     - Це ширша категорія: беремо 1 або кілька рівномірних U і через формулу отримуємо X.
     - Класичний приклад для нормального розподілу N(0,1): **Box–Muller**
-    Нехай $U_1, U_2 \sim \mathrm{Uniform}(0,1)$, тоді
+    Нехай <i>U</i><sub>1</sub>, <i>U</i><sub>2</sub> ~ Uniform(0,1), тоді
 
-    $$\begin{aligned}
-    Z_1 &= \sqrt{-2\ln U_1}\,\cos(2\pi U_2), \\
-    Z_2 &= \sqrt{-2\ln U_1}\,\sin(2\pi U_2)
-    \end{aligned}$$
+    <i>Z</i><sub>1</sub> = √(-2 ln <i>U</i><sub>1</sub>) * cos(2π <i>U</i><sub>2</sub>)<br>
+    <i>Z</i><sub>2</sub> = √(-2 ln <i>U</i><sub>1</sub>) * sin(2π <i>U</i><sub>2</sub>)
 
-    і $Z_1, Z_2$ мають розподіл $\mathcal{N}(0,1)$.
+    і <i>Z</i><sub>1</sub>, <i>Z</i><sub>2</sub> мають розподіл N(0,1).
 
 4. Композиція (Mixture/Composition) для сумішей
-    - Якщо розподіл $X$ є сумішшю: $X \sim \sum_i w_i D_i$, де $w_i$ — ваги, а $D_i$ — прості розподіли.
-    - Алгоритм: спочатку вибрати індекс i за дискретним розподілом w_i, потім згенерувати X з D_i.
+    - Якщо розподіл <i>X</i> є сумішшю: <i>X</i> ~ Σ <i>w<sub>i</sub></i> <i>D<sub>i</sub></i>, де <i>w<sub>i</sub></i> — ваги, а <i>D<sub>i</sub></i> — прості розподіли.
+    - Алгоритм: спочатку вибрати індекс i за дискретним розподілом <i>w<sub>i</sub></i>, потім згенерувати X з <i>D<sub>i</sub></i>.
 
-Коротко: базовий «двигун» — $U\sim\mathrm{Uniform}(0,1)$, а найпростіші способи отримати заданий розподіл — інверсія CDF, відкидання (accept-reject) та прямі перетворення (напр., Box–Muller для нормального).
+Коротко: базовий «двигун» — <i>U</i> ~ Uniform(0,1), а найпростіші способи отримати заданий розподіл — інверсія CDF, відкидання (accept-reject) та прямі перетворення (напр., Box–Muller для нормального).
 
 ##### Коротка версія (для заучування, 40–60 сек)
 
-- Комп’ютер дає псевдовипадкові числа, базово $U\sim\mathrm{Uniform}(0,1)$; далі перетворюємо $U$ у потрібний розподіл $X$.
-- **Інверсія CDF:** якщо знаємо $F$ і $F^{-1}$, то $X = F^{-1}(U)$ (приклад: $X=-\frac{1}{\lambda}\ln(1-U)$ для $\mathrm{Exp}(\lambda)$).
-- **Acceptance–Rejection:** кандидат $Y\sim g$, приймаємо якщо $U \le \frac{f(Y)}{Mg(Y)}$.
-- **Перетворення:** спеціальні формули, напр. Box–Muller дає $\mathcal{N}(0,1)$.
-- **Дискретний випадок:** кумулятивні суми $C_k$ і вибір $k$ за умовою $U\le C_k$.
+- Комп’ютер дає псевдовипадкові числа, базово <i>U</i> ~ Uniform(0,1); далі перетворюємо <i>U</i> у потрібний розподіл <i>X</i>.
+- **Інверсія CDF:** якщо знаємо <i>F</i> і <i>F</i><sup>-1</sup>, то <i>X</i> = <i>F</i><sup>-1</sup>(<i>U</i>) (приклад: <i>X</i> = -(1/<i>λ</i>) * ln(1 - <i>U</i>) для Exp(<i>λ</i>)).
+- **Acceptance–Rejection:** кандидат <i>Y</i> ~ <i>g</i>, приймаємо якщо <i>U</i> ≤ <i>f</i>(<i>Y</i>) / (<i>M</i> * <i>g</i>(<i>Y</i>)).
+- **Перетворення:** спеціальні формули, напр. Box–Muller дає N(0,1).
+- **Дискретний випадок:** кумулятивні суми <i>C<sub>k</sub></i> і вибір <i>k</i> за умовою <i>U</i> ≤ <i>C<sub>k</sub></i>.
 
 ---
 
@@ -456,57 +454,55 @@ $$U \sim \mathrm{Uniform}(0,1)$$
 
 Komputer zwykle nie generuje „prawdziwie” losowych liczb, tylko **pseudolosowe** (PRNG). Typowo najłatwiej uzyskać liczby o rozkładzie jednostajnym na (0,1):
 
-$$U \sim \mathrm{Uniform}(0,1)$$
+<i>U</i> ~ Uniform(0,1)
 
 Następnie, aby wygenerować zmienną losową X o **zadanym rozkładzie** (np. normalnym, wykładniczym, dyskretnym), stosuje się proste metody przekształcenia U.
 
 Najprostsze algorytmy generacji z zadanym rozkładem:
 
 1. Metoda transformacji odwrotnej (Inverse Transform Sampling)
-        - Działa, gdy znamy dystrybuantę $F(x)$ oraz potrafimy policzyć jej odwrotność $F^{-1}$.
+        - Działa, gdy znamy dystrybuantę <i>F</i>(<i>x</i>) oraz potrafimy policzyć jej odwrotność <i>F</i><sup>-1</sup>.
     - Kroki:
-        1) Wylosuj $U \sim \mathrm{Uniform}(0,1)$
-        2) Oblicz $X = F^{-1}(U)$
-        - Przykład (rozkład wykładniczy $\mathrm{Exp}(\lambda)$):
+        1) Wylosuj <i>U</i> ~ Uniform(0,1)
+        2) Oblicz <i>X</i> = <i>F</i><sup>-1</sup>(<i>U</i>)
+        - Przykład (rozkład wykładniczy Exp(<i>λ</i>)):
 
-            $$X = -\frac{1}{\lambda}\ln(1-U) \quad (\text{często także } X = -\tfrac{1}{\lambda}\ln U)$$
+            <i>X</i> = -(1/<i>λ</i>) * ln(1 - <i>U</i>)     (często także <i>X</i> = -(1/<i>λ</i>) * ln <i>U</i>)
 
-        - Dla rozkładu dyskretnego $(p_1,\dots,p_n)$: licz sumy skumulowane $C_k = \sum_{i=1}^k p_i$ i wybierz najmniejsze $k$ takie, że $U \le C_k$.
+        - Dla rozkładu dyskretnego (<i>p</i><sub>1</sub>, ..., <i>p</i><sub>n</sub>): licz sumy skumulowane <i>C<sub>k</sub></i> = Σ <i>p<sub>i</sub></i> i wybierz najmniejsze <i>k</i> takie, że <i>U</i> ≤ <i>C<sub>k</sub></i>.
 
 2. Metoda akceptacji–odrzucenia (Acceptance–Rejection)
-    - Przydatna, gdy $F^{-1}$ jest trudna, ale znamy (i umiemy policzyć) gęstość $f(x)$.
-    - Wybieramy prosty rozkład propozycji $g(x)$ oraz stałą $M$, taką że $f(x) \le M g(x)$.
+    - Przydatna, gdy <i>F</i><sup>-1</sup> jest trudna, ale znamy (i umiemy policzyć) gęstość <i>f</i>(<i>x</i>).
+    - Wybieramy prosty rozkład propozycji <i>g</i>(<i>x</i>) oraz stałą <i>M</i>, taką że <i>f</i>(<i>x</i>) ≤ <i>M</i> * <i>g</i>(<i>x</i>).
     - Kroki:
-         1) Wylosuj $Y \sim g$
-         2) Wylosuj $U \sim \mathrm{Uniform}(0,1)$
-         3) Akceptuj $Y$ jako $X$, jeśli $U \le \frac{f(Y)}{M g(Y)}$, w przeciwnym razie powtórz
+         1) Wylosuj <i>Y</i> ~ <i>g</i>
+         2) Wylosuj <i>U</i> ~ Uniform(0,1)
+         3) Akceptuj <i>Y</i> jako <i>X</i>, jeśli <i>U</i> ≤ <i>f</i>(<i>Y</i>) / (<i>M</i> * <i>g</i>(<i>Y</i>)), w przeciwnym razie powtórz
     - Zaleta: uniwersalna. Wada: bywa nieefektywna, jeśli odrzucamy dużo prób.
 
 3. Metody transformacyjne (Transformation) dla znanych wzorów
     - Używamy jednej lub kilku zmiennych jednostajnych i wzoru na X.
     - Klasyczny przykład dla N(0,1): **Box–Muller**
-    Dla $U_1, U_2 \sim \mathrm{Uniform}(0,1)$:
+    Dla <i>U</i><sub>1</sub>, <i>U</i><sub>2</sub> ~ Uniform(0,1):
 
-    $$\begin{aligned}
-    Z_1 &= \sqrt{-2\ln U_1}\,\cos(2\pi U_2), \\
-    Z_2 &= \sqrt{-2\ln U_1}\,\sin(2\pi U_2)
-    \end{aligned}$$
+    <i>Z</i><sub>1</sub> = √(-2 ln <i>U</i><sub>1</sub>) * cos(2π <i>U</i><sub>2</sub>)<br>
+    <i>Z</i><sub>2</sub> = √(-2 ln <i>U</i><sub>1</sub>) * sin(2π <i>U</i><sub>2</sub>)
 
-    wtedy $Z_1, Z_2 \sim \mathcal{N}(0,1)$.
+    wtedy <i>Z</i><sub>1</sub>, <i>Z</i><sub>2</sub> ~ N(0,1).
 
 4. Metoda kompozycji (Composition) dla mieszanek
-    - Jeśli $X$ jest mieszanką rozkładów: $X \sim \sum_i w_i D_i$.
-    - Najpierw losujemy indeks i zgodnie z wagami w_i, potem losujemy X z rozkładu D_i.
+    - Jeśli <i>X</i> jest mieszanką rozkładów: <i>X</i> ~ Σ <i>w<sub>i</sub></i> <i>D<sub>i</sub></i>.
+    - Najpierw losujemy indeks i zgodnie z wagami <i>w<sub>i</sub></i>, potem losujemy X z rozkładu <i>D<sub>i</sub></i>.
 
-W skrócie: startujemy od $U\sim\mathrm{Uniform}(0,1)$, a najprostsze drogi do zadanego rozkładu to: transformacja odwrotna, akceptacja–odrzucenie oraz bezpośrednie transformacje (np. Box–Muller dla normalnego).
+W skrócie: startujemy od <i>U</i> ~ Uniform(0,1), a najprostsze drogi do zadanego rozkładu to: transformacja odwrotna, akceptacja–odrzucenie oraz bezpośrednie transformacje (np. Box–Muller dla normalnego).
 
 ##### Wersja krótka (do nauczenia, 40–60 s)
 
-- Generator daje liczby pseudolosowe, bazowo $U\sim\mathrm{Uniform}(0,1)$; potem przekształcamy $U$ w zmienną $X$ o żądanym rozkładzie.
-- **Transformacja odwrotna:** jeśli znamy $F$ i $F^{-1}$, to $X = F^{-1}(U)$ (np. $X=-\frac{1}{\lambda}\ln(1-U)$ dla $\mathrm{Exp}(\lambda)$).
-- **Akceptacja–odrzucenie:** losujemy $Y\sim g$ i akceptujemy, gdy $U \le \frac{f(Y)}{Mg(Y)}$.
-- **Transformacje:** gotowe wzory, np. Box–Muller daje $\mathcal{N}(0,1)$.
-- **Dyskretny:** sumy skumulowane $C_k$ i wybór $k$ z warunku $U\le C_k$.
+- Generator daje liczby pseudolosowe, bazowo <i>U</i> ~ Uniform(0,1); potem przekształcamy $U$ w zmienną <i>X</i> o żądanym rozkładzie.
+- **Transformacja odwrotna:** jeśli znamy <i>F</i> i <i>F</i><sup>-1</sup>, to <i>X</i> = <i>F</i><sup>-1</sup>(<i>U</i>) (np. <i>X</i> = -(1/<i>λ</i>) * ln(1 - <i>U</i>) dla Exp(<i>λ</i>)).
+- **Akceptacja–odrzucenie:** losujemy <i>Y</i> ~ <i>g</i> i akceptujemy, gdy <i>U</i> ≤ <i>f</i>(<i>Y</i>) / (<i>M</i> * <i>g</i>(<i>Y</i>)).
+- **Transformacje:** gotowe wzory, np. Box–Muller daje N(0,1).
+- **Dyskretny:** sumy skumulowane <i>C<sub>k</sub></i> i wybór <i>k</i> z warunku <i>U</i> ≤ <i>C<sub>k</sub></i>.
 
 ---
 

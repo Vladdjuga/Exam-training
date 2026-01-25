@@ -1324,19 +1324,117 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 15
 
-**UA:** [Текст питання українською мовою]
+**UA:** Перелічіть та охарактеризуйте структури операційних систем.
 
 **PL:** Wymień i omów struktury systemów operacyjnych. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Структура операційної системи** визначає спосіб організації та взаємодії окремих компонентів ядра (kernel) та системних служб.
+
+**1. Монолітна структура (Monolithic Structure):**
+
+- **Характеристика**: Вся операційна система (керування пам'яттю, процесами, драйвери) працює в одному адресному просторі ядра (kernel space).
+- **Переваги**: Дуже висока продуктивність завдяки відсутності витрат на зв'язок між модулями (прості виклики функцій).
+- **Недоліки**: Низька стабільність (помилка в одному драйвері може зупинити всю систему) і складність підтримки коду.
+- **Приклади**: Linux, MS-DOS, класичні системи UNIX.
+
+**2. Шарова структура (Layered Approach):**
+
+- **Характеристика**: Система розділена на шари (від 0 до N). Найнижчий шар (0) — це апаратне забезпечення, найвищий (N) — інтерфейс користувача. Кожен шар використовує послуги тільки безпосередньо нижчого шару.
+- **Переваги**: Легкість налагодження (debugging) та модифікації окремих рівнів.
+- **Недоліки**: Складність у визначенні чітких меж шарів та падіння продуктивності (дані мають пройти крізь усі рівні).
+- **Приклад**: Система THE (Дейкстри).
+
+**3. Мікроядро (Microkernel):**
+
+- **Характеристика**: Ядро містить лише абсолютний мінімум функціональності: IPC (міжпроцесна взаємодія), керування пам'яттю та базове планування. Решта служб (драйвери, файлові системи) працюють у просторі користувача (user space).
+- **Переваги**: Висока безпека та стабільність (збій служби не "кладе" ядро), легкість розширення.
+- **Недоліки**: Нижча продуктивність через часте перемикання контексту та пересилання повідомлень (message passing).
+- **Приклади**: QNX, Symbian, ядро Mach (частина macOS).
+
+**4. Модульна структура (Loadable Kernel Modules - LKM):**
+
+- **Характеристика**: Сучасний підхід, де ядро має монолітну основу, але дозволяє динамічно завантажувати та видаляти модулі (наприклад, драйвери) під час роботи.
+- **Переваги**: Гнучкість мікроядра при продуктивності монолітної системи.
+- **Приклад**: Сучасний Linux (модулі `.ko`), Solaris.
+
+**5. Гібридна структура (Hybrid):**
+
+- **Характеристика**: Поєднує риси монолітного ядра (продуктивність) та мікроядра (структура).
+- **Приклад**: Windows NT (ядро Windows), macOS (XNU).
+
+**Асоціація:**
+- **Моноліт**: Швейцарський ніж — усе в одному корпусі. Зламалося одне лезо (драйвер) — незручно користуватися всім ножем.
+- **Мікроядро**: Набір інструментів у ящику. Якщо зламався один ключ, ти просто береш інший, а ящик (ядро) цілий.
+
+**Ключові терміни**: Kernel space (простір ядра), User space (простір користувача), IPC (міжпроцесна взаємодія), Стабільність vs Продуктивність.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Монолітна**: Все в одному (Linux). Швидка, але нестабільна.
+- **Шарова**: Ієрархія шарів. Легка у побудові, важка у продуктивності.
+- **Мікроядро**: Мінімум у ядрі (IPC), решта в User Space (QNX). Дуже стабільна, але повільніша.
+- **Модульна**: Динамічні модулі (LKM). Стандарт у сучасному Linux.
+- **Гібридна**: Мікс обох підходів (Windows, macOS).
+- **Асоціація**: Моноліт = Швейцарський ніж; Мікроядро = Набір інструментів.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Struktura systemu operacyjnego** określa sposób, w jaki poszczególne komponenty jądra (kernel) i usług systemowych są zorganizowane i ze sobą współpracują.
+
+**1. Struktura monolityczna (Monolithic Structure):**
+
+- **Charakterystyka**: Cały system operacyjny (zarządzanie pamięcią, procesami, sterowniki) pracuje w jednej przestrzeni adresowej jądra (kernel space).
+- **Zalety**: Bardzo wysoka wydajność dzięki braku narzutu na komunikację między modułami (wywołania funkcji).
+- **Wady**: Mała stabilność (błąd w jednym sterowniku może zawiesić cały system) i trudna konserwacja kodu.
+- **Przykłady**: Linux, MS-DOS, klasyczne systemy UNIX.
+
+**2. Struktura warstwowa (Layered Approach):**
+
+- **Charakterystyka**: System podzielony jest na warstwy (0 do N). Warstwa najniższa (0) to sprzęt, a najwyższa (N) to interfejs użytkownika. Każda warstwa korzysta wyłącznie z usług warstwy bezpośrednio niższej.
+- **Zalety**: Łatwość debugowania i modyfikacji poszczególnych poziomów.
+- **Wady**: Trudność w zdefiniowaniu czystych warstw i spadek wydajności (dane muszą przejść przez wiele poziomów).
+- **Przykład**: System THE (Dijkstry).
+
+**3. Mikrojądro (Microkernel):**
+
+- **Charakterystyka**: Jądro zawiera tylko absolutne minimum funkcjonalności: IPC (komunikacja międzyprocesowa), zarządzanie pamięcią i podstawowe planowanie. Pozostałe usługi (sterowniki, systemy plików) działają w przestrzeni użytkownika (user space).
+- **Zalety**: Wysokie bezpieczeństwo i stabilność (awaria usługi nie kładzie jądra), łatwość rozszerzania.
+- **Wady**: Niższa wydajność z powodu częstego przełączania kontekstu i przesyłania wiadomości (message passing).
+- **Przykłady**: QNX, Symbian, jądro Mach (część macOS).
+
+**4. Struktura modularna (Loadable Kernel Modules - LKM):**
+
+- **Charakterystyka**: Współczesne podejście, gdzie jądro ma rdzeń monolityczny, ale pozwala na dynamiczne ładowanie i usuwanie modułów (np. sterowników) w czasie pracy.
+- **Zalety**: Elastyczność mikrojądra przy wydajności systemu monolitycznego.
+- **Przykład**: Współczesny Linux (moduły `.ko`), Solaris.
+
+**5. Struktura hybrydowa (Hybrid):**
+
+- **Charakterystyka**: Łączy cechy jądra monolitycznego (wydajność) i mikrojądra (struktura).
+- **Przykład**: Windows NT (jądro Windowsa), macOS (XNU).
+
+**Skojarzenie (Асоціація):**
+- **Monolit**: Szwajcarski scyzoryk — wszystko w jednym korpusie. Złamało się jedno ostrze (sterownik) — niewygodnie używać całego noża.
+- **Mikrojądro**: Zestaw narzędzi w skrzynce. Jeśli złamał się jeden klucz, po prostu bierzesz inny, a skrzynka (jądro) jest cała.
+
+**Kluczowe terminy**: Kernel space (przestrzeń jądra), User space (przestrzeń użytkownika), IPC (komunikacja międzyprocesowa), Stabilność vs Wydajność.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Monolityczna**: Wszystko w jednym (Linux). Szybka, ale niestabilna.
+- **Warstwowa**: Hierarchia warstw. Łatwa w budowie, trudna w wydajności.
+- **Mikrojądro**: Minimum w jądrze (IPC), reszta w User Space (QNX). Bardzo stabilna, ale wolniejsza.
+- **Modularna**: Dynamiczne moduły (LKM). Standard w dzisiejszym Linuxie.
+- **Hybrydowa**: Miks obu podejść (Windows, macOS).
+- **Asocjacja**: Monolit = Scyzoryk; Mikrojądro = Skrzynka narzędzi.
+
+---
 
 ---
 

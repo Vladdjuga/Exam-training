@@ -1216,56 +1216,333 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 14
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте діаграму класів нотації UML.
 
-**PL:** Scharakteryzuj diagram klas notacji UML.
+**PL:** Scharakteryzuj diagram klas notacji UML. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Діаграма класів** — це найважливіша структурна діаграма в мові UML (Unified Modeling Language). Вона представляє статичну структуру системи, описуючи її класи, атрибути, операції (методи) та відносини між об'єктами.
+
+**1. Складові класу (прямокутник, розділений на три секції):**
+
+- **Заголовок**: Назва класу (жирним шрифтом; якщо клас абстрактний — курсивом).
+- **Атрибути (Поля)**: Описують стан об'єкта. Запис: `видимість назва: тип = значення_за_замовчуванням`.
+- **Операції (Методи)**: Описують поведінку. Запис: `видимість назва(параметри): тип_повернення`.
+
+**2. Символи видимості:**
+
+- `+` : public (публічний)
+- `-` : private (приватний)
+- `#` : protected (захищений)
+- `~` : package (пакетний)
+
+**3. Зв'язки між класами:**
+
+- **Узагальнення (Спадкування)**: Суцільна лінія з порожнім трикутником `▷`. Вказує на зв'язок "є типом" (наприклад, Собака є типом Тварини).
+
+- **Асоціація**: Звичайна лінія `—`, що з'єднує класи, позначаючи загальний зв'язок. Може мати кратність (наприклад, `1`, `0..*`).
+
+- **Агрегація** (порожній ромб `◇`): Відношення "частина-ціле", де частина може існувати без цілого (наприклад, Студент і Факультет).
+
+- **Композиція** (зафарбований ромб `◆`): Сильне відношення "частина-ціле". Якщо видалити ціле, частини також видаляються (наприклад, Будинок і Кімнати).
+
+- **Реалізація**: Пунктирна лінія з порожнім трикутником `- - ▷` (імплементація інтерфейсу).
+
+**Приклад діаграми класів UML:**
+
+<img src="img/class_diagram.png" alt="UML Class Diagram" width="600"/>
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **UML діаграма класів**: статична структура системи (класи + зв'язки).
+- **Клас**: прямокутник з 3 секціями (назва, атрибути, методи).
+- **Видимість**: `+` public, `-` private, `#` protected, `~` package.
+- **Зв'язки**:
+  - Спадкування: `▷` (є типом)
+  - Асоціація: `—` (загальний зв'язок)
+  - Агрегація: `◇` (частина може існувати без цілого)
+  - Композиція: `◆` (частина не може існувати без цілого)
+  - Реалізація: `- - ▷` (інтерфейс)
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Diagram klas** to najważniejszy strukturalny diagram w języku UML (Unified Modeling Language). Przedstawia on statyczną strukturę systemu, opisując jego klasy, atrybuty, operacje (metody) oraz relacje między obiektami.
+
+**1. Składowe klasy (prostokąt podzielony na trzy sekcje):**
+
+- **Nagłówek**: Nazwa klasy (pogrubiona; jeśli klasa jest abstrakcyjna – pisana kursywą).
+- **Atrybuty (Pola)**: Opisują stan obiektu. Zapis: `widoczność nazwa: typ = wartość_domyślna`.
+- **Operacje (Metody)**: Opisują zachowanie. Zapis: `widoczność nazwa(parametry): typ_zwracany`.
+
+**2. Symbole widoczności:**
+
+- `+` : public (publiczny)
+- `-` : private (prywatny)
+- `#` : protected (chroniony)
+- `~` : package (pakietowy)
+
+**3. Relacje między klasami:**
+
+- **Generalizacja (Dziedziczenie)**: Linia ciągła zakończona pustym trójkątem `▷`. Wskazuje na relację "jest rodzajem" (np. Pies jest rodzajem Zwierzęcia).
+
+- **Asocjacja**: Zwykła linia `—` łącząca klasy, oznaczająca ogólną relację. Może mieć określoną krotność (np. `1`, `0..*`).
+
+- **Agregacja** (pusty diament `◇`): Relacja "część-całość", gdzie część może istnieć bez całości (np. Student i Wydział).
+
+- **Kompozycja** (zamalowany diament `◆`): Silna relacja "część-całość". Jeśli usuniemy całość, części również zostają usunięte (np. Budynek i Pokoje).
+
+- **Realizacja**: Linia przerywana z pustym trójkątem `- - ▷` (implementacja interfejsu).
+
+**Przykładowy diagram klas UML:**
+
+<img src="img/class_diagram.png" alt="UML Class Diagram" width="600"/>
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Diagram klas UML**: statyczna struktura systemu (klasy + relacje).
+- **Klasa**: prostokąt z 3 sekcjami (nazwa, atrybuty, metody).
+- **Widoczność**: `+` public, `-` private, `#` protected, `~` package.
+- **Relacje**:
+  - Dziedziczenie: `▷` (jest rodzajem)
+  - Asocjacja: `—` (ogólna relacja)
+  - Agregacja: `◇` (część może istnieć bez całości)
+  - Kompozycja: `◆` (część nie może istnieć bez całości)
+  - Realizacja: `- - ▷` (interfejs)
+
+---
 
 ---
 
 ## Питання 15
 
-**UA:** [Текст питання українською мовою]
+**UA:** Перелічіть та охарактеризуйте структури операційних систем.
 
 **PL:** Wymień i omów struktury systemów operacyjnych. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Структура операційної системи** визначає спосіб організації та взаємодії окремих компонентів ядра (kernel) та системних служб.
+
+**1. Монолітна структура (Monolithic Structure):**
+
+- **Характеристика**: Вся операційна система (керування пам'яттю, процесами, драйвери) працює в одному адресному просторі ядра (kernel space).
+- **Переваги**: Дуже висока продуктивність завдяки відсутності витрат на зв'язок між модулями (прості виклики функцій).
+- **Недоліки**: Низька стабільність (помилка в одному драйвері може зупинити всю систему) і складність підтримки коду.
+- **Приклади**: Linux, MS-DOS, класичні системи UNIX.
+
+**2. Шарова структура (Layered Approach):**
+
+- **Характеристика**: Система розділена на шари (від 0 до N). Найнижчий шар (0) — це апаратне забезпечення, найвищий (N) — інтерфейс користувача. Кожен шар використовує послуги тільки безпосередньо нижчого шару.
+- **Переваги**: Легкість налагодження (debugging) та модифікації окремих рівнів.
+- **Недоліки**: Складність у визначенні чітких меж шарів та падіння продуктивності (дані мають пройти крізь усі рівні).
+- **Приклад**: Система THE (Дейкстри).
+
+**3. Мікроядро (Microkernel):**
+
+- **Характеристика**: Ядро містить лише абсолютний мінімум функціональності: IPC (міжпроцесна взаємодія), керування пам'яттю та базове планування. Решта служб (драйвери, файлові системи) працюють у просторі користувача (user space).
+- **Переваги**: Висока безпека та стабільність (збій служби не "кладе" ядро), легкість розширення.
+- **Недоліки**: Нижча продуктивність через часте перемикання контексту та пересилання повідомлень (message passing).
+- **Приклади**: QNX, Symbian, ядро Mach (частина macOS).
+
+**4. Модульна структура (Loadable Kernel Modules - LKM):**
+
+- **Характеристика**: Сучасний підхід, де ядро має монолітну основу, але дозволяє динамічно завантажувати та видаляти модулі (наприклад, драйвери) під час роботи.
+- **Переваги**: Гнучкість мікроядра при продуктивності монолітної системи.
+- **Приклад**: Сучасний Linux (модулі `.ko`), Solaris.
+
+**5. Гібридна структура (Hybrid):**
+
+- **Характеристика**: Поєднує риси монолітного ядра (продуктивність) та мікроядра (структура).
+- **Приклад**: Windows NT (ядро Windows), macOS (XNU).
+
+**Асоціація:**
+- **Моноліт**: Швейцарський ніж — усе в одному корпусі. Зламалося одне лезо (драйвер) — незручно користуватися всім ножем.
+- **Мікроядро**: Набір інструментів у ящику. Якщо зламався один ключ, ти просто береш інший, а ящик (ядро) цілий.
+
+**Ключові терміни**: Kernel space (простір ядра), User space (простір користувача), IPC (міжпроцесна взаємодія), Стабільність vs Продуктивність.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Монолітна**: Все в одному (Linux). Швидка, але нестабільна.
+- **Шарова**: Ієрархія шарів. Легка у побудові, важка у продуктивності.
+- **Мікроядро**: Мінімум у ядрі (IPC), решта в User Space (QNX). Дуже стабільна, але повільніша.
+- **Модульна**: Динамічні модулі (LKM). Стандарт у сучасному Linux.
+- **Гібридна**: Мікс обох підходів (Windows, macOS).
+- **Асоціація**: Моноліт = Швейцарський ніж; Мікроядро = Набір інструментів.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Struktura systemu operacyjnego** określa sposób, w jaki poszczególne komponenty jądra (kernel) i usług systemowych są zorganizowane i ze sobą współpracują.
+
+**1. Struktura monolityczna (Monolithic Structure):**
+
+- **Charakterystyka**: Cały system operacyjny (zarządzanie pamięcią, procesami, sterowniki) pracuje w jednej przestrzeni adresowej jądra (kernel space).
+- **Zalety**: Bardzo wysoka wydajność dzięki braku narzutu na komunikację między modułami (wywołania funkcji).
+- **Wady**: Mała stabilność (błąd w jednym sterowniku może zawiesić cały system) i trudna konserwacja kodu.
+- **Przykłady**: Linux, MS-DOS, klasyczne systemy UNIX.
+
+**2. Struktura warstwowa (Layered Approach):**
+
+- **Charakterystyka**: System podzielony jest na warstwy (0 do N). Warstwa najniższa (0) to sprzęt, a najwyższa (N) to interfejs użytkownika. Każda warstwa korzysta wyłącznie z usług warstwy bezpośrednio niższej.
+- **Zalety**: Łatwość debugowania i modyfikacji poszczególnych poziomów.
+- **Wady**: Trudność w zdefiniowaniu czystych warstw i spadek wydajności (dane muszą przejść przez wiele poziomów).
+- **Przykład**: System THE (Dijkstry).
+
+**3. Mikrojądro (Microkernel):**
+
+- **Charakterystyka**: Jądro zawiera tylko absolutne minimum funkcjonalności: IPC (komunikacja międzyprocesowa), zarządzanie pamięcią i podstawowe planowanie. Pozostałe usługi (sterowniki, systemy plików) działają w przestrzeni użytkownika (user space).
+- **Zalety**: Wysokie bezpieczeństwo i stabilność (awaria usługi nie kładzie jądra), łatwość rozszerzania.
+- **Wady**: Niższa wydajność z powodu częstego przełączania kontekstu i przesyłania wiadomości (message passing).
+- **Przykłady**: QNX, Symbian, jądro Mach (część macOS).
+
+**4. Struktura modularna (Loadable Kernel Modules - LKM):**
+
+- **Charakterystyka**: Współczesne podejście, gdzie jądro ma rdzeń monolityczny, ale pozwala na dynamiczne ładowanie i usuwanie modułów (np. sterowników) w czasie pracy.
+- **Zalety**: Elastyczność mikrojądra przy wydajności systemu monolitycznego.
+- **Przykład**: Współczesny Linux (moduły `.ko`), Solaris.
+
+**5. Struktura hybrydowa (Hybrid):**
+
+- **Charakterystyka**: Łączy cechy jądra monolitycznego (wydajność) i mikrojądra (struktura).
+- **Przykład**: Windows NT (jądro Windowsa), macOS (XNU).
+
+**Skojarzenie (Асоціація):**
+- **Monolit**: Szwajcarski scyzoryk — wszystko w jednym korpusie. Złamało się jedno ostrze (sterownik) — niewygodnie używać całego noża.
+- **Mikrojądro**: Zestaw narzędzi w skrzynce. Jeśli złamał się jeden klucz, po prostu bierzesz inny, a skrzynka (jądro) jest cała.
+
+**Kluczowe terminy**: Kernel space (przestrzeń jądra), User space (przestrzeń użytkownika), IPC (komunikacja międzyprocesowa), Stabilność vs Wydajność.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Monolityczna**: Wszystko w jednym (Linux). Szybka, ale niestabilna.
+- **Warstwowa**: Hierarchia warstw. Łatwa w budowie, trudna w wydajności.
+- **Mikrojądro**: Minimum w jądrze (IPC), reszta w User Space (QNX). Bardzo stabilna, ale wolniejsza.
+- **Modularna**: Dynamiczne moduły (LKM). Standard w dzisiejszym Linuxie.
+- **Hybrydowa**: Miks obu podejść (Windows, macOS).
+- **Asocjacja**: Monolit = Scyzoryk; Mikrojądro = Skrzynka narzędzi.
+
+---
 
 ---
 
 ## Питання 16
 
-**UA:** [Текст питання українською мовою]
+**UA:** Опишіть різницю між жадібними алгоритмами та динамічним програмуванням.
 
 **PL:** Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+Обидва підходи використовуються для розв'язання задач оптимізації, але вони відрізняються стратегією прийняття рішень.
+
+**1. Жадібні алгоритми (Greedy Algorithms):**
+- **Стратегія**: На кожному кроці вибирається рішення, яке здається найкращим у цей момент (локально оптимальний вибір), з надією, що це призведе до глобального оптимуму.
+- **Особливості**: Вони швидкі та мають низьку обчислювальну складність. Раз прийняте рішення ніколи не переглядається.
+- **Недолік**: Не завжди гарантують знаходження найкращого (глобального) рішення.
+- **Приклади**: Алгоритм Дейкстри, алгоритм Крускала, задача про видачу решти (для стандартних валютних систем).
+
+**2. Динамічне програмування (Dynamic Programming):**
+- **Стратегія**: Вирішує задачу шляхом поділу її на менші підзадачі, що перекриваються. Результати цих підзадач зберігаються (техніка запам'ятовування — memoization або табуляція), щоб не обчислювати їх повторно.
+- **Особливості**: Гарантує знаходження оптимального глобального рішення (якщо задача має оптимальну підструктуру).
+- **Складність**: Зазвичай повільніше за жадібні алгоритми, але значно швидше за метод "грубої сили" (brute-force).
+- **Приклади**: Задача про рюкзак (дискретна), послідовність Фібоначчі (з оптимізацією), найдовша спільна підпослідовність (LCS).
+
+**Ключові відмінності:**
+
+| Характеристика | Жадібний алгоритм | Динамічне програмування |
+| :--- | :--- | :--- |
+| Підхід | Найкращий вибір "тут і зараз". | Аналіз усіх підзадач. |
+| Оптимальність | Не завжди (лише у специфічних випадках). | Завжди гарантована (якщо застосовно). |
+| Складність | Зазвичай $O(n \log n)$ або $O(n)$. | Зазвичай вища, напр. $O(n^2)$ або $O(n \cdot W)$. |
+| Перегляд рішень | Немає можливості повернутися назад. | Розглядає вплив рішень на майбутні стани. |
+
+**Асоціація (Задача про рюкзак):**
+- **Жадібний підхід**: Уяви, що ти грабуєш магазин. Ти береш найдорожчу річ, потім наступну за ціною. Це швидко, але може виявитися, що взявши дві дешеві, але легкі речі замість однієї дорогої та важкої, ти б виніс більше грошей.
+- **Динамічний підхід**: Ти прораховуєш усі можливі комбінації ваги та ціни, записуючи результати в таблицю. Це займе більше часу, але ти винесеш максимально можливий прибуток.
+
+**Приклад коду (Видача решти - Жадібний алгоритм):**
+
+```cpp
+// Жадібний алгоритм видачі решти працює правильно лише для певних систем номіналів
+void wydajReszte(int kwota) {
+    int nominaly[] = {200, 100, 50, 20, 10, 5, 2, 1};
+    for(int n : nominaly) {
+        while(kwota >= n) {
+            cout << n << " ";
+            kwota -= n;
+        }
+    }
+}
+```
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Жадібний**: вибирає найкраще рішення "зараз", швидко ($O(n)$ або $O(n \log n)$), але **не завжди** оптимальне.
+- **Динамічне програмування**: розбиває задачу на підзадачі, запам'ятовує результати, **завжди** знаходить оптимум, але повільніше ($O(n^2)$ або вище).
+- **Різниця**: Жадібний не повертається назад; ДП аналізує всі варіанти.
+- **Приклади**: Жадібний — Дейкстра, Крускал; ДП — рюкзак, Фібоначчі, LCS.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+Oba podejścia służą do rozwiązywania problemów optymalizacyjnych, ale różnią się strategią podejmowania decyzji.
 
+**1. Algorytmy zachłanne (Greedy Algorithms):**
+- **Strategia**: W każdym kroku wybierają rozwiązanie, które wydaje się najlepsze w danej chwili (wybór lokalnie optymalny), z nadzieją, że doprowadzi to do globalnego optimum.
+- **Cechy**: Są szybkie i mają niską złożoność obliczeniową. Raz podjęta decyzja nigdy nie jest cofana.
+- **Wada**: Nie zawsze gwarantują znalezienie najlepszego (globalnego) rozwiązania.
+- **Przykłady**: Algorytm Dijkstry, algorytm Kruskala, wydawanie reszty (dla systemów walutowych takich jak PLN).
+
+**2. Programowanie dynamiczne (Dynamic Programming):**
+- **Strategia**: Rozwiązuje problem poprzez podział na mniejsze, nachodzące na siebie podproblemy. Wyniki tych podproblemów są przechowywane (technika spamiętywania - memoization lub tablicowania), aby nie obliczać ich wielokrotnie.
+- **Cechy**: Gwarantuje znalezienie optymalnego rozwiązania globalnego (jeśli problem posiada optymalną podstrukturę).
+- **Złożoność**: Zazwyczaj wolniejsze od algorytmów zachłannych, ale znacznie szybsze niż podejście siłowe (brute-force).
+- **Przykłady**: Problem plecakowy (wersja decyzyjna), ciąg Fibonacciego (z optymalizacją), najdłuższy wspólny podciąg (LCS).
+
+**Kluczowe różnice:**
+
+| Cecha | Algorytm zachłanny | Programowanie dynamiczne |
+| :--- | :--- | :--- |
+| Podejście | Wybór najlepszy "tu i teraz". | Analiza wszystkich podproblemów. |
+| Optymalność | Nie zawsze (tylko w specyficznych przypadkach). | Zawsze gwarantowana (jeśli stosowalne). |
+| Złożoność | Zazwyczaj $O(n \log n)$ lub $O(n)$. | Zazwyczaj wyższa, np. $O(n^2)$ lub $O(n \cdot W)$. |
+| Cofanie decyzji | Brak możliwości powrotu. | Rozważa skutki decyzji dla przyszłych stanów. |
+
+**Asocjacja (Problem plecakowy):**
+- **Podejście zachłanne**: Wyobraź sobie, że okradasz sklep. Bierzesz najdroższą rzecz, potem kolejną. To szybkie, ale może się okazać, że biorąc dwie tanie, ale lekkie rzeczy zamiast jednej drogiej i ciężkiej, wyniósłbyś więcej pieniędzy.
+- **Podejście dynamiczne**: Przeliczasz wszystkie możliwe kombinacje wagi i wartości, zapisując wyniki w tabeli. Zajmuje więcej czasu, ale wynosisz maksymalny możliwy zysk.
+
+**Przykład kodu (Wydawanie reszty - Algorytm zachłanny):**
+
+```cpp
+// Algorytm zachłanny wydawania reszty działa poprawnie tylko dla pewnych systemów nominalnych
+void wydajReszte(int kwota) {
+    int nominaly[] = {200, 100, 50, 20, 10, 5, 2, 1};
+    for(int n : nominaly) {
+        while(kwota >= n) {
+            cout << n << " ";
+            kwota -= n;
+        }
+    }
+}
+```
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Zachłanny**: wybiera najlepsze rozwiązanie "teraz", szybko ($O(n)$ lub $O(n \log n)$), ale **nie zawsze** optymalne.
+- **Programowanie dynamiczne**: dzieli problem na podproblemy, zapamiętuje wyniki, **zawsze** znajduje optimum, ale wolniej ($O(n^2)$ lub wyżej).
+- **Różnica**: Zachłanny nie cofa się; PD analizuje wszystkie warianty.
+- **Przykłady**: Zachłanny — Dijkstra, Kruskal; PD — plecak, Fibonacci, LCS.
 
 ---
 

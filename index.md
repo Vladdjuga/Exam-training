@@ -1220,19 +1220,105 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 14
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте діаграму класів нотації UML.
 
-**PL:** Scharakteryzuj diagram klas notacji UML.
+**PL:** Scharakteryzuj diagram klas notacji UML. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Діаграма класів** — це найважливіша структурна діаграма в мові UML (Unified Modeling Language). Вона представляє статичну структуру системи, описуючи її класи, атрибути, операції (методи) та відносини між об'єктами.
+
+**1. Складові класу (прямокутник, розділений на три секції):**
+
+- **Заголовок**: Назва класу (жирним шрифтом; якщо клас абстрактний — курсивом).
+- **Атрибути (Поля)**: Описують стан об'єкта. Запис: `видимість назва: тип = значення_за_замовчуванням`.
+- **Операції (Методи)**: Описують поведінку. Запис: `видимість назва(параметри): тип_повернення`.
+
+**2. Символи видимості:**
+
+- `+` : public (публічний)
+- `-` : private (приватний)
+- `#` : protected (захищений)
+- `~` : package (пакетний)
+
+**3. Зв'язки між класами:**
+
+- **Узагальнення (Спадкування)**: Суцільна лінія з порожнім трикутником `▷`. Вказує на зв'язок "є типом" (наприклад, Собака є типом Тварини).
+
+- **Асоціація**: Звичайна лінія `—`, що з'єднує класи, позначаючи загальний зв'язок. Може мати кратність (наприклад, `1`, `0..*`).
+
+- **Агрегація** (порожній ромб `◇`): Відношення "частина-ціле", де частина може існувати без цілого (наприклад, Студент і Факультет).
+
+- **Композиція** (зафарбований ромб `◆`): Сильне відношення "частина-ціле". Якщо видалити ціле, частини також видаляються (наприклад, Будинок і Кімнати).
+
+- **Реалізація**: Пунктирна лінія з порожнім трикутником `- - ▷` (імплементація інтерфейсу).
+
+**Приклад діаграми класів UML:**
+
+<img src="img/class_diagram.png" alt="UML Class Diagram" width="600"/>
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **UML діаграма класів**: статична структура системи (класи + зв'язки).
+- **Клас**: прямокутник з 3 секціями (назва, атрибути, методи).
+- **Видимість**: `+` public, `-` private, `#` protected, `~` package.
+- **Зв'язки**:
+  - Спадкування: `▷` (є типом)
+  - Асоціація: `—` (загальний зв'язок)
+  - Агрегація: `◇` (частина може існувати без цілого)
+  - Композиція: `◆` (частина не може існувати без цілого)
+  - Реалізація: `- - ▷` (інтерфейс)
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Diagram klas** to najważniejszy strukturalny diagram w języku UML (Unified Modeling Language). Przedstawia on statyczną strukturę systemu, opisując jego klasy, atrybuty, operacje (metody) oraz relacje między obiektami.
+
+**1. Składowe klasy (prostokąt podzielony na trzy sekcje):**
+
+- **Nagłówek**: Nazwa klasy (pogrubiona; jeśli klasa jest abstrakcyjna – pisana kursywą).
+- **Atrybuty (Pola)**: Opisują stan obiektu. Zapis: `widoczność nazwa: typ = wartość_domyślna`.
+- **Operacje (Metody)**: Opisują zachowanie. Zapis: `widoczność nazwa(parametry): typ_zwracany`.
+
+**2. Symbole widoczności:**
+
+- `+` : public (publiczny)
+- `-` : private (prywatny)
+- `#` : protected (chroniony)
+- `~` : package (pakietowy)
+
+**3. Relacje między klasami:**
+
+- **Generalizacja (Dziedziczenie)**: Linia ciągła zakończona pustym trójkątem `▷`. Wskazuje na relację "jest rodzajem" (np. Pies jest rodzajem Zwierzęcia).
+
+- **Asocjacja**: Zwykła linia `—` łącząca klasy, oznaczająca ogólną relację. Może mieć określoną krotność (np. `1`, `0..*`).
+
+- **Agregacja** (pusty diament `◇`): Relacja "część-całość", gdzie część może istnieć bez całości (np. Student i Wydział).
+
+- **Kompozycja** (zamalowany diament `◆`): Silna relacja "część-całość". Jeśli usuniemy całość, części również zostają usunięte (np. Budynek i Pokoje).
+
+- **Realizacja**: Linia przerywana z pustym trójkątem `- - ▷` (implementacja interfejsu).
+
+**Przykładowy diagram klas UML:**
+
+<img src="img/class_diagram.png" alt="UML Class Diagram" width="600"/>
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Diagram klas UML**: statyczna struktura systemu (klasy + relacje).
+- **Klasa**: prostokąt z 3 sekcjami (nazwa, atrybuty, metody).
+- **Widoczność**: `+` public, `-` private, `#` protected, `~` package.
+- **Relacje**:
+  - Dziedziczenie: `▷` (jest rodzajem)
+  - Asocjacja: `—` (ogólna relacja)
+  - Agregacja: `◇` (część może istnieć bez całości)
+  - Kompozycja: `◆` (część nie może istnieć bez całości)
+  - Realizacja: `- - ▷` (interfejs)
+
+---
 
 ---
 

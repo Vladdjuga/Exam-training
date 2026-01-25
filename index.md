@@ -1256,20 +1256,113 @@ Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
 ## Питання 16
 
-**UA:** [Текст питання українською мовою]
+**UA:** Опишіть різницю між жадібними алгоритмами та динамічним програмуванням.
 
 **PL:** Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+Обидва підходи використовуються для розв'язання задач оптимізації, але вони відрізняються стратегією прийняття рішень.
+
+**1. Жадібні алгоритми (Greedy Algorithms):**
+- **Стратегія**: На кожному кроці вибирається рішення, яке здається найкращим у цей момент (локально оптимальний вибір), з надією, що це призведе до глобального оптимуму.
+- **Особливості**: Вони швидкі та мають низьку обчислювальну складність. Раз прийняте рішення ніколи не переглядається.
+- **Недолік**: Не завжди гарантують знаходження найкращого (глобального) рішення.
+- **Приклади**: Алгоритм Дейкстри, алгоритм Крускала, задача про видачу решти (для стандартних валютних систем).
+
+**2. Динамічне програмування (Dynamic Programming):**
+- **Стратегія**: Вирішує задачу шляхом поділу її на менші підзадачі, що перекриваються. Результати цих підзадач зберігаються (техніка запам'ятовування — memoization або табуляція), щоб не обчислювати їх повторно.
+- **Особливості**: Гарантує знаходження оптимального глобального рішення (якщо задача має оптимальну підструктуру).
+- **Складність**: Зазвичай повільніше за жадібні алгоритми, але значно швидше за метод "грубої сили" (brute-force).
+- **Приклади**: Задача про рюкзак (дискретна), послідовність Фібоначчі (з оптимізацією), найдовша спільна підпослідовність (LCS).
+
+**Ключові відмінності:**
+
+| Характеристика | Жадібний алгоритм | Динамічне програмування |
+| :--- | :--- | :--- |
+| Підхід | Найкращий вибір "тут і зараз". | Аналіз усіх підзадач. |
+| Оптимальність | Не завжди (лише у специфічних випадках). | Завжди гарантована (якщо застосовно). |
+| Складність | Зазвичай $O(n \log n)$ або $O(n)$. | Зазвичай вища, напр. $O(n^2)$ або $O(n \cdot W)$. |
+| Перегляд рішень | Немає можливості повернутися назад. | Розглядає вплив рішень на майбутні стани. |
+
+**Асоціація (Задача про рюкзак):**
+- **Жадібний підхід**: Уяви, що ти грабуєш магазин. Ти береш найдорожчу річ, потім наступну за ціною. Це швидко, але може виявитися, що взявши дві дешеві, але легкі речі замість однієї дорогої та важкої, ти б виніс більше грошей.
+- **Динамічний підхід**: Ти прораховуєш усі можливі комбінації ваги та ціни, записуючи результати в таблицю. Це займе більше часу, але ти винесеш максимально можливий прибуток.
+
+**Приклад коду (Видача решти - Жадібний алгоритм):**
+
+```cpp
+// Жадібний алгоритм видачі решти працює правильно лише для певних систем номіналів
+void wydajReszte(int kwota) {
+    int nominaly[] = {200, 100, 50, 20, 10, 5, 2, 1};
+    for(int n : nominaly) {
+        while(kwota >= n) {
+            cout << n << " ";
+            kwota -= n;
+        }
+    }
+}
+```
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Жадібний**: вибирає найкраще рішення "зараз", швидко ($O(n)$ або $O(n \log n)$), але **не завжди** оптимальне.
+- **Динамічне програмування**: розбиває задачу на підзадачі, запам'ятовує результати, **завжди** знаходить оптимум, але повільніше ($O(n^2)$ або вище).
+- **Різниця**: Жадібний не повертається назад; ДП аналізує всі варіанти.
+- **Приклади**: Жадібний — Дейкстра, Крускал; ДП — рюкзак, Фібоначчі, LCS.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+Oba podejścia służą do rozwiązywania problemów optymalizacyjnych, ale różnią się strategią podejmowania decyzji.
 
+**1. Algorytmy zachłanne (Greedy Algorithms):**
+- **Strategia**: W każdym kroku wybierają rozwiązanie, które wydaje się najlepsze w danej chwili (wybór lokalnie optymalny), z nadzieją, że doprowadzi to do globalnego optimum.
+- **Cechy**: Są szybkie i mają niską złożoność obliczeniową. Raz podjęta decyzja nigdy nie jest cofana.
+- **Wada**: Nie zawsze gwarantują znalezienie najlepszego (globalnego) rozwiązania.
+- **Przykłady**: Algorytm Dijkstry, algorytm Kruskala, wydawanie reszty (dla systemów walutowych takich jak PLN).
+
+**2. Programowanie dynamiczne (Dynamic Programming):**
+- **Strategia**: Rozwiązuje problem poprzez podział na mniejsze, nachodzące na siebie podproblemy. Wyniki tych podproblemów są przechowywane (technika spamiętywania - memoization lub tablicowania), aby nie obliczać ich wielokrotnie.
+- **Cechy**: Gwarantuje znalezienie optymalnego rozwiązania globalnego (jeśli problem posiada optymalną podstrukturę).
+- **Złożoność**: Zazwyczaj wolniejsze od algorytmów zachłannych, ale znacznie szybsze niż podejście siłowe (brute-force).
+- **Przykłady**: Problem plecakowy (wersja decyzyjna), ciąg Fibonacciego (z optymalizacją), najdłuższy wspólny podciąg (LCS).
+
+**Kluczowe różnice:**
+
+| Cecha | Algorytm zachłanny | Programowanie dynamiczne |
+| :--- | :--- | :--- |
+| Podejście | Wybór najlepszy "tu i teraz". | Analiza wszystkich podproblemów. |
+| Optymalność | Nie zawsze (tylko w specyficznych przypadkach). | Zawsze gwarantowana (jeśli stosowalne). |
+| Złożoność | Zazwyczaj $O(n \log n)$ lub $O(n)$. | Zazwyczaj wyższa, np. $O(n^2)$ lub $O(n \cdot W)$. |
+| Cofanie decyzji | Brak możliwości powrotu. | Rozważa skutki decyzji dla przyszłych stanów. |
+
+**Asocjacja (Problem plecakowy):**
+- **Podejście zachłanne**: Wyobraź sobie, że okradasz sklep. Bierzesz najdroższą rzecz, potem kolejną. To szybkie, ale może się okazać, że biorąc dwie tanie, ale lekkie rzeczy zamiast jednej drogiej i ciężkiej, wyniósłbyś więcej pieniędzy.
+- **Podejście dynamiczne**: Przeliczasz wszystkie możliwe kombinacje wagi i wartości, zapisując wyniki w tabeli. Zajmuje więcej czasu, ale wynosisz maksymalny możliwy zysk.
+
+**Przykład kodu (Wydawanie reszty - Algorytm zachłanny):**
+
+```cpp
+// Algorytm zachłanny wydawania reszty działa poprawnie tylko dla pewnych systemów nominalnych
+void wydajReszte(int kwota) {
+    int nominaly[] = {200, 100, 50, 20, 10, 5, 2, 1};
+    for(int n : nominaly) {
+        while(kwota >= n) {
+            cout << n << " ";
+            kwota -= n;
+        }
+    }
+}
+```
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Zachłanny**: wybiera najlepsze rozwiązanie "teraz", szybko ($O(n)$ lub $O(n \log n)$), ale **nie zawsze** optymalne.
+- **Programowanie dynamiczne**: dzieli problem na podproblemy, zapamiętuje wyniki, **zawsze** znajduje optimum, ale wolniej ($O(n^2)$ lub wyżej).
+- **Różnica**: Zachłanny nie cofa się; PD analizuje wszystkie warianty.
+- **Przykłady**: Zachłanny — Dijkstra, Kruskal; PD — plecak, Fibonacci, LCS.
 
 ---
 

@@ -920,19 +920,189 @@ Klucz: rośnie **przepustowość (throughput)**, natomiast **opóźnienie (laten
 
 ## Питання 9
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будь ласка, обговоріть структуру та навчання багатошарової штучної нейронної мережі.
 
-**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej. 
+**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Багатошарова нейронна мережа (MLP - Multilayer Perceptron)** — це обчислювальна модель, натхненна біологічною нервовою системою, що складається зі з'єднаних між собою обчислювальних одиниць (нейронів), організованих у шари.
+
+**1. Будова мережі (Архітектура):**
+
+<img src="img/neuronowa.png" alt="Neural Network Architecture" width="600"/>
+
+- **Вхідний шар (Input Layer)**: Приймає вхідні сигнали ззовні — ознаки даних (features). Кількість нейронів відповідає розмірності вхідних даних (наприклад, 784 для зображення 28×28 пікселів).
+
+- **Приховані шари (Hidden Layers)**: Один або кілька проміжних шарів, де відбувається:
+  - Вилучення та трансформація ознак (feature extraction)
+  - Моделювання нелінійних залежностей між входом і виходом
+  - Кожен наступний шар виявляє складніші закономірності
+
+- **Вихідний шар (Output Layer)**: Генерує кінцевий результат:
+  - Для класифікації: ймовірності приналежності до класів (наприклад, через Softmax)
+  - Для регресії: безперервне значення (наприклад, через лінійну активацію)
+
+- **Нейрон (обчислювальна одиниця)**: Виконує операцію зваженого підсумовування входів:
+  - $z = \sum_{i} (x_i \cdot w_i) + b$
+  - де $x_i$ — входи, $w_i$ — ваги, $b$ — зміщення (bias)
+  - Результат проходить через функцію активації: $a = f(z)$
+
+**2. Математичні компоненти:**
+
+- **Функції активації** (вводять нелінійність):
+  - **ReLU**: $f(x) = \max(0, x)$ — найпопулярніша, швидка, усуває проблему зникаючого градієнта
+  - **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ — для бінарної класифікації
+  - **Tanh**: $f(x) = \tanh(x)$ — центрована навколо 0
+  - **Softmax**: для багатокласової класифікації на виході
+
+- **Ваги ($w$) та зміщення ($b$)**: Параметри, які оптимізуються під час навчання. Ініціалізуються випадково (Xavier, He initialization).
+
+**3. Процес навчання (Алгоритм Backpropagation):**
+
+Навчання відбувається циклами (епохами) і складається з чотирьох основних кроків:
+
+- **Пряме поширення (Forward Pass)**:
+  - Вхідні дані послідовно проходять через всі шари
+  - На кожному шарі обчислюється $z = Wx + b$, потім $a = f(z)$
+  - На виході отримуємо передбачення (predikцію) $\hat{y}$
+
+- **Обчислення помилки (Loss Function)**:
+  - Визначається різниця між передбаченням $\hat{y}$ та реальною міткою $y$
+  - Для регресії: MSE (Mean Squared Error) = $\frac{1}{n}\sum(y - \hat{y})^2$
+  - Для класифікації: Cross-Entropy = $-\sum y \log(\hat{y})$
+
+- **Зворотне поширення помилки (Backpropagation)**:
+  - Використовуючи правило ланцюжка (chain rule), градієнт помилки "розповсюджується" назад від виходу до входу
+  - Обчислюються градієнти функції втрат відносно кожної ваги: $\frac{\partial E}{\partial w}$
+  - Це дозволяє визначити, як кожна вага впливає на помилку
+
+- **Оптимізація (Gradient Descent)**:
+  - Ваги оновлюються у напрямку, протилежному градієнту:
+  - $w_{\text{new}} = w_{\text{old}} - \eta \cdot \frac{\partial E}{\partial w}$
+  - де $\eta$ — швидкість навчання (learning rate, типово 0.001-0.1)
+  - Варіанти: SGD, Adam, RMSprop
+
+**Асоціація (Команда експертів):**
+
+- **Нейронна мережа** — це як **команда експертів у компанії**:
+  - **Вхідний шар** — секретаріат, що збирає вхідні факти та дані
+  - **Приховані шари** — відділи аналітиків, кожен шукає свої закономірності та патерни
+  - **Вихідний шар** — директор, що виносить остаточне рішення
+  - **Backpropagation** — "робота над помилками": коли директор помиляється, він аналізує помилку та дає зворотний зв'язок аналітикам, які коригують свої підходи (ваги), щоб наступного разу не помилитися
+
+**Ключові терміни:**
+
+- Епоха (Epoch) — один повний прохід через весь навчальний набір
+- Batch — підмножина даних для одного оновлення ваг
+- Overfitting — перенавчання (мережа запам'ятовує дані замість узагальнення)
+- Regularization (L1, L2, Dropout) — методи запобігання перенавчанню
+- Градієнтний спуск (Gradient Descent)
+- Функція втрат (Loss Function)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Архітектура**: 3 типи шарів — вхідний (дані) → приховані (обробка) → вихідний (результат).
+- **Нейрон**: Зважена сума $z = \sum(x_i \cdot w_i) + b$, потім функція активації (ReLU, Sigmoid, Tanh).
+- **Навчання (4 кроки)**:
+  1. Forward Pass — обчислення передбачення
+  2. Loss Function — вимірювання помилки (MSE, Cross-Entropy)
+  3. Backpropagation — обчислення градієнтів (chain rule)
+  4. Gradient Descent — оновлення ваг: $w = w - \eta \cdot \frac{\partial E}{\partial w}$
+- **Мета**: мінімізувати функцію втрат через ітеративну оптимізацію ваг.
+- **Асоціація**: Команда експертів → вхід збирає дані, приховані шари аналізують, вихід вирішує; backpropagation = робота над помилками.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Wielowarstwowa sieć neuronowa (MLP - Multilayer Perceptron)** to model obliczeniowy inspirowany biologicznym układem nerwowym, składający się z połączonych ze sobą jednostek obliczeniowych (neuronów), zorganizowanych w warstwy.
+
+**1. Budowa sieci (Architektura):**
+
+<img src="img/neuronowa.png" alt="Neural Network Architecture" width="600"/>
+
+- **Warstwa wejściowa (Input Layer)**: Przyjmuje sygnały wejściowe z zewnątrz — cechy danych (features). Liczba neuronów odpowiada wymiarowości danych wejściowych (np. 784 dla obrazu 28×28 pikseli).
+
+- **Warstwy ukryte (Hidden Layers)**: Jedna lub więcej warstw pośrednich, w których zachodzi:
+  - Ekstrakcja i transformacja cech (feature extraction)
+  - Modelowanie nieliniowych zależności między wejściem a wyjściem
+  - Każda kolejna warstwa wykrywa bardziej złożone wzorce
+
+- **Warstwa wyjściowa (Output Layer)**: Generuje ostateczny wynik:
+  - Dla klasyfikacji: prawdopodobieństwa przynależności do klas (np. przez Softmax)
+  - Dla regresji: wartość ciągłą (np. przez aktywację liniową)
+
+- **Neuron (jednostka obliczeniowa)**: Wykonuje operację sumowania ważonego wejść:
+  - $z = \sum_{i} (x_i \cdot w_i) + b$
+  - gdzie $x_i$ — wejścia, $w_i$ — wagi, $b$ — bias (obciążenie)
+  - Wynik przechodzi przez funkcję aktywacji: $a = f(z)$
+
+**2. Składniki matematyczne:**
+
+- **Funkcje aktywacji** (wprowadzają nieliniowość):
+  - **ReLU**: $f(x) = \max(0, x)$ — najpopularniejsza, szybka, eliminuje problem zanikającego gradientu
+  - **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ — dla klasyfikacji binarnej
+  - **Tanh**: $f(x) = \tanh(x)$ — wycentrowana wokół 0
+  - **Softmax**: dla klasyfikacji wieloklasowej na wyjściu
+
+- **Wagi ($w$) i bias ($b$)**: Parametry optymalizowane podczas uczenia. Inicjalizowane losowo (Xavier, He initialization).
+
+**3. Proces uczenia (Algorytm Backpropagation):**
+
+Uczenie odbywa się w cyklach (epokach) i składa się z czterech głównych kroków:
+
+- **Propagacja w przód (Forward Pass)**:
+  - Dane wejściowe sekwencyjnie przechodzą przez wszystkie warstwy
+  - Na każdej warstwie obliczane jest $z = Wx + b$, następnie $a = f(z)$
+  - Na wyjściu otrzymujemy predykcję $\hat{y}$
+
+- **Obliczanie błędu (Loss Function)**:
+  - Wyznaczana jest różnica między predykcją $\hat{y}$ a rzeczywistą etykietą $y$
+  - Dla regresji: MSE (Mean Squared Error) = $\frac{1}{n}\sum(y - \hat{y})^2$
+  - Dla klasyfikacji: Cross-Entropy = $-\sum y \log(\hat{y})$
+
+- **Propagacja wsteczna (Backpropagation)**:
+  - Wykorzystując regułę łańcuchową (chain rule), gradient błędu jest "rozprowadzany" wstecz od wyjścia do wejścia
+  - Obliczane są gradienty funkcji straty względem każdej wagi: $\frac{\partial E}{\partial w}$
+  - Pozwala to określić, jak każda waga wpływa na błąd
+
+- **Optymalizacja (Gradient Descent)**:
+  - Wagi są aktualizowane w kierunku przeciwnym do gradientu:
+  - $w_{\text{new}} = w_{\text{old}} - \eta \cdot \frac{\partial E}{\partial w}$
+  - gdzie $\eta$ — learning rate (współczynnik uczenia, typowo 0.001-0.1)
+  - Warianty: SGD, Adam, RMSprop
+
+**Skojarzenie (Zespół ekspertów):**
+
+- **Sieć neuronowa** to jak **zespół ekspertów w firmie**:
+  - **Warstwa wejściowa** — sekretariat zbierający dane wejściowe i fakty
+  - **Warstwy ukryte** — działy analityków, każdy szuka swoich wzorców i zależności
+  - **Warstwa wyjściowa** — dyrektor podejmujący ostateczną decyzję
+  - **Backpropagation** — "praca nad błędami": gdy dyrektor popełnia błąd, analizuje go i przekazuje feedback analitykom, którzy korygują swoje podejścia (wagi), aby następnym razem nie popełnić błędu
+
+**Kluczowe terminy:**
+
+- Epoka (Epoch) — jedno pełne przejście przez cały zbiór treningowy
+- Batch — podzbiór danych dla jednej aktualizacji wag
+- Overfitting — przetrenowanie (sieć zapamiętuje dane zamiast uogólniać)
+- Regularization (L1, L2, Dropout) — metody zapobiegania przetrenowaniu
+- Gradient Descent — spadek gradientu
+- Loss Function — funkcja straty
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Architektura**: 3 typy warstw — wejściowa (dane) → ukryte (przetwarzanie) → wyjściowa (wynik).
+- **Neuron**: Suma ważona $z = \sum(x_i \cdot w_i) + b$, następnie funkcja aktywacji (ReLU, Sigmoid, Tanh).
+- **Uczenie (4 kroki)**:
+  1. Forward Pass — obliczenie predykcji
+  2. Loss Function — pomiar błędu (MSE, Cross-Entropy)
+  3. Backpropagation — obliczenie gradientów (chain rule)
+  4. Gradient Descent — aktualizacja wag: $w = w - \eta \cdot \frac{\partial E}{\partial w}$
+- **Cel**: minimalizacja funkcji straty przez iteracyjną optymalizację wag.
+- **Skojarzenie**: Zespół ekspertów → wejście zbiera dane, ukryte warstwy analizują, wyjście decyduje; backpropagation = praca nad błędami.
 
 ---
 

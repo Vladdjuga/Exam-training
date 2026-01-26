@@ -916,19 +916,189 @@ Klucz: rośnie **przepustowość (throughput)**, natomiast **opóźnienie (laten
 
 ## Питання 9
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будь ласка, обговоріть структуру та навчання багатошарової штучної нейронної мережі.
 
-**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej. 
+**PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Багатошарова нейронна мережа (MLP - Multilayer Perceptron)** — це обчислювальна модель, натхненна біологічною нервовою системою, що складається зі з'єднаних між собою обчислювальних одиниць (нейронів), організованих у шари.
+
+**1. Будова мережі (Архітектура):**
+
+<img src="img/neuronowa.png" alt="Neural Network Architecture" width="600"/>
+
+- **Вхідний шар (Input Layer)**: Приймає вхідні сигнали ззовні — ознаки даних (features). Кількість нейронів відповідає розмірності вхідних даних (наприклад, 784 для зображення 28×28 пікселів).
+
+- **Приховані шари (Hidden Layers)**: Один або кілька проміжних шарів, де відбувається:
+  - Вилучення та трансформація ознак (feature extraction)
+  - Моделювання нелінійних залежностей між входом і виходом
+  - Кожен наступний шар виявляє складніші закономірності
+
+- **Вихідний шар (Output Layer)**: Генерує кінцевий результат:
+  - Для класифікації: ймовірності приналежності до класів (наприклад, через Softmax)
+  - Для регресії: безперервне значення (наприклад, через лінійну активацію)
+
+- **Нейрон (обчислювальна одиниця)**: Виконує операцію зваженого підсумовування входів:
+  - $z = \sum_{i} (x_i \cdot w_i) + b$
+  - де $x_i$ — входи, $w_i$ — ваги, $b$ — зміщення (bias)
+  - Результат проходить через функцію активації: $a = f(z)$
+
+**2. Математичні компоненти:**
+
+- **Функції активації** (вводять нелінійність):
+  - **ReLU**: $f(x) = \max(0, x)$ — найпопулярніша, швидка, усуває проблему зникаючого градієнта
+  - **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ — для бінарної класифікації
+  - **Tanh**: $f(x) = \tanh(x)$ — центрована навколо 0
+  - **Softmax**: для багатокласової класифікації на виході
+
+- **Ваги ($w$) та зміщення ($b$)**: Параметри, які оптимізуються під час навчання. Ініціалізуються випадково (Xavier, He initialization).
+
+**3. Процес навчання (Алгоритм Backpropagation):**
+
+Навчання відбувається циклами (епохами) і складається з чотирьох основних кроків:
+
+- **Пряме поширення (Forward Pass)**:
+  - Вхідні дані послідовно проходять через всі шари
+  - На кожному шарі обчислюється $z = Wx + b$, потім $a = f(z)$
+  - На виході отримуємо передбачення (predikцію) $\hat{y}$
+
+- **Обчислення помилки (Loss Function)**:
+  - Визначається різниця між передбаченням $\hat{y}$ та реальною міткою $y$
+  - Для регресії: MSE (Mean Squared Error) = $\frac{1}{n}\sum(y - \hat{y})^2$
+  - Для класифікації: Cross-Entropy = $-\sum y \log(\hat{y})$
+
+- **Зворотне поширення помилки (Backpropagation)**:
+  - Використовуючи правило ланцюжка (chain rule), градієнт помилки "розповсюджується" назад від виходу до входу
+  - Обчислюються градієнти функції втрат відносно кожної ваги: $\frac{\partial E}{\partial w}$
+  - Це дозволяє визначити, як кожна вага впливає на помилку
+
+- **Оптимізація (Gradient Descent)**:
+  - Ваги оновлюються у напрямку, протилежному градієнту:
+  - $w_{\text{new}} = w_{\text{old}} - \eta \cdot \frac{\partial E}{\partial w}$
+  - де $\eta$ — швидкість навчання (learning rate, типово 0.001-0.1)
+  - Варіанти: SGD, Adam, RMSprop
+
+**Асоціація (Команда експертів):**
+
+- **Нейронна мережа** — це як **команда експертів у компанії**:
+  - **Вхідний шар** — секретаріат, що збирає вхідні факти та дані
+  - **Приховані шари** — відділи аналітиків, кожен шукає свої закономірності та патерни
+  - **Вихідний шар** — директор, що виносить остаточне рішення
+  - **Backpropagation** — "робота над помилками": коли директор помиляється, він аналізує помилку та дає зворотний зв'язок аналітикам, які коригують свої підходи (ваги), щоб наступного разу не помилитися
+
+**Ключові терміни:**
+
+- Епоха (Epoch) — один повний прохід через весь навчальний набір
+- Batch — підмножина даних для одного оновлення ваг
+- Overfitting — перенавчання (мережа запам'ятовує дані замість узагальнення)
+- Regularization (L1, L2, Dropout) — методи запобігання перенавчанню
+- Градієнтний спуск (Gradient Descent)
+- Функція втрат (Loss Function)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Архітектура**: 3 типи шарів — вхідний (дані) → приховані (обробка) → вихідний (результат).
+- **Нейрон**: Зважена сума $z = \sum(x_i \cdot w_i) + b$, потім функція активації (ReLU, Sigmoid, Tanh).
+- **Навчання (4 кроки)**:
+  1. Forward Pass — обчислення передбачення
+  2. Loss Function — вимірювання помилки (MSE, Cross-Entropy)
+  3. Backpropagation — обчислення градієнтів (chain rule)
+  4. Gradient Descent — оновлення ваг: $w = w - \eta \cdot \frac{\partial E}{\partial w}$
+- **Мета**: мінімізувати функцію втрат через ітеративну оптимізацію ваг.
+- **Асоціація**: Команда експертів → вхід збирає дані, приховані шари аналізують, вихід вирішує; backpropagation = робота над помилками.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Wielowarstwowa sieć neuronowa (MLP - Multilayer Perceptron)** to model obliczeniowy inspirowany biologicznym układem nerwowym, składający się z połączonych ze sobą jednostek obliczeniowych (neuronów), zorganizowanych w warstwy.
+
+**1. Budowa sieci (Architektura):**
+
+<img src="img/neuronowa.png" alt="Neural Network Architecture" width="600"/>
+
+- **Warstwa wejściowa (Input Layer)**: Przyjmuje sygnały wejściowe z zewnątrz — cechy danych (features). Liczba neuronów odpowiada wymiarowości danych wejściowych (np. 784 dla obrazu 28×28 pikseli).
+
+- **Warstwy ukryte (Hidden Layers)**: Jedna lub więcej warstw pośrednich, w których zachodzi:
+  - Ekstrakcja i transformacja cech (feature extraction)
+  - Modelowanie nieliniowych zależności między wejściem a wyjściem
+  - Każda kolejna warstwa wykrywa bardziej złożone wzorce
+
+- **Warstwa wyjściowa (Output Layer)**: Generuje ostateczny wynik:
+  - Dla klasyfikacji: prawdopodobieństwa przynależności do klas (np. przez Softmax)
+  - Dla regresji: wartość ciągłą (np. przez aktywację liniową)
+
+- **Neuron (jednostka obliczeniowa)**: Wykonuje operację sumowania ważonego wejść:
+  - $z = \sum_{i} (x_i \cdot w_i) + b$
+  - gdzie $x_i$ — wejścia, $w_i$ — wagi, $b$ — bias (obciążenie)
+  - Wynik przechodzi przez funkcję aktywacji: $a = f(z)$
+
+**2. Składniki matematyczne:**
+
+- **Funkcje aktywacji** (wprowadzają nieliniowość):
+  - **ReLU**: $f(x) = \max(0, x)$ — najpopularniejsza, szybka, eliminuje problem zanikającego gradientu
+  - **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ — dla klasyfikacji binarnej
+  - **Tanh**: $f(x) = \tanh(x)$ — wycentrowana wokół 0
+  - **Softmax**: dla klasyfikacji wieloklasowej na wyjściu
+
+- **Wagi ($w$) i bias ($b$)**: Parametry optymalizowane podczas uczenia. Inicjalizowane losowo (Xavier, He initialization).
+
+**3. Proces uczenia (Algorytm Backpropagation):**
+
+Uczenie odbywa się w cyklach (epokach) i składa się z czterech głównych kroków:
+
+- **Propagacja w przód (Forward Pass)**:
+  - Dane wejściowe sekwencyjnie przechodzą przez wszystkie warstwy
+  - Na każdej warstwie obliczane jest $z = Wx + b$, następnie $a = f(z)$
+  - Na wyjściu otrzymujemy predykcję $\hat{y}$
+
+- **Obliczanie błędu (Loss Function)**:
+  - Wyznaczana jest różnica między predykcją $\hat{y}$ a rzeczywistą etykietą $y$
+  - Dla regresji: MSE (Mean Squared Error) = $\frac{1}{n}\sum(y - \hat{y})^2$
+  - Dla klasyfikacji: Cross-Entropy = $-\sum y \log(\hat{y})$
+
+- **Propagacja wsteczna (Backpropagation)**:
+  - Wykorzystując regułę łańcuchową (chain rule), gradient błędu jest "rozprowadzany" wstecz od wyjścia do wejścia
+  - Obliczane są gradienty funkcji straty względem każdej wagi: $\frac{\partial E}{\partial w}$
+  - Pozwala to określić, jak każda waga wpływa na błąd
+
+- **Optymalizacja (Gradient Descent)**:
+  - Wagi są aktualizowane w kierunku przeciwnym do gradientu:
+  - $w_{\text{new}} = w_{\text{old}} - \eta \cdot \frac{\partial E}{\partial w}$
+  - gdzie $\eta$ — learning rate (współczynnik uczenia, typowo 0.001-0.1)
+  - Warianty: SGD, Adam, RMSprop
+
+**Skojarzenie (Zespół ekspertów):**
+
+- **Sieć neuronowa** to jak **zespół ekspertów w firmie**:
+  - **Warstwa wejściowa** — sekretariat zbierający dane wejściowe i fakty
+  - **Warstwy ukryte** — działy analityków, każdy szuka swoich wzorców i zależności
+  - **Warstwa wyjściowa** — dyrektor podejmujący ostateczną decyzję
+  - **Backpropagation** — "praca nad błędami": gdy dyrektor popełnia błąd, analizuje go i przekazuje feedback analitykom, którzy korygują swoje podejścia (wagi), aby następnym razem nie popełnić błędu
+
+**Kluczowe terminy:**
+
+- Epoka (Epoch) — jedno pełne przejście przez cały zbiór treningowy
+- Batch — podzbiór danych dla jednej aktualizacji wag
+- Overfitting — przetrenowanie (sieć zapamiętuje dane zamiast uogólniać)
+- Regularization (L1, L2, Dropout) — metody zapobiegania przetrenowaniu
+- Gradient Descent — spadek gradientu
+- Loss Function — funkcja straty
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Architektura**: 3 typy warstw — wejściowa (dane) → ukryte (przetwarzanie) → wyjściowa (wynik).
+- **Neuron**: Suma ważona $z = \sum(x_i \cdot w_i) + b$, następnie funkcja aktywacji (ReLU, Sigmoid, Tanh).
+- **Uczenie (4 kroki)**:
+  1. Forward Pass — obliczenie predykcji
+  2. Loss Function — pomiar błędu (MSE, Cross-Entropy)
+  3. Backpropagation — obliczenie gradientów (chain rule)
+  4. Gradient Descent — aktualizacja wag: $w = w - \eta \cdot \frac{\partial E}{\partial w}$
+- **Cel**: minimalizacja funkcji straty przez iteracyjną optymalizację wag.
+- **Skojarzenie**: Zespół ekspertów → wejście zbiera dane, ukryte warstwy analizują, wyjście decyduje; backpropagation = praca nad błędami.
 
 ---
 
@@ -1077,19 +1247,111 @@ Każda warstwa dodaje swój nagłówek: L7→L6→...→L1. Po drodze w górę n
 
 ## Питання 11
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будь ласка, обговоріть трансляцію адрес NAT та портів PAT у мережах TCP/IP.
 
 **PL:** Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**NAT (Network Address Translation)** та **PAT (Port Address Translation)** — це механізми, що використовуються в маршрутизаторах для заміни IP-адрес (та портів) у заголовках пакетів, які проходять між різними мережами (зазвичай між локальною мережею та Інтернетом).
+
+**1. NAT (Статичний та Динамічний):**
+
+- **Статичний NAT**: Відображення один-до-одного (1:1). Одна конкретна приватна адреса завжди відповідає одній конкретній публічній адресі. Використовується, наприклад, для внутрішніх серверів, доступних ззовні.
+
+- **Динамічний NAT**: Відображення багато-до-багатьох. Маршрутизатор має пул публічних адрес і динамічно призначає їх пристроям з локальної мережі на час сесії.
+
+**2. PAT (Port Address Translation / NAT Overload):**
+
+- **Суть**: Це найпоширеніша форма NAT (часто звана NAT із перевантаженням).
+
+- **Призначення**: Дозволяє багатьом пристроям у локальній мережі (з різними приватними адресами) використовувати одну спільну публічну адресу.
+
+- **Механізм розрізнення**: Маршрутизатор розрізняє окремі з'єднання завдяки унікальним номерам вихідних портів.
+
+- **Механізм роботи**: 
+  - Коли локальний хост надсилає пакет, маршрутизатор замінює його приватну IP-адресу та порт на свою публічну IP-адресу та унікальний порт PAT.
+  - Ця пара (приватний IP:порт ↔ публічний IP:порт PAT) записується в таблицю трансляції NAT.
+  - Коли приходить відповідь, маршрутизатор перевіряє номер порту в таблиці та передає пакет відповідному хосту всередині мережі.
+
+**Переваги:**
+- **Економія IPv4-адрес**: Тисячі пристроїв можуть бути видимі під однією публічною адресою.
+- **Безпека**: Приховує внутрішню структуру мережі від зовнішнього світу.
+
+**Асоціація (Багатоквартирний будинок):**
+- **Публічна IP-адреса** — адреса самого будинку.
+- **Приватна IP-адреса** — номер квартири.
+- **Порт PAT** — номер поштової скриньки або конкретне ім'я мешканця на конверті.
+- **Маршрутизатор** — консьєрж: листоноша (Інтернет) приносить усе на одну адресу будинку, а консьєрж дивиться на ім'я (порт) і розносить лист у потрібну квартиру.
+
+**Ключові терміни:**
+- Приватна адреса (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`
+- Публічна адреса
+- Таблиця трансляції (NAT table)
+- Мапування портів (Port mapping)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **NAT** — заміна IP-адрес у пакетах при проходженні між мережами.
+- **Статичний NAT**: 1 приватний = 1 публічний (для серверів).
+- **Динамічний NAT**: група приватних = пул публічних (на час сесії).
+- **PAT (NAT Overload)**: багато приватних = 1 публічний (розрізнення через порти).
+- **Головна мета**: економія IPv4-адрес + приховування внутрішньої структури мережі.
+- **Асоціація**: Будинок (публічна IP) → Квартири (приватні IP) → Поштові скриньки (порти).
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**NAT (Network Address Translation)** oraz **PAT (Port Address Translation)** to mechanizmy stosowane w ruterach w celu zamiany adresów IP (i portów) w nagłówkach pakietów przechodzących między różnymi sieciami (zazwyczaj między siecią lokalną a Internetem).
+
+**1. NAT (Statyczny i Dynamiczny):**
+
+- **NAT Statyczny**: Mapowanie jeden-do-jeden (1:1). Jeden konkretny adres prywatny zawsze odpowiada jednemu konkretnemu adresowi publicznemu. Stosowane np. dla serwerów wewnętrznych dostępnych z zewnątrz.
+
+- **NAT Dynamiczny**: Mapowanie wiele-do-wielu. Ruter posiada pulę adresów publicznych i przydziela je dynamicznie urządzeniom z sieci lokalnej na czas trwania sesji.
+
+**2. PAT (Port Address Translation / NAT Overload):**
+
+- **Istota**: Jest to najpowszechniejsza forma NAT (często nazywana NAT z przeciążeniem).
+
+- **Przeznaczenie**: Pozwala wielu urządzeniom w sieci lokalnej (z różnymi adresami prywatnymi) korzystać z jednego, wspólnego adresu publicznego.
+
+- **Mechanizm rozróżniania**: Ruter rozróżnia poszczególne połączenia dzięki unikalnym numerom portów źródłowych.
+
+- **Mechanizm działania**:
+  - Kiedy host lokalny wysyła pakiet, ruter zamienia jego prywatny IP i port na swój publiczny IP oraz unikalny port PAT.
+  - Ta para (prywatny IP:port ↔ publiczny IP:port PAT) jest zapisywana w tablicy translacji NAT.
+  - Gdy przychodzi odpowiedź, ruter sprawdza numer portu w tablicy i przekazuje pakiet do właściwego hosta wewnątrz sieci.
+
+**Zalety:**
+- **Oszczędność adresów IPv4**: Tysiące urządzeń mogą być widoczne pod jednym adresem publicznym.
+- **Bezpieczeństwo**: Ukrywa wewnętrzną strukturę sieci przed światem zewnętrznym.
+
+**Skojarzenie (Budynek mieszkalny):**
+- **Publiczny adres IP** — adres budynku.
+- **Prywatny adres IP** — numer mieszkania.
+- **Port PAT** — numer skrzynki pocztowej lub konkretne imię mieszkańca na kopercie.
+- **Ruter** — portier: listonosz (Internet) przynosi wszystko na jeden adres budynku, a portier patrzy na imię (port) i roznosi list do odpowiedniego mieszkania.
+
+**Kluczowe terminy:**
+- Adres prywatny (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`
+- Adres publiczny
+- Tablica translacji (NAT table)
+- Mapowanie portów (Port mapping)
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **NAT** — zamiana adresów IP w pakietach przy przechodzeniu między sieciami.
+- **Statyczny NAT**: 1 prywatny = 1 publiczny (dla serwerów).
+- **Dynamiczny NAT**: grupa prywatnych = pula publicznych (na czas sesji).
+- **PAT (NAT Overload)**: wiele prywatnych = 1 publiczny (rozróżnienie przez porty).
+- **Główny cel**: oszczędność adresów IPv4 + ukrycie wewnętrznej struktury sieci.
+- **Asocjacja**: Budynek (publiczny IP) → Mieszkania (prywatne IP) → Skrzynki pocztowe (porty).
+
+---
 
 ---
 
@@ -1198,19 +1460,145 @@ ptr->wiek = 22;   // Dostęp przez wskaźnik
 
 ## Питання 13
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте машину Тюрінга, обговоріть її складність та наведіть відмінності й подібності між її детермінованим та недетермінованим варіантами.
 
 **PL:** Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Машина Тюрінга (МТ)** — це абстрактна математична модель пристрою для виконання алгоритмів, запропонована Аланом Тюрінгом у 1936 році. Вона є фундаментом теоретичної інформатики і визначає межі обчислюваності.
+
+**1. Будова Машини Тюрінга:**
+
+- **Нескінченна стрічка**: Розділена на комірки, кожна з яких містить символ з кінцевого алфавіту (включаючи порожній символ).
+
+- **Головка читання/запису**: Може читати символи зі стрічки, записувати нові символи та пересуватися вліво або вправо на одну комірку за крок.
+
+- **Реєстр станів**: Зберігає поточний стан машини з кінцевого набору станів (включаючи початковий стан $q_0$, стани прийняття та стан відхилення).
+
+- **Функція переходу ($\delta$)**: Визначає поведінку машини. На основі поточного стану та прочитаного символу функція визначає:
+  - Який символ записати на стрічку
+  - Куди посунути головку (вліво L, вправо R, або залишитися S)
+  - В який стан перейти
+
+**2. Обчислювальна складність:**
+
+- **Часова складність**: Кількість кроків (операцій головки), які машина виконує від початку до зупинки. Позначається як $T(n)$, де $n$ — розмір входу.
+
+- **Просторова (пам'ятна) складність**: Кількість комірок стрічки, які машина відвідала або використала під час обчислень. Позначається як $S(n)$.
+
+**3. Варіанти: Детермінована (DTM) vs Недетермінована (NTM):**
+
+**Подібності:**
+
+- **Обчислювальна еквівалентність**: Обидві машини можуть розв'язувати один і той самий набір задач (розв'язні/нерозв'язні задачі). Будь-яка NTM може бути змодельована (симульована) за допомогою DTM.
+
+- **Однакова структура**: Обидві використовують стрічку, головку, кінцеві стани та функцію переходу.
+
+- **Теза Черча-Тюрінга**: Обидва варіанти відповідають формальному визначенню алгоритму.
+
+**Відмінності:**
+
+- **Кількість переходів**: У DTM для даного стану та прочитаного символу існує рівно один перехід (одна дія). У NTM може існувати багато можливих переходів — машина "вибирає" кілька шляхів одночасно (дерево обчислень).
+
+- **Модель виконання**: DTM виконує один детермінований шлях. NTM теоретично виконує всі можливі шляхи паралельно, і якщо хоча б один шлях приводить до прийняття — вхід приймається.
+
+- **Класи складності**: DTM визначає клас P (задачі, розв'язні за поліноміальний час). NTM визначає клас NP (задачі, розв'язні за поліноміальний час на недетермінованій машині, або перевірювані за поліноміальний час на DTM).
+
+**Асоціація (Кінопроектор та лабіринт):**
+
+- **Машина Тюрінга** — це як старий кінопроектор або касетний плеєр: є стрічка, є головка, яка її читає і крутить, і є інструкція: "якщо бачиш такий кадр — роби це".
+
+- **DTM** — це людина в лабіринті, яка на кожному розпутті має чітку інструкцію, куди йти (один шлях).
+
+- **NTM** — це людина, яка може "клонувати" себе на кожному розпутті, щоб одночасно перевірити всі можливі шляхи. Якщо хоча б один клон знайде вихід — задача розв'язана.
+
+**Ключові терміни:**
+
+- Стрічка (tape), головка (head), стани (states), функція переходу (transition function)
+- Класи складності: P, NP, NP-повнота
+- Теза Черча-Тюрінга
+- Проблема зупинки (Halting Problem)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **МТ**: Стрічка + головка + стани + функція переходу $\delta$.
+- **Будова**: Нескінченна стрічка, головка (читання/запис/рух), реєстр станів, $\delta$ (стан + символ → дія).
+- **Складність**: Часова ($T(n)$ — кроки) і просторова ($S(n)$ — комірки).
+- **DTM**: Один стан + один символ = точно одна дія → клас P.
+- **NTM**: Багато можливих переходів одночасно (дерево шляхів) → клас NP.
+- **Еквівалентність**: Обидві розв'язують ті самі задачі, але NTM потенційно швидша (теоретично).
+- **Асоціація**: Кінопроектор (стрічка + інструкції); DTM = один шлях у лабіринті, NTM = клони перевіряють усі шляхи.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Maszyna Turinga (MT)** to abstrakcyjny model matematyczny urządzenia służącego do wykonywania algorytmów, zaproponowany przez Alana Turinga w 1936 roku. Jest fundamentem informatyki teoretycznej i definiuje granice obliczalności.
+
+**1. Budowa Maszyny Turinga:**
+
+- **Nieskończona taśma**: Podzielona na komórki, z których każda zawiera symbol z skończonego alfabetu (w tym symbol pusty).
+
+- **Głowica odczytu/zapisu**: Potrafi czytać symbole z taśmy, zapisywać nowe symbole oraz przesuwać się w lewo lub w prawo o jedną komórkę na krok.
+
+- **Rejestr stanów**: Przechowuje aktualny stan maszyny ze skończonego zbioru stanów (w tym stan początkowy $q_0$, stany akceptujące i stan odrzucenia).
+
+- **Funkcja przejścia ($\delta$)**: Określa zachowanie maszyny. Na podstawie aktualnego stanu i odczytanego symbolu funkcja określa:
+  - Jaki symbol zapisać na taśmie
+  - W którą stronę przesunąć głowicę (w lewo L, w prawo R, lub pozostać S)
+  - W jaki stan przejść
+
+**2. Złożoność obliczeniowa:**
+
+- **Złożoność czasowa**: Liczba kroków (operacji głowicy), jakie maszyna wykonuje od początku do zatrzymania. Oznaczana jako $T(n)$, gdzie $n$ — rozmiar wejścia.
+
+- **Złożoność pamięciowa**: Liczba komórek taśmy, które maszyna odwiedziła lub wykorzystała podczas obliczeń. Oznaczana jako $S(n)$.
+
+**3. Warianty: Deterministyczna (DTM) vs Niedeterministyczna (NTM):**
+
+**Podobieństwa:**
+
+- **Równoważność obliczeniowa**: Obie maszyny potrafią rozwiązać ten sam zbiór problemów (rozstrzygalne/nierozstrzygalne problemy). Każda NTM może zostać zasymulowana przez DTM.
+
+- **Ta sama struktura**: Obie korzystają z taśmy, głowicy, skończonych stanów i funkcji przejścia.
+
+- **Teza Churcha-Turinga**: Oba warianty odpowiadają formalnemu określeniu algorytmu.
+
+**Różnice:**
+
+- **Liczba przejść**: W DTM dla danego stanu i odczytanego symbolu istnieje dokładnie jedno przejście (jedna akcja). W NTM może istnieć wiele możliwych przejść — maszyna "wybiera" wiele ścieżek jednocześnie (drzewo obliczeń).
+
+- **Model wykonania**: DTM wykonuje jedną deterministyczną ścieżkę. NTM teoretycznie wykonuje wszystkie możliwe ścieżki równolegle, i jeśli przynajmniej jedna ścieżka prowadzi do akceptacji — wejście jest akceptowane.
+
+- **Klasy złożoności**: DTM definiuje klasę P (problemy rozwiązywalne w czasie wielomianowym). NTM definiuje klasę NP (problemy rozwiązywalne w czasie wielomianowym na maszynie niedeterministycznej, lub weryfikowalne w czasie wielomianowym na DTM).
+
+**Skojarzenie (Projektor i labirynt):**
+
+- **Maszyna Turinga** — to jak stary projektor filmowy lub odtwarzacz kasetowy: jest taśma, jest głowica, która ją czyta i kręci, i jest instrukcja: "jeśli widzisz taką klatkę — zrób to".
+
+- **DTM** — to człowiek w labiryncie, który na każdym rozdrożu ma jasną instrukcję, dokąd iść (jedna ścieżka).
+
+- **NTM** — to człowiek, który może "sklonować" siebie na każdym rozdrożu, aby jednocześnie sprawdzić wszystkie możliwe ścieżki. Jeśli przynajmniej jeden klon znajdzie wyjście — problem rozwiązany.
+
+**Kluczowe terminy:**
+
+- Taśma (tape), głowica (head), stany (states), funkcja przejścia (transition function)
+- Klasy złożoności: P, NP, NP-zupełność
+- Teza Churcha-Turinga
+- Problem stopu (Halting Problem)
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **MT**: Taśma + głowica + stany + funkcja przejścia $\delta$.
+- **Budowa**: Nieskończona taśma, głowica (odczyt/zapis/ruch), rejestr stanów, $\delta$ (stan + symbol → akcja).
+- **Złożoność**: Czasowa ($T(n)$ — kroki) i pamięciowa ($S(n)$ — komórki).
+- **DTM**: Jeden stan + jeden symbol = dokładnie jedna akcja → klasa P.
+- **NTM**: Wiele możliwych przejść jednocześnie (drzewo ścieżek) → klasa NP.
+- **Równoważność**: Obie rozwiązują te same problemy, ale NTM potencjalnie szybsza (teoretycznie).
+- **Skojarzenie**: Projektor (taśma + instrukcje); DTM = jedna ścieżka w labiryncie, NTM = klony sprawdzają wszystkie ścieżki.
 
 ---
 

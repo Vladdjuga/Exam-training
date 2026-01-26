@@ -1294,19 +1294,145 @@ ptr->wiek = 22;   // Dostęp przez wskaźnik
 
 ## Питання 13
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте машину Тюрінга, обговоріть її складність та наведіть відмінності й подібності між її детермінованим та недетермінованим варіантами.
 
 **PL:** Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Машина Тюрінга (МТ)** — це абстрактна математична модель пристрою для виконання алгоритмів, запропонована Аланом Тюрінгом у 1936 році. Вона є фундаментом теоретичної інформатики і визначає межі обчислюваності.
+
+**1. Будова Машини Тюрінга:**
+
+- **Нескінченна стрічка**: Розділена на комірки, кожна з яких містить символ з кінцевого алфавіту (включаючи порожній символ).
+
+- **Головка читання/запису**: Може читати символи зі стрічки, записувати нові символи та пересуватися вліво або вправо на одну комірку за крок.
+
+- **Реєстр станів**: Зберігає поточний стан машини з кінцевого набору станів (включаючи початковий стан $q_0$, стани прийняття та стан відхилення).
+
+- **Функція переходу ($\delta$)**: Визначає поведінку машини. На основі поточного стану та прочитаного символу функція визначає:
+  - Який символ записати на стрічку
+  - Куди посунути головку (вліво L, вправо R, або залишитися S)
+  - В який стан перейти
+
+**2. Обчислювальна складність:**
+
+- **Часова складність**: Кількість кроків (операцій головки), які машина виконує від початку до зупинки. Позначається як $T(n)$, де $n$ — розмір входу.
+
+- **Просторова (пам'ятна) складність**: Кількість комірок стрічки, які машина відвідала або використала під час обчислень. Позначається як $S(n)$.
+
+**3. Варіанти: Детермінована (DTM) vs Недетермінована (NTM):**
+
+**Подібності:**
+
+- **Обчислювальна еквівалентність**: Обидві машини можуть розв'язувати один і той самий набір задач (розв'язні/нерозв'язні задачі). Будь-яка NTM може бути змодельована (симульована) за допомогою DTM.
+
+- **Однакова структура**: Обидві використовують стрічку, головку, кінцеві стани та функцію переходу.
+
+- **Теза Черча-Тюрінга**: Обидва варіанти відповідають формальному визначенню алгоритму.
+
+**Відмінності:**
+
+- **Кількість переходів**: У DTM для даного стану та прочитаного символу існує рівно один перехід (одна дія). У NTM може існувати багато можливих переходів — машина "вибирає" кілька шляхів одночасно (дерево обчислень).
+
+- **Модель виконання**: DTM виконує один детермінований шлях. NTM теоретично виконує всі можливі шляхи паралельно, і якщо хоча б один шлях приводить до прийняття — вхід приймається.
+
+- **Класи складності**: DTM визначає клас P (задачі, розв'язні за поліноміальний час). NTM визначає клас NP (задачі, розв'язні за поліноміальний час на недетермінованій машині, або перевірювані за поліноміальний час на DTM).
+
+**Асоціація (Кінопроектор та лабіринт):**
+
+- **Машина Тюрінга** — це як старий кінопроектор або касетний плеєр: є стрічка, є головка, яка її читає і крутить, і є інструкція: "якщо бачиш такий кадр — роби це".
+
+- **DTM** — це людина в лабіринті, яка на кожному розпутті має чітку інструкцію, куди йти (один шлях).
+
+- **NTM** — це людина, яка може "клонувати" себе на кожному розпутті, щоб одночасно перевірити всі можливі шляхи. Якщо хоча б один клон знайде вихід — задача розв'язана.
+
+**Ключові терміни:**
+
+- Стрічка (tape), головка (head), стани (states), функція переходу (transition function)
+- Класи складності: P, NP, NP-повнота
+- Теза Черча-Тюрінга
+- Проблема зупинки (Halting Problem)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **МТ**: Стрічка + головка + стани + функція переходу $\delta$.
+- **Будова**: Нескінченна стрічка, головка (читання/запис/рух), реєстр станів, $\delta$ (стан + символ → дія).
+- **Складність**: Часова ($T(n)$ — кроки) і просторова ($S(n)$ — комірки).
+- **DTM**: Один стан + один символ = точно одна дія → клас P.
+- **NTM**: Багато можливих переходів одночасно (дерево шляхів) → клас NP.
+- **Еквівалентність**: Обидві розв'язують ті самі задачі, але NTM потенційно швидша (теоретично).
+- **Асоціація**: Кінопроектор (стрічка + інструкції); DTM = один шлях у лабіринті, NTM = клони перевіряють усі шляхи.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Maszyna Turinga (MT)** to abstrakcyjny model matematyczny urządzenia służącego do wykonywania algorytmów, zaproponowany przez Alana Turinga w 1936 roku. Jest fundamentem informatyki teoretycznej i definiuje granice obliczalności.
+
+**1. Budowa Maszyny Turinga:**
+
+- **Nieskończona taśma**: Podzielona na komórki, z których każda zawiera symbol z skończonego alfabetu (w tym symbol pusty).
+
+- **Głowica odczytu/zapisu**: Potrafi czytać symbole z taśmy, zapisywać nowe symbole oraz przesuwać się w lewo lub w prawo o jedną komórkę na krok.
+
+- **Rejestr stanów**: Przechowuje aktualny stan maszyny ze skończonego zbioru stanów (w tym stan początkowy $q_0$, stany akceptujące i stan odrzucenia).
+
+- **Funkcja przejścia ($\delta$)**: Określa zachowanie maszyny. Na podstawie aktualnego stanu i odczytanego symbolu funkcja określa:
+  - Jaki symbol zapisać na taśmie
+  - W którą stronę przesunąć głowicę (w lewo L, w prawo R, lub pozostać S)
+  - W jaki stan przejść
+
+**2. Złożoność obliczeniowa:**
+
+- **Złożoność czasowa**: Liczba kroków (operacji głowicy), jakie maszyna wykonuje od początku do zatrzymania. Oznaczana jako $T(n)$, gdzie $n$ — rozmiar wejścia.
+
+- **Złożoność pamięciowa**: Liczba komórek taśmy, które maszyna odwiedziła lub wykorzystała podczas obliczeń. Oznaczana jako $S(n)$.
+
+**3. Warianty: Deterministyczna (DTM) vs Niedeterministyczna (NTM):**
+
+**Podobieństwa:**
+
+- **Równoważność obliczeniowa**: Obie maszyny potrafią rozwiązać ten sam zbiór problemów (rozstrzygalne/nierozstrzygalne problemy). Każda NTM może zostać zasymulowana przez DTM.
+
+- **Ta sama struktura**: Obie korzystają z taśmy, głowicy, skończonych stanów i funkcji przejścia.
+
+- **Teza Churcha-Turinga**: Oba warianty odpowiadają formalnemu określeniu algorytmu.
+
+**Różnice:**
+
+- **Liczba przejść**: W DTM dla danego stanu i odczytanego symbolu istnieje dokładnie jedno przejście (jedna akcja). W NTM może istnieć wiele możliwych przejść — maszyna "wybiera" wiele ścieżek jednocześnie (drzewo obliczeń).
+
+- **Model wykonania**: DTM wykonuje jedną deterministyczną ścieżkę. NTM teoretycznie wykonuje wszystkie możliwe ścieżki równolegle, i jeśli przynajmniej jedna ścieżka prowadzi do akceptacji — wejście jest akceptowane.
+
+- **Klasy złożoności**: DTM definiuje klasę P (problemy rozwiązywalne w czasie wielomianowym). NTM definiuje klasę NP (problemy rozwiązywalne w czasie wielomianowym na maszynie niedeterministycznej, lub weryfikowalne w czasie wielomianowym na DTM).
+
+**Skojarzenie (Projektor i labirynt):**
+
+- **Maszyna Turinga** — to jak stary projektor filmowy lub odtwarzacz kasetowy: jest taśma, jest głowica, która ją czyta i kręci, i jest instrukcja: "jeśli widzisz taką klatkę — zrób to".
+
+- **DTM** — to człowiek w labiryncie, który na każdym rozdrożu ma jasną instrukcję, dokąd iść (jedna ścieżka).
+
+- **NTM** — to człowiek, który może "sklonować" siebie na każdym rozdrożu, aby jednocześnie sprawdzić wszystkie możliwe ścieżki. Jeśli przynajmniej jeden klon znajdzie wyjście — problem rozwiązany.
+
+**Kluczowe terminy:**
+
+- Taśma (tape), głowica (head), stany (states), funkcja przejścia (transition function)
+- Klasy złożoności: P, NP, NP-zupełność
+- Teza Churcha-Turinga
+- Problem stopu (Halting Problem)
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **MT**: Taśma + głowica + stany + funkcja przejścia $\delta$.
+- **Budowa**: Nieskończona taśma, głowica (odczyt/zapis/ruch), rejestr stanów, $\delta$ (stan + symbol → akcja).
+- **Złożoność**: Czasowa ($T(n)$ — kroki) i pamięciowa ($S(n)$ — komórki).
+- **DTM**: Jeden stan + jeden symbol = dokładnie jedna akcja → klasa P.
+- **NTM**: Wiele możliwych przejść jednocześnie (drzewo ścieżek) → klasa NP.
+- **Równoważność**: Obie rozwiązują te same problemy, ale NTM potencjalnie szybsza (teoretycznie).
+- **Skojarzenie**: Projektor (taśma + instrukcje); DTM = jedna ścieżka w labiryncie, NTM = klony sprawdzają wszystkie ścieżki.
 
 ---
 

@@ -1081,19 +1081,111 @@ Każda warstwa dodaje swój nagłówek: L7→L6→...→L1. Po drodze w górę n
 
 ## Питання 11
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будь ласка, обговоріть трансляцію адрес NAT та портів PAT у мережах TCP/IP.
 
 **PL:** Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**NAT (Network Address Translation)** та **PAT (Port Address Translation)** — це механізми, що використовуються в маршрутизаторах для заміни IP-адрес (та портів) у заголовках пакетів, які проходять між різними мережами (зазвичай між локальною мережею та Інтернетом).
+
+**1. NAT (Статичний та Динамічний):**
+
+- **Статичний NAT**: Відображення один-до-одного (1:1). Одна конкретна приватна адреса завжди відповідає одній конкретній публічній адресі. Використовується, наприклад, для внутрішніх серверів, доступних ззовні.
+
+- **Динамічний NAT**: Відображення багато-до-багатьох. Маршрутизатор має пул публічних адрес і динамічно призначає їх пристроям з локальної мережі на час сесії.
+
+**2. PAT (Port Address Translation / NAT Overload):**
+
+- **Суть**: Це найпоширеніша форма NAT (часто звана NAT із перевантаженням).
+
+- **Призначення**: Дозволяє багатьом пристроям у локальній мережі (з різними приватними адресами) використовувати одну спільну публічну адресу.
+
+- **Механізм розрізнення**: Маршрутизатор розрізняє окремі з'єднання завдяки унікальним номерам вихідних портів.
+
+- **Механізм роботи**: 
+  - Коли локальний хост надсилає пакет, маршрутизатор замінює його приватну IP-адресу та порт на свою публічну IP-адресу та унікальний порт PAT.
+  - Ця пара (приватний IP:порт ↔ публічний IP:порт PAT) записується в таблицю трансляції NAT.
+  - Коли приходить відповідь, маршрутизатор перевіряє номер порту в таблиці та передає пакет відповідному хосту всередині мережі.
+
+**Переваги:**
+- **Економія IPv4-адрес**: Тисячі пристроїв можуть бути видимі під однією публічною адресою.
+- **Безпека**: Приховує внутрішню структуру мережі від зовнішнього світу.
+
+**Асоціація (Багатоквартирний будинок):**
+- **Публічна IP-адреса** — адреса самого будинку.
+- **Приватна IP-адреса** — номер квартири.
+- **Порт PAT** — номер поштової скриньки або конкретне ім'я мешканця на конверті.
+- **Маршрутизатор** — консьєрж: листоноша (Інтернет) приносить усе на одну адресу будинку, а консьєрж дивиться на ім'я (порт) і розносить лист у потрібну квартиру.
+
+**Ключові терміни:**
+- Приватна адреса (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`
+- Публічна адреса
+- Таблиця трансляції (NAT table)
+- Мапування портів (Port mapping)
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **NAT** — заміна IP-адрес у пакетах при проходженні між мережами.
+- **Статичний NAT**: 1 приватний = 1 публічний (для серверів).
+- **Динамічний NAT**: група приватних = пул публічних (на час сесії).
+- **PAT (NAT Overload)**: багато приватних = 1 публічний (розрізнення через порти).
+- **Головна мета**: економія IPv4-адрес + приховування внутрішньої структури мережі.
+- **Асоціація**: Будинок (публічна IP) → Квартири (приватні IP) → Поштові скриньки (порти).
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**NAT (Network Address Translation)** oraz **PAT (Port Address Translation)** to mechanizmy stosowane w ruterach w celu zamiany adresów IP (i portów) w nagłówkach pakietów przechodzących między różnymi sieciami (zazwyczaj między siecią lokalną a Internetem).
+
+**1. NAT (Statyczny i Dynamiczny):**
+
+- **NAT Statyczny**: Mapowanie jeden-do-jeden (1:1). Jeden konkretny adres prywatny zawsze odpowiada jednemu konkretnemu adresowi publicznemu. Stosowane np. dla serwerów wewnętrznych dostępnych z zewnątrz.
+
+- **NAT Dynamiczny**: Mapowanie wiele-do-wielu. Ruter posiada pulę adresów publicznych i przydziela je dynamicznie urządzeniom z sieci lokalnej na czas trwania sesji.
+
+**2. PAT (Port Address Translation / NAT Overload):**
+
+- **Istota**: Jest to najpowszechniejsza forma NAT (często nazywana NAT z przeciążeniem).
+
+- **Przeznaczenie**: Pozwala wielu urządzeniom w sieci lokalnej (z różnymi adresami prywatnymi) korzystać z jednego, wspólnego adresu publicznego.
+
+- **Mechanizm rozróżniania**: Ruter rozróżnia poszczególne połączenia dzięki unikalnym numerom portów źródłowych.
+
+- **Mechanizm działania**:
+  - Kiedy host lokalny wysyła pakiet, ruter zamienia jego prywatny IP i port na swój publiczny IP oraz unikalny port PAT.
+  - Ta para (prywatny IP:port ↔ publiczny IP:port PAT) jest zapisywana w tablicy translacji NAT.
+  - Gdy przychodzi odpowiedź, ruter sprawdza numer portu w tablicy i przekazuje pakiet do właściwego hosta wewnątrz sieci.
+
+**Zalety:**
+- **Oszczędność adresów IPv4**: Tysiące urządzeń mogą być widoczne pod jednym adresem publicznym.
+- **Bezpieczeństwo**: Ukrywa wewnętrzną strukturę sieci przed światem zewnętrznym.
+
+**Skojarzenie (Budynek mieszkalny):**
+- **Publiczny adres IP** — adres budynku.
+- **Prywatny adres IP** — numer mieszkania.
+- **Port PAT** — numer skrzynki pocztowej lub konkretne imię mieszkańca na kopercie.
+- **Ruter** — portier: listonosz (Internet) przynosi wszystko na jeden adres budynku, a portier patrzy na imię (port) i roznosi list do odpowiedniego mieszkania.
+
+**Kluczowe terminy:**
+- Adres prywatny (RFC 1918): `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`
+- Adres publiczny
+- Tablica translacji (NAT table)
+- Mapowanie portów (Port mapping)
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **NAT** — zamiana adresów IP w pakietach przy przechodzeniu między sieciami.
+- **Statyczny NAT**: 1 prywatny = 1 publiczny (dla serwerów).
+- **Dynamiczny NAT**: grupa prywatnych = pula publicznych (na czas sesji).
+- **PAT (NAT Overload)**: wiele prywatnych = 1 publiczny (rozróżnienie przez porty).
+- **Główny cel**: oszczędność adresów IPv4 + ukrycie wewnętrznej struktury sieci.
+- **Asocjacja**: Budynek (publiczny IP) → Mieszkania (prywatne IP) → Skrzynki pocztowe (porty).
+
+---
 
 ---
 

@@ -440,6 +440,22 @@ Istnieje wiele modeli procesu tworzenia oprogramowania, główne z nich to:
 
 Коротко: базовий «двигун» — <i>U</i> ~ Uniform(0,1), а найпростіші способи отримати заданий розподіл — інверсія CDF, відкидання (accept-reject) та прямі перетворення (напр., Box–Muller для нормального).
 
+5. Дискретний розподіл (Метод «Рулетки»)
+
+    Найпростіший варіант, коли у вас є список варіантів із різними шансами (наприклад: випадіння луту в грі).
+
+    **Алгоритм:**
+    1. Складаємо всі ймовірності в масив кумулятивних сум.
+    2. Генеруємо число $u \in [0, 1)$.
+    3. Дивимося, у який «сектор» потрапило число.
+
+    **Приклад:**
+    - Меч (шанс 0.1) $\rightarrow$ поріг 0.1
+    - Щит (шанс 0.3) $\rightarrow$ поріг 0.4 ($0.1 + 0.3$)
+    - Зілля (шанс 0.6) $\rightarrow$ поріг 1.0 ($0.4 + 0.6$)
+
+    Якщо випало $0.25$ — це потрапляє в інтервал $[0.1, 0.4)$, отже, випав **Щит**.
+
 ##### Коротка версія (для заучування, 40–60 сек)
 
 - Комп’ютер дає псевдовипадкові числа, базово <i>U</i> ~ Uniform(0,1); далі перетворюємо <i>U</i> у потрібний розподіл <i>X</i>.
@@ -495,6 +511,26 @@ Najprostsze algorytmy generacji z zadanym rozkładem:
     - Najpierw losujemy indeks i zgodnie z wagami <i>w<sub>i</sub></i>, potem losujemy X z rozkładu <i>D<sub>i</sub></i>.
 
 W skrócie: startujemy od <i>U</i> ~ Uniform(0,1), a najprostsze drogi do zadanego rozkładu to: transformacja odwrotna, akceptacja–odrzucenie oraz bezpośrednie transformacje (np. Box–Muller dla normalnego).
+
+---
+
+#### Rozkład dyskretny (Metoda „Ruletki")
+
+Najprostszy wariant, gdy mamy listę opcji z różnymi prawdopodobieństwami (np. wypadanie łupu w grze).
+
+**Algorytm:**
+1. Tworzymy tablicę sum kumulatywnych wszystkich prawdopodobieństw.
+2. Generujemy liczbę $u \in [0, 1)$.
+3. Sprawdzamy, do którego „sektora" trafiła liczba.
+
+**Przykład:**
+- Miecz (szansa 0.1) $\rightarrow$ próg 0.1
+- Tarcza (szansa 0.3) $\rightarrow$ próg 0.4 ($0.1 + 0.3$)
+- Mikstura (szansa 0.6) $\rightarrow$ próg 1.0 ($0.4 + 0.6$)
+
+Jeśli wylosowano $0.25$ — to trafia w przedział $[0.1, 0.4)$, więc wypadła **Tarcza**.
+
+---
 
 ##### Wersja krótka (do nauczenia, 40–60 s)
 

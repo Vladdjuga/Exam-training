@@ -512,23 +512,21 @@ Najprostsze algorytmy generacji z zadanym rozkładem:
 
 W skrócie: startujemy od $U\sim\mathrm{Uniform}(0,1)$, a najprostsze drogi do zadanego rozkładu to: transformacja odwrotna, akceptacja–odrzucenie oraz bezpośrednie transformacje (np. Box–Muller dla normalnego).
 
----
+5. Rozkład dyskretny (Metoda „Ruletki")
 
-#### Rozkład dyskretny (Metoda „Ruletki")
+    Najprostszy wariant, gdy mamy listę opcji z różnymi prawdopodobieństwami (np. wypadanie łupu w grze).
 
-Najprostszy wariant, gdy mamy listę opcji z różnymi prawdopodobieństwami (np. wypadanie łupu w grze).
+    **Algorytm:**
+    1. Tworzymy tablicę sum kumulatywnych wszystkich prawdopodobieństw.
+    2. Generujemy liczbę $u \in [0, 1)$.
+    3. Sprawdzamy, do którego „sektora" trafiła liczba.
 
-**Algorytm:**
-1. Tworzymy tablicę sum kumulatywnych wszystkich prawdopodobieństw.
-2. Generujemy liczbę $u \in [0, 1)$.
-3. Sprawdzamy, do którego „sektora" trafiła liczba.
+    **Przykład:**
+    - Miecz (szansa 0.1) $\rightarrow$ próg 0.1
+    - Tarcza (szansa 0.3) $\rightarrow$ próg 0.4 ($0.1 + 0.3$)
+    - Mikstura (szansa 0.6) $\rightarrow$ próg 1.0 ($0.4 + 0.6$)
 
-**Przykład:**
-- Miecz (szansa 0.1) $\rightarrow$ próg 0.1
-- Tarcza (szansa 0.3) $\rightarrow$ próg 0.4 ($0.1 + 0.3$)
-- Mikstura (szansa 0.6) $\rightarrow$ próg 1.0 ($0.4 + 0.6$)
-
-Jeśli wylosowano $0.25$ — to trafia w przedział $[0.1, 0.4)$, więc wypadła **Tarcza**.
+    Jeśli wylosowano $0.25$ — to trafia w przedział $[0.1, 0.4)$, więc wypadła **Tarcza**.
 
 ---
 
@@ -609,6 +607,19 @@ W tym pytaniu warto rozróżnić 3 pojęcia:
 - **Sekwencyjna**: rekordy po kolei; dobra do czytania strumieniowego (log/CSV).
 - **Indeksowana**: dodatkowa struktura indeksu (np. B-tree/B+tree w bazach danych) przyspiesza wyszukiwanie.
 - **Haszowana**: adres/„koszyk” wynika z hasha klucza (hash-index, hash table).
+
+**Maybe change**
+
+Organizacja danych (Data Organization)
+Szersze pojęcie dotyczące sposobu, w jaki dane są uporządkowane, zarządzane i przechowywane w systemach informatycznych. 
+
+Hierarchiczna: Struktura drzewiasta (np. systemy plików).
+
+Relacyjna: Dane w tabelach (wiersze i kolumny).
+
+Plikowa: Sekwencyjna lub indeksowana organizacja rekordów na dysku. 
+
+---
 
 ##### Wersja krótka (do nauczenia, 40–60 s)
 

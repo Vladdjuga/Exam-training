@@ -736,7 +736,7 @@ Plikowa: Sekwencyjna lub indeksowana organizacja rekordów na dysku.
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-**Семафор** — це примітив синхронізації, який дозволяє керувати доступом багатьох потоків/процесів до спільного ресурсу.
+**Семафор** — це примітив синхронізації, який дозволяє керувати доступом багатьох потоків/процесів до спільного ресурсу. "ЦЕ ЛІЧИЛЬНИК ДОСТУПНИХ РЕСУРСІВ".
 Класичний семафор має ціле значення (лічильник) і 2 атомарні операції:
 
 - `wait` / `P()` / `down()`:
@@ -824,6 +824,25 @@ Klasycznie jest to licznik całkowity oraz dwie operacje atomowe:
 - Типові стадії: Fetch → Decode → Execute → Memory → Write-back.
 - Коли конвеєр “заповнений”, ідеально можна завершувати приблизно 1 інструкцію за такт (залежить від архітектури).
 
+---
+
+Теж норм пояснення, типу тут йде мова про те як процесор вибирає інструкції для виконання. Також можна сказати про пайплайн мідлвейрів у ASP.NET але це тільки для обраних.
+
+**Стандартні етапи конвеєра (Classic RISC Pipeline)
+Більшість сучасних архітектур використовують поділ інструкції на 5 базових етапів:**
+
+IF (Instruction Fetch): Вибірка інструкції з пам'яті.
+
+ID (Instruction Decode): Декодування інструкції та читання даних з регістрів.
+
+EX (Execute): Виконання операції (наприклад, додавання в АЛП).
+
+MEM (Memory Access): Доступ до пам'яті (якщо потрібно прочитати чи записати дані).
+
+WB (Write Back): Запис результату назад у регістр.
+
+---
+
 Оцінка виграшу:
 - Для $k$ стадій і великої кількості інструкцій $n$ ідеальний приріст близько $\approx k$ (за умови однакової тривалості стадій і відсутності простоїв).
 
@@ -885,55 +904,321 @@ Klucz: rośnie **przepustowość (throughput)**, natomiast **opóźnienie (laten
 
 ## Питання 8
 
-**UA:** [Текст питання українською мовою]
+**UA:** Поясніть різниці між апроксимацією та інтерполяцією в контексті візуалізації даних.
 
 **PL:** Omów/Opisz różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Різниця між апроксимацією та інтерполяцією в контексті візуалізації даних**
+
+**Інтерполяція** та **апроксимація** — це два методи, що використовуються для оцінки значень на основі набору відомих точок даних, але вони служать різним цілям у візуалізації даних.
+
+**Інтерполяція:**
+
+- **Мета:** Основна мета інтерполяції — знайти точні значення для відсутніх точок даних, які знаходяться в межах діапазону відомих даних.
+- **Принцип:** Інтерполяційна функція (наприклад, лінія або крива) проходить точно через усі наявні точки даних.
+- **Використання у візуалізації:** Використовується, коли ви впевнені в точності своїх даних і хочете створити плавний, безперервний графік, що з'єднує всі точки. Наприклад, побудова графіка температури, виміряної в певні моменти часу, щоб показати її безперервну зміну.
+
+**Апроксимація:**
+
+- **Мета:** Мета апроксимації — не пройти через кожну точку, а знайти загальну тенденцію або закономірність у даних, часто для спрощення або згладжування.
+- **Принцип:** Апроксимуюча функція (наприклад, лінія тренду) проходить якомога ближче до набору точок даних, але не обов'язково через кожну з них. Вона мінімізує загальну помилку (відстань) між функцією та точками.
+- **Використання у візуалізації:** Ідеально підходить для роботи з "зашумленими" або великими наборами даних, де важливо показати загальний тренд, а не дрібні коливання. Класичний приклад — побудова лінії регресії на діаграмі розсіювання для демонстрації зв'язку між двома змінними.
+
+**Ключова відмінність:** Інтерполяція "слухається" даних і проходить через кожну точку, тоді як апроксимація "узагальнює" дані, показуючи їх основний характер.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **Інтерполяція** — метод знаходження значень між відомими точками, крива проходить **точно через всі** точки даних. Використовується для точних даних.
+- **Апроксимація** — метод знаходження загального тренду, крива проходить **якомога ближче** до точок, але не обов'язково через них. Використовується для зашумлених даних або виявлення тенденцій.
+- Інтерполяція = точність; апроксимація = узагальнення.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Różnice pomiędzy aproksymacją i interpolacją w kontekście wizualizacji danych**
+
+**Interpolacja** i **aproksymacja** to dwie metody używane do szacowania wartości na podstawie zbioru znanych punktów danych, ale służą one różnym celom w wizualizacji danych.
+
+**Interpolacja:**
+
+- **Cel:** Głównym celem interpolacji jest znalezienie dokładnych wartości dla brakujących punktów danych, które znajdują się wewnątrz zakresu znanych danych.
+- **Zasada:** Funkcja interpolacyjna (np. linia lub krzywa) przechodzi dokładnie przez wszystkie istniejące punkty danych.
+- **Zastosowanie w wizualizacji:** Używana, gdy jesteś pewien dokładności swoich danych i chcesz stworzyć gładki, ciągły wykres łączący wszystkie punkty. Na przykład, tworzenie wykresu temperatury mierzonej w określonych momentach, aby pokazać jej ciągłą zmianę.
+
+**Aproksymacja:**
+
+- **Cel:** Celem aproksymacji nie jest przejście przez każdy punkt, ale znalezienie ogólnej tendencji lub wzorca w danych, często w celu uproszczenia lub wygładzenia.
+- **Zasada:** Funkcja aproksymująca (np. linia trendu) przechodzi jak najbliżej zbioru punktów danych, ale niekoniecznie przez każdy z nich. Minimalizuje ona całkowity błąd (odległość) między funkcją a punktami.
+- **Zastosowanie w wizualizacji:** Idealna do pracy z "zaszumionymi" lub dużymi zbiorami danych, gdzie ważne jest pokazanie ogólnego trendu, a nie drobnych fluktuacji. Klasycznym przykładem jest narysowanie linii regresji na wykresie rozrzutu, aby zademonstrować związek między dwiema zmiennymi.
+
+**Kluczowa różnica:** Interpolacja "słucha" danych i przechodzi przez każdy punkt, podczas gdy aproksymacja "uogólnia" dane, pokazując ich podstawowy charakter.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **Interpolacja** — metoda znajdowania wartości między znanymi punktami, krzywa przechodzi **dokładnie przez wszystkie** punkty danych. Używana dla dokładnych danych.
+- **Aproksymacja** — metoda znajdowania ogólnego trendu, krzywa przechodzi **jak najbliżej** punktów, ale niekoniecznie przez nie. Używana dla zaszumionych danych lub wykrywania tendencji.
+- Interpolacja = dokładność; aproksymacja = uogólnienie.
 
 ---
 
 ## Питання 9
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будова та навчання штучної нейронної мережі багатошарової.
 
 **PL:** Proszę omówić budowę i uczenie sztucznej sieci neuronowej wielowarstwowej. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Будова та навчання штучної нейронної мережі багатошарової (MLP)**
+
+Штучна багатошарова нейронна мережа, також відома як багатошаровий перцептрон (MLP), — це модель, натхненна біологічною структурою мозку, що використовується для вирішення складних завдань, таких як класифікація чи регресія.
+
+**1. Будова (Структура)**
+
+Мережа MLP складається щонайменше з трьох типів шарів нейронів:
+
+- **Вхідний шар (Input Layer):** Не обробляє дані, а лише передає їх у мережу. Кількість нейронів у цьому шарі відповідає кількості ознак (змінних) у вхідних даних.
+- **Приховані шари (Hidden Layers):** Один або більше шарів, що знаходяться між вхідним та вихідним шарами. Саме тут відбувається основна обробка даних. Нейрони в цих шарах вчаться виявляти складні патерни та залежності. Кожен нейрон:
+  - Отримує сигнали від нейронів попереднього шару.
+  - Обчислює зважену суму цих сигналів, додаючи до неї порогове значення (bias).
+  - Передає результат через **функцію активації** (наприклад, ReLU, Sigmoid, Tanh), яка вносить нелінійність, дозволяючи мережі вивчати складні функції.
+- **Вихідний шар (Output Layer):** Останній шар, що генерує результат. Кількість нейронів та їхня функція активації залежать від завдання:
+  - **Регресія:** Зазвичай один нейрон із лінійною функцією активації.
+  - **Бінарна класифікація:** Один нейрон із функцією Sigmoid.
+  - **Багатокласова класифікація:** `N` нейронів (де `N` — кількість класів) із функцією Softmax.
+
+Нейрони між сусідніми шарами зазвичай з'єднані за принципом "кожен з кожним" (fully-connected).
+
+**2. Навчання (Процес тренування)**
+
+Мета навчання — знайти такі значення ваг та зсувів (bias), щоб мережа генерувала результати, якомога ближчі до очікуваних. Цей процес є ітераційним і базується на алгоритмі **зворотного поширення помилки (backpropagation)**.
+
+Кроки в одній епосі (одному проході через весь набір даних):
+
+1. **Пряме поширення (Forward Propagation):**
+   - Вхідні дані подаються на вхідний шар.
+   - Сигнал проходить через послідовні приховані шари до вихідного, генеруючи прогноз.
+
+2. **Обчислення помилки (Loss Function):**
+   - Прогноз мережі порівнюється з реальним значенням (міткою) за допомогою **функції втрат** (наприклад, середньоквадратична помилка для регресії, перехресна ентропія для класифікації). Результат — це число, яке показує, "наскільки помиляється мережа".
+
+3. **Зворотне поширення (Backward Propagation):**
+   - Обчислена помилка поширюється "назад" від вихідного шару до вхідного.
+   - На кожному етапі обчислюється **градієнт** функції втрат відносно ваг та зсувів, який вказує, як зміна параметра впливає на помилку.
+
+4. **Оновлення ваг (Optimization):**
+   - Ваги та зсуви коригуються у напрямку, протилежному градієнту, щоб мінімізувати помилку. Для цього використовується алгоритм оптимізації, найчастіше **градієнтний спуск (Gradient Descent)** або його варіанти (наприклад, Adam, RMSprop).
+   - Ключовим параметром є **швидкість навчання (learning rate)**, яка контролює величину кроку під час оновлення ваг.
+
+Цей процес повторюється протягом багатьох **епох**, доки помилка на валідаційному наборі даних не перестане зменшуватися, що означає, що мережа навчилася узагальнювати патерни з даних.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+- **MLP** (багатошаровий перцептрон) — модель з вхідним, прихованими та вихідним шарами.
+- **Будова:** нейрони з'єднані fully-connected, використовують функції активації (ReLU, Sigmoid, Tanh, Softmax).
+- **Навчання:** 1) пряме поширення → прогноз, 2) обчислення помилки (loss), 3) зворотне поширення → градієнти, 4) оновлення ваг (gradient descent).
+- Повторюється через епохи до мінімізації помилки.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Budowa i uczenie sztucznej sieci neuronowej wielowarstwowej (MLP)**
+
+Sztuczna sieć neuronowa wielowarstwowa, znana również jako perceptron wielowarstwowy (MLP), to model inspirowany biologiczną strukturą mózgu, używany do rozwiązywania złożonych problemów, takich jak klasyfikacja czy regresja.
+
+**1. Budowa (Struktura)**
+
+Sieć MLP składa się z co najmniej trzech rodzajów warstw neuronów:
+
+- **Warstwa wejściowa (Input Layer):** Nie przetwarza danych, a jedynie przekazuje je do sieci. Liczba neuronów w tej warstwie odpowiada liczbie cech (zmiennych) w danych wejściowych.
+- **Warstwy ukryte (Hidden Layers):** Jedna lub więcej warstw znajdujących się między warstwą wejściową a wyjściową. To tutaj zachodzi właściwe przetwarzanie danych. Neurony w tych warstwach uczą się wykrywać złożone wzorce i zależności. Każdy neuron:
+  - Odbiera sygnały z neuronów poprzedniej warstwy.
+  - Oblicza sumę ważoną tych sygnałów, dodając do niej wartość progową (bias).
+  - Przekazuje wynik przez **funkcję aktywacji** (np. ReLU, Sigmoid, Tanh), która wprowadza nieliniowość, pozwalając sieci uczyć się skomplikowanych funkcji.
+- **Warstwa wyjściowa (Output Layer):** Ostatnia warstwa, która generuje wynik. Liczba neuronów i ich funkcja aktywacji zależą od zadania:
+  - **Regresja:** Zazwyczaj jeden neuron z liniową funkcją aktywacji.
+  - **Klasyfikacja binarna:** Jeden neuron z funkcją Sigmoid.
+  - **Klasyfikacja wieloklasowa:** `N` neuronów (gdzie `N` to liczba klas) z funkcją Softmax.
+
+Neurony między sąsiednimi warstwami są zazwyczaj połączone na zasadzie "każdy z każdym" (fully-connected).
+
+**2. Uczenie (Proces treningu)**
+
+Celem uczenia jest znalezienie takich wartości wag i biasów, aby sieć generowała wyniki jak najbliższe oczekiwanym. Proces ten jest iteracyjny i opiera się na algorytmie **propagacji wstecznej (backpropagation)**.
+
+Kroki w jednej epoce (jednym przejściu przez cały zbiór danych):
+
+1. **Propagacja w przód (Forward Propagation):**
+   - Dane wejściowe są podawane do warstwy wejściowej.
+   - Sygnał przechodzi przez kolejne warstwy ukryte aż do warstwy wyjściowej, generując prognozę.
+
+2. **Obliczenie błędu (Loss Function):**
+   - Prognoza sieci jest porównywana z rzeczywistą wartością (etykietą) za pomocą **funkcji straty** (np. błąd średniokwadratowy dla regresji, entropia krzyżowa dla klasyfikacji). Wynik to liczba, która mówi, "jak bardzo myli się sieć".
+
+3. **Propagacja wsteczna (Backward Propagation):**
+   - Obliczony błąd jest propagowany "wstecz" od warstwy wyjściowej do wejściowej.
+   - Na każdym etapie obliczany jest **gradient** funkcji straty względem wag i biasów, który wskazuje, jak zmiana parametru wpływa na błąd.
+
+4. **Aktualizacja wag (Optimization):**
+   - Wagi i biasy są korygowane w kierunku przeciwnym do gradientu, aby zminimalizować błąd. Służy do tego algorytm optymalizacji, najczęściej **spadek gradientowy (Gradient Descent)** lub jego warianty (np. Adam, RMSprop).
+   - Kluczowym parametrem jest **współczynnik uczenia (learning rate)**, który kontroluje wielkość kroku podczas aktualizacji wag.
+
+Proces ten powtarza się przez wiele **epok**, aż błąd na zbiorze walidacyjnym przestanie maleć, co oznacza, że sieć nauczyła się generalizować wzorce z danych.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+- **MLP** (perceptron wielowarstwowy) — model z warstwą wejściową, ukrytymi i wyjściową.
+- **Budowa:** neurony połączone fully-connected, używają funkcji aktywacji (ReLU, Sigmoid, Tanh, Softmax).
+- **Uczenie:** 1) propagacja w przód → prognoza, 2) obliczenie błędu (loss), 3) propagacja wsteczna → gradienty, 4) aktualizacja wag (gradient descent).
+- Powtarza się przez epoki do minimalizacji błędu.
 
 ---
 
 ## Питання 10
 
-**UA:** [Текст питання українською мовою]
+**UA:** Еталонна модель комп'ютерної мережі OSI/ISO.
 
 **PL:** Proszę omówić model referencyjny sieci komputerowej OSI/ISO.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Еталонна модель комп'ютерної мережі OSI/ISO**
+
+Модель OSI (Open Systems Interconnection), розроблена ISO (International Organization for Standardization), — це **концептуальна еталонна модель**, яка поділяє процес мережевої комунікації на сім абстрактних рівнів. Її мета — стандартизувати та спростити розуміння того, як різні протоколи та мережеві пристрої взаємодіють між собою. Хоча на практиці домінує простіша модель TCP/IP, OSI залишається ключовим освітнім інструментом.
+
+**Опис семи рівнів моделі OSI (згори донизу):**
+
+**7. Прикладний рівень (Application Layer)**
+- **Мета:** Надання інтерфейсу для програм користувача для доступу до мережевих служб.
+- **Завдання:** Ідентифікація партнерів по комунікації, визначення доступності ресурсів.
+- **Протоколи:** HTTP, FTP, SMTP, DNS, Telnet.
+- **Одиниця даних:** Дані (Data).
+
+**6. Рівень представлення (Presentation Layer)**
+- **Мета:** "Перетворення" даних між форматом, що використовується програмою, та мережевим форматом.
+- **Завдання:** Шифрування, стиснення, перетворення форматів даних (наприклад, з ASCII на EBCDIC).
+- **Протоколи:** SSL/TLS (частково), JPEG, MPEG.
+- **Одиниця даних:** Дані (Data).
+
+**5. Сеансовий рівень (Session Layer)**
+- **Мета:** Управління сеансами (діалогами) між програмами.
+- **Завдання:** Встановлення, управління та завершення сеансів; синхронізація (наприклад, контрольні точки для відновлення передачі після збою).
+- **Протоколи:** NetBIOS, RPC.
+- **Одиниця даних:** Дані (Data).
+
+**4. Транспортний рівень (Transport Layer)**
+- **Мета:** Забезпечення надійної комунікації "від кінця до кінця" (end-to-end) між хостами.
+- **Завдання:** Сегментація даних, контроль потоку (flow control), контроль помилок. Розрізняє зв'язок зі встановленням з'єднання (надійний, напр. TCP) та без з'єднання (швидкий, напр. UDP).
+- **Протоколи:** TCP, UDP.
+- **Одиниця даних:** Сегмент (для TCP), Дейтаграма (для UDP).
+
+**3. Мережевий рівень (Network Layer)**
+- **Мета:** Визначення найкращого шляху (маршрутизація) для пакетів у мережі та логічна адресація.
+- **Завдання:** Маршрутизація, логічна адресація (IP-адреси), фрагментація пакетів.
+- **Пристрої:** Маршрутизатори (роутери).
+- **Протоколи:** IP, ICMP, OSPF.
+- **Одиниця даних:** Пакет (Packet).
+
+**2. Канальний рівень (Data Link Layer)**
+- **Мета:** Забезпечення надійної передачі даних між двома безпосередньо з'єднаними вузлами в одній локальній мережі.
+- **Завдання:** Фізична адресація (MAC-адреси), виявлення та виправлення помилок на рівні кадру, контроль доступу до середовища (напр. CSMA/CD в Ethernet).
+- **Пристрої:** Комутатори (світчі), мости (bridges).
+- **Одиниця даних:** Кадр (Frame).
+
+**1. Фізичний рівень (Physical Layer)**
+- **Мета:** Передача необроблених бітів через середовище передачі.
+- **Завдання:** Визначає фізичні параметри: напругу, типи кабелів, роз'єми (напр. RJ-45), радіочастоти.
+- **Пристрої:** Концентратори (хаби), повторювачі (repeaters), кабелі, мережеві карти.
+- **Одиниця даних:** Біт.
+
+##### Коротка версія (для заучування, 40–60 сек)
+
+Модель OSI — 7 рівнів мережевої комунікації:
+1. **Фізичний** — біти, кабелі, сигнали
+2. **Канальний** — кадри, MAC-адреси, комутатори
+3. **Мережевий** — пакети, IP-адреси, маршрутизація (роутери)
+4. **Транспортний** — сегменти, TCP/UDP, end-to-end
+5. **Сеансовий** — управління сеансами
+6. **Представлення** — шифрування, стиснення, формати
+7. **Прикладний** — HTTP, FTP, SMTP, інтерфейс користувача
+
+Мнемоніка (знизу вгору): **"Фізик Каже: Мережу Треба Серйозно Представити Прикладно"**
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Model referencyjny sieci komputerowej OSI/ISO**
+
+Model OSI (Open Systems Interconnection), opracowany przez ISO (International Organization for Standardization), to **koncepcyjny model referencyjny**, który dzieli proces komunikacji sieciowej na siedem abstrakcyjnych warstw. Jego celem jest standaryzacja i ułatwienie zrozumienia, jak różne protokoły i urządzenia sieciowe współpracują ze sobą. Chociaż w praktyce dominuje prostszy model TCP/IP, OSI pozostaje kluczowym narzędziem edukacyjnym.
+
+**Opis siedmiu warstw modelu OSI (od góry do dołu):**
+
+**7. Warstwa Aplikacji (Application Layer)**
+- **Cel:** Zapewnia interfejs dla aplikacji użytkownika do korzystania z usług sieciowych.
+- **Zadania:** Identyfikacja partnerów komunikacyjnych, określanie dostępności zasobów.
+- **Protokoły:** HTTP, FTP, SMTP, DNS, Telnet.
+- **Jednostka danych:** Dane (Data).
+
+**6. Warstwa Prezentacji (Presentation Layer)**
+- **Cel:** "Tłumaczenie" danych między formatem używanym przez aplikację a formatem sieciowym.
+- **Zadania:** Szyfrowanie, kompresja, konwersja formatów danych (np. z ASCII na EBCDIC).
+- **Protokoły:** SSL/TLS (częściowo), JPEG, MPEG.
+- **Jednostka danych:** Dane (Data).
+
+**5. Warstwa Sesji (Session Layer)**
+- **Cel:** Zarządzanie sesjami (dialogami) między aplikacjami.
+- **Zadania:** Ustanawianie, zarządzanie i zamykanie sesji; synchronizacja (np. punkty kontrolne, aby wznowić transmisję po awarii).
+- **Protokoły:** NetBIOS, RPC.
+- **Jednostka danych:** Dane (Data).
+
+**4. Warstwa Transportowa (Transport Layer)**
+- **Cel:** Zapewnienie niezawodnej komunikacji "od końca do końca" (end-to-end) między hostami.
+- **Zadania:** Segmentacja danych, kontrola przepływu (flow control), kontrola błędów. Rozróżnia komunikację połączeniową (niezawodną, np. TCP) i bezpołączeniową (szybką, np. UDP).
+- **Protokoły:** TCP, UDP.
+- **Jednostka danych:** Segment (dla TCP), Datagram (dla UDP).
+
+**3. Warstwa Sieciowa (Network Layer)**
+- **Cel:** Wyznaczanie najlepszej ścieżki (routing) dla pakietów w sieci i logiczne adresowanie.
+- **Zadania:** Routing, adresowanie logiczne (adresy IP), fragmentacja pakietów.
+- **Urządzenia:** Routery.
+- **Protokoły:** IP, ICMP, OSPF.
+- **Jednostka danych:** Pakiet (Packet).
+
+**2. Warstwa Łącza Danych (Data Link Layer)**
+- **Cel:** Zapewnienie niezawodnej transmisji danych między dwoma bezpośrednio połączonymi węzłami w tej samej sieci lokalnej.
+- **Zadania:** Adresowanie fizyczne (adresy MAC), wykrywanie i korekcja błędów na poziomie ramki, kontrola dostępu do medium (np. CSMA/CD w Ethernet).
+- **Urządzenia:** Przełączniki (switche), mosty (bridges).
+- **Jednostka danych:** Ramka (Frame).
+
+**1. Warstwa Fizyczna (Physical Layer)**
+- **Cel:** Transmisja surowych bitów przez medium transmisyjne.
+- **Zadania:** Definiuje parametry fizyczne: napięcia, typy kabli, złącza (np. RJ-45), częstotliwości radiowe.
+- **Urządzenia:** Koncentratory (huby), wzmacniaki (repeaters), kable, karty sieciowe.
+- **Jednostka danych:** Bit.
+
+##### Wersja krótka (do nauczenia, 40–60 s)
+
+Model OSI — 7 warstw komunikacji sieciowej:
+1. **Fizyczna** — bity, kable, sygnały
+2. **Łącza danych** — ramki, adresy MAC, switche
+3. **Sieciowa** — pakiety, adresy IP, routing (routery)
+4. **Transportowa** — segmenty, TCP/UDP, end-to-end
+5. **Sesji** — zarządzanie sesjami
+6. **Prezentacji** — szyfrowanie, kompresja, formaty
+7. **Aplikacji** — HTTP, FTP, SMTP, interfejs użytkownika
+
+Mnemonik (od dołu): **"Fizyk Łapie Sieć, Transportując Sesjami Prawdziwe Aplikacje"**
 
 ---
 

@@ -1224,110 +1224,1049 @@ Mnemonik (od dołu): **"Fizyk Łapie Sieć, Transportując Sesjami Prawdziwe Apl
 
 ## Питання 11
 
-**UA:** [Текст питання українською мовою]
+**UA:** Будь ласка, обговоріть трансляцію адрес NAT та трансляцію портів PAT у мережах TCP/IP.
 
 **PL:** Proszę omówić translację adresów NAT oraz portów PAT w sieciach TCP/IP.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**NAT (Network Address Translation)** та **PAT (Port Address Translation)** — це механізми, що використовуються в мережах TCP/IP для перетворення IP-адрес. Основна мета їх створення — економія публічних (зовнішніх) IPv4-адрес, які є обмеженим ресурсом.
+
+##### 1. NAT (Трансляція мережевих адрес)
+
+**NAT** — це процес, під час якого маршрутизатор або інший мережевий пристрій змінює IP-адреси в заголовках пакетів, що проходять через нього. Найчастіше NAT використовується для перетворення приватних (внутрішніх) IP-адрес на одну або кілька публічних (зовнішніх) IP-адрес.
+
+**Як це працює:**
+
+1. Комп'ютер у локальній мережі з приватною IP-адресою (наприклад, `192.168.1.10`) надсилає пакет в інтернет.
+2. Маршрутизатор, що має одну публічну IP-адресу (наприклад, `80.90.100.110`), отримує цей пакет.
+3. Маршрутизатор замінює приватну IP-адресу відправника (`192.168.1.10`) на свою публічну IP-адресу (`80.90.100.110`).
+4. Пакет надсилається до місця призначення в інтернеті.
+5. Коли надходить відповідь, маршрутизатор виконує зворотне перетворення: замінює публічну IP-адресу призначення на відповідну приватну IP-адресу і надсилає пакет комп'ютеру в локальній мережі.
+
+**Приватні діапазони IP-адрес (RFC 1918):**
+
+- `10.0.0.0` – `10.255.255.255`
+- `172.16.0.0` – `172.31.255.255`
+- `192.168.0.0` – `192.168.255.255`
+
+Ці адреси не маршрутизуються в інтернеті і можуть вільно використовуватися в локальних мережах.
+
+##### 2. PAT (Трансляція портів)
+
+**PAT (Port Address Translation)**, також відомий як **NAT Overload**, є найпоширенішим типом NAT. Він дозволяє **багатьом** пристроям у локальній мережі одночасно виходити в інтернет, використовуючи **одну** публічну IP-адресу.
+
+**Як це працює:**
+
+PAT розширює можливості NAT, додаючи до перетворення не тільки IP-адреси, але й **номери портів**.
+
+1. Два комп'ютери в локальній мережі (наприклад, `192.168.1.10` та `192.168.1.20`) одночасно надсилають запити в інтернет.
+2. Маршрутизатор отримує ці пакети. Щоб розрізняти відповіді для кожного з комп'ютерів, він створює унікальні комбінації, змінюючи не тільки IP-адресу, а й вихідний порт.
+   - Пакет від `192.168.1.10` з портом `5001` може бути перетворений на `80.90.100.110` з портом `6001`.
+   - Пакет від `192.168.1.20` з портом `5002` може бути перетворений на `80.90.100.110` з портом `6002`.
+3. Маршрутизатор зберігає ці перетворення у спеціальній таблиці (NAT table).
+4. Коли надходить відповідь на порт `6001`, маршрутизатор, заглядаючи в таблицю, знає, що цей пакет призначений для `192.168.1.10`. Аналогічно, відповідь на порт `6002` буде направлена до `192.168.1.20`.
+
+Таким чином, одна публічна IP-адреса може обслуговувати тисячі одночасних з'єднань від різних пристроїв у локальній мережі.
+
+##### Основні відмінності та переваги
+
+| Характеристика | NAT (базовий) | PAT (NAT Overload) |
+|:---|:---|:---|
+| **Масштабування** | Зазвичай один-до-одного (одна приватна IP → одна публічна IP). | Багато-до-одного (багато приватних IP → одна публічна IP). |
+| **Використання портів** | Не завжди використовує зміну портів. | Завжди використовує зміну портів для розрізнення з'єднань. |
+| **Економія адрес** | Обмежена. | Дуже висока. Це основний механізм економії IPv4-адрес. |
+
+**Переваги NAT/PAT:**
+
+- **Економія IPv4-адрес:** Головна перевага, що дозволила інтернету функціонувати попри вичерпання вільних адрес.
+- **Безпека:** Приховує структуру внутрішньої мережі від зовнішнього світу. За замовчуванням, пристрої ззовні не можуть ініціювати з'єднання з пристроями всередині локальної мережі.
+
+**Недоліки:**
+
+- **Порушення наскрізної моделі (end-to-end):** Деякі протоколи та програми (наприклад, IP-телефонія, деякі онлайн-ігри) погано працюють з NAT, оскільки вони розраховують на пряме з'єднання між пристроями.
+- **Ускладнення трасування:** Відстежити шлях пакета стає складніше.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**NAT (Network Address Translation)** oraz **PAT (Port Address Translation)** to mechanizmy wykorzystywane w sieciach TCP/IP do translacji adresów IP. Głównym celem ich powstania jest oszczędność publicznych (zewnętrznych) adresów IPv4, które są ograniczonym zasobem.
+
+##### 1. NAT (Translacja adresów sieciowych)
+
+**NAT** to proces, w którym router lub inne urządzenie sieciowe zmienia adresy IP w nagłówkach pakietów przechodzących przez nie. Najczęściej NAT jest wykorzystywany do przekształcania prywatnych (wewnętrznych) adresów IP na jeden lub kilka publicznych (zewnętrznych) adresów IP.
+
+**Jak to działa:**
+
+1. Komputer w sieci lokalnej z prywatnym adresem IP (na przykład `192.168.1.10`) wysyła pakiet do internetu.
+2. Router, który ma jeden publiczny adres IP (na przykład `80.90.100.110`), otrzymuje ten pakiet.
+3. Router zamienia prywatny adres IP nadawcy (`192.168.1.10`) na swój publiczny adres IP (`80.90.100.110`).
+4. Pakiet jest wysyłany do miejsca przeznaczenia w internecie.
+5. Gdy nadchodzi odpowiedź, router wykonuje odwrotne przekształcenie: zamienia publiczny adres IP przeznaczenia na odpowiedni prywatny adres IP i wysyła pakiet do komputera w sieci lokalnej.
+
+**Prywatne zakresy adresów IP (RFC 1918):**
+
+- `10.0.0.0` – `10.255.255.255`
+- `172.16.0.0` – `172.31.255.255`
+- `192.168.0.0` – `192.168.255.255`
+
+Te adresy nie są routowane w internecie i mogą być swobodnie wykorzystywane w sieciach lokalnych.
+
+##### 2. PAT (Translacja portów)
+
+**PAT (Port Address Translation)**, znany również jako **NAT Overload**, jest najczęściej stosowanym typem NAT. Pozwala on **wielu** urządzeniom w sieci lokalnej jednocześnie łączyć się z internetem, wykorzystując **jeden** publiczny adres IP.
+
+**Jak to działa:**
+
+PAT rozszerza możliwości NAT, dodając do translacji nie tylko adresy IP, ale również **numery portów**.
+
+1. Dwa komputery w sieci lokalnej (na przykład `192.168.1.10` i `192.168.1.20`) jednocześnie wysyłają zapytania do internetu.
+2. Router otrzymuje te pakiety. Aby rozróżnić odpowiedzi dla każdego z komputerów, tworzy unikalne kombinacje, zmieniając nie tylko adres IP, ale również port wyjściowy.
+   - Pakiet od `192.168.1.10` z portem `5001` może być przekształcony na `80.90.100.110` z portem `6001`.
+   - Pakiet od `192.168.1.20` z portem `5002` może być przekształcony na `80.90.100.110` z portem `6002`.
+3. Router przechowuje te przekształcenia w specjalnej tablicy (NAT table).
+4. Gdy nadchodzi odpowiedź na port `6001`, router, zaglądając do tablicy, wie, że ten pakiet jest przeznaczony dla `192.168.1.10`. Analogicznie, odpowiedź na port `6002` zostanie skierowana do `192.168.1.20`.
+
+W ten sposób jeden publiczny adres IP może obsługiwać tysiące jednoczesnych połączeń od różnych urządzeń w sieci lokalnej.
+
+##### Główne różnice i zalety
+
+| Cecha | NAT (podstawowy) | PAT (NAT Overload) |
+|:---|:---|:---|
+| **Skalowalność** | Zazwyczaj jeden-do-jednego (jeden prywatny IP → jeden publiczny IP). | Wiele-do-jednego (wiele prywatnych IP → jeden publiczny IP). |
+| **Wykorzystanie portów** | Nie zawsze wykorzystuje zmianę portów. | Zawsze wykorzystuje zmianę portów do rozróżniania połączeń. |
+| **Oszczędność adresów** | Ograniczona. | Bardzo wysoka. To główny mechanizm oszczędzania adresów IPv4. |
+
+**Zalety NAT/PAT:**
+
+- **Oszczędność adresów IPv4:** Główna zaleta, która pozwoliła internetowi funkcjonować pomimo wyczerpania wolnych adresów.
+- **Bezpieczeństwo:** Ukrywa strukturę sieci wewnętrznej przed światem zewnętrznym. Domyślnie urządzenia z zewnątrz nie mogą inicjować połączeń z urządzeniami wewnątrz sieci lokalnej.
+
+**Wady:**
+
+- **Naruszenie modelu end-to-end:** Niektóre protokoły i aplikacje (na przykład telefonia IP, niektóre gry online) źle działają z NAT, ponieważ zakładają bezpośrednie połączenie między urządzeniami.
+- **Komplikowanie śledzenia:** Śledzenie ścieżki pakietu staje się trudniejsze.
 
 ---
 
 ## Питання 12
 
-**UA:** [Текст питання українською мовою]
+**UA:** Представте спосіб визначення структурного типу в мові C++ та спосіб визначення і використання структурної змінної.
 
-**PL:**  Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
+**PL:** Przedstaw sposób definicji typu strukturalnego w języku C++ oraz sposób definicji i korzystania ze zmiennej strukturalnej.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Структура (struct)** в C++ — це складений тип даних, який дозволяє об'єднати кілька змінних різних типів під одним іменем. Це зручний спосіб для групування пов'язаних даних.
+
+##### 1. Визначення структурного типу (Definicja typu strukturalnego)
+
+Для визначення структури використовується ключове слово `struct`, за яким слідує ім'я типу, а потім у фігурних дужках `{}` перераховуються її члени (змінні).
+
+**Синтаксис:**
+```cpp
+struct NazwaStruktury {
+    typ_danych1 nazwa_zmiennej1;
+    typ_danych2 nazwa_zmiennej2;
+    // ...
+};
+```
+
+**Приклад:**
+
+Давайте визначимо структуру `Student`, яка буде зберігати ім'я, вік та середній бал студента.
+
+```cpp
+struct Student {
+    std::string imie;
+    int wiek;
+    double srednia_ocen;
+};
+```
+
+*Цей код визначає "шаблон" для майбутніх змінних типу `Student`, але ще не створює жодної змінної в пам'яті.*
+
+##### 2. Визначення та використання змінної структурного типу (Definicja i korzystanie ze zmiennej strukturalnej)
+
+Після визначення типу структури ми можемо створювати її екземпляри (змінні).
+
+**Створення змінної:**
+```cpp
+// Створюємо змінну 'student1' типу 'Student'
+Student student1;
+```
+
+**Доступ до членів структури та їх ініціалізація:**
+
+Доступ до полів структури здійснюється за допомогою **оператора крапки (`.`)**.
+
+```cpp
+#include <iostream>
+#include <string>
+
+// 1. Визначення типу структури
+struct Student {
+    std::string imie;
+    int wiek;
+    double srednia_ocen;
+};
+
+int main() {
+    // 2. Створення змінної (екземпляра) структури
+    Student student1;
+
+    // 3. Присвоєння значень членам структури
+    student1.imie = "Jan Kowalski";
+    student1.wiek = 21;
+    student1.srednia_ocen = 4.5;
+
+    // 4. Використання даних
+    std::cout << "Dane studenta:" << std::endl;
+    std::cout << "Imię: " << student1.imie << std::endl;
+    std::cout << "Wiek: " << student1.wiek << " lat" << std::endl;
+    std::cout << "Średnia ocen: " << student1.srednia_ocen << std::endl;
+
+    return 0;
+}
+```
+
+**Ініціалізація при створенні:**
+
+Змінну можна ініціалізувати одразу при її створенні, використовуючи фігурні дужки.
+
+```cpp
+// Ініціалізація за допомогою списку
+Student student2 = {"Anna Nowak", 20, 4.8};
+
+// Або у C++11 та новіших версіях:
+Student student3{"Piotr Wiśniewski", 22, 4.2};
+```
+
+##### 3. Використання вказівників на структури (Korzystanie ze wskaźników na struktury)
+
+При роботі з вказівниками на структури для доступу до їх членів використовується **оператор стрілки (`->`)**.
+
+```cpp
+// Створюємо вказівник на структуру Student
+Student* wskaznik_na_studenta;
+
+// Присвоюємо вказівнику адресу змінної student2
+wskaznik_na_studenta = &student2;
+
+// Доступ до членів через вказівник
+std::cout << "\nDane studenta (przez wskaźnik):" << std::endl;
+std::cout << "Imię: " << wskaznik_na_studenta->imie << std::endl;
+std::cout << "Wiek: " << wskaznik_na_studenta->wiek << std::endl;
+std::cout << "Średnia: " << wskaznik_na_studenta->srednia_ocen << std::endl;
+```
+
+Оператор `->` є скороченим записом для `(*wskaznik_na_studenta).imie`.
+
+##### Різниця між `struct` та `class` в C++
+
+Основна і практично єдина відмінність полягає у **модифікаторі доступу за замовчуванням**:
+
+- У `struct` всі члени за замовчуванням є **`public`** (публічними).
+- У `class` всі члени за замовчуванням є **`private`** (приватними).
+
+За традицією, `struct` використовують для простих об'єктів, що переважно зберігають дані, тоді як `class` — для складніших об'єктів з інкапсульованою логікою та методами.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Struktura (struct)** w C++ to złożony typ danych, który pozwala połączyć kilka zmiennych różnych typów pod jedną nazwą. Jest to wygodny sposób na grupowanie powiązanych danych.
+
+##### 1. Definicja typu strukturalnego
+
+Do zdefiniowania struktury używa się słowa kluczowego `struct`, po którym następuje nazwa typu, a następnie w nawiasach klamrowych `{}` wymienia się jej składowe (zmienne).
+
+**Składnia:**
+```cpp
+struct NazwaStruktury {
+    typ_danych1 nazwa_zmiennej1;
+    typ_danych2 nazwa_zmiennej2;
+    // ...
+};
+```
+
+**Przykład:**
+
+Zdefiniujmy strukturę `Student`, która będzie przechowywać imię, wiek i średnią ocen studenta.
+
+```cpp
+struct Student {
+    std::string imie;
+    int wiek;
+    double srednia_ocen;
+};
+```
+
+*Ten kod definiuje "szablon" dla przyszłych zmiennych typu `Student`, ale nie tworzy jeszcze żadnej zmiennej w pamięci.*
+
+##### 2. Definicja i korzystanie ze zmiennej strukturalnej
+
+Po zdefiniowaniu typu struktury możemy tworzyć jej egzemplarze (zmienne).
+
+**Tworzenie zmiennej:**
+```cpp
+// Tworzymy zmienną 'student1' typu 'Student'
+Student student1;
+```
+
+**Dostęp do składowych struktury i ich inicjalizacja:**
+
+Dostęp do pól struktury odbywa się za pomocą **operatora kropki (`.`)**.
+
+```cpp
+#include <iostream>
+#include <string>
+
+// 1. Definicja typu struktury
+struct Student {
+    std::string imie;
+    int wiek;
+    double srednia_ocen;
+};
+
+int main() {
+    // 2. Tworzenie zmiennej (egzemplarza) struktury
+    Student student1;
+
+    // 3. Przypisywanie wartości do składowych struktury
+    student1.imie = "Jan Kowalski";
+    student1.wiek = 21;
+    student1.srednia_ocen = 4.5;
+
+    // 4. Wykorzystanie danych
+    std::cout << "Dane studenta:" << std::endl;
+    std::cout << "Imię: " << student1.imie << std::endl;
+    std::cout << "Wiek: " << student1.wiek << " lat" << std::endl;
+    std::cout << "Średnia ocen: " << student1.srednia_ocen << std::endl;
+
+    return 0;
+}
+```
+
+**Inicjalizacja podczas tworzenia:**
+
+Zmienną można zainicjalizować od razu podczas jej tworzenia, używając nawiasów klamrowych.
+
+```cpp
+// Inicjalizacja za pomocą listy
+Student student2 = {"Anna Nowak", 20, 4.8};
+
+// Lub w C++11 i nowszych wersjach:
+Student student3{"Piotr Wiśniewski", 22, 4.2};
+```
+
+##### 3. Korzystanie ze wskaźników na struktury
+
+Podczas pracy ze wskaźnikami na struktury do dostępu do ich składowych używa się **operatora strzałki (`->`)**.
+
+```cpp
+// Tworzymy wskaźnik na strukturę Student
+Student* wskaznik_na_studenta;
+
+// Przypisujemy wskaźnikowi adres zmiennej student2
+wskaznik_na_studenta = &student2;
+
+// Dostęp do składowych przez wskaźnik
+std::cout << "\nDane studenta (przez wskaźnik):" << std::endl;
+std::cout << "Imię: " << wskaznik_na_studenta->imie << std::endl;
+std::cout << "Wiek: " << wskaznik_na_studenta->wiek << std::endl;
+std::cout << "Średnia: " << wskaznik_na_studenta->srednia_ocen << std::endl;
+```
+
+Operator `->` jest skróconym zapisem dla `(*wskaznik_na_studenta).imie`.
+
+##### Różnica między `struct` a `class` w C++
+
+Główna i praktycznie jedyna różnica polega na **domyślnym modyfikatorze dostępu**:
+
+- W `struct` wszystkie składowe domyślnie są **`public`** (publiczne).
+- W `class` wszystkie składowe domyślnie są **`private`** (prywatne).
+
+Tradycyjnie `struct` używa się dla prostych obiektów, które głównie przechowują dane, natomiast `class` — dla bardziej złożonych obiektów z hermetyzowaną logiką i metodami.
 
 ---
 
 ## Питання 13
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте машину Тюрінга, обговоріть її складність та наведіть відмінності і подібності між детерміністичним і недетерміністичним її варіантом.
 
 **PL:** Scharakteryzuj maszynę Turinga, omów jej złożoność oraz podaj różnice i podobieństwa pomiędzy deterministycznym a niedeterministycznym jej wariantem.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Машина Тюрінга** — це теоретична модель обчислювального пристрою, запропонована Аланом Тюрінгом у 1936 році. Вона є фундаментальним поняттям у теорії алгоритмів та обчислювальної складності, оскільки формалізує поняття алгоритму. Згідно з тезою Черча-Тюрінга, будь-який алгоритм, який можна виконати на реальному комп'ютері, можна також змоделювати на машині Тюрінга.
+
+##### 1. Характеристика Машини Тюрінга (Charakterystyka Maszyny Turinga)
+
+Машина Тюрінга — це абстрактний автомат, що складається з наступних компонентів:
+
+**Нескінченна стрічка (Nieskończona taśma):**
+
+- Розділена на комірки (komórki).
+- Кожна комірка може містити один символ із заданого алфавіту стрічки.
+- На початку обчислень на стрічці записано вхідне слово, а решта комірок заповнені спеціальним "порожнім" символом.
+
+**Головка читання/запису (Głowica odczytująco-zapisująca):**
+
+- В будь-який момент часу знаходиться над однією з комірок стрічки.
+- Може **читати** символ з поточної комірки.
+- Може **записувати** новий символ у поточну комірку (затираючи старий).
+- Може **рухатися** по стрічці на одну комірку вліво (`L`) або вправо (`R`).
+
+**Керуючий пристрій (Jednostka sterująca):**
+
+- Має **скінченну** множину внутрішніх станів (stany).
+- Завжди знаходиться в одному з цих станів.
+- Серед станів є виділені: початковий стан (`q_start`), та один або кілька кінцевих (akceptujących) станів.
+
+**Функція переходу (Funkcja przejścia):**
+
+- Це "програма" машини. Вона визначає, що робитиме машина на кожному кроці.
+- На основі **поточного стану** та **символу під головкою**, функція переходу визначає:
+  1. **Новий стан**, в який перейде машина.
+  2. **Символ**, який буде записано в поточну комірку.
+  3. **Напрямок руху** головки (вліво або вправо).
+
+**Процес обчислення:**
+
+Машина починає роботу в початковому стані, з головкою на першому символі вхідного слова. На кожному такті вона виконує дію згідно з функцією переходу. Робота завершується, коли машина досягає одного з кінцевих станів. Якщо машина зупинилася в кінцевому стані, вхідне слово вважається "прийнятим" (розпізнаним).
+
+##### 2. Складність (Złożoność)
+
+У контексті машин Тюрінга складність алгоритму вимірюється кількістю ресурсів, необхідних для розв'язання задачі.
+
+- **Часова складність (Złożoność czasowa):** Це кількість кроків (тактів), які машина Тюрінга виконує до зупинки, як функція від довжини вхідних даних (`n`).
+- **Просторова складність (Złożoność pamięciowa/przestrzenna):** Це кількість комірок на стрічці, які були використані (відвідані головкою) під час обчислень, як функція від довжини вхідних даних (`n`).
+
+Ці поняття є основою для класифікації алгоритмів та задач (наприклад, класи `P`, `NP`, `PSPACE`).
+
+##### 3. Детерміністичний та Недетерміністичний варіанти (Wariant deterministyczny i niedeterministyczny)
+
+**Детерміністична Машина Тюрінга (DTM - Deterministyczna Maszyna Turinga):**
+
+- Для кожної пари `(поточний стан, символ під головкою)` існує **рівно один** можливий перехід (одна дія).
+- Шлях обчислень є унікальним і повністю визначеним.
+- Це модель, яка відповідає роботі звичайних комп'ютерів.
+
+**Недетерміністична Машина Тюрінга (NTM - Niedeterministyczna Maszyna Turinga):**
+
+- Для кожної пари `(поточний стан, символ під головкою)` може існувати **кілька** можливих переходів.
+- Машина може "розгалужувати" свої обчислення, досліджуючи одночасно кілька шляхів.
+- Слово вважається "прийнятим", якщо **хоча б один** із можливих шляхів обчислень приводить до кінцевого стану.
+
+**Подібності:**
+
+- **Обчислювальна потужність:** І DTM, і NTM можуть розпізнавати **один і той самий клас мов** (рекурсивно перелічувані мови). Це означає, що будь-яку задачу, яку може розв'язати NTM, може розв'язати і DTM (і навпаки).
+
+**Відмінності:**
+
+- **Функція переходу:** У DTM вона повертає один набір дій, у NTM — множину можливих дій.
+- **Ефективність:** Основна відмінність полягає у складності. Будь-яку NTM можна змоделювати на DTM, але це моделювання може вимагати **експоненційно більше часу**.
+  - Якщо NTM розв'язує задачу за поліноміальний час, то відповідна DTM може потребувати експоненційного часу.
+- **Концепція:** DTM слідує одному шляху, тоді як NTM можна уявити як машину, що "вгадує" правильний шлях на кожному кроці або паралельно перевіряє всі можливі шляхи.
+
+Проблема **"P проти NP"** — одне з найважливіших відкритих питань в інформатиці — по суті, є питанням про те, чи є DTM та NTM еквівалентними за часовою складністю для поліноміального часу. Тобто, чи можна будь-яку задачу, що швидко *перевіряється* (клас NP, пов'язаний з NTM), так само швидко *розв'язати* (клас P, пов'язаний з DTM).
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Maszyna Turinga** to teoretyczny model urządzenia obliczeniowego, zaproponowany przez Alana Turinga w 1936 roku. Jest ona fundamentalnym pojęciem w teorii algorytmów i złożoności obliczeniowej, ponieważ formalizuje pojęcie algorytmu. Zgodnie z tezą Churcha-Turinga, każdy algorytm, który można wykonać na rzeczywistym komputerze, można również zamodelować na maszynie Turinga.
+
+##### 1. Charakterystyka Maszyny Turinga
+
+Maszyna Turinga to abstrakcyjny automat, składający się z następujących komponentów:
+
+**Nieskończona taśma:**
+
+- Podzielona na komórki.
+- Każda komórka może zawierać jeden symbol z zadanego alfabetu taśmy.
+- Na początku obliczeń na taśmie zapisane jest słowo wejściowe, a pozostałe komórki wypełnione są specjalnym symbolem "pustym".
+
+**Głowica odczytująco-zapisująca:**
+
+- W dowolnym momencie czasu znajduje się nad jedną z komórek taśmy.
+- Może **odczytywać** symbol z bieżącej komórki.
+- Może **zapisywać** nowy symbol do bieżącej komórki (nadpisując stary).
+- Może **poruszać się** po taśmie o jedną komórkę w lewo (`L`) lub w prawo (`R`).
+
+**Jednostka sterująca:**
+
+- Ma **skończony** zbiór stanów wewnętrznych (stany).
+- Zawsze znajduje się w jednym z tych stanów.
+- Wśród stanów wyróżnione są: stan początkowy (`q_start`) oraz jeden lub kilka stanów końcowych (akceptujących).
+
+**Funkcja przejścia:**
+
+- To "program" maszyny. Określa, co maszyna będzie robić w każdym kroku.
+- Na podstawie **bieżącego stanu** i **symbolu pod głowicą**, funkcja przejścia określa:
+  1. **Nowy stan**, do którego przejdzie maszyna.
+  2. **Symbol**, który zostanie zapisany w bieżącej komórce.
+  3. **Kierunek ruchu** głowicy (w lewo lub w prawo).
+
+**Proces obliczeniowy:**
+
+Maszyna rozpoczyna pracę w stanie początkowym, z głowicą na pierwszym symbolu słowa wejściowego. W każdym takcie wykonuje akcję zgodnie z funkcją przejścia. Praca kończy się, gdy maszyna osiągnie jeden ze stanów końcowych. Jeśli maszyna zatrzymała się w stanie końcowym, słowo wejściowe uznaje się za "zaakceptowane" (rozpoznane).
+
+##### 2. Złożoność
+
+W kontekście maszyn Turinga złożoność algorytmu mierzy się liczbą zasobów niezbędnych do rozwiązania zadania.
+
+- **Złożoność czasowa:** To liczba kroków (taktów), które maszyna Turinga wykonuje do zatrzymania, jako funkcja długości danych wejściowych (`n`).
+- **Złożoność przestrzenna (pamięciowa):** To liczba komórek na taśmie, które zostały wykorzystane (odwiedzone przez głowicę) podczas obliczeń, jako funkcja długości danych wejściowych (`n`).
+
+Te pojęcia stanowią podstawę do klasyfikacji algorytmów i zadań (np. klasy `P`, `NP`, `PSPACE`).
+
+##### 3. Wariant deterministyczny i niedeterministyczny
+
+**Deterministyczna Maszyna Turinga (DTM):**
+
+- Dla każdej pary `(bieżący stan, symbol pod głowicą)` istnieje **dokładnie jedno** możliwe przejście (jedna akcja).
+- Ścieżka obliczeń jest unikalna i całkowicie określona.
+- To model odpowiadający działaniu zwykłych komputerów.
+
+**Niedeterministyczna Maszyna Turinga (NTM):**
+
+- Dla każdej pary `(bieżący stan, symbol pod głowicą)` może istnieć **kilka** możliwych przejść.
+- Maszyna może "rozgałęziać" swoje obliczenia, badając jednocześnie kilka ścieżek.
+- Słowo uznaje się za "zaakceptowane", jeśli **przynajmniej jedna** z możliwych ścieżek obliczeń prowadzi do stanu końcowego.
+
+**Podobieństwa:**
+
+- **Moc obliczeniowa:** Zarówno DTM, jak i NTM mogą rozpoznawać **tę samą klasę języków** (języki rekurencyjnie przeliczalne). Oznacza to, że każde zadanie, które może rozwiązać NTM, może również rozwiązać DTM (i odwrotnie).
+
+**Różnice:**
+
+- **Funkcja przejścia:** W DTM zwraca jeden zestaw akcji, w NTM — zbiór możliwych akcji.
+- **Efektywność:** Główna różnica polega na złożoności. Każdą NTM można zasymulować na DTM, ale ta symulacja może wymagać **wykładniczo więcej czasu**.
+  - Jeśli NTM rozwiązuje zadanie w czasie wielomianowym, odpowiednia DTM może wymagać czasu wykładniczego.
+- **Koncepcja:** DTM podąża jedną ścieżką, podczas gdy NTM można wyobrazić sobie jako maszynę, która "zgaduje" właściwą ścieżkę w każdym kroku lub równolegle sprawdza wszystkie możliwe ścieżki.
+
+Problem **"P versus NP"** — jedno z najważniejszych otwartych pytań w informatyce — jest w istocie pytaniem o to, czy DTM i NTM są równoważne pod względem złożoności czasowej dla czasu wielomianowego. Innymi słowy, czy każde zadanie, które można szybko *zweryfikować* (klasa NP, związana z NTM), można równie szybko *rozwiązać* (klasa P, związana z DTM).
 
 ---
 
 ## Питання 14
 
-**UA:** [Текст питання українською мовою]
+**UA:** Охарактеризуйте діаграму класів нотації UML.
 
 **PL:** Scharakteryzuj diagram klas notacji UML.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Діаграма класів (Diagram klas)** — це один із найважливіших і найпоширеніших типів діаграм в **UML (Unified Modeling Language)**. Вона належить до структурних діаграм і служить для візуалізації **статичної структури** системи, показуючи її класи, їхні атрибути, методи та зв'язки між ними.
+
+Це, по суті, "креслення" програмної системи, яке допомагає зрозуміти, з яких "цеглинок" вона складається і як ці "цеглинки" взаємодіють між собою.
+
+##### 1. Основні елементи діаграми класів
+
+**Клас (Klasa)**
+
+Клас є центральним елементом діаграми. Він зображується у вигляді **прямокутника**, розділеного на три секції:
+
+1. **Верхня секція: Ім'я класу (Nazwa klasy)**
+   - Зазвичай пишеться жирним шрифтом.
+   - Якщо клас є *абстрактним* (не можна створити його екземпляр), його ім'я пишеться *курсивом*.
+
+2. **Середня секція: Атрибути (Atrybuty)**
+   - Це змінні, що належать класу і описують його властивості.
+   - Синтаксис: `видимість назва_атрибута: тип [= значення_за_замовчуванням]`
+   - Приклад: `- nazwisko: string`
+
+3. **Нижня секція: Операції (Operacje) / Методи (Metody)**
+   - Це функції, які може виконувати клас.
+   - Синтаксис: `видимість назва_методу(параметри): тип_повернення`
+   - Приклад: `+ obliczWiek(): int`
+
+**Рівні доступу (Poziomy dostępu / Widoczność):**
+
+Кожен атрибут і метод має рівень доступу, що позначається символом:
+- `+` **public:** Доступний з будь-якого місця.
+- `-` **private:** Доступний тільки всередині цього класу.
+- `#` **protected:** Доступний всередині цього класу та в його підкласах.
+- `~` **package:** (Рідше використовується) Доступний в межах того ж пакету.
+
+**Приклад класу `Osoba`:**
+
+```
++---------------------------+
+|           Osoba           |
++---------------------------+
+| - imie: string            |
+| - nazwisko: string        |
+| # dataUrodzenia: Date     |
++---------------------------+
+| + przedstawSie(): void    |
+| + obliczWiek(): int       |
++---------------------------+
+```
+
+##### 2. Зв'язки між класами (Związki między klasami)
+
+Зв'язки показують, як класи взаємодіють один з одним.
+
+**Асоціація (Asocjacja)**
+
+- **Опис:** Найзагальніший тип зв'язку, що показує, що об'єкти одного класу якимось чином пов'язані з об'єктами іншого.
+- **Позначення:** Суцільна лінія (`—`).
+- **Приклад:** `Student` асоційований з `Uniwersytet` (студент навчається в університеті).
+- **Кратність (Krotność):** Вказує, скільки об'єктів може брати участь у зв'язку.
+  - `1` — рівно один
+  - `*` — нуль або більше
+  - `0..1` — нуль або один
+  - `1..*` — один або більше
+  - `Student (1..*) --- (1) Uniwersytet` (Багато студентів навчаються в одному університеті).
+
+**Агрегація (Agregacja)**
+
+- **Опис:** Сильніший тип асоціації, що представляє відношення "частина-ціле" (**"has-a"**). Частина може існувати незалежно від цілого.
+- **Позначення:** Суцільна лінія з **порожнім ромбом** (`◇—`) з боку "цілого".
+- **Приклад:** `Dział` (відділ) складається з `Pracownik` (працівників). Якщо відділ розформують, працівники продовжать існувати.
+
+**Композиція (Kompozycja)**
+
+- **Опис:** Найсильніший тип асоціації, що представляє відношення "частина-ціле", де частина **не може існувати** без цілого. Якщо "ціле" знищується, "частини" також знищуються.
+- **Позначення:** Суцільна лінія із **зафарбованим ромбом** (`◆—`) з боку "цілого".
+- **Приклад:** `Samochód` (автомобіль) складається з `Silnik` (двигун). Двигун не може існувати поза контекстом конкретного автомобіля.
+
+**Успадкування / Узагальнення (Dziedziczenie / Generalizacja)**
+
+- **Опис:** Представляє відношення **"is-a"** (є). Один клас (підклас/дочірній) успадковує атрибути та методи іншого класу (суперклас/батьківський).
+- **Позначення:** Суцільна лінія з **порожньою стрілкою** (`—▷`), що вказує на **суперклас**.
+- **Приклад:** `Student` та `Wykładowca` (викладач) є типами `Osoba`.
+
+**Реалізація (Realizacja)**
+
+- **Опис:** Показує, що клас реалізує (виконує контракт) інтерфейсу.
+- **Позначення:** Пунктирна лінія з **порожньою стрілкою** (`- - -▷`), що вказує на **інтерфейс**.
+- **Приклад:** Клас `Samolot` (літак) реалізує інтерфейс `Latający` (той, що літає).
+
+##### 3. Інтерфейс (Interfejs)
+
+Інтерфейс — це набір операцій (методів) без реалізації. Він визначає контракт, який класи можуть зобов'язатися виконувати.
+
+**Позначення:** Прямокутник з ключовим словом `<<interface>>` над назвою.
+
+##### Навіщо використовувати діаграми класів?
+
+- **Проектування:** Допомагають архітекторам і розробникам спроектувати структуру системи перед написанням коду.
+- **Документація:** Служать як чітка і зрозуміла документація існуючої системи.
+- **Комунікація:** Полегшують обговорення структури системи між членами команди (включаючи нетехнічних фахівців).
+- **Генерація коду:** Існують інструменти, які можуть автоматично генерувати "скелет" коду на основі діаграми класів.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+**Diagram klas** to jeden z najważniejszych i najpopularniejszych typów diagramów w **UML (Unified Modeling Language)**. Należy do diagramów strukturalnych i służy do wizualizacji **statycznej struktury** systemu, pokazując jego klasy, ich atrybuty, metody oraz związki między nimi.
+
+To w istocie "rysunek techniczny" systemu programowego, który pomaga zrozumieć, z jakich "klocków" się składa i jak te "klocki" ze sobą współdziałają.
+
+##### 1. Podstawowe elementy diagramu klas
+
+**Klasa**
+
+Klasa jest centralnym elementem diagramu. Jest przedstawiana w postaci **prostokąta** podzielonego na trzy sekcje:
+
+1. **Górna sekcja: Nazwa klasy**
+   - Zazwyczaj pisana jest czcionką pogrubioną.
+   - Jeśli klasa jest *abstrakcyjna* (nie można stworzyć jej instancji), jej nazwa pisana jest *kursywą*.
+
+2. **Środkowa sekcja: Atrybuty**
+   - To zmienne należące do klasy i opisujące jej właściwości.
+   - Składnia: `widoczność nazwa_atrybutu: typ [= wartość_domyślna]`
+   - Przykład: `- nazwisko: string`
+
+3. **Dolna sekcja: Operacje / Metody**
+   - To funkcje, które może wykonywać klasa.
+   - Składnia: `widoczność nazwa_metody(parametry): typ_zwracany`
+   - Przykład: `+ obliczWiek(): int`
+
+**Poziomy dostępu (Widoczność):**
+
+Każdy atrybut i metoda ma poziom dostępu, oznaczany symbolem:
+- `+` **public:** Dostępny z dowolnego miejsca.
+- `-` **private:** Dostępny tylko wewnątrz tej klasy.
+- `#` **protected:** Dostępny wewnątrz tej klasy oraz w jej podklasach.
+- `~` **package:** (Rzadziej używany) Dostępny w obrębie tego samego pakietu.
+
+**Przykład klasy `Osoba`:**
+
+```
++---------------------------+
+|           Osoba           |
++---------------------------+
+| - imie: string            |
+| - nazwisko: string        |
+| # dataUrodzenia: Date     |
++---------------------------+
+| + przedstawSie(): void    |
+| + obliczWiek(): int       |
++---------------------------+
+```
+
+##### 2. Związki między klasami
+
+Związki pokazują, jak klasy współdziałają ze sobą.
+
+**Asocjacja**
+
+- **Opis:** Najbardziej ogólny typ związku, pokazujący, że obiekty jednej klasy są w jakiś sposób powiązane z obiektami drugiej.
+- **Oznaczenie:** Linia ciągła (`—`).
+- **Przykład:** `Student` jest powiązany z `Uniwersytet` (student studiuje na uniwersytecie).
+- **Krotność:** Określa, ile obiektów może uczestniczyć w związku.
+  - `1` — dokładnie jeden
+  - `*` — zero lub więcej
+  - `0..1` — zero lub jeden
+  - `1..*` — jeden lub więcej
+  - `Student (1..*) --- (1) Uniwersytet` (Wielu studentów studiuje na jednym uniwersytecie).
+
+**Agregacja**
+
+- **Opis:** Silniejszy typ asocjacji, reprezentujący relację "część-całość" (**"has-a"**). Część może istnieć niezależnie od całości.
+- **Oznaczenie:** Linia ciągła z **pustym rombem** (`◇—`) po stronie "całości".
+- **Przykład:** `Dział` składa się z `Pracownik`. Jeśli dział zostanie zlikwidowany, pracownicy nadal będą istnieć.
+
+**Kompozycja**
+
+- **Opis:** Najsilniejszy typ asocjacji, reprezentujący relację "część-całość", gdzie część **nie może istnieć** bez całości. Gdy "całość" zostaje zniszczona, "części" również są niszczone.
+- **Oznaczenie:** Linia ciągła z **wypełnionym rombem** (`◆—`) po stronie "całości".
+- **Przykład:** `Samochód` składa się z `Silnik`. Silnik nie może istnieć poza kontekstem konkretnego samochodu.
+
+**Dziedziczenie / Generalizacja**
+
+- **Opis:** Reprezentuje relację **"is-a"** (jest). Jedna klasa (podklasa/potomna) dziedziczy atrybuty i metody innej klasy (nadklasa/rodzic).
+- **Oznaczenie:** Linia ciągła z **pustą strzałką** (`—▷`), wskazującą na **nadklasę**.
+- **Przykład:** `Student` i `Wykładowca` są typami `Osoba`.
+
+**Realizacja**
+
+- **Opis:** Pokazuje, że klasa realizuje (wykonuje kontrakt) interfejsu.
+- **Oznaczenie:** Linia przerywana z **pustą strzałką** (`- - -▷`), wskazującą na **interfejs**.
+- **Przykład:** Klasa `Samolot` realizuje interfejs `Latający`.
+
+##### 3. Interfejs
+
+Interfejs to zbiór operacji (metod) bez implementacji. Definiuje kontrakt, który klasy mogą zobowiązać się wykonać.
+
+**Oznaczenie:** Prostokąt ze słowem kluczowym `<<interface>>` nad nazwą.
+
+##### Po co używać diagramów klas?
+
+- **Projektowanie:** Pomagają architektom i programistom zaprojektować strukturę systemu przed napisaniem kodu.
+- **Dokumentacja:** Służą jako czysta i zrozumiała dokumentacja istniejącego systemu.
+- **Komunikacja:** Ułatwiają dyskusję o strukturze systemu między członkami zespołu (w tym osobami nietechnicznymi).
+- **Generowanie kodu:** Istnieją narzędzia, które mogą automatycznie generować "szkielet" kodu na podstawie diagramu klas.
 
 ---
 
 ## Питання 15
 
-**UA:** [Текст питання українською мовою]
+**UA:** Перерахуйте та обговоріть структури операційних систем.
 
 **PL:** Wymień i omów struktury systemów operacyjnych. 
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+Структура операційної системи (ОС) визначає, як її компоненти (ядро, драйвери, файлові системи, планувальник процесів тощо) організовані та взаємодіють між собою. Вибір архітектури впливає на продуктивність, безпеку, надійність та гнучкість системи.
+
+Ось основні структури операційних систем:
+
+##### 1. Монолітна структура (Struktura monolityczna)
+
+Це найстаріша і найпростіша архітектура.
+
+**Опис:** Вся операційна система (включаючи ядро, керування пам'яттю, файлову систему, драйвери пристроїв) працює як єдина велика програма в просторі ядра (kernel space). Всі компоненти тісно пов'язані і можуть безпосередньо викликати функції один одного.
+
+**Переваги:**
+- **Висока продуктивність:** Взаємодія між компонентами відбувається через прості виклики функцій, що є дуже швидким.
+
+**Недоліки:**
+- **Складність розробки та підтримки:** Величезна кодова база, де все пов'язано з усім.
+- **Низька надійність:** Помилка в одному компоненті (наприклад, у драйвері) може призвести до збою всієї системи.
+- **Проблеми з безпекою:** Всі компоненти працюють на найвищому рівні привілеїв.
+
+**Приклади:** MS-DOS, ранні версії UNIX, Linux (хоча сучасний Linux є *модульним монолітом*, що дозволяє динамічно завантажувати та вивантажувати модулі, це пом'якшує деякі недоліки).
+
+##### 2. Багаторівнева (шарувата) структура (Struktura warstwowa)
+
+**Опис:** ОС організована у вигляді ієрархії шарів (layers). Кожен шар надає певні послуги тільки для вищого шару і використовує послуги тільки нижчого шару. Найнижчий шар (Layer 0) взаємодіє безпосередньо з апаратним забезпеченням, а найвищий (Layer N) — з користувацьким інтерфейсом.
+
+**Переваги:**
+- **Простота проектування та тестування:** Кожен шар можна розробляти та перевіряти незалежно.
+- **Чітка структура:** Спрощує розуміння системи.
+
+**Недоліки:**
+- **Низька продуктивність:** Кожен виклик від вищого до нижчого шару проходить через кілька проміжних шарів, що додає накладні витрати.
+- **Складність визначення шарів:** Важко чітко розмежувати функціональність по шарах.
+
+**Приклади:** THE, MULTICS. Ця структура мала великий теоретичний вплив, але рідко використовується в чистому вигляді.
+
+##### 3. Мікроядрова структура (Struktura mikrojądra)
+
+**Опис:** Ядро (kernel) зводиться до абсолютного мінімуму. Воно відповідає лише за найбазовіші функції: керування процесами (планування), керування пам'яттю та механізми міжпроцесної взаємодії (IPC - Inter-Process Communication). Усі інші сервіси (файлові системи, драйвери, мережевий стек) виносяться з ядра і працюють як окремі процеси в просторі користувача (user space).
+
+**Переваги:**
+- **Висока надійність та безпека:** Збій у драйвері або файловій системі не призведе до падіння всієї ОС, а лише до перезапуску відповідного сервісу. Сервіси працюють з меншими привілеями.
+- **Гнучкість та розширюваність:** Легко додавати нові сервіси, не змінюючи ядро.
+
+**Недоліки:**
+- **Низька продуктивність:** Взаємодія між сервісами (які тепер є окремими процесами) відбувається через повільніші механізми IPC, а не через прямі виклики функцій, як у моноліті.
+
+**Приклади:** QNX, Minix, L4, ядро Mach (основа для macOS та iOS, хоча вони є гібридними).
+
+##### 4. Гібридна структура (Struktura hybrydowa)
+
+**Опис:** Ця архітектура поєднує переваги монолітної та мікроядерної структур. Вона має невелике ядро, схоже на мікроядро, але для підвищення продуктивності деякі критично важливі сервіси (наприклад, файлова система або графічна підсистема) працюють у просторі ядра, а менш критичні — у просторі користувача.
+
+**Переваги:**
+- **Хороший баланс** між продуктивністю (як у моноліті) та надійністю/гнучкістю (як у мікроядрі).
+
+**Недоліки:**
+- Може успадковувати недоліки обох підходів, хоча і в меншій мірі.
+
+**Приклади:** Windows NT (і всі сучасні версії Windows), macOS, iOS. Це найпоширеніша архітектура в сучасних комерційних ОС.
+
+##### 5. Віртуальні машини (Maszyny wirtualne)
+
+**Опис:** Хоча це скоріше концепція, її можна розглядати як структуру. Гіпервізор (монітор віртуальних машин) створює апаратну абстракцію, дозволяючи запускати на одному фізичному комп'ютері кілька екземплярів різних операційних систем. Кожна ОС працює у своїй ізольованій "віртуальній машині".
+
+**Переваги:**
+- **Повна ізоляція:** Проблеми в одній гостьовій ОС ніяк не впливають на інші.
+- **Гнучкість:** Можливість запускати різні ОС на одному обладнанні.
+
+**Недоліки:**
+- **Накладні витрати:** Віртуалізація споживає додаткові ресурси процесора та пам'яті.
+
+**Приклади:** VMware, Hyper-V, KVM.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
+
+Struktura systemu operacyjnego (SO) określa, jak jego komponenty (jądro, sterowniki, systemy plików, planista procesów itp.) są zorganizowane i współdziałają ze sobą. Wybór architektury wpływa na wydajność, bezpieczeństwo, niezawodność i elastyczność systemu.
+
+Oto główne struktury systemów operacyjnych:
+
+##### 1. Struktura monolityczna
+
+To najstarsza i najprostsza architektura.
+
+**Opis:** Cały system operacyjny (w tym jądro, zarządzanie pamięcią, system plików, sterowniki urządzeń) działa jako jeden wielki program w przestrzeni jądra (kernel space). Wszystkie komponenty są ściśle powiązane i mogą bezpośrednio wywoływać funkcje innych komponentów.
+
+**Zalety:**
+- **Wysoka wydajność:** Interakcja między komponentami odbywa się poprzez proste wywołania funkcji, co jest bardzo szybkie.
+
+**Wady:**
+- **Złożoność rozwoju i utrzymania:** Ogromna baza kodu, gdzie wszystko jest powiązane ze wszystkim.
+- **Niska niezawodność:** Błąd w jednym komponencie (np. w sterowniku) może doprowadzić do awarii całego systemu.
+- **Problemy z bezpieczeństwem:** Wszystkie komponenty działają na najwyższym poziomie uprawnień.
+
+**Przykłady:** MS-DOS, wczesne wersje UNIX, Linux (chociaż współczesny Linux jest *modularnym monolitem*, co pozwala dynamicznie ładować i wyładowywać moduły, łagodzi to niektóre wady).
+
+##### 2. Struktura warstwowa
+
+**Opis:** SO jest zorganizowany w postaci hierarchii warstw (layers). Każda warstwa udostępnia określone usługi tylko dla wyższej warstwy i korzysta z usług tylko niższej warstwy. Najniższa warstwa (Layer 0) współdziała bezpośrednio ze sprzętem, a najwyższa (Layer N) — z interfejsem użytkownika.
+
+**Zalety:**
+- **Prostota projektowania i testowania:** Każdą warstwę można rozwijać i testować niezależnie.
+- **Przejrzysta struktura:** Ułatwia zrozumienie systemu.
+
+**Wady:**
+- **Niska wydajność:** Każde wywołanie z wyższej do niższej warstwy przechodzi przez kilka warstw pośrednich, co dodaje narzutu.
+- **Złożoność definiowania warstw:** Trudno jest wyraźnie rozgraniczyć funkcjonalność między warstwami.
+
+**Przykłady:** THE, MULTICS. Ta struktura miała duży wpływ teoretyczny, ale rzadko jest używana w czystej postaci.
+
+##### 3. Struktura mikrojądra
+
+**Opis:** Jądro (kernel) jest zredukowane do absolutnego minimum. Odpowiada tylko za najbardziej podstawowe funkcje: zarządzanie procesami (planowanie), zarządzanie pamięcią i mechanizmy komunikacji międzyprocesowej (IPC - Inter-Process Communication). Wszystkie inne usługi (systemy plików, sterowniki, stos sieciowy) są wynoszone z jądra i działają jako oddzielne procesy w przestrzeni użytkownika (user space).
+
+**Zalety:**
+- **Wysoka niezawodność i bezpieczeństwo:** Awaria sterownika lub systemu plików nie doprowadzi do upadku całego SO, a tylko do restartu odpowiedniej usługi. Usługi działają z mniejszymi uprawnieniami.
+- **Elastyczność i rozszerzalność:** Łatwo dodawać nowe usługi bez zmiany jądra.
+
+**Wady:**
+- **Niska wydajność:** Interakcja między usługami (które są teraz oddzielnymi procesami) odbywa się poprzez wolniejsze mechanizmy IPC, a nie poprzez bezpośrednie wywołania funkcji, jak w monoliecie.
+
+**Przykłady:** QNX, Minix, L4, jądro Mach (podstawa dla macOS i iOS, chociaż są one hybrydowe).
+
+##### 4. Struktura hybrydowa
+
+**Opis:** Ta architektura łączy zalety struktur monolitycznej i mikrojądra. Ma małe jądro, podobne do mikrojądra, ale dla zwiększenia wydajności niektóre krytyczne usługi (np. system plików lub podsystem graficzny) działają w przestrzeni jądra, a mniej krytyczne — w przestrzeni użytkownika.
+
+**Zalety:**
+- **Dobry balans** między wydajnością (jak w monoliecie) a niezawodnością/elastycznością (jak w mikrojądrze).
+
+**Wady:**
+- Może dziedziczyć wady obu podejść, choć w mniejszym stopniu.
+
+**Przykłady:** Windows NT (i wszystkie nowoczesne wersje Windows), macOS, iOS. To najpopularniejsza architektura we współczesnych komercyjnych SO.
+
+##### 5. Maszyny wirtualne
+
+**Opis:** Chociaż jest to raczej koncepcja, można ją rozpatrywać jako strukturę. Hiperwizor (monitor maszyn wirtualnych) tworzy abstrakcję sprzętową, pozwalając uruchomić na jednym fizycznym komputerze kilka instancji różnych systemów operacyjnych. Każdy SO działa we własnej izolowanej "maszynie wirtualnej".
+
+**Zalety:**
+- **Pełna izolacja:** Problemy w jednym systemie gościa nie wpływają w żaden sposób na inne.
+- **Elastyczność:** Możliwość uruchamiania różnych systemów operacyjnych na tym samym sprzęcie.
+
+**Wady:**
+- **Narzut:** Wirtualizacja zużywa dodatkowe zasoby procesora i pamięci.
+
+**Przykłady:** VMware, Hyper-V, KVM.
 
 ---
 
 ## Питання 16
 
-**UA:** [Текст питання українською мовою]
+**UA:** Опишіть різницю між жадібними та динамічними алгоритмами.
 
 **PL:** Opisz różnicę pomiędzy algorytmami zachłannymi i dynamicznymi.
 
 ### Пояснення / Wyjaśnienie
 
 #### Українською (UA)
-Тут буде детальне пояснення до питання українською.
+
+**Жадібні алгоритми (Algorytmy zachłanne)** та **динамічне програмування (programowanie dynamiczne)** — це два підходи до розв'язання оптимізаційних задач. Хоча обидва методи розбивають задачу на менші частини, вони роблять це принципово по-різному.
+
+##### 1. Жадібний алгоритм (Algorytm Zachłanny)
+
+**Основна ідея:** На кожному кроці робити вибір, який здається **найкращим у даний момент** (локально оптимальним), сподіваючись, що послідовність таких виборів приведе до глобально оптимального рішення.
+
+**Як це працює:**
+
+1. Розглядається поточний стан задачі.
+2. Робиться вибір, який є найкращим згідно з певним "жадібним" критерієм (наприклад, взяти найлегший предмет, обрати найкоротший шлях до наступної точки).
+3. Цей вибір є **остаточним** і ніколи не переглядається.
+4. Процес повторюється, доки задача не буде розв'язана.
+
+**Характеристики:**
+
+- **Простий та швидкий:** Легко реалізувати, зазвичай має низьку часову складність.
+- **Не завжди оптимальний:** Для багатьох задач жадібний підхід не гарантує знаходження найкращого глобального рішення. Він може "застрягти" в локальному оптимумі.
+- **Ефективний для певних задач:** Для деяких задач (наприклад, задача про вибір заявок, алгоритм Дейкстри, алгоритм Краскала, кодування Хаффмана) жадібний підхід *завжди* дає правильне, оптимальне рішення.
+
+**Аналогія:** Сходження на найвищу гору в гірському хребті, завжди обираючи найкрутіший підйом. Ви можете швидко дістатися до вершини пагорба, але пропустити найвищу гору, яка була поруч.
+
+##### 2. Динамічне програмування (Programowanie Dynamiczne)
+
+**Основна ідея:** Розбити складну задачу на **підзадачі, що перекриваються (overlapping subproblems)**, розв'язати кожну унікальну підзадачу лише один раз, зберегти її результат і використовувати ці збережені результати для розв'язання більших підзадач, аж до початкової.
+
+**Як це працює:**
+
+1. Задача розбивається на менші підзадачі.
+2. Розв'язуються найпростіші (базові) підзадачі.
+3. Їхні результати зберігаються (в таблиці або масиві — цей процес називається **мемоізація** або **табуляція**).
+4. Результати менших підзадач комбінуються для розв'язання складніших підзадач.
+5. Процес продовжується, доки не буде знайдено рішення для початкової задачі.
+
+**Характеристики:**
+
+- **Гарантує оптимальне рішення:** Оскільки розглядаються всі можливі варіанти на рівні підзадач, динамічне програмування завжди знаходить глобальний оптимум.
+- **Складніший та повільніший:** Зазвичай вимагає більше пам'яті (для зберігання результатів) і може мати вищу часову складність, ніж жадібний підхід.
+- **Використовується для задач з властивостями:**
+  - **Оптимальна підструктура:** Оптимальне рішення всієї задачі може бути побудоване з оптимальних рішень її підзадач.
+  - **Підзадачі, що перекриваються:** Одні й ті самі підзадачі зустрічаються багато разів у процесі рекурсивного розв'язання.
+
+**Аналогія:** Пошук найкоротшого шляху в лабіринті шляхом систематичного обчислення та запису найкоротшого шляху до кожної клітинки лабіринту, починаючи від старту.
+
+##### 3. Ключові відмінності: Таблиця порівняння
+
+| Характеристика | Жадібний алгоритм | Динамічне програмування |
+|:---|:---|:---|
+| **Принцип вибору** | Робить локально оптимальний вибір. | Робить вибір на основі розв'язків підзадач. |
+| **Гарантія оптимуму** | **Не завжди.** Тільки для специфічних задач. | **Завжди.** |
+| **Погляд на майбутнє** | "Короткозорий", не дивиться наперед. | Враховує майбутні кроки через розв'язки підзадач. |
+| **Перегляд рішень** | Рішення є остаточним і не переглядається. | Може "переглядати" рішення, обираючи кращий варіант серед розв'язків підзадач. |
+| **Підзадачі** | Не розв'язує підзадачі повторно; просто зменшує задачу на кожному кроці. | Розв'язує підзадачі, що перекриваються, і зберігає їхні результати. |
+| **Складність** | Зазвичай простіший і швидший. | Зазвичай складніший і потребує більше ресурсів (часу та пам'яті). |
+| **Приклад задачі** | Задача про здачу решти (для канонічних систем монет). | Задача про рюкзак (0/1 Knapsack Problem). |
+
+**Приклад з життя:**
+
+- **Жадібний підхід:** Щоб дістатися з точки А в точку Б, на кожному перехресті ви обираєте дорогу, яка виглядає найкоротшою або найшвидшою в даний момент.
+- **Динамічний підхід:** Ви використовуєте навігатор (наприклад, Google Maps), який вже прорахував усі можливі маршрути та їхні підсегменти, щоб знайти гарантовано найкращий шлях.
 
 ---
 
 #### Po polsku (PL)
-Tutaj znajdzie się szczegółowe wyjaśnienie pytania po polsku.
 
+**Algorytmy zachłanne** i **programowanie dynamiczne** to dwa podejścia do rozwiązywania problemów optymalizacyjnych. Chociaż obie metody dzielą problem na mniejsze części, robią to w fundamentalnie różny sposób.
+
+##### 1. Algorytm zachłanny
+
+**Główna idea:** Na każdym kroku dokonywać wyboru, który wydaje się **najlepszy w danym momencie** (lokalnie optymalny), mając nadzieję, że sekwencja takich wyborów doprowadzi do globalnie optymalnego rozwiązania.
+
+**Jak to działa:**
+
+1. Rozpatrywany jest bieżący stan problemu.
+2. Dokonywany jest wybór, który jest najlepszy według pewnego "zachłannego" kryterium (np. wziąć najlżejszy przedmiot, wybrać najkrótszą ścieżkę do następnego punktu).
+3. Ten wybór jest **ostateczny** i nigdy nie jest przeglądany ponownie.
+4. Proces powtarza się, aż problem zostanie rozwiązany.
+
+**Charakterystyka:**
+
+- **Prosty i szybki:** Łatwy w implementacji, zazwyczaj ma niską złożoność czasową.
+- **Nie zawsze optymalny:** Dla wielu problemów podejście zachłanne nie gwarantuje znalezienia najlepszego globalnego rozwiązania. Może "utknąć" w lokalnym optimum.
+- **Efektywny dla pewnych problemów:** Dla niektórych problemów (np. problem wyboru zadań, algorytm Dijkstry, algorytm Kruskala, kodowanie Huffmana) podejście zachłanne *zawsze* daje poprawne, optymalne rozwiązanie.
+
+**Analogia:** Wspinaczka na najwyższą górę w paśmie górskim, zawsze wybierając najstromsze podejście. Możesz szybko dotrzeć na szczyt pagórka, ale przegapić najwyższą górę, która była obok.
+
+##### 2. Programowanie dynamiczne
+
+**Główna idea:** Podzielić złożony problem na **nakładające się podproblemy (overlapping subproblems)**, rozwiązać każdy unikalny podproblem tylko raz, zapisać jego wynik i wykorzystać te zapisane wyniki do rozwiązywania większych podproblemów, aż do oryginalnego.
+
+**Jak to działa:**
+
+1. Problem dzieli się na mniejsze podproblemy.
+2. Rozwiązywane są najprostsze (bazowe) podproblemy.
+3. Ich wyniki są zapisywane (w tabeli lub tablicy — proces ten nazywa się **memoizacją** lub **tabulacją**).
+4. Wyniki mniejszych podproblemów są łączone w celu rozwiązania bardziej złożonych podproblemów.
+5. Proces trwa, aż zostanie znalezione rozwiązanie dla oryginalnego problemu.
+
+**Charakterystyka:**
+
+- **Gwarantuje optymalne rozwiązanie:** Ponieważ rozpatrywane są wszystkie możliwe warianty na poziomie podproblemów, programowanie dynamiczne zawsze znajduje globalne optimum.
+- **Bardziej złożone i wolniejsze:** Zazwyczaj wymaga więcej pamięci (do przechowywania wyników) i może mieć wyższą złożoność czasową niż podejście zachłanne.
+- **Używane dla problemów z właściwościami:**
+  - **Optymalna podstruktura:** Optymalne rozwiązanie całego problemu można zbudować z optymalnych rozwiązań jego podproblemów.
+  - **Nakładające się podproblemy:** Te same podproblemy pojawiają się wiele razy w procesie rekurencyjnego rozwiązywania.
+
+**Analogia:** Szukanie najkrótszej ścieżki w labiryncie poprzez systematyczne obliczanie i zapisywanie najkrótszej ścieżki do każdej komórki labiryntu, zaczynając od startu.
+
+##### 3. Kluczowe różnice: Tabela porównawcza
+
+| Cecha | Algorytm zachłanny | Programowanie dynamiczne |
+|:---|:---|:---|
+| **Zasada wyboru** | Dokonuje lokalnie optymalnego wyboru. | Dokonuje wyboru na podstawie rozwiązań podproblemów. |
+| **Gwarancja optimum** | **Nie zawsze.** Tylko dla specyficznych problemów. | **Zawsze.** |
+| **Spojrzenie w przyszłość** | "Krótkowzroczny", nie patrzy do przodu. | Uwzględnia przyszłe kroki poprzez rozwiązania podproblemów. |
+| **Przegląd decyzji** | Decyzja jest ostateczna i nie jest przeglądana. | Może "przeglądać" decyzje, wybierając lepszy wariant spośród rozwiązań podproblemów. |
+| **Podproblemy** | Nie rozwiązuje podproblemów ponownie; po prostu zmniejsza problem w każdym kroku. | Rozwiązuje nakładające się podproblemy i zapisuje ich wyniki. |
+| **Złożoność** | Zazwyczaj prostszy i szybszy. | Zazwyczaj bardziej złożony i wymaga więcej zasobów (czasu i pamięci). |
+| **Przykład problemu** | Problem wydawania reszty (dla kanonicznych systemów monet). | Problem plecakowy (0/1 Knapsack Problem). |
+
+**Przykład z życia:**
+
+- **Podejście zachłanne:** Aby dotrzeć z punktu A do punktu B, na każdym skrzyżowaniu wybierasz drogę, która wydaje się najkrótsza lub najszybsza w danym momencie.
+- **Podejście dynamiczne:** Używasz nawigacji (np. Google Maps), która już przeliczyła wszystkie możliwe trasy i ich podsegmenty, aby znaleźć gwarantowanie najlepszą ścieżkę.
 
 ---
 

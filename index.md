@@ -77,16 +77,17 @@ Niniejszy dokument zawiera pytania egzaminacyjne wraz z wyjaśnieniami w dwóch 
 
 **UA:**
 Для того щоб відповісти на це питання, необхідно пригадати, що таке поліморфізм - це здатність сутності приймати різні форми залежно від контексту.
-В ООП розрізняють 2 види поліморфізму, статичний та динамічний. Статичний поліморфізм надає змогу використання одного й того ж імені функції/метода для багатьох функцій, які мають різні списки параметрів і/або різні типи повернення. До статичного поліморфізму також відносять шаблони (т.з. дженерики), які дають змогу писати універсальний код, де типи спеціалізує компілятор під час компіляції. При статичному поліморфізмі типи визначаються під час компіляції, отже вибір конкретного варіанта функції або метода залежать від контексту.
 
-**При динамічному поліморфізмі, вибір варіанта метода - визначається підчас виконання програми**, а не компіляції. Це дає змогу об'єктам класів однієї ієрархії реагувати на один й теж виклик метода по різному.
+У програмуванні часто розрізняють поліморфізм часу компіляції і часу виконання. **Статичний поліморфізм** (compile-time) - це перевантаження функцій і шаблони. Він не є основною концепцією ООП, а скоріше механізмом мови для роботи з різними типами на етапі компіляції. Важливо: функції перевантажуються за списком параметрів, а **НЕ за типом повернення** (компілятор не може розрізнити виклики лише за типом повернення). До статичного поліморфізму також відносять шаблони (т.з. дженерики), які дають змогу писати універсальний код, де типи спеціалізує компілятор під час компіляції.
+
+**При динамічному поліморфізмі, вибір варіанта метода - визначається підчас виконання програми**, а не компіляції. Це ключова відмінність: компілятор не може визначити, який саме метод буде викликаний, бо це залежить від реального типу об'єкта, що відомий лише під час виконання (наприклад, коли ми працюємо через вказівник базового класу, який може вказувати на об'єкти різних похідних класів). Це дає змогу об'єктам класів однієї ієрархії реагувати на один й теж виклик метода по різному.
 Як це працює абстрактно : 
 - Базовий клас визначає метод
 - Його дочірні класи його перевизначають (override)
 - При виклику метода його реалізація - залежить від об'єкта
 
 **Реалізація в C++ (Таблиця віртуальних методів):**
-Технічно C++ реалізує це через **vtable** (таблицю віртуальних функцій). Кожен клас, що має віртуальні методи, має свою приховану статичну таблицю вказівників на ці методи. Кожен об'єкт такого класу містить прихований вказівник **vptr** на цю таблицю. Коли ми викликаємо віртуальний метод через вказівник на базовий клас, програма дивиться в vptr об'єкта, знаходить vtable і викликає правильну функцію.
+Технічно C++ зазвичай реалізує це через **vtable** (таблицю віртуальних функцій), хоча варто зазначити, що **стандарт C++ не описує vtable як обов'язковий механізм** - це лише найпоширеніша реалізація, що стала де-факто стандартом через вимоги ABI (Application Binary Interface) на різних платформах. Кожен клас, що має віртуальні методи, має свою приховану статичну таблицю вказівників на ці методи. Кожен об'єкт такого класу містить прихований вказівник **vptr** на цю таблицю. Коли ми викликаємо віртуальний метод через вказівник на базовий клас, програма дивиться в vptr об'єкта, знаходить vtable і викликає правильну функцію.
 
 В С++ методи, які можна перевизначити, позначають ключовим словом **virtual**, а перевизначені методи позначають словом **override**, якщо метод вже має базову поведінку. 
 
@@ -148,16 +149,16 @@ int main() {
 
 **PL:**
 Aby odpowiedzieć na to pytanie, trzeba przypomnieć, czym jest polimorfizm: jest to zdolność bytów (np. obiektów) do przyjmowania różnych „form”/zachowań w zależności od kontekstu.
-W OOP wyróżnia się dwa rodzaje polimorfizmu: statyczny i dynamiczny. Polimorfizm statyczny pozwala używać tej samej nazwy funkcji/metody dla wielu funkcji o różnych listach parametrów i/lub różnych typach zwracanych. Do polimorfizmu statycznego zalicza się także szablony (tzw. generyki), które umożliwiają pisanie kodu uniwersalnego, a typy są specjalizowane przez kompilator podczas kompilacji. Przy polimorfizmie statycznym wybór konkretnej wersji funkcji/metody zależy od kontekstu i jest rozstrzygany na etapie kompilacji.
+W programowaniu często rozróżnia się polimorfizm czasu kompilacji i czasu wykonania. **Polimorfizm statyczny** (compile-time) to przeciążanie funkcji i szablony. Nie jest to podstawowa koncepcja OOP, ale raczej mechanizm języka do pracy z różnymi typami na etapie kompilacji. Ważne: funkcje są przeciążane na podstawie listy parametrów, a **NIE na podstawie typu zwracanego** (kompilator nie może rozróżnić wywołań tylko po typie zwracanym). Do polimorfizmu statycznego zalicza się także szablony (tzw. generyki), które umożliwiają pisanie kodu uniwersalnego, a typy są specjalizowane przez kompilator podczas kompilacji.
 
-**W polimorfizmie dynamicznym wybór wariantu metody jest podejmowany w czasie działania programu**, a nie podczas kompilacji. Dzięki temu obiekty klas w tej samej hierarchii mogą reagować inaczej na to samo wywołanie metody.
+**W polimorfizmie dynamicznym wybór wariantu metody jest podejmowany w czasie działania programu**, a nie podczas kompilacji. To kluczowa różnica: kompilator nie może określić, która metoda zostanie wywołana, ponieważ zależy to od rzeczywistego typu obiektu, znanego dopiero w czasie wykonania (np. gdy pracujemy przez wskaźnik do klasy bazowej, który może wskazywać na obiekty różnych klas pochodnych). Dzięki temu obiekty klas w tej samej hierarchii mogą reagować inaczej na to samo wywołanie metody.
 Jak to działa w skrócie:
 - klasa bazowa definiuje metodę,
 - klasy pochodne ją nadpisują (override),
 - przy wywołaniu metody jej implementacja zależy od rzeczywistego typu obiektu.
 
 **Realizacja w C++ (tablica metod wirtualnych):**
-Technicznie C++ realizuje to przez **vtable** (tablicę funkcji wirtualnych). Każda klasa, która ma metody wirtualne, posiada ukrytą statyczną tablicę wskaźników do tych metod. Każdy obiekt takiej klasy zawiera ukryty wskaźnik **vptr** na tę tablicę. Gdy wywołujemy metodę wirtualną przez wskaźnik do klasy bazowej, program korzysta z vptr obiektu, znajduje odpowiedni wpis w vtable i wywołuje właściwą funkcję.
+Technicznie C++ zazwyczaj realizuje to przez **vtable** (tablicę funkcji wirtualnych), choć warto zaznaczyć, że **standard C++ nie opisuje vtable jako obowiązkowego mechanizmu** - jest to tylko najpowszechniejsza implementacja, która stała się de facto standardem ze względu na wymagania ABI (Application Binary Interface) na różnych platformach. Każda klasa, która ma metody wirtualne, posiada ukrytą statyczną tablicę wskaźników do tych metod. Każdy obiekt takiej klasy zawiera ukryty wskaźnik **vptr** na tę tablicę. Gdy wywołujemy metodę wirtualną przez wskaźnik do klasy bazowej, program korzysta z vptr obiektu, znajduje odpowiedni wpis w vtable i wywołuje właściwą funkcję.
 
 W C++ metody, które mogą być nadpisywane, oznacza się słowem kluczowym **virtual**, a nadpisane metody często oznacza się słowem **override** (zalecane, żeby uniknąć błędów).
 

@@ -2733,17 +2733,153 @@ W przeszłości układ budowano na samych `<div>`. Nowoczesny **HTML5** używa *
 
 ## Питання 21 / Pytanie 21
 
-**UA:** [Текст питання]
+**UA:** Перелічіть динамічні діаграми UML, що використовуються в проектуванні інформаційних систем, та детально обговоріть одну обрану діаграму.
 
 **PL:** Wymień dynamiczne diagramy UML używane w projektowaniu systemów informatycznych oraz omów szczegółowo jeden wybrany diagram.
 
-### Пояснення / Wyjaśление
+### Пояснення / Wyjaśnienie
 
 **UA:**
-...
+
+До основних динамічних діаграм UML належать:
+
+1. **Діаграма прецедентів (Use Case Diagram):** Описує функціональні вимоги системи з погляду користувача, показуючи взаємодію між акторами (користувачами або іншими системами) та системою.
+2. **Діаграма послідовності (Sequence Diagram):** Показує взаємодію об'єктів у хронологічному порядку. Вона детально ілюструє, які повідомлення та в якій послідовності надсилаються між об'єктами.
+3. **Діаграма діяльності (Activity Diagram):** Моделює потік робіт (workflow) або процесів у системі. Вона схожа на блок-схему і показує послідовність дій та рішень.
+4. **Діаграма станів (State Machine Diagram):** Описує життєвий цикл одного об'єкта — його можливі стани та переходи між ними внаслідок певних подій.
+
+Інші динамічні діаграми включають діаграму комунікації, діаграму огляду взаємодії та діаграму синхронізації.
+
+#### Детальний опис діаграми прецедентів (Use Case Diagram)
+
+**Діаграма прецедентів** — це один із найважливіших інструментів для аналізу вимог до системи. Вона дозволяє візуалізувати функціональність системи та визначити межі її відповідальності.
+
+##### Призначення
+
+Основна мета діаграми прецедентів — описати, **що** система повинна робити, а не **як** вона це робить. Вона служить для:
+
+- Визначення та документування функціональних вимог.
+- Моделювання взаємодії між системою та її зовнішнім оточенням.
+- Створення спільного розуміння функціональності системи між замовниками, аналітиками та розробниками.
+- Планування ітерацій розробки та тестування.
+
+##### Основні елементи
+
+**1. Актор (Actor):**
+- Це роль, яку виконує користувач, інша система або пристрій, що взаємодіє з системою.
+- Актор завжди є зовнішнім по відношенню до системи.
+- Зображується у вигляді фігурки людини (stick figure).
+- *Приклад:* `Клієнт`, `Адміністратор`, `Платіжна система`.
+
+**2. Прецедент (Use Case):**
+- Це опис послідовності дій, які система виконує для досягнення певної мети актора. Кожен прецедент надає актору якусь цінність.
+- Зображується у вигляді еліпса з назвою всередині, яка зазвичай описує дію (наприклад, "Зареєструвати користувача").
+- *Приклад:* `Зробити замовлення`, `Перевірити статус замовлення`, `Оплатити покупку`.
+
+**3. Межа системи (System Boundary):**
+- Це прямокутник, який візуально відокремлює прецеденти (внутрішню частину системи) від акторів (зовнішнього середовища).
+- Назва системи може бути вказана всередині прямокутника.
+
+**4. Відношення (Relationships):**
+
+- **Асоціація (Association):** Пряма лінія, що з'єднує актора з прецедентом. Вона показує, що актор бере участь у виконанні цього прецеденту.
+- **Включення (`<<include>>`):** Пунктирна стрілка від одного прецеденту (базового) до іншого (включеного). Це означає, що базовий прецедент *завжди* включає в себе функціональність іншого прецеденту. Це використовується для уникнення дублювання однакових кроків у різних прецедентах.
+  - *Приклад:* Прецеденти "Зробити замовлення" та "Перевірити історію замовлень" можуть обидва включати (`<<include>>`) прецедент "Авторизувати користувача".
+- **Розширення (`<<extend>>`):** Пунктирна стрілка від прецеденту, що розширює, до базового. Це означає, що один прецедент може *за певних умов* доповнювати функціональність іншого. Це опціональна поведінка.
+  - *Приклад:* Прецедент "Зробити замовлення" може бути розширений (`<<extend>>`) прецедентом "Додати подарункове пакування", який виконується тільки за бажанням клієнта.
+- **Узагальнення (Generalization):** Суцільна лінія з порожнім трикутником на кінці, що вказує на більш загальний елемент. Може використовуватися як для акторів, так і для прецедентів.
+  - *Приклад акторів:* Актори `Зареєстрований користувач` та `Гість` можуть бути узагальненням більш загального актора `Користувач`.
+
+##### Приклад
+
+Уявімо просту систему онлайн-магазину. Діаграма прецедентів для неї може виглядати так:
+
+**Актори:** `Клієнт`, `Адміністратор`.
+
+**Прецеденти для Клієнта:**
+- `Пошук товару`
+- `Перегляд товару`
+- `Додавання товару в кошик`
+- `Оформлення замовлення` (включає `<<include>>` `Авторизація клієнта`)
+- `Оплата замовлення` (розширює `<<extend>>` `Оформлення замовлення`)
+
+**Прецеденти для Адміністратора:**
+- `Керування товарами`
+- `Перегляд замовлень`
+- `Керування користувачами`
+
+Ця діаграма чітко показує, які функції доступні різним типам користувачів, і як ці функції пов'язані між собою.
 
 **PL:**
-...
+
+Do głównych diagramów dynamicznych UML należą:
+
+1. **Diagram przypadków użycia (Use Case Diagram):** Opisuje wymagania funkcjonalne systemu z punktu widzenia użytkownika, pokazując interakcję między aktorami (użytkownikami lub innymi systemami) a systemem.
+2. **Diagram sekwencji (Sequence Diagram):** Pokazuje interakcję obiektów w porządku chronologicznym. Szczegółowo ilustruje, jakie komunikaty i w jakiej kolejności są wysyłane między obiektami.
+3. **Diagram działań (Activity Diagram):** Modeluje przepływ pracy (workflow) lub procesów w systemie. Jest podobny do schematu blokowego i pokazuje sekwencję działań i decyzji.
+4. **Diagram stanów (State Machine Diagram):** Opisuje cykl życia pojedynczego obiektu — jego możliwe stany i przejścia między nimi w wyniku określonych zdarzeń.
+
+Inne diagramy dynamiczne obejmują diagram komunikacji, diagram przeglądu interakcji oraz diagram synchronizacji.
+
+#### Szczegółowy opis diagramu przypadków użycia (Use Case Diagram)
+
+**Diagram przypadków użycia** jest jednym z najważniejszych narzędzi do analizy wymagań systemu. Pozwala zwizualizować funkcjonalność systemu i określić granice jego odpowiedzialności.
+
+##### Przeznaczenie
+
+Głównym celem diagramu przypadków użycia jest opisanie, **co** system powinien robić, a nie **jak** to robi. Służy do:
+
+- Określenia i dokumentowania wymagań funkcjonalnych.
+- Modelowania interakcji między systemem a jego otoczeniem zewnętrznym.
+- Tworzenia wspólnego zrozumienia funkcjonalności systemu między zamawiającymi, analitykami i programistami.
+- Planowania iteracji rozwoju i testowania.
+
+##### Główne elementy
+
+**1. Aktor (Actor):**
+- To rola pełniona przez użytkownika, inny system lub urządzenie, które wchodzi w interakcję z systemem.
+- Aktor zawsze jest zewnętrzny w stosunku do systemu.
+- Przedstawiany jest jako figura ludzika (stick figure).
+- *Przykład:* `Klient`, `Administrator`, `System płatności`.
+
+**2. Przypadek użycia (Use Case):**
+- To opis sekwencji działań, które system wykonuje w celu osiągnięcia określonego celu aktora. Każdy przypadek użycia dostarcza aktorowi pewną wartość.
+- Przedstawiany jest w postaci elipsy z nazwą wewnątrz, która zazwyczaj opisuje działanie (np. "Zarejestrować użytkownika").
+- *Przykład:* `Złożyć zamówienie`, `Sprawdzić status zamówienia`, `Opłacić zakup`.
+
+**3. Granica systemu (System Boundary):**
+- To prostokąt, który wizualnie oddziela przypadki użycia (wewnętrzną część systemu) od aktorów (środowiska zewnętrznego).
+- Nazwa systemu może być wskazana wewnątrz prostokąta.
+
+**4. Relacje (Relationships):**
+
+- **Asocjacja (Association):** Linia prosta łącząca aktora z przypadkiem użycia. Pokazuje, że aktor uczestniczy w wykonywaniu tego przypadku użycia.
+- **Włączenie (`<<include>>`):** Strzałka przerywana od jednego przypadku użycia (bazowego) do drugiego (włączonego). Oznacza to, że bazowy przypadek użycia *zawsze* zawiera funkcjonalność innego przypadku użycia. Jest to wykorzystywane do uniknięcia duplikacji tych samych kroków w różnych przypadkach użycia.
+  - *Przykład:* Przypadki użycia "Złożyć zamówienie" i "Sprawdzić historię zamówień" mogą oba włączać (`<<include>>`) przypadek użycia "Autoryzować użytkownika".
+- **Rozszerzenie (`<<extend>>`):** Strzałka przerywana od przypadku użycia rozszerzającego do bazowego. Oznacza to, że jeden przypadek użycia może *pod pewnymi warunkami* uzupełniać funkcjonalność innego. Jest to zachowanie opcjonalne.
+  - *Przykład:* Przypadek użycia "Złożyć zamówienie" może być rozszerzony (`<<extend>>`) przez przypadek użycia "Dodać opakowanie prezentowe", który jest wykonywany tylko na życzenie klienta.
+- **Uogólnienie (Generalization):** Linia ciągła z pustym trójkątem na końcu, wskazująca na bardziej ogólny element. Może być używana zarówno dla aktorów, jak i przypadków użycia.
+  - *Przykład aktorów:* Aktorzy `Zarejestrowany użytkownik` i `Gość` mogą być uogólnieniem bardziej ogólnego aktora `Użytkownik`.
+
+##### Przykład
+
+Wyobraźmy sobie prosty system sklepu internetowego. Diagram przypadków użycia dla niego może wyglądać następująco:
+
+**Aktorzy:** `Klient`, `Administrator`.
+
+**Przypadki użycia dla Klienta:**
+- `Wyszukiwanie produktu`
+- `Przeglądanie produktu`
+- `Dodawanie produktu do koszyka`
+- `Składanie zamówienia` (włącza `<<include>>` `Autoryzacja klienta`)
+- `Płatność za zamówienie` (rozszerza `<<extend>>` `Składanie zamówienia`)
+
+**Przypadki użycia dla Administratora:**
+- `Zarządzanie produktami`
+- `Przeglądanie zamówień`
+- `Zarządzanie użytkownikami`
+
+Ten diagram wyraźnie pokazuje, jakie funkcje są dostępne dla różnych typów użytkowników i jak te funkcje są ze sobą powiązane.
 
 ---
 

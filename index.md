@@ -4690,6 +4690,7 @@ projekty o wysokim ryzyku technicznym.
 **Główne sposoby realizacji macierzy RAID (poziomy RAID):**
 
 1.  **RAID 0 – striping (wydajność)**
+    * <img src="img/RAID0.png" alt="drawing" width="600"/>
     - **Opis:** Dane są dzielone na bloki i zapisywane naprzemiennie na kilku dyskach.
     - **Cechy:**
         - ✅ bardzo wysoka wydajność (odczyt i zapis)
@@ -4698,6 +4699,7 @@ projekty o wysokim ryzyku technicznym.
     - *Min. liczba dysków:* 2
 
 2.  **RAID 1 – mirroring (bezpieczeństwo)**
+    * <img src="img/RAID1.png" alt="drawing" width="800"/>
     - **Opis:** Dane są zapisywane jednocześnie na dwóch (lub więcej) dyskach.
     - **Cechy:**
         - ✅ pełna redundancja danych, wysoka niezawodność
@@ -4706,6 +4708,7 @@ projekty o wysokim ryzyku technicznym.
     - *Min. liczba dysków:* 2
 
 3.  **RAID 5 – striping + parzystość**
+    * <img src="img/RAID56.png" alt="drawing" width="800"/>
     - **Opis:** Dane i informacje parzystości są rozłożone równomiernie na wszystkich dyskach.
     - **Cechy:**
         - ✅ tolerancja awarii jednego dysku
@@ -4723,6 +4726,7 @@ projekty o wysokim ryzyku technicznym.
     - *Min. liczba dysków:* 4
 
 5.  **RAID 10 (1+0) – mirroring + striping**
+    * <img src="img/RAID10.png" alt="drawing" width="800"/>
     - **Opis:** Połączenie RAID 1 i RAID 0 (najpierw mirror, potem striping).
     - **Cechy:**
         - ✅ bardzo wysoka wydajność i niezawodność

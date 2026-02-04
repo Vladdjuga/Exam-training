@@ -5144,6 +5144,37 @@ Collections.sort(names, (a, b) -> a.length() - b.length());
 - **Składnia** — składa się z trzech części: argumenty (), strzałka -> i ciało metody.
 - **Szczególność** — jeśli ciało zawiera jeden wiersz, `return` i nawiasy klamrowe {} nie są potrzebne (zwane expression body). Jeśli wierszy jest więcej — nawiasy i return są obowiązkowe.
 
+**UA:**
+
+**Суть функційного інтерфейсу (Functional Interface) — однозначність.**
+
+Коли ти використовуєш лямбда-вираз, Java має зрозуміти: "Якому методу якого інтерфейсу відповідає цей код?". Якщо в інтерфейсі лише один абстрактний метод, виникає ідеальна відповідність: одна лямбда = один метод.
+
+**Приклад без лямбди (старий підхід)**
+
+Раніше нам доводилося писати громіздкі анонімні класи:
+
+```java
+ActionListener listener = new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("Кнопка натиснута!");
+    }
+};
+```
+
+**Приклад з лямбдою (сучасний підхід)**
+
+Оскільки в ActionListener лише один метод, ми можемо скоротити все це до:
+
+```java
+ActionListener listener = (e) -> System.out.println("Кнопка натиснута!");
+```
+
+Компілятор дивиться на цей запис і міркує: "Так, мені потрібен ActionListener. У нього лише один метод. Отже, цей шматок коду `(e) -> ...` — це і є реалізація цього єдиного методу. Все сходиться!"
+
+Якби методів було два, компілятор би запанікував: він би не знав, яку саме функцію ти намагаєшся описати цією лямбдою.
+
 ---
 
 ## Питання 32 / Pytanie 32
